@@ -36,8 +36,7 @@ skin properly before treating it, so the page is built around magnification.
   sparingly), *Hanken Grotesk* for body and UI (carried over from the client's existing brand),
   *IBM Plex Mono* for index numbers, prices and labels, where it reads as clinical
   record-keeping rather than decoration.
-- **Layout** — a fixed clinical rail down the left edge carrying section labels and scroll
-  progress, and a 12-column grid that alternates weight left and right. Images bleed past their
+- **Layout** — a 12-column grid that alternates weight left and right. Images bleed past their
   columns; card rows stagger. Nothing is centred by default.
 - **Signature** — the **dermatoscope lens** in *Conditions we treat*. Moving through the
   numbered index re-focuses a circular magnified field on a new macro skin plate, with reticle,
@@ -49,7 +48,7 @@ sequence. Conditions *are* numbered, because twelve items function as an index.
 
 ## Sections
 
-Header (utility bar + floating masthead) · Hero (5-slide Ken Burns slideshow, five selling
+Header (utility bar + floating masthead) · Hero (7-slide Ken Burns slideshow, five selling
 points, Google rating, two-slide promotions widget) · Reviews marquee · About · Before & after
 (five treatment tabs, draggable comparison) · Treatments (accordion synced to a sticky image) ·
 Why choose us · Team · Shop banner · Conditions (dermatoscope) · Devices slider · Journal ·
@@ -67,7 +66,7 @@ Closing CTA · Footer.
 
 ## Assets
 
-All of the client's real photography is in the repo and in use: 7 hero images, 6 team
+All of the client's real photography is in the repo and in use: 7 hero images, 7 team
 portraits, 4 consented before/after pairs, 6 device shots composited onto a shared set, the LRS
 logo, favicon, CQC mark and the 233 High Holborn entrance. See `docs/ASSET-MANIFEST.md`.
 
@@ -78,7 +77,6 @@ cannot download them. The manifest has a two-command fix.
 ## Before this goes live
 
 1. **Localise the 18 hot-linked images** — `docs/ASSET-MANIFEST.md`.
-2. **Identify `assets/img/team/team-unidentified.jpg`** so the seventh team member can go in.
-3. **Replace the four journal cards** with real posts from `/news/`.
-4. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
-5. Wire the CTAs to Pabau booking and the enquiry form.
+2. **Replace the four journal cards** with real posts from `/news/`.
+3. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
+4. Wire the CTAs to Pabau booking and the enquiry form.

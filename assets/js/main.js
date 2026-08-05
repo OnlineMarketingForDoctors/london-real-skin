@@ -40,51 +40,14 @@
   window.addEventListener('resize', function () { measureHead(); onScrollHeader(); }, { passive: true });
   window.addEventListener('load', measureHead);
 
-  /* ---------- Rail: progress, section label, dark inversion ---------- */
-  var rail = $('.rail');
-  var railBar = $('#railBar');
-  var railLabel = $('#railLabel');
-  var darkSections = ['.hero', '.svc', '.shop', '.cta'];
-  var labelled = $$('[data-rail]');
-
-  function updateRail() {
-    var doc = document.documentElement;
-    var max = doc.scrollHeight - window.innerHeight;
-    var pct = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-    if (railBar) railBar.style.height = (pct * 100) + '%';
-
-    // Which labelled section owns the vertical middle of the viewport?
-    var mid = window.scrollY + window.innerHeight * 0.5;
-    var current = null;
-    labelled.forEach(function (s) {
-      var top = s.offsetTop, bottom = top + s.offsetHeight;
-      if (mid >= top && mid < bottom) current = s;
-    });
-    if (current && railLabel) {
-      var next = current.getAttribute('data-rail');
-      if (railLabel.textContent !== next) railLabel.textContent = next;
-    }
-
-    // Invert the rail over dark sections so it never disappears.
-    var isDark = darkSections.some(function (sel) {
-      var el = $(sel);
-      if (!el) return false;
-      var r = el.getBoundingClientRect();
-      return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5;
-    });
-    if (rail) rail.classList.toggle('is-dark', isDark);
-  }
-
+  /* ---------- Scroll listener (header state only; the rail was removed) ---------- */
   var ticking = false;
   window.addEventListener('scroll', function () {
-    onScrollHeader();
     if (!ticking) {
-      window.requestAnimationFrame(function () { updateRail(); ticking = false; });
+      window.requestAnimationFrame(function () { onScrollHeader(); ticking = false; });
       ticking = true;
     }
   }, { passive: true });
-  window.addEventListener('resize', updateRail, { passive: true });
-  updateRail();
 
   /* ---------- Mobile drawer ---------- */
   var burger = $('#burger'), drawer = $('#drawer'), drawerClose = $('#drawerClose');
@@ -109,13 +72,16 @@
     slides[heroI].classList.remove('is-on');
     heroI = (n + slides.length) % slides.length;
     var el = slides[heroI];
-    // restart the Ken Burns pan cleanly
+    // force the Ken Burns keyframes to restart from the top on every slide
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
     el.classList.add('is-on');
     if (heroNum) heroNum.textContent = String(heroI + 1).padStart(2, '0');
   }
   function heroStart() {
     if (reduced || slides.length < 2) return;
-    heroTimer = window.setInterval(function () { heroGo(heroI + 1); }, 6200);
+    heroTimer = window.setInterval(function () { heroGo(heroI + 1); }, 4200);
   }
   heroStart();
   document.addEventListener('visibilitychange', function () {

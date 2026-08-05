@@ -34,7 +34,6 @@
   --body:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 
-  --rail:clamp(0px,4.4vw,76px);
   --gutter:clamp(20px,4vw,60px);
   --wrap:1480px;
 
@@ -246,71 +245,8 @@ h1,h2,h3,h4,p{margin:0}
   .r,.r-clip,.r-line > span{opacity:1;transform:none;clip-path:none}
 }
 
-/* =====================================================================
-   6. Rail — fixed clinical spine down the left edge
-   ===================================================================== */
-.rail{
-  position:fixed;
-  left:0;top:0;bottom:0;
-  width:var(--rail);
-  z-index:60;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:space-between;
-  padding-block:26px;
-  border-right:1px solid var(--line);
-  background:rgba(245,249,252,.7);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  pointer-events:none;
-  transition:background .6s var(--ease),border-color .6s var(--ease),color .6s var(--ease);
-}
-.rail__mark{
-  font-family:var(--mono);
-  font-size:.62rem;
-  letter-spacing:.18em;
-  color:var(--focus-deep);
-  writing-mode:vertical-rl;
-}
-.rail__track{
-  flex:1;
-  width:1px;
-  margin-block:20px;
-  background:var(--line);
-  position:relative;
-}
-.rail__bar{
-  position:absolute;
-  top:0;left:0;right:0;
-  height:0;
-  background:var(--focus);
-  transform-origin:top;
-}
-.rail__label{
-  font-family:var(--mono);
-  font-size:.62rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  writing-mode:vertical-rl;
-  color:var(--muted);
-  white-space:nowrap;
-  transition:opacity .4s var(--ease);
-}
-.rail.is-dark{
-  background:rgba(22,41,60,.55);
-  border-right-color:var(--line-light);
-}
-.rail.is-dark .rail__label{color:rgba(231,238,245,.55)}
-.rail.is-dark .rail__mark{color:var(--focus)}
-.rail.is-dark .rail__track{background:var(--line-light)}
-
-.page{margin-left:var(--rail)}
-
-@media (max-width:900px){
-  .rail{display:none}
-  .page{margin-left:0}
-}
+/* (The left scroll-progress rail was removed at the client's request.) */
+.page{margin-left:0}
 
 /* =====================================================================
    7. Header
@@ -439,11 +375,12 @@ h1,h2,h3,h4,p{margin:0}
   margin-top:.34em;
 }
 
-.nav{display:flex;align-items:center;gap:clamp(14px,1.9vw,30px)}
+.nav{display:flex;align-items:center;gap:clamp(12px,1.55vw,26px)}
 .nav__a{
-  font-size:.795rem;
-  font-weight:600;
-  letter-spacing:.02em;
+  font-size:.715rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.11em;
   position:relative;
   padding-block:.5em;
   white-space:nowrap;
@@ -472,6 +409,31 @@ h1,h2,h3,h4,p{margin:0}
 }
 .icon-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .icon-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
+.masthead__phone{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+  text-align:right;
+  padding-right:.2em;
+}
+.masthead__phone small{
+  font-family:var(--mono);
+  font-size:.535rem;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  opacity:.6;
+  margin-bottom:.34em;
+}
+.masthead__phone b{
+  font-size:clamp(1rem,1.15vw,1.18rem);
+  font-weight:800;
+  letter-spacing:-.005em;
+  white-space:nowrap;
+  transition:color .35s var(--ease);
+}
+.masthead__phone:hover b{color:var(--focus)}
+@media (max-width:1300px){.masthead__phone{display:none}}
+
 .masthead__cta{padding:1.05em 1.55em;font-size:.7rem}
 @media (max-width:620px){.masthead__cta{display:none}}
 
@@ -538,7 +500,7 @@ h1,h2,h3,h4,p{margin:0}
   position:absolute;
   inset:0;
   opacity:0;
-  transition:opacity 1.6s var(--ease);
+  transition:opacity .9s var(--ease);
 }
 .hero__slide.is-on{opacity:1}
 .hero__slide::before{
@@ -551,11 +513,15 @@ h1,h2,h3,h4,p{margin:0}
   /* real clinic photography is warm and mixed-source; a light cool grade
      pulls the whole slideshow into the brand palette without gutting it */
   filter:saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6deg);
-  transform:scale(1.06);
-  animation:kb 11s linear forwards paused;
+  transform:scale(1.05);
+  animation:kb 5.4s var(--ease) forwards paused;
+  will-change:transform;
 }
 .hero__slide.is-on::before{animation-play-state:running}
-@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.15)}}
+@keyframes kb{
+  from{transform:scale(1.05) translate3d(0,0,0)}
+  to{transform:scale(1.22) translate3d(-2%,-1.4%,0)}
+}
 
 /* Legibility scrim — heavier on the left, where the type sits */
 .hero__scrim{
@@ -639,16 +605,13 @@ h1,h2,h3,h4,p{margin:0}
   -webkit-backdrop-filter:blur(9px);
 }
 .gwidget__g{
-  width:26px;height:26px;flex:none;
+  width:30px;height:30px;flex:none;
   display:grid;place-items:center;
   background:var(--white);
   border-radius:50%;
-  font-family:var(--body);
-  font-weight:800;
-  font-size:.92rem;
-  color:#4285F4;
-  line-height:1;
+  padding:6px;
 }
+.gwidget__g svg{width:100%;height:100%;display:block}
 .gwidget__score{
   font-family:var(--disp);
   font-size:1.42rem;
@@ -667,6 +630,8 @@ h1,h2,h3,h4,p{margin:0}
 /* Promo slider, bottom-right of hero */
 .promo{
   grid-column:9/span 4;
+  max-width:400px;
+  justify-self:end;
   position:relative;
   align-self:end;
 }
@@ -675,47 +640,58 @@ h1,h2,h3,h4,p{margin:0}
 
 .promo__win{
   position:relative;
-  background:rgba(231,238,245,.94);
+  background:rgba(231,238,245,.72);
+  border:1px solid rgba(255,255,255,.28);
   color:var(--ink-deep);
   border-radius:4px;
   overflow:hidden;
   box-shadow:0 34px 70px -40px rgba(0,0,0,.85);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(18px) saturate(1.25);
+  -webkit-backdrop-filter:blur(18px) saturate(1.25);
 }
 .promo__track{display:flex;transition:transform .8s var(--ease-out)}
 .promo__item{
   flex:0 0 100%;
-  padding:clamp(20px,2.1vw,28px);
+  padding:clamp(14px,1.35vw,18px);
   display:flex;
-  flex-direction:column;
-  gap:.5rem;
+  gap:clamp(12px,1.1vw,16px);
+  align-items:flex-start;
 }
+.promo__thumb{
+  flex:none;
+  width:clamp(58px,5vw,74px);
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:3px;
+  background:var(--white);
+  border:1px solid rgba(42,70,100,.1);
+}
+.promo__text{display:flex;flex-direction:column;gap:.28rem;min-width:0}
 .promo__kicker{
   font-family:var(--mono);
-  font-size:.6rem;
+  font-size:.545rem;
   letter-spacing:.24em;
   text-transform:uppercase;
   color:var(--focus-deep);
 }
 .promo__title{
   font-family:var(--disp);
-  font-size:clamp(1.18rem,1.7vw,1.5rem);
-  line-height:1.12;
+  font-size:clamp(1rem,1.2vw,1.16rem);
+  line-height:1.14;
 }
 .promo__price{
   font-family:var(--mono);
-  font-size:.845rem;
+  font-size:.735rem;
   font-weight:600;
   color:var(--ink);
   letter-spacing:.01em;
 }
-.promo__blurb{font-size:.82rem;color:var(--muted);line-height:1.46}
+.promo__blurb{font-size:.735rem;color:var(--muted);line-height:1.44}
 .promo__cta{
-  margin-top:.35rem;
+  margin-top:.15rem;
   align-self:flex-start;
   font-family:var(--mono);
-  font-size:.64rem;
+  font-size:.585rem;
   letter-spacing:.16em;
   text-transform:uppercase;
   font-weight:500;
@@ -731,8 +707,8 @@ h1,h2,h3,h4,p{margin:0}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:.7rem clamp(20px,2.1vw,28px);
-  border-top:1px solid var(--line-soft);
+  padding:.5rem clamp(14px,1.35vw,18px);
+  border-top:1px solid rgba(42,70,100,.1);
 }
 .promo__dots{display:flex;gap:7px}
 .promo__dot{

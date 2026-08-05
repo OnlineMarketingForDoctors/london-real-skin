@@ -6,7 +6,7 @@ What every image on the homepage is, and where it came from.
 
 | | Count |
 |---|---|
-| Real client assets, committed to this repo | **28** |
+| Real client assets, committed to this repo | **29** |
 | AI-generated, committed to this repo | 0 |
 | AI-generated, still hot-linked from Higgsfield's CDN | **18** |
 
@@ -34,16 +34,18 @@ A light cool grade (`saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6d
 mixed-source photography toward the brand palette without gutting it. Slides 1–7 also drive the
 About section and four of the five treatment-group cards.
 
-### Team — 6 portraits · `assets/img/team/`
-`team-martin-wade.jpg` · `team-inna.jpg` · `team-flor-kent.jpg` · `team-kylie.jpg` ·
-`team-leigh.jpg` · `team-ellen.jpg`
+### Team — 7 portraits · `assets/img/team/`
+`team-martin-wade.jpg` · `team-inna.jpg` · `team-meriem-martins.jpg` · `team-flor-kent.jpg` ·
+`team-kylie.jpg` · `team-leigh.jpg` · `team-ellen.jpg`
 
 Names, roles and bios come from the client's own microneedling landing page, where each
 headshot filename maps to a person — so the pairing is the client's, not a guess.
 
-> **`team-unidentified.jpg`** (was `IMG_6454-scaled-e1717162366154.jpg`) is committed but **not
-> used**. It doesn't map to a name in any supplied reference. The questionnaire lists *Dr Meriem
-> Martins* and *Mina* who have no matching photo — please confirm who this is and it goes in.
+> **Dr Meriem Martins** (`team-meriem-martins.jpg`, formerly `IMG_6454`) was identified by the
+> client. Her **role is listed as "Doctor" and her bio is a neutral placeholder** — no source
+> gives either. Send her actual title and bio and they drop straight in.
+>
+> *Mina*, named in the questionnaire and in a Google review, still has no photo.
 
 ### Before & after — 4 consented patient pairs · `assets/img/ba/`
 | Case | Files |

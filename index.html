@@ -14,14 +14,6 @@
 </head>
 <body>
 
-<!-- ============ Rail ============ -->
-<aside class="rail" aria-hidden="true">
-  <span class="rail__mark">LRS</span>
-  <span class="rail__label" id="railLabel">Holborn, London</span>
-  <div class="rail__track"><div class="rail__bar" id="railBar"></div></div>
-  <span class="rail__mark">EST 2016</span>
-</aside>
-
 <div class="page">
 
 <!-- ============ Header ============ -->
@@ -61,6 +53,10 @@
       </button>
       <a class="icon-btn" href="#shop" aria-label="Shop">
         <svg viewBox="0 0 24 24"><path d="M6 7h12l1.5 13h-15L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      </a>
+      <a class="masthead__phone" href="tel:+442071835892">
+        <small>Call the clinic</small>
+        <b>020 7183 5892</b>
       </a>
       <a class="u-btn u-btn--focus masthead__cta" href="#contact"><span>Book free consultation</span></a>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
@@ -129,7 +125,7 @@
         </div>
 
         <div class="gwidget r" style="--d:840ms">
-          <span class="gwidget__g">G</span>
+          <span class="gwidget__g" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span>
           <span>
             <span class="gwidget__stars">
               <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 4 1.6-7.4-5.6-5 7.5-.7z"/></svg>
@@ -149,18 +145,24 @@
         <div class="promo__win">
           <div class="promo__track" id="promoTrack">
             <article class="promo__item">
+              <img class="promo__thumb" loading="lazy" src="assets/img/devices/device-emsculpt-neo.jpg" alt="EmSculpt Neo">
+              <div class="promo__text">
               <span class="promo__kicker">Body sculpting</span>
               <h3 class="promo__title">EmSculpt Neo at London Real Skin</h3>
               <p class="promo__price">From only £199 per session</p>
               <p class="promo__blurb">Build muscle and reduce fat in one 30-minute session. No downtime.</p>
               <a class="promo__cta" href="#contact">View offer →</a>
+              </div>
             </article>
             <article class="promo__item">
+              <img class="promo__thumb" loading="lazy" src="assets/img/devices/device-btl-exion.jpg" alt="BTL Exion">
+              <div class="promo__text">
               <span class="promo__kicker">Package</span>
               <h3 class="promo__title">Rejuvenation for Men</h3>
               <p class="promo__price">£1,800.00</p>
               <p class="promo__blurb">A complete course built around men’s skin — texture, tone and laxity.</p>
               <a class="promo__cta" href="#contact">View package →</a>
+              </div>
             </article>
           </div>
           <div class="promo__nav">
@@ -597,6 +599,14 @@
           </div>
         </article>
         <article class="team__card r" style="--d:140ms">
+          <div class="team__portrait"><img loading="lazy" src="assets/img/team/team-meriem-martins.jpg" alt="Dr Meriem Martins, Doctor"></div>
+          <div class="team__body">
+            <h3 class="team__name">Dr Meriem Martins</h3>
+            <p class="team__role">Doctor</p>
+            <p class="team__bio">Part of the clinic&rsquo;s doctor-led team, working to the same evidence-based protocols through consultation, treatment and follow-up.</p>
+          </div>
+        </article>
+        <article class="team__card r" style="--d:210ms">
           <div class="team__portrait"><img loading="lazy" src="assets/img/team/team-flor-kent.jpg" alt="Dr Flor Kent, Dermatologist"></div>
           <div class="team__body">
             <h3 class="team__name">Dr Flor Kent</h3>
@@ -604,7 +614,7 @@
             <p class="team__bio">Works within our dermatology-led model, giving patients specialist reassurance and clear, honest guidance about the options open to them.</p>
           </div>
         </article>
-        <article class="team__card r" style="--d:210ms">
+        <article class="team__card r" style="--d:280ms">
           <div class="team__portrait"><img loading="lazy" src="assets/img/team/team-kylie.jpg" alt="Kylie, Medical Aesthetician"></div>
           <div class="team__body">
             <h3 class="team__name">Kylie</h3>
@@ -612,7 +622,7 @@
             <p class="team__bio">Loved by patients for her microneedling, laser and skin work, Kylie combines genuine warmth with meticulous, results-driven care.</p>
           </div>
         </article>
-        <article class="team__card r" style="--d:280ms">
+        <article class="team__card r" style="--d:350ms">
           <div class="team__portrait"><img loading="lazy" src="assets/img/team/team-leigh.jpg" alt="Leigh, Aesthetic Practitioner"></div>
           <div class="team__body">
             <h3 class="team__name">Leigh</h3>
@@ -620,7 +630,7 @@
             <p class="team__bio">An experienced aesthetic practitioner focused on precise, comfortable treatment and attentive aftercare, from first appointment to final review.</p>
           </div>
         </article>
-        <article class="team__card r" style="--d:350ms">
+        <article class="team__card r" style="--d:420ms">
           <div class="team__portrait"><img loading="lazy" src="assets/img/team/team-ellen.jpg" alt="Ellen, Aesthetician"></div>
           <div class="team__body">
             <h3 class="team__name">Ellen</h3>
