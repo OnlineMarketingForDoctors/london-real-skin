@@ -1,7 +1,7 @@
 # London Real Skin — Homepage Copy Deck
 
 **Client:** London Real Skin (trading name of The London Skin and Hair Clinic Ltd)
-**Address:** 233 High Holborn, London WC1V 7DN · **Phone:** 020 7183 5092
+**Address:** 233 High Holborn, London WC1V 7DN · **Phone:** 020 7183 5892
 **Medical Director:** Dr Martin Wade, Consultant Dermatologist, GMC no. 4080323
 **Positioning (from brand questionnaire):** *"Evidence-based treatments in a professional and friendly environment."*
 **Values to land every time:** patient-centred, professional, trustworthy.
@@ -16,7 +16,7 @@ every outcome claim is qualified. UK English throughout.
 ## 0. Header
 
 **Utility bar (left):** Special offer — EmSculpt Neo body sculpting from £199 per session
-**Utility bar (right):** 233 High Holborn, London WC1V 7DN · 020 7183 5092
+**Utility bar (right):** 233 High Holborn, London WC1V 7DN · 020 7183 5892
 
 **Logo lockup:** LRS / LONDON REAL SKIN
 
@@ -167,13 +167,20 @@ offer tailored, results driven solutions.
 **Sub:** Real outcomes from real patients, shown exactly as they were taken.
 
 **Treatment tabs:** Skin Tags · Microneedling · HydraFacial · BBL Hero · Sciton Moxi
-*(Skin Tags is the active tab at launch; the remaining four are built and awaiting imagery.)*
+*(Skin Tags is live with four real consented patient cases. The remaining four tabs are built and wired, awaiting imagery.)*
 
 **Case 1 — Benign skin lesion**
 Removed cleanly with Sterex ACP electrolysis, with minimal downtime and no dressing needed.
 
 **Case 2 — Cherry angioma**
 A benign red blood spot, settled with pinpoint ACP diathermy in a single session.
+
+**Case 3 — Dermatosis papulosa nigra**
+Clusters of benign papules cleared with fine-probe ACP electrolysis, chosen here for how
+predictably it behaves on deeper skin tones.
+
+**Case 4 — Seborrhoeic keratosis**
+A raised, benign, pigmented growth lifted away with ACP electrolysis in one appointment.
 
 **Labels:** BEFORE / AFTER (with a draggable comparison handle)
 
@@ -265,15 +272,19 @@ the same protocols.
 
 | Name | Role |
 |---|---|
-| Dr Martin Wade | Medical Director · Consultant Dermatologist · B.Med Sci, MB BS, FACD |
-| Dr Meriem Martins | Doctor |
-| Dr Flor Kent | Doctor |
-| Dr Inna | Doctor |
-| Leigh | Medical Aesthetician |
-| Ellen | Medical Aesthetician |
-| Mina | Medical Aesthetician |
+| Dr Martin Wade | Medical Director · Dermatologist |
+| Dr Inna | Aesthetic Doctor |
+| Dr Flor Kent | Dermatologist |
 | Kylie | Medical Aesthetician |
-| Kate Flory | Clinic Manager |
+| Leigh | Aesthetic Practitioner |
+| Ellen | Aesthetician |
+
+Roster and bios taken from the client's own microneedling landing page, where each headshot
+filename maps to a name — so the photo/name pairing is the client's, not inferred.
+
+**Still to confirm:** the questionnaire also lists *Dr Meriem Martins* and *Mina*, and the
+Drive headshots include one unlabelled file (`IMG_6454`). That photo is held back rather than
+guessed at — see the asset manifest.
 
 **CTA:** Meet the full team
 
@@ -359,7 +370,7 @@ trained and signed off on it.
 won't, and what it will cost — before you commit to anything.
 
 **Primary CTA:** Book a free consultation
-**Secondary CTA:** Call 020 7183 5092
+**Secondary CTA:** Call 020 7183 5892
 
 **Reassurance strip:** Free consultation · CQC-registered · 0% finance available ·
 Dermatology-led since 2016
@@ -373,8 +384,8 @@ Dermatology-led since 2016
 
 **Get in touch**
 London Real Skin, 233 High Holborn, London WC1V 7DN
-020 7183 5092
-Kate.Flory@londonrealskin.com
+020 7183 5892
+info@londonrealskin.com
 
 **Opening hours**
 | Monday | 09:00 – 17:30 |

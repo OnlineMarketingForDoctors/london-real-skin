@@ -295,6 +295,31 @@
     b.addEventListener('click', function () { condGo(i); });
   });
 
+  /* ---------- Team carousel ---------- */
+  (function () {
+    var track = $('#teamTrack'), prev = $('#teamPrev'), next = $('#teamNext');
+    if (!track || !prev || !next) return;
+    var i = 0;
+    function step() {
+      var card = $('.team__card', track);
+      if (!card) return 0;
+      return card.offsetWidth + (parseFloat(getComputedStyle(track).gap) || 0);
+    }
+    function maxX() { return Math.max(0, track.scrollWidth - track.parentElement.offsetWidth); }
+    function go(n) {
+      var st = step(), pages = st ? Math.ceil(maxX() / st) : 0;
+      i = Math.max(0, Math.min(pages, n));
+      track.style.transform = 'translateX(' + (-Math.min(i * st, maxX())) + 'px)';
+      prev.disabled = i === 0;
+      next.disabled = i >= pages;
+    }
+    next.addEventListener('click', function () { go(i + 1); });
+    prev.addEventListener('click', function () { go(i - 1); });
+    window.addEventListener('resize', function () { go(0); }, { passive: true });
+    window.addEventListener('load', function () { go(0); });
+    go(0);
+  })();
+
   /* ---------- Devices slider ---------- */
   var devTrack = $('#devTrack');
   var devPrev = $('#devPrev'), devNext = $('#devNext'), devBar = $('#devBar');

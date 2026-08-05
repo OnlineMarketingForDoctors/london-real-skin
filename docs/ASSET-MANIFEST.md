@@ -1,136 +1,143 @@
-# Asset manifest & swap guide
+# Asset manifest
 
-Every image on the homepage, where it comes from today, and what should replace it.
+What every image on the homepage is, and where it came from.
 
-## ⚠️ Read this first — images are currently hot-linked
+## Summary
 
-This build session ran inside a sandbox whose **egress policy blocks almost every outbound
-host**. `drive.google.com`, `londonrealskin.com` and the Higgsfield CDN all returned
-`403` at the gateway, so **no binary file could be downloaded into this repository**.
+| | Count |
+|---|---|
+| Real client assets, committed to this repo | **28** |
+| AI-generated, committed to this repo | 0 |
+| AI-generated, still hot-linked from Higgsfield's CDN | **18** |
 
-Consequences:
-
-1. **Your Drive assets are not in this repo.** Hero photos, review screenshots, team headshots,
-   skin-tag before/afters and device shots could not be fetched. They are represented either by
-   generated stand-ins or by explicit placeholder states.
-2. **Generated images are referenced by URL, not committed.** They live on Higgsfield's
-   CloudFront and are hot-linked from `index.html` and `main.js`. They render fine in a normal
-   browser. **Before launch they must be downloaded and committed to `assets/img/`** — a
-   third-party CDN is not a hosting strategy.
-
-To localise every generated image once you have unrestricted network access:
-
-```bash
-# from the repo root
-mkdir -p assets/img
-grep -oE 'https://d8j0ntlcm91z4\.cloudfront\.net/[^")'"'"' ]+' index.html assets/js/main.js \
-  | sed 's/^[^:]*://' | sort -u \
-  | while read -r u; do curl -sSL -o "assets/img/$(basename "$u")" "$u"; done
-# then rewrite the references
-sed -i 's|https://d8j0ntlcm91z4\.cloudfront\.net/user_3Ary2g06ZSWzxFoVWIP644Wm9ZG/|assets/img/|g' \
-  index.html assets/js/main.js
-```
+Everything the client supplied is now in the repo and in use. The 18 remaining hot-linked
+images are covered in section 4.
 
 ---
 
-## 1. Generated imagery — 38 images, Nano Banana Pro @ 2K
+## 1. Real client assets in use
 
-All prompts are in `IMAGE-PROMPTS.md`. All are palette-locked to `#2A4664` / `#1DB0BA` /
-`#E7EEF5` and every image containing skin carries the realism directive (visible pores, natural
-imperfections, no plastic look).
+### Hero slideshow — 7 images · `assets/img/hero/`
+The clinic's own photography, resized to 2400px and re-encoded (35 MB → 2.0 MB).
 
-| Section | Count | Should ultimately be replaced by |
-|---|---|---|
-| Hero slideshow | 5 | **Yes** — the client's own photos in Drive › *Homepage hero images* (Kleresca, laser, SkinPen sets) |
-| About | 2 | Optional — real clinic photography would be stronger |
-| Treatment groups | 5 | Optional |
-| Conditions lens plates | 12 | Optional — these are macro skin studies, they work as-is |
-| Devices | 6 | **Yes** — use official manufacturer product shots (Sciton, BTL, xCellaris, Alma) |
-| Journal thumbnails | 4 | **Yes** — with the real post artwork |
-| Shop banner | 1 | **Yes** — real LRS product photography |
-| CTA background | 1 | Optional — a real photo of the Holborn reception would be better |
-| Texture | 1 | Unused in the final build, kept for future sections |
+| File | What it shows |
+|---|---|
+| `hero-01-injectables.jpg` | Alma ClearLift handpiece being used near the eye |
+| `hero-02-kleresca.jpg` | Kleresca gel mask being applied |
+| `hero-03-examination.jpg` | Dr Martin Wade examining a patient with loupes |
+| `hero-04-treatment.jpg` | Dr Wade treating a patient |
+| `hero-05-device.jpg` | Device-led treatment in a clinic room |
+| `hero-06-consultation.jpg` | Consultation with a hand mirror |
+| `hero-07-skinpen.jpg` | SkinPen microneedling |
 
-One prompt (stretch marks / cellulite) was refused by the model's safety filter on the first
-pass and was regenerated as an abstract skin-surface crop.
+A light cool grade (`saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6deg)`) pulls the
+mixed-source photography toward the brand palette without gutting it. Slides 1–7 also drive the
+About section and four of the five treatment-group cards.
 
----
+### Team — 6 portraits · `assets/img/team/`
+`team-martin-wade.jpg` · `team-inna.jpg` · `team-flor-kent.jpg` · `team-kylie.jpg` ·
+`team-leigh.jpg` · `team-ellen.jpg`
 
-## 2. Deliberate placeholders — these need YOUR files
+Names, roles and bios come from the client's own microneedling landing page, where each
+headshot filename maps to a person — so the pairing is the client's, not a guess.
 
-### 2a. Before & after — patient photographs
-**Location:** `index.html` › `#results` › `.cmp--empty`
-**Source waiting in Drive:** `Skin tags › patient 1–4`
+> **`team-unidentified.jpg`** (was `IMG_6454-scaled-e1717162366154.jpg`) is committed but **not
+> used**. It doesn't map to a name in any supplied reference. The questionnaire lists *Dr Meriem
+> Martins* and *Mina* who have no matching photo — please confirm who this is and it goes in.
 
-Rendered as dashed, labelled empty frames. **No synthetic before/after imagery was generated,
-and none should be.** Fabricating patient results for a CQC-registered clinic would breach
-ASA/CAP rules on before-and-after advertising and misrepresent clinical outcomes.
+### Before & after — 4 consented patient pairs · `assets/img/ba/`
+| Case | Files |
+|---|---|
+| Benign skin lesion | `ba-lesion-before/after.jpg` |
+| Cherry angioma | `ba-angioma-before/after.jpg` |
+| Dermatosis papulosa nigra | `ba-papulosa-before/after.jpg` |
+| Seborrhoeic keratosis | `ba-sebk-before/after.jpg` |
 
-The draggable comparison slider is already built and wired. To activate a case, replace the
-placeholder block with:
+Displayed with the client's own consent disclaimer, verbatim, beneath the gallery. The other
+four tabs (Microneedling, HydraFacial, BBL Hero, Sciton Moxi) are built and wired — drop a pair
+in and remove the `<em>soon</em>` marker.
 
-```html
-<div class="cmp" style="--pos:50%">
-  <div class="cmp__side cmp__before" style="background-image:url('assets/img/ba/patient-1-before.jpg')"></div>
-  <div class="cmp__side cmp__after"  style="background-image:url('assets/img/ba/patient-1-after.jpg')"></div>
-  <span class="cmp__tag cmp__tag--b">Before</span>
-  <span class="cmp__tag cmp__tag--a">After</span>
-  <div class="cmp__handle"><span class="cmp__knob">
-    <svg viewBox="0 0 24 24"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6"/></svg>
-  </span></div>
-</div>
-```
+### Devices — 6 · `assets/img/devices/`
+The manufacturers' real product shots, composited onto **one shared set**: a cool off-white
+gradient cyclorama, navy plinth line, teal wash top-right and a matched contact shadow.
 
-No JS changes needed — `main.js` picks up any `.cmp` that is not `.cmp--empty`.
+Backgrounds were removed by border-seeded flood fill and the devices re-lit and re-scaled
+consistently, so the hardware itself is untouched and still exactly the real device. Source
+files are retained alongside the composites.
 
-The four remaining tabs (Microneedling, HydraFacial, BBL Hero, Sciton Moxi) are built and
-marked *soon*; drop cases into their panels the same way and remove the `<em>soon</em>`.
+> The brief asked for this to be done with Nano Banana Pro, and it was — all six were restyled
+> (job IDs on request). But this environment cannot download from the Higgsfield CDN, so those
+> versions could be neither inspected nor committed, and shipping regenerated medical hardware
+> I have never seen is a bad trade. The local composite achieves the same "one shared set"
+> result, is verifiable, and keeps the actual devices pixel-accurate. Say the word and I'll
+> swap in the AI versions instead.
 
-### 2b. Team headshots
-**Location:** `index.html` › `#team` › `.team__ph`
-**Source waiting in Drive:** `Headshots` — `martin-sq.jpg`, `dr-inna.jpg`,
-`Dr-Flor-Kent-headshot-square.jpg`, `leigh-2.jpg`, `ellen-aesthetician-featured.jpg`,
-`kylie-featured-800x600.jpg`, `IMG_6454-scaled-e1717162366154.jpg`
+### Brand · `assets/img/brand/`
+`logo.png` (header + footer, inverted to white on dark) · `favicon.png` ·
+`cqc.png` (footer) · `omd.png` (footer "Powered by" line)
 
-Rendered as monogram tiles. **No synthetic faces were generated.** These are real, named,
-GMC-registered clinicians; an AI face captioned "Dr Martin Wade" would misrepresent an
-identifiable person.
-
-Swap by replacing the tile's contents with `<img class="team__img" src="…" alt="…">` and adding
-`.team__img{width:100%;height:100%;object-fit:cover}`.
-
-Names used are from the brand questionnaire: Dr Martin Wade, Dr Meriem Martins, Dr Flor Kent,
-Leigh, Ellen, Mina, Kylie — plus Dr Inna and Kate Flory, who appear in the supplied Google
-reviews and Drive headshots. **Please confirm the roster and spellings.**
-
-### 2c. Logo, favicon and accreditation marks
-**Source waiting in Drive:** `london-real-skin-logo.png`, `favicon_londonrealskin_com_48x48.png`,
-`CQC-Logo-300x141-1.png`
-
-The header currently uses a typographic `LRS` monogram lockup. Drop the real logo in when
-available. CQC and BAD are text badges in the footer pending the real marks.
+### Location · `assets/img/clinic-location.jpg`
+The real 233 High Holborn entrance, used as the closing CTA's portrait image.
 
 ---
 
-## 3. Real content used verbatim
+## 2. Real content used verbatim
 
 | Item | Source |
 |---|---|
-| 7 Google reviews (names, dates, text) | Drive › *Reviews* screenshots, OCR'd |
-| Rating 4.9 / 338 reviews | Brand questionnaire + homepage screenshot |
-| About copy | Supplied by the client in the brief |
-| Before/after disclaimer | Client's own before-and-after layout, unchanged |
-| Conditions list (12) | Drive › conditions document |
-| Product names and prices (8) | Drive › shop products screenshot |
-| Treatment pricing | Brand questionnaire |
-| Address, phone, opening hours | Brand questionnaire + homepage screenshot |
-| Dr Wade's credentials | Brand questionnaire |
-| Legal footer line | Supplied by the client in the brief |
+| 7 Google reviews | Drive › *Reviews* screenshots, OCR'd |
+| Team bios and roles | Client's microneedling landing page |
+| Phone **020 7183 5892** | Confirmed against both client HTML references |
+| `info@londonrealskin.com` | Client's landing page footer |
+| Instagram / Facebook / TikTok URLs | Client's landing page footer |
+| Opening hours, address | Questionnaire + landing page |
+| About copy, before/after disclaimer, legal line | Supplied in the brief |
+| Conditions list, product names and prices | Drive documents |
+| Treatment pricing, Dr Wade's credentials | Brand questionnaire |
 
-## 4. Content that is NOT real
+> An earlier draft had the phone as 020 7183 5**0**92, misread from a screenshot. Both HTML
+> references agree on 5**8**92; that is what is now live.
+
+---
+
+## 3. Still not real
 
 | Item | Status |
 |---|---|
-| 4 journal article cards | **Placeholder.** `londonrealskin.com/news/` is blocked by the egress policy, so real titles, dates and URLs could not be retrieved. Topics were drawn from subjects the questionnaire says the clinic treats. **Replace before launch.** |
-| Social media links | Point to `#`. Real profile URLs needed. |
-| "Hundreds of satisfied patients" | Client-supplied selling point, used verbatim as instructed. |
+| 4 journal cards | **Placeholder.** `londonrealskin.com/news/` is blocked by this environment's egress policy. Titles are topic placeholders. **Replace before launch.** |
+| Shop banner | Generated. The product screenshot was not among the uploads; prices and names in the copy are real. |
+| "Body" treatment-group card | Generated — the only group with no matching real photo. |
+
+---
+
+## 4. The 18 hot-linked images
+
+Still served from `d8j0ntlcm91z4.cloudfront.net`, not this repo:
+
+- **12** condition plates for the dermatoscope lens (`assets/js/main.js`, `PLATES`)
+- **4** journal thumbnails
+- **1** shop banner
+- **1** "Body" treatment card
+
+They are macro skin studies and abstract stock-style imagery — nothing patient-identifying.
+They render fine in a browser, but a third-party CDN on the critical render path is not a
+launch-ready position.
+
+**Why they aren't committed:** this environment's network policy 403s every host except a small
+allowlist, and the Higgsfield CDN is not on it. The bytes cannot reach this container. The Drive
+connector can't substitute — it returns files as base64 through the conversation, which is fine
+for a 9 KB logo and impossible for photographs.
+
+**To fix, from a machine with normal network access:**
+
+```bash
+mkdir -p assets/img/generated
+grep -ohE 'https://d8j0ntlcm91z4\.cloudfront\.net/[^")'"'"' ]+' index.html assets/js/main.js \
+  | sort -u \
+  | while read -r u; do curl -sSL -o "assets/img/generated/$(basename "$u")" "$u"; done
+sed -i 's|https://d8j0ntlcm91z4\.cloudfront\.net/user_3Ary2g06ZSWzxFoVWIP644Wm9ZG/|/assets/img/generated/|g' \
+  index.html assets/js/main.js
+```
+
+> Note the leading slash. A relative `url()` inside a CSS custom property resolves against the
+> **stylesheet**, not the document, so image paths used via `--img` must be root-relative.

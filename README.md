@@ -65,12 +65,20 @@ Closing CTA · Footer.
   layers marked `aria-hidden`.
 - No JavaScript dependencies. The page is readable with JS disabled.
 
+## Assets
+
+All of the client's real photography is in the repo and in use: 7 hero images, 6 team
+portraits, 4 consented before/after pairs, 6 device shots composited onto a shared set, the LRS
+logo, favicon, CQC mark and the 233 High Holborn entrance. See `docs/ASSET-MANIFEST.md`.
+
+Eighteen generated images (the 12 dermatoscope condition plates, 4 journal thumbnails, the shop
+banner and one treatment card) are still hot-linked from a CDN because this build environment
+cannot download them. The manifest has a two-command fix.
+
 ## Before this goes live
 
-1. **Localise the images.** They are currently hot-linked from a third-party CDN — see
-   `docs/ASSET-MANIFEST.md` for the reason and a one-line script to pull them in.
-2. **Supply patient before/after photos and team headshots.** Both are deliberate placeholders;
-   the reasons are documented in the manifest.
-3. **Replace the four journal cards** with real posts.
-4. Add the real logo, favicon and CQC mark; point the social links at real profiles.
+1. **Localise the 18 hot-linked images** — `docs/ASSET-MANIFEST.md`.
+2. **Identify `assets/img/team/team-unidentified.jpg`** so the seventh team member can go in.
+3. **Replace the four journal cards** with real posts from `/news/`.
+4. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
 5. Wire the CTAs to Pabau booking and the enquiry form.
