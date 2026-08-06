@@ -214,34 +214,34 @@ that could influence the results that you may get.
 
 ## 5. Treatments (interactive, grouped)
 
-**Eyebrow:** What we do
-**Heading:** Treatments, grouped the way you'd actually look for them
-**Sub:** Five families of treatment. Hover or tap any group to see what sits inside it.
+**Eyebrow:** Treatments
+**Heading:** Everything we do, and what it costs
+**Sub:** Five areas of the clinic. Open any one to see the treatments inside and where prices start.
 
-### Group 01 — Injectables
+### Injectables
 *Precision work, done by doctors.*
 Anti-Wrinkle Injections · Dermal Fillers · Skin Boosters · Polynucleotides · Thread Lift ·
 Exosome Therapy
 > From £300 per session · Doctor-led
 
-### Group 02 — Face
+### Face
 *Resurfacing, remodelling and glow.*
 HydraFacial · Microneedling (xCellaris Pro Twist) · RF Microneedling (BTL Exion) · Sciton BBL
 Hero · Sciton MOXI · Chemical Peels · Dermalux LED
 > From £200 per session
 
-### Group 03 — Body
+### Body
 *Contour, tighten, smooth.*
 EmSculpt Neo · Exion Body · Skin Tightening · Stretch Marks & Cellulite · Laser Hair Reduction
 > From £199 per session
 
-### Group 04 — For Men
+### For Men
 *Built around men's skin.*
 Rejuvenation for Men Package · Anti-Wrinkle Injections · EmSculpt Neo · Acne & Acne Scarring ·
 Laser Hair Reduction
 > Package £1,800.00
 
-### Group 05 — Medical Treatments
+### Medical Treatments
 *The dermatology-led end of the clinic.*
 ACP Sterex Electrolysis (skin tags, milia, cherry angiomas, thread veins) · Acne Management ·
 Rosacea · Pigmentation · Prescription Skincare (Tretinoin, Hydroquinone, 15% Azelaic Acid)
