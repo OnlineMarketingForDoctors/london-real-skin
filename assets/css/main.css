@@ -1630,15 +1630,6 @@ h1,h2,h3,h4,p{margin:0}
   color:var(--focus);
   margin-bottom:.5em;
 }
-.cond__scope-cap{
-  margin-top:clamp(24px,2.4vw,34px);
-  text-align:center;
-  font-family:var(--mono);
-  font-size:.585rem;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
 
 /* =====================================================================
    17. Devices slider
