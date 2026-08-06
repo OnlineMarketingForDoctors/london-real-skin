@@ -17,7 +17,7 @@ images are covered in section 4.
 
 ## 1. Real client assets in use
 
-### Hero slideshow — 7 images · `assets/img/hero/`
+### Hero slideshow — 6 images · `assets/img/hero/`
 The clinic's own photography, resized to 2400px and re-encoded (35 MB → 2.0 MB).
 
 | File | What it shows |
@@ -27,12 +27,12 @@ The clinic's own photography, resized to 2400px and re-encoded (35 MB → 2.0 MB
 | `hero-03-examination.jpg` | Dr Martin Wade examining a patient with loupes |
 | `hero-04-treatment.jpg` | Dr Wade treating a patient |
 | `hero-05-device.jpg` | Device-led treatment in a clinic room |
-| `hero-06-consultation.jpg` | Consultation with a hand mirror |
+| `hero-06-consultation.jpg` | Consultation with a hand mirror — **in the repo but not in use**, removed from the hero at the client's request |
 | `hero-07-skinpen.jpg` | SkinPen microneedling |
 
 A light cool grade (`saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6deg)`) pulls the
-mixed-source photography toward the brand palette without gutting it. Slides 1–7 also drive the
-About section and four of the five treatment-group cards.
+mixed-source photography toward the brand palette without gutting it. These photographs also
+drive the About section and four of the five treatment-group cards.
 
 ### Team — 7 portraits · `assets/img/team/`
 `team-martin-wade.jpg` · `team-inna.jpg` · `team-meriem-martins.jpg` · `team-flor-kent.jpg` ·
@@ -60,19 +60,17 @@ four tabs (Microneedling, HydraFacial, BBL Hero, Sciton Moxi) are built and wire
 in and remove the `<em>soon</em>` marker.
 
 ### Devices — 6 · `assets/img/devices/`
-The manufacturers' real product shots, composited onto **one shared set**: a cool off-white
-gradient cyclorama, navy plinth line, teal wash top-right and a matched contact shadow.
+Composited onto **one shared set**: a cool off-white gradient cyclorama, teal wash top-right and
+a matched contact shadow. No plinth rule.
 
-Backgrounds were removed by border-seeded flood fill and the devices re-lit and re-scaled
-consistently, so the hardware itself is untouched and still exactly the real device. Source
-files are retained alongside the composites.
+Five are built from the client's own transparent artwork — `BBL Hero transparent.png`,
+`BTL Exion transparent.png`, `Sciton Moxi Laser tramsparent.png`, `emsculpt trasnparent.png` and
+`Skin Xcell.webp` (which already ships with alpha). Only **Harmony XL** still uses a
+border-seeded flood-fill cutout, as no transparent version was supplied. The hardware itself is
+never redrawn — only relit and rescaled.
 
-> The brief asked for this to be done with Nano Banana Pro, and it was — all six were restyled
-> (job IDs on request). But this environment cannot download from the Higgsfield CDN, so those
-> versions could be neither inspected nor committed, and shipping regenerated medical hardware
-> I have never seen is a bad trade. The local composite achieves the same "one shared set"
-> result, is verifiable, and keeps the actual devices pixel-accurate. Say the word and I'll
-> swap in the AI versions instead.
+The hero offers widget uses the same artwork at full card height: `promo-emsculpt.png`,
+`promo-xcellaris.png` and `promo-exion.png`.
 
 ### Brand · `assets/img/brand/`
 `logo.png` (header + footer, inverted to white on dark) · `favicon.png` ·
