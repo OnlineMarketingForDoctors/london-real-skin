@@ -58,7 +58,7 @@
   var ticking = false;
   window.addEventListener('scroll', function () {
     if (!ticking) {
-      window.requestAnimationFrame(function () { onScrollHeader(); sweepReveals(); ticking = false; });
+      window.requestAnimationFrame(function () { onScrollHeader(); sweepReveals(); toTopState(); ticking = false; });
       ticking = true;
     }
   }, { passive: true });
@@ -381,6 +381,18 @@
     window.addEventListener('resize', function () { devGo(0); }, { passive: true });
     window.addEventListener('load', function () { devGo(0); });
     devGo(0);
+  }
+
+  /* ---------- Back to top ---------- */
+  var toTop = $('#toTop');
+  function toTopState() {
+    if (toTop) toTop.classList.toggle('is-on', window.scrollY > window.innerHeight * 0.75);
+  }
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+    toTopState();
   }
 
   /* ---------- Smooth in-page anchors, allowing for the sticky header ---------- */

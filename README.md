@@ -48,11 +48,11 @@ sequence. Conditions *are* numbered, because twelve items function as an index.
 
 ## Sections
 
-Header (utility bar + floating masthead) · Hero (7-slide Ken Burns slideshow, five selling
-points, Google rating, two-slide promotions widget) · Reviews marquee · About · Before & after
+Header (floating masthead) · Hero (6-slide Ken Burns slideshow, five selling
+points, Google rating, three-slide promotions widget) · Reviews marquee · About · Before & after
 (five treatment tabs, draggable comparison) · Treatments (accordion synced to a sticky image) ·
 Why choose us · Team · Shop banner · Conditions (dermatoscope) · Devices slider · Journal ·
-Closing CTA · Footer.
+Closing CTA · Footer · back-to-top control.
 
 ## Quality floor
 

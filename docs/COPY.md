@@ -15,13 +15,14 @@ every outcome claim is qualified. UK English throughout.
 
 ## 0. Header
 
-**Utility bar (left):** Special offer — EmSculpt Neo body sculpting from £199 per session
-**Utility bar (right):** 233 High Holborn, London WC1V 7DN · 020 7183 5892
+> The announcement / utility bar was removed at the client's request. The phone number now sits
+> in the masthead; the address lives in the closing CTA and the footer.
 
-**Logo lockup:** LRS / LONDON REAL SKIN
+**Logo lockup:** the supplied LRS wordmark (a navy variant is swapped in once the header sticks)
 
 **Primary navigation:** About Us · Treatments · Conditions · Devices · Blog · Pricing · Contact
 
+**Header phone:** Call the clinic / 020 7183 5892
 **Header CTA:** Book free consultation
 **Secondary icons:** Search · Shop (cart)
 
