@@ -73,8 +73,17 @@ The hero offers widget uses the same artwork at full card height: `promo-emsculp
 `promo-xcellaris.png` and `promo-exion.png`.
 
 ### Brand · `assets/img/brand/`
-`logo.png` (header + footer, inverted to white on dark) · `favicon.png` ·
-`cqc.png` (footer) · `omd.png` (footer "Powered by" line)
+`logo.png` (header + footer) · `logo-dark.png` (swapped in once the header sticks, since the
+supplied wordmark is drawn for dark backgrounds) · `cqc.png` (footer) · `omd.png` (footer
+"Powered by" line)
+
+**Favicon set**, all generated from the LRS mark inside the supplied wordmark, set in teal on a
+navy rounded tile so it holds up against both light and dark browser chrome:
+`favicon.ico` (16/32/48) · `favicon-32.png` · `favicon.png` (48) ·
+`apple-touch-icon.png` (180) · `icon-512.png` (512, maskable), wired up via `site.webmanifest`.
+
+> The client's original 48px favicon was the bare teal mark on transparency, which vanished
+> against a light tab strip. The mark itself is unchanged, only placed on a plate.
 
 ### Media logos — 4 · `assets/img/media/`
 `media-independent.webp` · `media-closer.png` · `Daily_Express_masthead.svg` · `Sheerluxe.svg`
