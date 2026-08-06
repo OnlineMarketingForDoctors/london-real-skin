@@ -75,13 +75,13 @@ around it.
 - Kicker: Package
 - Title: Rejuvenation for Men
 - Price line: £1,800.00
-- Blurb: A complete course built around men's skin — texture, tone and laxity.
+- Blurb: A complete course built around men's skin, covering texture, tone and laxity.
 - CTA: View package
 - Device shown: xCellaris Pro Twist
 
 **Slide 3**
 - Kicker: Package
-- Title: Body Toning — Skin Tightening & Muscle Strengthening
+- Title: Body Toning: Skin Tightening & Muscle Strengthening
 - Price line: £2,300.00
 - Blurb: Radiofrequency skin tightening and muscle strengthening, run as one course.
 - CTA: View package
@@ -334,7 +334,7 @@ Acne Scarring · Ageing Skin · Crepey Skin · Excess Hair · Fine Lines & Wrink
 Genital Skin Tag & Wart Removal · Pigmentation & Age Spots · Rosacea · Skin Tags ·
 Stretch Marks & Cellulite · Teeth Grinding · Thread Veins
 
-**CTA:** See all conditions
+**CTA:** Explore conditions
 
 ---
 

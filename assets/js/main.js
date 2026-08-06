@@ -1,5 +1,5 @@
 /* =====================================================================
-   London Real Skin — homepage interactions
+   London Real Skin homepage interactions
    Vanilla, no dependencies. Everything degrades to a readable static
    page if JS fails, and every motion path respects prefers-reduced-motion.
    ===================================================================== */
@@ -129,9 +129,9 @@
     { n: 'Kakter Lalql', m: 'Local Guide · 71 reviews · 2 months ago', i: 'K',
       t: "I had an appointment with Dr Inna for milia extraction and sebaceous hyperplasia. I had this issue for years and she managed to resolve it in a few minutes. I’m over the moon with the treatment. She also helped me treat a few broken capillaries so my skin now looks fresh and spotless." },
     { n: 'Светлана Коршикова', m: '2 reviews · 9 months ago', i: 'C',
-      t: "Dr. Inna is absolutely amazing! I recently had an RF Microneedling treatment with her, and the experience was fantastic from start to finish. She explained everything clearly, made me feel completely comfortable, and the results are already visible — my skin looks tighter, smoother, and glowing." },
+      t: "Dr. Inna is absolutely amazing! I recently had an RF Microneedling treatment with her, and the experience was fantastic from start to finish. She explained everything clearly, made me feel completely comfortable, and the results are already visible, my skin looks tighter, smoother, and glowing." },
     { n: 'Jasmeet Klair', m: '2 reviews · 10 months ago', i: 'J',
-      t: "Had such a fantastic experience with the team at London Real Skin right from the moment of booking! Loretta was amazing, super attentive and made sure I got the right appointment for my needs. Kelly was absolutely brilliant — so skilled at what she does and really took the time to explain everything clearly." },
+      t: "Had such a fantastic experience with the team at London Real Skin right from the moment of booking! Loretta was amazing, super attentive and made sure I got the right appointment for my needs. Kelly was absolutely brilliant, so skilled at what she does and really took the time to explain everything clearly." },
     { n: 'Peter Cummins', m: '9 reviews · 5 months ago', i: 'P',
       t: "Had an amazing experience today at the clinic. I had a great consultation with Kate, we discussed in-depth my concerns with my skin and what I hoped to achieve. I was recommended a HydraFacial to start off my journey. This was done with Mina, who was also fabulous. My skin looks like glass!" },
     { n: 'ES', m: '6 reviews · 5 months ago', i: 'E',
