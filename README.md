@@ -60,6 +60,8 @@ Closing CTA · Footer.
 - `prefers-reduced-motion` fully respected — every animation, marquee, slideshow and smooth
   scroll disables.
 - Visible keyboard focus throughout; tabs are arrow-key navigable; the drawer closes on Escape.
+- Scroll reveals use IntersectionObserver with a geometry fallback, so an element can never be
+  left permanently hidden if its intersection rect reports as zero-area.
 - Semantic landmarks, ARIA on tabs/accordion/drawer, alt text on content images, decorative
   layers marked `aria-hidden`.
 - No JavaScript dependencies. The page is readable with JS disabled.

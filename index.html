@@ -34,7 +34,8 @@
 <header class="masthead" id="masthead">
   <div class="u-wrap masthead__in">
     <a class="brand" href="#top" aria-label="London Real Skin — home">
-      <img class="brand__logo" src="assets/img/brand/logo.png" alt="London Real Skin" width="454" height="100">
+      <img class="brand__logo brand__logo--light" src="assets/img/brand/logo.png" alt="London Real Skin" width="454" height="100">
+      <img class="brand__logo brand__logo--dark" src="assets/img/brand/logo-dark.png" alt="" aria-hidden="true" width="454" height="100">
     </a>
 
     <nav class="nav" aria-label="Primary">
@@ -224,8 +225,8 @@
       <div class="about__media">
         <img class="about__img r-clip" loading="lazy" alt="A consultation at London Real Skin, 233 High Holborn"
              src="assets/img/hero/hero-06-consultation.jpg">
-        <img class="about__inset r" style="--d:260ms" loading="lazy" alt="Dr Martin Wade examining a patient with dermatoscopic loupes"
-             src="assets/img/hero/hero-03-examination.jpg">
+        <img class="about__inset r" style="--d:260ms" loading="lazy" alt="A device-led treatment in progress at the clinic"
+             src="assets/img/hero/hero-05-device.jpg">
       </div>
 
       <div class="about__copy">
@@ -268,6 +269,10 @@
         Real outcomes from real patients of the clinic, shown exactly as they were taken.
         Drag the handle across any image to compare.
       </p>
+      <div class="ba__head-ctrl ba__ctrl">
+        <button class="ba__arrow" id="baPrev" aria-label="Previous cases"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="ba__arrow" id="baNext" aria-label="More cases"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
     </div>
 
     <div class="ba__tabs" role="tablist" aria-label="Treatments">
@@ -279,7 +284,7 @@
     </div>
 
     <div class="ba__panel" role="tabpanel" id="ba-skintags" aria-labelledby="tab-skintags">
-      <div class="ba__cases">
+      <div class="ba__viewport"><div class="ba__cases" id="baTrack">
         <article class="ba__case r" style="--d:0ms">
           <div class="ba__frame">
             <div class="cmp" style="--pos:50%">
@@ -348,7 +353,7 @@
             </div>
           </div>
         </article>
-      </div>
+      </div></div>
     </div>
 
     <div class="ba__panel" role="tabpanel" id="ba-micro" aria-labelledby="tab-micro" hidden>
@@ -505,10 +510,10 @@
       </div>
 
       <figure class="svc__viz" id="svcViz">
-        <img class="svc__viz-img is-on" loading="lazy" alt="Injectable treatment being prepared" src="assets/img/hero/hero-01-injectables.jpg">
+        <img class="svc__viz-img is-on" loading="lazy" alt="An injectable treatment being administered at London Real Skin" src="assets/img/treatments-injectables.jpg">
         <img class="svc__viz-img" loading="lazy" alt="Facial resurfacing treatment" src="assets/img/hero/hero-07-skinpen.jpg">
         <img class="svc__viz-img" loading="lazy" alt="Body contouring treatment" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Ary2g06ZSWzxFoVWIP644Wm9ZG/hf_20260805_221430_3b705a5d-2ac2-49b5-b1eb-62f3673247fa.png">
-        <img class="svc__viz-img" loading="lazy" alt="Treatments for men" src="assets/img/hero/hero-05-device.jpg">
+        <img class="svc__viz-img" loading="lazy" alt="Dr Martin Wade treating a male patient" src="assets/img/hero/hero-03-examination.jpg">
         <img class="svc__viz-img" loading="lazy" alt="Dermatoscope examination" src="assets/img/hero/hero-04-treatment.jpg">
         <figcaption class="svc__viz-cap" id="svcVizCap">Injectables</figcaption>
       </figure>
@@ -588,6 +593,7 @@
             <h3 class="team__name">Dr Martin Wade</h3>
             <p class="team__role">Medical Director · Dermatologist</p>
             <p class="team__bio">Consultant Dermatologist, GMC-registered with over 20 years of experience. Australian-trained, he leads the clinic with an evidence-based approach to skin health.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
         <article class="team__card r" style="--d:70ms">
@@ -596,6 +602,7 @@
             <h3 class="team__name">Dr Inna</h3>
             <p class="team__role">Aesthetic Doctor</p>
             <p class="team__bio">A patient favourite, Dr Inna carries out skin rejuvenation with a calm, meticulous touch and a real gift for putting nervous patients at ease.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
         <article class="team__card r" style="--d:140ms">
@@ -604,6 +611,7 @@
             <h3 class="team__name">Dr Meriem Martins</h3>
             <p class="team__role">Doctor</p>
             <p class="team__bio">Part of the clinic&rsquo;s doctor-led team, working to the same evidence-based protocols through consultation, treatment and follow-up.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
         <article class="team__card r" style="--d:210ms">
@@ -612,6 +620,7 @@
             <h3 class="team__name">Dr Flor Kent</h3>
             <p class="team__role">Dermatologist</p>
             <p class="team__bio">Works within our dermatology-led model, giving patients specialist reassurance and clear, honest guidance about the options open to them.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
         <article class="team__card r" style="--d:280ms">
@@ -620,6 +629,7 @@
             <h3 class="team__name">Kylie</h3>
             <p class="team__role">Medical Aesthetician</p>
             <p class="team__bio">Loved by patients for her microneedling, laser and skin work, Kylie combines genuine warmth with meticulous, results-driven care.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
         <article class="team__card r" style="--d:350ms">
@@ -628,6 +638,7 @@
             <h3 class="team__name">Leigh</h3>
             <p class="team__role">Aesthetic Practitioner</p>
             <p class="team__bio">An experienced aesthetic practitioner focused on precise, comfortable treatment and attentive aftercare, from first appointment to final review.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
         <article class="team__card r" style="--d:420ms">
@@ -636,6 +647,7 @@
             <h3 class="team__name">Ellen</h3>
             <p class="team__role">Aesthetician</p>
             <p class="team__bio">Known for a calm, thorough consultation and a gentle, careful treatment style that puts even the most nervous patients quickly at ease.</p>
+            <button class="team__more" type="button">Read more</button>
           </div>
         </article>
       </div>
@@ -883,6 +895,7 @@
           <li class="ft__li"><a href="tel:+442071835892">020 7183 5892</a></li>
           <li class="ft__li"><a href="mailto:info@londonrealskin.com">info@londonrealskin.com</a></li>
         </ul>
+        <img class="ft__cqc" loading="lazy" src="assets/img/brand/cqc.png" alt="Regulated by the Care Quality Commission" width="300" height="141">
       </div>
 
       <div>
@@ -908,7 +921,6 @@
         <div class="ft__hours"><span>Friday</span><span>10:00 – 19:30</span></div>
         <div class="ft__hours"><span>Saturday</span><span>09:30 – 17:30</span></div>
         <div class="ft__hours ft__hours--closed"><span>Sunday</span><span>Closed</span></div>
-        <img class="ft__cqc" loading="lazy" src="assets/img/brand/cqc.png" alt="Regulated by the Care Quality Commission" width="300" height="141">
       </div>
 
     </div>

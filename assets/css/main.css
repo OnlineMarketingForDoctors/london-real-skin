@@ -222,8 +222,13 @@ h1,h2,h3,h4,p{margin:0}
 }
 .r.is-in{opacity:1;transform:none}
 
-.r-clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.15s var(--ease-out);transition-delay:var(--d,0ms)}
-.r-clip.is-in{clip-path:inset(0 0 0 0)}
+.r-clip{
+  opacity:0;
+  transform:scale(1.045);
+  transition:opacity 1s var(--ease),transform 1.35s var(--ease-out);
+  transition-delay:var(--d,0ms);
+}
+.r-clip.is-in{opacity:1;transform:none}
 
 /* Line-by-line headline reveal */
 .r-line{display:block;overflow:hidden}
@@ -242,7 +247,7 @@ h1,h2,h3,h4,p{margin:0}
     animation-iteration-count:1 !important;
     transition-duration:.001ms !important;
   }
-  .r,.r-clip,.r-line > span{opacity:1;transform:none;clip-path:none}
+  .r,.r-clip,.r-line > span{opacity:1;transform:none}
 }
 
 /* (The left scroll-progress rail was removed at the client's request.) */
@@ -291,22 +296,28 @@ h1,h2,h3,h4,p{margin:0}
   transition:background .55s var(--ease),border-color .55s var(--ease),
              box-shadow .55s var(--ease),color .55s var(--ease);
 }
-.masthead:not(.is-stuck) .brand__logo{
+.masthead:not(.is-stuck) .brand{position:relative}
+.brand__logo{
   height:clamp(30px,3vw,40px);
   width:auto;
   display:block;
-  transition:filter .55s var(--ease);
+  transition:opacity .45s var(--ease);
 }
-.masthead:not(.is-stuck) .brand__logo{filter:brightness(0) invert(1)}
+.brand__logo--dark{position:absolute;top:0;left:0;opacity:0}
+.masthead.is-stuck .brand__logo--light{opacity:0}
+.masthead.is-stuck .brand__logo--dark{opacity:1}
 
 .brand__mark{border-color:rgba(231,238,245,.45)}
-.masthead:not(.is-stuck) .brand:hover .brand__logo{
+.masthead:not(.is-stuck) .brand:hover .brand{position:relative}
+.brand__logo{
   height:clamp(30px,3vw,40px);
   width:auto;
   display:block;
-  transition:filter .55s var(--ease);
+  transition:opacity .45s var(--ease);
 }
-.masthead:not(.is-stuck) .brand__logo{filter:brightness(0) invert(1)}
+.brand__logo--dark{position:absolute;top:0;left:0;opacity:0}
+.masthead.is-stuck .brand__logo--light{opacity:0}
+.masthead.is-stuck .brand__logo--dark{opacity:1}
 
 .brand__mark{background:var(--paper);color:var(--ink-deep)}
 .masthead:not(.is-stuck) .brand__name small{color:rgba(231,238,245,.6)}
@@ -331,13 +342,16 @@ h1,h2,h3,h4,p{margin:0}
   min-height:clamp(70px,7vw,92px);
 }
 .brand{display:flex;align-items:center;gap:.72rem;flex:none}
+.brand{position:relative}
 .brand__logo{
   height:clamp(30px,3vw,40px);
   width:auto;
   display:block;
-  transition:filter .55s var(--ease);
+  transition:opacity .45s var(--ease);
 }
-.masthead:not(.is-stuck) .brand__logo{filter:brightness(0) invert(1)}
+.brand__logo--dark{position:absolute;top:0;left:0;opacity:0}
+.masthead.is-stuck .brand__logo--light{opacity:0}
+.masthead.is-stuck .brand__logo--dark{opacity:1}
 
 .brand__mark{
   width:40px;height:40px;
@@ -351,13 +365,16 @@ h1,h2,h3,h4,p{margin:0}
   flex:none;
   transition:background .45s var(--ease),color .45s var(--ease);
 }
-.brand:hover .brand__logo{
+.brand:hover .brand{position:relative}
+.brand__logo{
   height:clamp(30px,3vw,40px);
   width:auto;
   display:block;
-  transition:filter .55s var(--ease);
+  transition:opacity .45s var(--ease);
 }
-.masthead:not(.is-stuck) .brand__logo{filter:brightness(0) invert(1)}
+.brand__logo--dark{position:absolute;top:0;left:0;opacity:0}
+.masthead.is-stuck .brand__logo--light{opacity:0}
+.masthead.is-stuck .brand__logo--dark{opacity:1}
 
 .brand__mark{background:var(--ink);color:var(--paper)}
 .brand__name{
@@ -830,6 +847,19 @@ h1,h2,h3,h4,p{margin:0}
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
+.rev.is-open .rev__body{-webkit-line-clamp:unset;overflow:visible}
+.rev__more{
+  align-self:flex-start;
+  font-family:var(--mono);
+  font-size:.6rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--focus-deep);
+  border-bottom:1px solid var(--focus);
+  padding-bottom:.25em;
+  transition:color .35s var(--ease)}
+.rev__more:hover{color:var(--ink)}
 .rev__g{
   margin-top:auto;
   font-family:var(--mono);
@@ -918,8 +948,12 @@ h1,h2,h3,h4,p{margin:0}
   margin-bottom:clamp(28px,3.2vw,44px);
 }
 .ba__intro{grid-column:1/span 6}
-.ba__note{grid-column:8/span 5;align-self:end}
-@media (max-width:900px){.ba__intro,.ba__note{grid-column:1/-1}}
+.ba__note{grid-column:8/span 4;align-self:end}
+.ba__head-ctrl{grid-column:12/span 1;justify-self:end;align-self:end}
+@media (max-width:900px){
+  .ba__intro,.ba__note{grid-column:1/-1}
+  .ba__head-ctrl{grid-column:1/-1;justify-self:start}
+}
 .ba__h2{margin:clamp(14px,1.6vw,20px) 0 0}
 
 .ba__tabs{
@@ -962,12 +996,26 @@ h1,h2,h3,h4,p{margin:0}
 }
 
 .ba__panel[hidden]{display:none}
+.ba__viewport{overflow:hidden}
 .ba__cases{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
+  display:flex;
   gap:clamp(18px,2.2vw,32px);
+  transition:transform .8s var(--ease-out);
 }
-@media (max-width:900px){.ba__cases{grid-template-columns:1fr}}
+.ba__case{flex:0 0 calc((100% - clamp(18px,2.2vw,32px)) / 2)}
+@media (max-width:900px){.ba__case{flex:0 0 100%}}
+.ba__ctrl{display:flex;gap:10px}
+.ba__arrow{
+  width:46px;height:46px;
+  display:grid;place-items:center;
+  border:1px solid var(--line-light);
+  border-radius:50%;
+  color:var(--paper);
+  transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease),opacity .3s;
+}
+.ba__arrow:hover:not(:disabled){background:var(--paper);color:var(--ink-deep);border-color:var(--paper)}
+.ba__arrow:disabled{opacity:.28;cursor:default}
+.ba__arrow svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
 
 .ba__frame{
   background:rgba(231,238,245,.055);
@@ -1335,7 +1383,36 @@ h1,h2,h3,h4,p{margin:0}
   text-transform:uppercase;
   color:var(--focus-deep);
 }
-.team__bio{font-size:.82rem;color:var(--muted);line-height:1.55;margin-top:.3rem}
+.team__bio{
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.55;
+  margin-top:.3rem;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.team__card.is-open .team__bio{-webkit-line-clamp:unset;overflow:visible}
+.team__more{
+  margin-top:auto;
+  padding-top:.9rem;
+  align-self:flex-start;
+  font-family:var(--mono);
+  font-size:.6rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--focus-deep);
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  transition:color .35s var(--ease);
+}
+.team__more::after{content:"→";transition:transform .4s var(--ease-out)}
+.team__more:hover{color:var(--ink)}
+.team__more:hover::after{transform:translateX(4px)}
+.team__card.is-open .team__more::after{transform:rotate(-90deg)}
 
 /* =====================================================================
    15. Shop banner
@@ -1623,9 +1700,7 @@ h1,h2,h3,h4,p{margin:0}
 }
 @media (max-width:980px){.jr__grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.jr__grid{grid-template-columns:1fr}}
-.jr__card{display:flex;flex-direction:column;gap:.9rem;group:card}
-.jr__card:nth-child(odd){margin-top:clamp(0px,2vw,30px)}
-@media (max-width:560px){.jr__card:nth-child(odd){margin-top:0}}
+.jr__card{display:flex;flex-direction:column;gap:.9rem}
 .jr__thumb{
   aspect-ratio:3/2;
   overflow:hidden;
@@ -1753,17 +1828,25 @@ h1,h2,h3,h4,p{margin:0}
 }
 @media (max-width:1000px){.ft__grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.ft__grid{grid-template-columns:1fr}}
-.ft__brand{display:flex;align-items:center;gap:.72rem;color:var(--paper);margin-bottom:1.1rem}
-.ft__brand .brand__logo{
-  height:clamp(30px,3vw,40px);
+.ft__logo{
+  height:clamp(38px,3.4vw,46px);
   width:auto;
   display:block;
-  transition:filter .55s var(--ease);
+  margin-bottom:1.75rem;
 }
-.masthead:not(.is-stuck) .brand__logo{filter:brightness(0) invert(1)}
-
-.brand__mark{border-color:rgba(231,238,245,.4)}
-.ft__brand .brand__name small{color:rgba(231,238,245,.5)}
+.ft__cqc{
+  display:block;
+  width:clamp(150px,12vw,182px);
+  height:auto;
+  margin-top:1.6rem;
+  border-radius:10px;
+  background:var(--white);
+  overflow:hidden;
+}
+.ft__omd{display:inline-flex;align-items:center;gap:.45em;white-space:nowrap}
+.ft__omd a{display:inline-flex;align-items:center;gap:.4em}
+.ft__omd a:hover{color:var(--focus)}
+.ft__omd img{height:14px;width:14px;flex:none}
 .ft__strap{font-size:.86rem;line-height:1.6;max-width:34ch;margin-bottom:1.4rem}
 .ft__accred{display:flex;flex-wrap:wrap;gap:.45rem}
 .ft__badge{

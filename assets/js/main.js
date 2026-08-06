@@ -11,17 +11,31 @@
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-  /* ---------- Scroll reveal ---------- */
+  /* ---------- Scroll reveal ----------
+     IntersectionObserver drives this, but a geometry check runs alongside it.
+     An element that starts visually hidden can report a zero-area intersection
+     rect and so never fire, which would leave it hidden for good. */
   var revealables = $$('.r, .r-clip, .r-line');
+  function revealBy(el) { el.classList.add('is-in'); }
+  function sweepReveals() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = revealables.length - 1; i >= 0; i--) {
+      var el = revealables[i];
+      if (el.classList.contains('is-in')) { revealables.splice(i, 1); continue; }
+      var top = el.getBoundingClientRect().top;
+      if (top < vh * 0.92) { revealBy(el); revealables.splice(i, 1); }
+    }
+  }
   if ('IntersectionObserver' in window && !reduced) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-      });
+      entries.forEach(function (e) { if (e.isIntersecting) { revealBy(e.target); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-    revealables.forEach(function (el) { io.observe(el); });
+    revealables.slice().forEach(function (el) { io.observe(el); });
+    sweepReveals();
+    window.addEventListener('load', sweepReveals);
   } else {
-    revealables.forEach(function (el) { el.classList.add('is-in'); });
+    revealables.slice().forEach(revealBy);
+    revealables.length = 0;
   }
 
   /* ---------- Header: floats over the hero, frosts once scrolled ---------- */
@@ -44,7 +58,7 @@
   var ticking = false;
   window.addEventListener('scroll', function () {
     if (!ticking) {
-      window.requestAnimationFrame(function () { onScrollHeader(); ticking = false; });
+      window.requestAnimationFrame(function () { onScrollHeader(); sweepReveals(); ticking = false; });
       ticking = true;
     }
   }, { passive: true });
@@ -132,6 +146,7 @@
       '</div>' +
       '<div class="rev__stars">' + STAR + STAR + STAR + STAR + STAR + '</div>' +
       '<p class="rev__body">' + r.t + '</p>' +
+      '<button class="rev__more" type="button">Read more</button>' +
       '<p class="rev__g">Posted on Google</p>' +
     '</article>';
   }
@@ -140,6 +155,17 @@
     var html = REVIEWS.map(revCard).join('');
     revTrack.innerHTML = html + html;           // duplicated → seamless -50% loop
     if (reduced) revTrack.style.animation = 'none';
+
+    // Expand a review in place. Only clamped cards need the control.
+    $$('.rev', revTrack).forEach(function (card) {
+      var body = $('.rev__body', card), btn = $('.rev__more', card);
+      if (!body || !btn) return;
+      if (body.scrollHeight <= body.clientHeight + 2) { btn.style.display = 'none'; return; }
+      btn.addEventListener('click', function () {
+        var open = card.classList.toggle('is-open');
+        btn.textContent = open ? 'Read less' : 'Read more';
+      });
+    });
   }
 
   /* ---------- Before & after tabs ---------- */
@@ -176,6 +202,31 @@
     cmp.addEventListener('pointerup',   function () { dragging = false; });
     cmp.addEventListener('pointercancel', function () { dragging = false; });
   });
+
+  /* ---------- Before & after carousel (two cases in view) ---------- */
+  (function () {
+    var track = $('#baTrack'), prev = $('#baPrev'), next = $('#baNext');
+    if (!track || !prev || !next) return;
+    var i = 0;
+    function step() {
+      var card = $('.ba__case', track);
+      if (!card) return 0;
+      return card.offsetWidth + (parseFloat(getComputedStyle(track).gap) || 0);
+    }
+    function maxX() { return Math.max(0, track.scrollWidth - track.parentElement.offsetWidth); }
+    function go(n) {
+      var st = step(), pages = st ? Math.ceil(maxX() / st) : 0;
+      i = Math.max(0, Math.min(pages, n));
+      track.style.transform = 'translateX(' + (-Math.min(i * st, maxX())) + 'px)';
+      prev.disabled = i === 0;
+      next.disabled = i >= pages;
+    }
+    next.addEventListener('click', function () { go(i + 1); });
+    prev.addEventListener('click', function () { go(i - 1); });
+    window.addEventListener('resize', function () { go(0); }, { passive: true });
+    window.addEventListener('load', function () { go(0); });
+    go(0);
+  })();
 
   /* ---------- Treatments: accordion + synced imagery ---------- */
   var svcRows = $$('.svc__row');
@@ -259,6 +310,16 @@
     b.addEventListener('mouseenter', function () { condGo(i); });
     b.addEventListener('focus', function () { condGo(i); });
     b.addEventListener('click', function () { condGo(i); });
+  });
+
+  /* ---------- Team bios: Read more ---------- */
+  $$('.team__card').forEach(function (card) {
+    var bio = $('.team__bio', card), btn = $('.team__more', card);
+    if (!bio || !btn) return;
+    btn.addEventListener('click', function () {
+      var open = card.classList.toggle('is-open');
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
   });
 
   /* ---------- Team carousel ---------- */
