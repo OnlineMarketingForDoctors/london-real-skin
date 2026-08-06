@@ -672,16 +672,16 @@ h1,h2,h3,h4,p{margin:0}
   padding:clamp(14px,1.35vw,18px);
   display:flex;
   gap:clamp(12px,1.1vw,16px);
-  align-items:flex-start;
+  align-items:stretch;
 }
 .promo__thumb{
   flex:none;
-  width:clamp(58px,5vw,74px);
-  aspect-ratio:1;
-  object-fit:cover;
-  border-radius:3px;
-  background:var(--white);
-  border:1px solid rgba(42,70,100,.1);
+  width:clamp(56px,4.6vw,68px);
+  align-self:stretch;
+  height:auto;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:drop-shadow(0 10px 16px rgba(22,41,60,.22));
 }
 .promo__text{display:flex;flex-direction:column;gap:.28rem;min-width:0}
 .promo__kicker{
@@ -939,7 +939,7 @@ h1,h2,h3,h4,p{margin:0}
 /* =====================================================================
    11. Before & after — dark plate, matching the client's own layout
    ===================================================================== */
-.ba{background:var(--ink-deep);color:var(--paper)}
+.ba{background:var(--ink);color:var(--paper)}   /* mid navy — Treatments below is --ink-deep */
 .ba__head{
   display:grid;
   grid-template-columns:repeat(12,1fr);
@@ -1018,7 +1018,7 @@ h1,h2,h3,h4,p{margin:0}
 .ba__arrow svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
 
 .ba__frame{
-  background:rgba(231,238,245,.055);
+  background:rgba(231,238,245,.075);
   border:1px solid var(--line-light);
   border-radius:14px;
   padding:clamp(12px,1.2vw,18px);
@@ -1434,13 +1434,14 @@ h1,h2,h3,h4,p{margin:0}
   background-size:cover;
   background-position:center right;
   background-image:var(--img);
+  filter:brightness(.66) saturate(.85) contrast(1.06);
 }
 .shop::before{
   content:"";
   position:absolute;
   inset:0;
   z-index:-1;
-  background:linear-gradient(95deg,rgba(12,26,40,.93) 0%,rgba(12,26,40,.78) 38%,rgba(12,26,40,.2) 68%,transparent 100%);
+  background:linear-gradient(95deg,rgba(12,26,40,.95) 0%,rgba(12,26,40,.88) 34%,rgba(12,26,40,.45) 60%,rgba(12,26,40,.12) 100%);
 }
 .shop__in{width:100%;padding-block:clamp(50px,6vw,84px)}
 .shop__copy{max-width:min(560px,54%)}
@@ -1741,7 +1742,7 @@ h1,h2,h3,h4,p{margin:0}
   inset:0;
   background:
     radial-gradient(120% 90% at 12% 15%,rgba(29,176,186,.13) 0%,transparent 60%),
-    linear-gradient(160deg,var(--ink) 0%,var(--ink-deep) 62%);
+    linear-gradient(200deg,var(--ink-deep) 0%,var(--ink) 78%);
   pointer-events:none;
 }
 .cta__in{
