@@ -76,6 +76,16 @@ The hero offers widget uses the same artwork at full card height: `promo-emsculp
 `logo.png` (header + footer, inverted to white on dark) · `favicon.png` ·
 `cqc.png` (footer) · `omd.png` (footer "Powered by" line)
 
+### Media logos — 4 · `assets/img/media/`
+`media-independent.webp` · `media-closer.png` · `Daily_Express_masthead.svg` · `Sheerluxe.svg`
+
+Used in the *As featured in* stripe beneath the hero. Rendered greyscale at one weight with
+`mix-blend-mode: multiply`, which drops the white plates the raster files ship with.
+
+> The Closer artwork arrived as a 900×500 canvas holding only 863×221 of ink, so it rendered
+> optically much smaller than the others at a shared height. `media-closer.png` is trimmed to
+> its ink box; the untrimmed original is kept alongside it.
+
 ### Location · `assets/img/clinic-location.jpg`
 The real 233 High Holborn entrance, used as the closing CTA's portrait image.
 

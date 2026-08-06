@@ -755,6 +755,48 @@ h1,h2,h3,h4,p{margin:0}
 @media (max-width:620px){.hero__count{display:none}}
 
 /* =====================================================================
+   8b. As featured in
+   ===================================================================== */
+.seen{
+  background:var(--paper-pure);
+  border-bottom:1px solid var(--line-soft);
+}
+.seen__in{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:clamp(18px,3vw,44px);
+  flex-wrap:wrap;
+  padding-block:clamp(18px,2.2vw,28px);
+}
+.seen__lbl{
+  font-family:var(--mono);
+  font-size:.635rem;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--muted);
+  flex:none;
+}
+.seen__logo{
+  height:clamp(20px,2.1vw,29px);
+  width:auto;
+  max-width:clamp(96px,13vw,158px);
+  object-fit:contain;
+  /* the mastheads arrive in assorted blacks; multiply drops the white boxes
+     and the filter settles them into one weight against the pale ground */
+  mix-blend-mode:multiply;
+  opacity:.72;
+  filter:grayscale(1) contrast(1.08);
+  transition:opacity .4s var(--ease),filter .4s var(--ease);
+}
+.seen__logo:hover{opacity:1;filter:grayscale(0) contrast(1)}
+@media (max-width:760px){
+  .seen__in{justify-content:center;gap:22px}
+  .seen__lbl{flex:0 0 100%;text-align:center;margin-bottom:2px}
+}
+
+/* =====================================================================
    9. Reviews marquee
    ===================================================================== */
 .revs{

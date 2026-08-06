@@ -89,6 +89,13 @@ around it.
 
 ---
 
+## 1b. As featured in
+
+**Label:** As featured in
+**Logos:** The Independent · Closer · Daily Express · SheerLuxe
+
+---
+
 ## 2. Reviews carousel
 
 **Eyebrow:** Patient reviews
