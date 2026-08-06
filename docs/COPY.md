@@ -60,7 +60,7 @@ around it.
 
 **Scroll cue:** Scroll to explore
 
-### 1a. Promotions slider (bottom-right of hero)
+### 1a. Promotions slider (bottom-right of hero) — three slides
 
 **Slide 1**
 - Kicker: Body sculpting
@@ -68,6 +68,7 @@ around it.
 - Price line: From only £199 per session
 - Blurb: Build muscle and reduce fat in one 30-minute session. No downtime.
 - CTA: View offer
+- Device shown: EmSculpt Neo
 
 **Slide 2**
 - Kicker: Package
@@ -75,6 +76,15 @@ around it.
 - Price line: £1,800.00
 - Blurb: A complete course built around men's skin — texture, tone and laxity.
 - CTA: View package
+- Device shown: xCellaris Pro Twist
+
+**Slide 3**
+- Kicker: Package
+- Title: Body Toning — Skin Tightening & Muscle Strengthening
+- Price line: £2,300.00
+- Blurb: Radiofrequency skin tightening and muscle strengthening, run as one course.
+- CTA: View package
+- Device shown: BTL Exion
 
 ---
 
