@@ -890,8 +890,9 @@ h1,h2,h3,h4,p{margin:0}
   text-transform:uppercase;
   display:flex;
   align-items:center;
-  gap:.5em;
+  gap:.55em;
 }
+.rev__g-mark{width:14px;height:14px;flex:none;display:block}
 
 /* =====================================================================
    10. About
