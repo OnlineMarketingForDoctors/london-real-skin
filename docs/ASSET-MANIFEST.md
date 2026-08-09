@@ -8,9 +8,9 @@ What every image on the site is, and where it came from. Covers `index.html` and
 |---|---|
 | Real client assets, committed to this repo | **29** |
 | AI-generated, committed to this repo | 0 |
-| AI-generated, still hot-linked from Higgsfield's CDN | **19** |
+| AI-generated, still hot-linked from Higgsfield's CDN | **18** |
 
-Everything the client supplied is now in the repo and in use. The 19 remaining hot-linked
+Everything the client supplied is now in the repo and in use. The 18 remaining hot-linked
 images are covered in section 4.
 
 ---
@@ -104,11 +104,20 @@ Used in the *As featured in* stripe beneath the hero. Rendered greyscale at one 
 ### Location · `assets/img/clinic-location.jpg`
 The real 233 High Holborn entrance, used as the closing CTA's portrait image on both pages.
 
-### About Us · reused photography
-No new photography was needed. The page hero is `hero-06-consultation.jpg`, *Our story* uses
-`hero-01-injectables.jpg`, *Process makes perfect* uses `hero-03-examination.jpg`, and the
-closing CTA uses `clinic-location.jpg`. Only the mission and vision still lifes are new
-(section 4).
+### About Us · client photography
+| Slot | File |
+|---|---|
+| Page hero | `hero/hero-06-consultation.jpg`, mirrored in CSS so the patient sits right of the headline |
+| Our story, main | `team-shot.jpg` |
+| Our story, inset | `hydrafacial-treatment.jpg` |
+| Our mission | `consultation.jpg` |
+| Our vision | `laser-treatment.jpg` |
+| Skincare banner | `shop-banner.jpg` |
+| Closing CTA | `clinic-location.jpg` |
+
+The four new files arrived as 10 MB of PNG and were converted to progressive JPEG at quality
+86, longest edge 1500–1800px. That is 770 KB for all four, and it is why they are `.jpg` here
+and `.png` in the upload.
 
 ---
 
@@ -141,14 +150,14 @@ closing CTA uses `clinic-location.jpg`. Only the mission and vision still lifes 
 
 ---
 
-## 4. The 19 hot-linked images
+## 4. The 18 hot-linked images
 
 Still served from `d8j0ntlcm91z4.cloudfront.net`, not this repo:
 
 - **12** condition plates for the dermatoscope lens (`assets/js/main.js`, `PLATES`)
 - **4** journal thumbnails (`index.html`)
 - **1** "Body" treatment card (`index.html`)
-- **2** About Us still lifes, mission and vision (`about.html`)
+- **1** *Why choose LRS* full-bleed background on About Us (`about.html`)
 
 They are macro skin studies and abstract stock-style imagery — nothing patient-identifying.
 They render fine in a browser, but a third-party CDN on the critical render path is not a
@@ -174,7 +183,7 @@ grep -ohE 'hf_[0-9]{8}_[0-9]{6}_[a-f0-9-]+\.png' index.html about.html assets/js
 sed -i "s|$CDN/|/assets/img/generated/|g" index.html about.html assets/js/main.js
 ```
 
-That should write **19** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
+That should write **18** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
 rewrites `CDN` itself, so the plates follow automatically.
 
 > Note the leading slash. A relative `url()` inside a CSS custom property resolves against the
