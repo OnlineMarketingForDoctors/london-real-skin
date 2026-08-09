@@ -1,6 +1,6 @@
 # Asset manifest
 
-What every image on the homepage is, and where it came from.
+What every image on the site is, and where it came from. Covers `index.html` and `about.html`.
 
 ## Summary
 
@@ -8,9 +8,9 @@ What every image on the homepage is, and where it came from.
 |---|---|
 | Real client assets, committed to this repo | **29** |
 | AI-generated, committed to this repo | 0 |
-| AI-generated, still hot-linked from Higgsfield's CDN | **18** |
+| AI-generated, still hot-linked from Higgsfield's CDN | **19** |
 
-Everything the client supplied is now in the repo and in use. The 18 remaining hot-linked
+Everything the client supplied is now in the repo and in use. The 19 remaining hot-linked
 images are covered in section 4.
 
 ---
@@ -27,7 +27,7 @@ The clinic's own photography, resized to 2400px and re-encoded (35 MB → 2.0 MB
 | `hero-03-examination.jpg` | Dr Martin Wade examining a patient with loupes |
 | `hero-04-treatment.jpg` | Dr Wade treating a patient |
 | `hero-05-device.jpg` | Device-led treatment in a clinic room |
-| `hero-06-consultation.jpg` | Consultation with a hand mirror — **in the repo but not in use**, removed from the hero at the client's request |
+| `hero-06-consultation.jpg` | Consultation with a hand mirror — removed from the homepage hero at the client's request, now the **About Us page hero** |
 | `hero-07-skinpen.jpg` | SkinPen microneedling |
 
 A light cool grade (`saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6deg)`) pulls the
@@ -41,9 +41,15 @@ drive the About section and four of the five treatment-group cards.
 Names, roles and bios come from the client's own microneedling landing page, where each
 headshot filename maps to a person — so the pairing is the client's, not a guess.
 
-> **Dr Meriem Martins** (`team-meriem-martins.jpg`, formerly `IMG_6454`) was identified by the
-> client. Her **role is listed as "Doctor" and her bio is a neutral placeholder** — no source
-> gives either. Send her actual title and bio and they drop straight in.
+> **Roles are now the client's own.** The supplied About Us page lists all seven, which
+> corrected three of them: Dr Meriem Martins is an **Aesthetic Doctor** (previously a placeholder
+> "Doctor"), Dr Flor Kent is an **Aesthetic Doctor** rather than a Dermatologist, and Leigh and
+> Kylie are both **Aestheticians**. Homepage and About Us now carry the same seven cards, in the
+> client's order.
+>
+> Individual bios are still ours. No source gives per-person biographies, so each one stays
+> within what the role and the clinic's own copy support. Send real bios and they drop straight
+> in.
 >
 > *Mina*, named in the questionnaire and in a Google review, still has no photo.
 
@@ -96,7 +102,13 @@ Used in the *As featured in* stripe beneath the hero. Rendered greyscale at one 
 > its ink box; the untrimmed original is kept alongside it.
 
 ### Location · `assets/img/clinic-location.jpg`
-The real 233 High Holborn entrance, used as the closing CTA's portrait image.
+The real 233 High Holborn entrance, used as the closing CTA's portrait image on both pages.
+
+### About Us · reused photography
+No new photography was needed. The page hero is `hero-06-consultation.jpg`, *Our story* uses
+`hero-01-injectables.jpg`, *Process makes perfect* uses `hero-03-examination.jpg`, and the
+closing CTA uses `clinic-location.jpg`. Only the mission and vision still lifes are new
+(section 4).
 
 ---
 
@@ -124,19 +136,19 @@ The real 233 High Holborn entrance, used as the closing CTA's portrait image.
 | Item | Status |
 |---|---|
 | 4 journal cards | **Placeholder.** `londonrealskin.com/news/` is blocked by this environment's egress policy. Titles are topic placeholders. **Replace before launch.** |
-| Shop banner | Generated. The product screenshot was not among the uploads; prices and names in the copy are real. |
+| Shop banner | Generated, and now committed to the repo. The product screenshot was not among the uploads; prices and names in the copy are real. |
 | "Body" treatment-group card | Generated — the only group with no matching real photo. |
 
 ---
 
-## 4. The 18 hot-linked images
+## 4. The 19 hot-linked images
 
 Still served from `d8j0ntlcm91z4.cloudfront.net`, not this repo:
 
 - **12** condition plates for the dermatoscope lens (`assets/js/main.js`, `PLATES`)
-- **4** journal thumbnails
-- **1** shop banner
-- **1** "Body" treatment card
+- **4** journal thumbnails (`index.html`)
+- **1** "Body" treatment card (`index.html`)
+- **2** About Us still lifes, mission and vision (`about.html`)
 
 They are macro skin studies and abstract stock-style imagery — nothing patient-identifying.
 They render fine in a browser, but a third-party CDN on the critical render path is not a
@@ -150,13 +162,20 @@ for a 9 KB logo and impossible for photographs.
 **To fix, from a machine with normal network access:**
 
 ```bash
+CDN=https://d8j0ntlcm91z4.cloudfront.net/user_3Ary2g06ZSWzxFoVWIP644Wm9ZG
 mkdir -p assets/img/generated
-grep -ohE 'https://d8j0ntlcm91z4\.cloudfront\.net/[^")'"'"' ]+' index.html assets/js/main.js \
+
+# Every generated filename on the site. The 12 condition plates are stored in main.js as
+# bare filenames joined to a CDN constant, so match on the filename, not on the full URL.
+grep -ohE 'hf_[0-9]{8}_[0-9]{6}_[a-f0-9-]+\.png' index.html about.html assets/js/main.js \
   | sort -u \
-  | while read -r u; do curl -sSL -o "assets/img/generated/$(basename "$u")" "$u"; done
-sed -i 's|https://d8j0ntlcm91z4\.cloudfront\.net/user_3Ary2g06ZSWzxFoVWIP644Wm9ZG/|/assets/img/generated/|g' \
-  index.html assets/js/main.js
+  | while read -r f; do curl -sSL -o "assets/img/generated/$f" "$CDN/$f"; done
+
+sed -i "s|$CDN/|/assets/img/generated/|g" index.html about.html assets/js/main.js
 ```
+
+That should write **19** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
+rewrites `CDN` itself, so the plates follow automatically.
 
 > Note the leading slash. A relative `url()` inside a CSS custom property resolves against the
 > **stylesheet**, not the document, so image paths used via `--img` must be root-relative.

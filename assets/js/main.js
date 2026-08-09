@@ -65,6 +65,7 @@
 
   /* ---------- Mobile drawer ---------- */
   var burger = $('#burger'), drawer = $('#drawer'), drawerClose = $('#drawerClose');
+  if (burger && drawer && drawerClose) {
   function setDrawer(open) {
     drawer.classList.toggle('is-open', open);
     burger.classList.toggle('is-open', open);
@@ -77,11 +78,13 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false);
   });
+  }
 
-  /* ---------- Hero slideshow ---------- */
+  /* ---------- Hero slideshow (homepage only) ---------- */
   var slides = $$('.hero__slide');
   var heroNum = $('#heroNum');
   var heroI = 0, heroTimer = null;
+  if (slides.length) {
   function heroGo(n) {
     slides[heroI].classList.remove('is-on');
     heroI = (n + slides.length) % slides.length;
@@ -102,22 +105,27 @@
     if (document.hidden) { window.clearInterval(heroTimer); }
     else { window.clearInterval(heroTimer); heroStart(); }
   });
-
-  /* ---------- Promotions slider ---------- */
-  var pTrack = $('#promoTrack');
-  var pDots = $$('#promoDots .promo__dot');
-  var pCount = pDots.length, pI = 0, pTimer = null;
-  function pGo(n) {
-    pI = (n + pCount) % pCount;
-    pTrack.style.transform = 'translateX(' + (-100 * pI) + '%)';
-    pDots.forEach(function (d, i) { d.classList.toggle('is-on', i === pI); });
   }
-  function pStart() { if (!reduced) pTimer = window.setInterval(function () { pGo(pI + 1); }, 7000); }
-  function pReset() { window.clearInterval(pTimer); pStart(); }
-  $('#promoNext').addEventListener('click', function () { pGo(pI + 1); pReset(); });
-  $('#promoPrev').addEventListener('click', function () { pGo(pI - 1); pReset(); });
-  pDots.forEach(function (d, i) { d.addEventListener('click', function () { pGo(i); pReset(); }); });
-  pStart();
+
+  /* ---------- Promotions slider (homepage only) ---------- */
+  (function () {
+    var pTrack = $('#promoTrack');
+    var pDots = $$('#promoDots .promo__dot');
+    var pNext = $('#promoNext'), pPrev = $('#promoPrev');
+    if (!pTrack || !pDots.length || !pNext || !pPrev) return;
+    var pCount = pDots.length, pI = 0, pTimer = null;
+    function pGo(n) {
+      pI = (n + pCount) % pCount;
+      pTrack.style.transform = 'translateX(' + (-100 * pI) + '%)';
+      pDots.forEach(function (d, i) { d.classList.toggle('is-on', i === pI); });
+    }
+    function pStart() { if (!reduced) pTimer = window.setInterval(function () { pGo(pI + 1); }, 7000); }
+    function pReset() { window.clearInterval(pTimer); pStart(); }
+    pNext.addEventListener('click', function () { pGo(pI + 1); pReset(); });
+    pPrev.addEventListener('click', function () { pGo(pI - 1); pReset(); });
+    pDots.forEach(function (d, i) { d.addEventListener('click', function () { pGo(i); pReset(); }); });
+    pStart();
+  })();
 
   /* ---------- Reviews marquee ----------
      Real, verbatim Google reviews supplied by the clinic.                */

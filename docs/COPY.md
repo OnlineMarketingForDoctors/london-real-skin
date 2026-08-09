@@ -1,4 +1,4 @@
-# London Real Skin — Homepage Copy Deck
+# London Real Skin — Copy Deck
 
 **Client:** London Real Skin (trading name of The London Skin and Hair Clinic Ltd)
 **Address:** 233 High Holborn, London WC1V 7DN · **Phone:** 020 7183 5892
@@ -12,6 +12,8 @@ expectations well*. Copy therefore says "designed to", "typically", "for most pa
 every outcome claim is qualified. UK English throughout.
 
 ---
+
+# Homepage
 
 ## 0. Header
 
@@ -422,3 +424,122 @@ info@londonrealskin.com
 
 **Legal line (client-supplied, verbatim):**
 © 2026 London Real Skin. Trading name of The London Skin and Hair Clinic Ltd. CQC regulated.
+
+
+---
+
+# About Us
+
+Source: the client's existing **About Us** page, supplied as HTML. The story, the four-step
+process and the seven reasons are the clinic's own words, lightly tightened for rhythm and
+consistency of tense. Two things changed on purpose:
+
+- The dated **Covid Secure** point was dropped, leaving seven reasons rather than eight.
+- **Mission** and **vision** did not exist on the old page. They are written from the
+  questionnaire's own positioning (evidence-based, expectations managed honestly, complimentary
+  consultations, 0% finance), so they claim nothing the rest of the site does not already say.
+
+The team roles here are the client's, taken verbatim from the old page. They corrected three
+roles that were guesses on the homepage.
+
+## A1. Page hero
+
+**Breadcrumb:** Home / About us
+**Eyebrow:** About us
+**H1:** One of London's *best kept secrets*
+**Body:** Operating since 2016, London Real Skin has been one of the best kept secrets amongst aesthetic patients who value results and a unified approach towards their skin health goals.
+**CTAs:** Book a free consultation · Meet the team
+
+## A2. Our story
+
+**Eyebrow:** Our story
+**H2:** Get to know *London Real Skin*
+
+Located within the London Skin and Hair Dermatology Clinic, London Real Skin is a proudly premium dermatology-led aesthetic clinic for medical-grade skincare excellence, and advanced laser treatments carried out in a CQC-registered centre.
+
+Together with Medical Director Dr Wade, our medically trained team treat real skin concerns with real solutions, tailoring bespoke advice in the best interest of every unique patient to enter the clinic.
+
+Our aesthetic team use state-of-the-art technology and leading skincare brands within a combined solution to meet your skin goals. They are passionate about delivering natural looking, subtle results that will leave you feeling confident and happy.
+
+**Figures:** 2016 Treating skin since · 20+ Years of consultant dermatology · 4.9 Average Google rating · CQC Registered facility
+
+## A3. Mission and vision
+
+**Eyebrow:** What drives us
+**H2:** Our mission, and *where we're going*
+
+**Our mission — To treat real skin concerns with real solutions**
+We only offer treatments we believe in. Every one has been hand-selected by our Medical Director following careful analysis of the clinical studies behind it, so that what we recommend is chosen on evidence rather than trend. We would rather tell you a treatment will not help than sell you one that will not.
+
+**Our vision — Dermatology-led skin care, made accessible**
+Specialist skin care should not sit behind a velvet rope. We want every patient who walks into Holborn to leave understanding their own skin, with a plan they can actually follow and afford, supported by complimentary consultations and interest-free finance.
+
+## A4. Process makes perfect
+
+**Eyebrow:** How we work
+**H2:** Process makes perfect. *Here's ours*
+**Intro:** From start to finish we want to ensure you receive the very best treatment from our team of experienced professionals.
+
+| | Step | Copy |
+|---|---|---|
+| 01 | Skin education | Our experienced and highly qualified aesthetic practitioners will complete an in-depth and bespoke consultation with you, to deeply understand your skin concerns and treatment goals. |
+| 02 | Skin recommendation | Before your first treatment you will receive a consent form along with useful information and pre and post-care guidelines. Your practitioner will talk you through the treatment and answer any questions you may have. |
+| 03 | Skin treatment | Using state-of-the-art laser technology, clinical equipment, skincare treatments and products, we begin your bespoke treatment plan to aid tangible results and overall skin improvements. |
+| 04 | Skin maintenance | Our aesthetic professionals will advise you on post-treatment aftercare to protect and treat the skin, and to maintain optimal results well beyond your last appointment. |
+
+## A5. Why choose us
+
+**Eyebrow:** Why choose LRS
+**H2:** Seven reasons *patients stay*
+
+1. **Dermatology-led aesthetic clinic** — Consultant Dermatologist and Medical Director Dr Martin Wade works alongside our highly skilled and licensed aesthetic practitioners and nurses.
+2. **Evidence-based treatments** — Hand-selected on the strength of clinical studies and trials, then assessed for efficacy and safety before they ever enter the clinic.
+3. **Flexible and convenient** — A city-centre location next to Holborn station, with extended hours on Wednesday through Friday and appointments on Saturdays.
+4. **Leading technology and brands** — Including NeoStrata, Sciton BBL and MOXI, Sterex, Dermalux Triwave and Obagi, alongside our own London Real Skin range.
+5. **Visible and natural-looking results** — Subtle outcomes that meet your skin goals rather than announce themselves, with expectations managed honestly from the first appointment.
+6. **Complimentary consultations** — An in-depth skin analysis before any treatment, followed by regular reviews as your plan progresses. No charge, and no obligation.
+7. **0% finance options** — Flexible terms over 3 to 12 months to support patients through a course of treatment, with an upfront saving. Terms and conditions apply.
+
+## A6. Our team
+
+**Eyebrow:** Meet the team
+**H2:** Dermatology-led, *genuinely personal*
+**Intro:** Our team includes experienced aesthetic doctors, medical aesthetic practitioners and nurses, all trained in delivering safe and effective results, working closely alongside the consultant dermatologists of the London Skin and Hair Clinic in a unified approach.
+
+| Name | Role (client-supplied) |
+|---|---|
+| Dr Martin Wade | Consultant Dermatologist & Medical Director |
+| Dr Meriem Martins | Aesthetic Doctor |
+| Dr Flor Kent | Aesthetic Doctor |
+| Dr Inna | Aesthetic Doctor |
+| Leigh | Aesthetician |
+| Kylie | Aesthetician |
+| Ellen | Aesthetician |
+
+**Closing note:** Our aesthetic team are highly qualified in the treatments they offer, and regularly update their knowledge of techniques and products by attending training, leading conferences and workshops across the aesthetics industry.
+
+> Bios are still ours. No source gives per-person biographies.
+
+## A7. What our clients say
+
+The same seven verified Google reviews as the homepage, same marquee, same 4.9 / 338 attribution.
+**Lead-in:** What our clients say after being treated at 233 High Holborn.
+
+## A8. Skincare banner
+
+**Eyebrow:** Industry-leading skincare
+**H2:** Proud stockists, *and our own label*
+**Body:** We are proud stockists of the Obagi range alongside our own London Real Skin label, which aims to restore and rejuvenate with a Vitamin C antioxidant gel, gentle cleanser and exfoliator, brightening serum and hydrating moisturiser that consistently deliver results.
+**CTA:** Visit the shop
+
+## A9. Closing CTA
+
+**Eyebrow:** Get in touch
+**H2:** Come and see us in *Holborn*
+**Body:** Every plan starts with a complimentary consultation and an in-depth skin analysis. You will leave knowing what will help, what will not, and what it costs.
+**CTAs:** Book a free consultation · Call 020 7183 5892
+**Caption:** London Real Skin, 233 High Holborn. London WC1V 7DN, next to Holborn station.
+
+## A10. Footer
+
+Identical to the homepage, including the client-supplied legal line.
