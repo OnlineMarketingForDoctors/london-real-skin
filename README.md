@@ -3,14 +3,15 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** homepage, About Us, Treatments and Conditions built, for review. The remaining
-pages (Devices, Blog, Pricing, Contact) are not built yet.
+**Status:** homepage, About Us, Treatments, Conditions and Devices built, for review. The
+remaining pages (Blog, Pricing, Contact) are not built yet.
 
 ```
 index.html                 the homepage
 about.html                 About Us
 treatments.html            Treatments directory
 conditions.html            Conditions we treat
+devices.html               Devices
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -110,6 +111,23 @@ itself links to `conditions/<slug>.html`. Neither set of detail pages exists yet
 Cards stretch to the tallest in their row, so every row starts and ends on one line. The
 "what we use" block is pushed to the bottom of the card, so the chips and the read-more link
 align across a row even when the descriptions run to different lengths.
+
+## Devices sections
+
+Page hero · A device is not a treatment plan · six platforms as spec sheets · Also in the
+clinic · cross-links to Conditions and Treatments · Closing CTA · Footer.
+
+Each platform gets a data sheet: technology, what it works on, downtime, typical course and
+price, then the treatments it delivers and the concerns it addresses, cross-linked into
+`treatments/` and `conditions.html`. Rows alternate left and right.
+
+The section is dark, and the artwork is the client's own transparent device PNGs, trimmed to
+the ink box and centred on a 1100px square canvas (`assets/img/devices/cutout-*.png`). The
+lit ground is drawn in CSS rather than baked into the file, so there is no white plate behind
+the hardware.
+
+**Device pricing needs confirming.** The figures came over from the first homepage build and
+have no client source behind them. So does the balance of what each platform is used for.
 
 ## Quality floor
 

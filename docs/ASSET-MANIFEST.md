@@ -1,7 +1,7 @@
 # Asset manifest
 
 What every image on the site is, and where it came from. Covers `index.html`, `about.html`,
-`treatments.html`, `conditions.html` and `404.html`.
+`treatments.html`, `conditions.html`, `devices.html` and `404.html`.
 
 ## Summary
 
@@ -181,6 +181,33 @@ headline.
 The twelve cards reuse the twelve macro plates already generated for the homepage lens, so the
 same specimen appears in both places and nothing new was needed. *When it is not cosmetic* reuses
 `hero/hero-03-examination.jpg`.
+
+### Devices · cutouts
+`devices.html` uses none of the composited `device-*.jpg` shots. Those carry a light cyclorama
+baked into the file, which reads as a white plate on the page's dark ground, the exact thing the
+client asked to be removed from the hero promo widget.
+
+Instead the page uses `cutout-*.png`, built from the client's own transparent artwork: trimmed
+to the alpha bounding box, scaled to a common 1100px square canvas with 6% padding, so all six
+devices sit at the same optical weight. The lit ground behind them is CSS.
+
+| Slug | Built from |
+|---|---|
+| `cutout-sciton-moxi.png` | `Sciton Moxi Laser tramsparent.png` |
+| `cutout-bbl-hero.png` | `BBL Hero transparent.png` (palette transparency, converted to RGBA) |
+| `cutout-emsculpt-neo.png` | `emsculpt trasnparent.png` |
+| `cutout-btl-exion.png` | `BTL Exion transparent.png` |
+| `cutout-xcellaris.png` | `Skin Xcell.webp` |
+| `cutout-harmony-xl.png` | `Harmony XL.webp` |
+
+> **The fifth device was misnamed.** It had been carried since the first build as *xCellaris Pro
+> Twist*, described as a microneedling pen. The client's own artwork is branded **skinXcell** and
+> shows a console with three RF handpieces, and their treatment menu lists *SkinXcell RF
+> Micro-needling*. Corrected on both the Devices page and the homepage, along with an
+> unsupported *£350 with exosomes* price line.
+
+The page hero uses `laser-treatment.jpg`, real hardware in the real clinic, in preference to a
+generated device photograph.
 
 ## 4. The 24 hot-linked images
 

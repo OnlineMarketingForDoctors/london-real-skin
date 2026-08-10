@@ -741,3 +741,79 @@ page promises a result.
 ## C6. Closing CTA and footer
 
 Identical to the other pages.
+
+
+---
+
+# Devices
+
+Six platforms with full spec sheets, then four more listed without one. Nothing here is
+generated: the artwork is the client's own transparent device files.
+
+> **Two accuracy notes.** The fifth device had been carried since the first build as *xCellaris
+> Pro Twist*, a microneedling pen. The client's artwork is branded **skinXcell** and shows an RF
+> console with three handpieces, and their menu lists *SkinXcell RF Micro-needling*, so it is now
+> SkinXcell. An unsupported *£350 with exosomes* line came off at the same time.
+>
+> **Device pricing needs confirming.** The figures below came over from the first homepage build
+> and have no client source behind them.
+
+## D1. Page hero
+
+**Breadcrumb:** Home / Devices
+**Eyebrow:** Devices
+**H1:** The devices behind *the results*
+**Body:** Six platforms, chosen on the strength of the clinical evidence behind them rather than the marketing around them. Here is what each one is, and what it is honestly for.
+**CTAs:** Book a free consultation · See the platforms
+
+## D2. A device is not a treatment plan
+
+**Eyebrow:** Worth saying first
+**H2:** A device is not *a treatment plan*
+**Lede:** Clinics like to lead with hardware because hardware photographs well. It is the least interesting part of the decision. The same laser can help one patient and set another back, and nothing on this page changes that.
+**Body:** Which platform is used, at what setting, and how many times, is decided at consultation after your skin has been assessed properly. This page is here so you know what we own and why, not so you can pick one.
+**Figures:** 06 Platforms in the clinic · 04 Manufacturers · CQC Registered facility
+
+## D3. The platforms
+
+**Eyebrow:** The platforms
+**H2:** What we own, *and what it does*
+
+Each entry carries technology, what it works on, downtime, typical course and price, then the
+treatments it delivers and the concerns it addresses.
+
+| | Platform | Maker | Technology | From |
+|---|---|---|---|---|
+| 01 | Sciton MOXI | Sciton | 1927nm fractional non-ablative | £1,500 for a course of 3 |
+| 02 | Sciton BBL Hero | Sciton | Filtered broadband light | £1,200 for a course of 3 |
+| 03 | EmSculpt Neo | BTL | HIFEM with synchronised radiofrequency | £199 per session |
+| 04 | BTL Exion | BTL | RF microneedling, impedance monitored | £280 |
+| 05 | SkinXcell | SkinXcell | Radiofrequency, three handpieces | £200 |
+| 06 | Harmony XL Pro | Alma | Multi-application platform, modular handpieces | Priced at consultation |
+
+## D4. Also in the clinic
+
+**Eyebrow:** Also in the clinic
+**H2:** Four more, *quietly useful*
+**Lede:** Not every piece of equipment needs a page of its own. These four do a specific job, often alongside one of the platforms above.
+
+| | Name | Copy |
+|---|---|---|
+| 07 | Dermalux Triwave | Medical LED phototherapy across three wavelengths. Used on its own for inflammation and redness, and after resurfacing to settle the skin down. |
+| 08 | Sterex | Advanced cosmetic procedures by electrolysis. The precise route for skin tags, thread veins and small benign lesions, one at a time, under magnification. |
+| 09 | HydraFacial | Cleansing, exfoliation, extraction and hydration in one pass. The treatment people book before an event, and the one that pairs well with almost everything else. |
+| 10 | Kleresca | Biophotonic light with a photoconverter gel, used for acne and for rejuvenation. Gentle enough for skin that will not tolerate a laser. |
+
+These four are named in the client's own *Leading technology and brands* line and their treatment
+menu. They have no device artwork in the repo, which is why they are a list rather than six more
+spec sheets.
+
+## D5. Cross-links
+
+**Eyebrow:** Start somewhere else
+**H2:** Or begin with the concern
+**CTAs:** Conditions we treat · All treatments
+
+## D6. Closing CTA and footer
+
+Identical to the other pages.
