@@ -1178,3 +1178,68 @@ the URL.
 | 30 | Facials and peels | Top 5 Reasons Why You Should Get a HydraFacial in London | `top-5-reasons-why-you-should-get-a-hydrafacial-in-london.html` |
 | 31 | Injectables | Profhilo: Unveiling the Fountain of Youth Within Your Face | `profhilo-unveiling-the-fountain-of-youth-within-your-face.html` |
 | 32 | The clinic | Dermatologist vs. Aesthetician: Who Do You Need to See for Your Radiant Skin? | `dermatologist-vs-aesthetician-who-do-you-need-to-see-for-your-radiant-skin.html` |
+
+
+---
+
+# Contact
+
+Source: the client's existing contact page, supplied as an HTML export. Everything factual is
+theirs, including one detail that was missing everywhere else on the site: the clinic is on the
+**first floor** of 233 High Holborn.
+
+## C1. Page hero
+
+**Breadcrumb:** Home / Contact
+**Eyebrow:** Contact us
+**H1:** 233 High Holborn, *first floor*
+**Body:** Next to Holborn station, open six days a week, with late appointments Wednesday through Friday. The first consultation is free and the phone is answered by a person.
+**CTAs:** Send an enquiry · Call 020 7183 5892
+
+## C2. Make an enquiry
+
+**Eyebrow:** Make an enquiry
+**H2:** Tell us what is *on your mind*
+**Lede:** Complete the form to make an enquiry or to schedule your free consultation. We answer every message, and we will tell you honestly if what you are asking about is not something we would recommend.
+
+**Fields:** First name · Last name · Email · Phone · What are you interested in (Not sure yet, I would like advice / Injectables / Face, laser and resurfacing / Body / For men / Medical treatments / Skincare and products) · Your message · consent checkbox.
+
+**Consent wording:** I am happy for London Real Skin to contact me about this enquiry.
+
+**Under the button:** Prefer to talk it through? Call 020 7183 5892 or email info@londonrealskin.com.
+
+**After submit:** Your email is ready to send. We have opened your email programme with the enquiry filled in. If nothing opened, send it to info@londonrealskin.com or call 020 7183 5892.
+
+> The form has no backend. A static site cannot accept a POST, so a validated submit composes a
+> pre-filled email and opens the visitor's mail client. It works, and the address and phone are
+> repeated on screen in case it does not. Replace with a real endpoint when the booking system is
+> wired up.
+
+## C3. Details card
+
+London Real Skin, 233 High Holborn, first floor, London WC1V 7DN
+020 7183 5892 · info@londonrealskin.com · Get directions
+
+Opening hours as everywhere else on the site.
+
+**Arrival note (client's own):** Please arrive 15 minutes before your appointment. That gives you
+time to complete the registration forms and for us to update the details we hold for you.
+
+## C4. Getting here
+
+**Eyebrow:** Getting here
+**H2:** Right next to *Holborn station*
+
+| | Copy |
+|---|---|
+| By tube | Holborn station, on the Central and Piccadilly lines, is right next to the clinic. Chancery Lane on the Central line is about a ten minute walk. |
+| By bus or train | Multiple routes run along High Holborn. We are a short taxi ride from King's Cross and St Pancras International. |
+| By car | Parking is available behind the clinic around Lincoln's Inn Fields, paid by mobile phone or card. We are inside the congestion charging zone, so allow time for traffic and for finding a space. |
+
+All three are the client's own directions, lightly tightened.
+
+## C5. Trust strip and footer
+
+Free consultation · CQC-registered · 0% finance available · Dermatology-led since 2016, then the
+standard footer. This is the only page without the closing CTA section: the whole page is the
+call to action, and `#contact` points at the enquiry form instead.

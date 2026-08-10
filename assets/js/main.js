@@ -449,6 +449,44 @@
     });
   }
 
+  /* ---------- Contact: enquiry form ----------
+     There is no backend on a static site, so a validated submit composes a
+     pre-filled email to the clinic. Replace with a real endpoint when the
+     booking system is wired up; the markup will not need to change. */
+  var enquiry = $('#enquiryForm');
+  if (enquiry) {
+    var frmDone = $('#frmDone');
+    enquiry.addEventListener('submit', function (e) {
+      e.preventDefault();
+      enquiry.classList.add('is-checked');
+      if (!enquiry.checkValidity()) {
+        var bad = enquiry.querySelector(':invalid');
+        if (bad) { bad.focus(); }
+        return;
+      }
+      var get = function (id) { var el = $('#' + id); return el ? el.value.trim() : ''; };
+      var name = (get('fName') + ' ' + get('lName')).trim();
+      var lines = [
+        'Name: ' + name,
+        'Email: ' + get('email'),
+        'Phone: ' + get('phone'),
+        'Interested in: ' + get('interest'),
+        '',
+        get('message'),
+        '',
+        'Sent from the London Real Skin website enquiry form.'
+      ];
+      var href = 'mailto:info@londonrealskin.com'
+        + '?subject=' + encodeURIComponent('Website enquiry from ' + name)
+        + '&body=' + encodeURIComponent(lines.join('\n'));
+      window.location.href = href;
+      if (frmDone) {
+        frmDone.hidden = false;
+        frmDone.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
+      }
+    });
+  }
+
   /* ---------- Smooth in-page anchors, allowing for the sticky header ---------- */
   $$('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {

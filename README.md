@@ -3,8 +3,7 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** homepage, About Us, Treatments, Conditions, Devices, Pricing and Blog built, for
-review. Contact is not built yet.
+**Status:** all eight pages built, for review.
 
 ```
 index.html                 the homepage
@@ -14,6 +13,7 @@ conditions.html            Conditions we treat
 devices.html               Devices
 pricing.html               full price list
 blog.html                  blog index, 32 articles
+contact.html               contact, enquiry form, getting here
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -183,6 +183,30 @@ fall back to. One stray *Read more*, one dropped initial letter (*orget chasing*
 The homepage *Latest insights* cards now carry the four newest real articles instead of the
 placeholders, which removes four of the hot-linked CDN images.
 
+## Contact sections
+
+Page hero · enquiry form and details card · Getting here · trust strip · Footer.
+
+Content is the client's existing contact page: the address including **first floor**, which was
+missing everywhere else on the site, the fifteen-minute arrival note, and the travel directions
+for tube, bus, train and car.
+
+This is the only page without the closing CTA. The whole page is the call to action, and
+`#contact` points at the enquiry form instead, so every "Book free consultation" button on the
+page lands somewhere useful.
+
+**The form has no backend.** A static site cannot accept a POST, so a validated submit composes
+a pre-filled email to `info@londonrealskin.com` and opens the visitor's mail client, with the
+address and phone number repeated on screen in case nothing opens. It works today and it is
+honest, but it should be replaced with a real endpoint when the booking system is wired up. The
+markup will not need to change, only the submit handler in `assets/js/main.js`.
+
+Validation only marks a field once submit has been pressed, never while typing.
+
+There is no embedded map. *Get directions* opens Google Maps in a new tab instead, which keeps
+the page fast and avoids loading third-party tracking on a medical site. An embed can be added
+if the client wants one.
+
 ## Quality floor
 
 - Responsive to 390px; single-column below 900px, drawer navigation below 1180px.
@@ -208,7 +232,38 @@ them. The manifest has a two-command fix.
 
 ## Before this goes live
 
-1. **Localise the 24 hot-linked images** — `docs/ASSET-MANIFEST.md`.
-2. **Replace the four journal cards** with real posts from `/news/`.
-3. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
-4. Wire the CTAs to Pabau booking and the enquiry form.
+**Content and data**
+
+1. **Confirm the price column.** `pricing.html` uses *Price LRS*; *FINAL PRICE* differs on about
+   thirty lines. See the Pricing notes in `docs/COPY.md`.
+2. **Confirm the device pricing and the six device descriptions** on `devices.html`. They came
+   over from the first homepage build with no client source.
+3. **Send the full *For men* and *Medical treatments* treatment lists.** The supplied menu
+   screenshots were cut off.
+4. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
+5. Mina, named in the questionnaire and in a Google review, still has no photograph.
+6. Real publication dates for the 32 blog articles, if they exist.
+
+**Wiring**
+
+7. **Point the enquiry form at a real endpoint.** It currently composes an email; see the
+   Contact notes above.
+8. Wire the *Book free consultation* buttons to Pabau.
+9. **Decide the article URLs.** Links assume `<slug>.html` at the root, matching the old site,
+   so the rankings survive. Anything else needs redirects.
+10. Build the `treatments/` and `conditions/` detail pages, or point those links elsewhere.
+    Until then they land on `404.html`.
+
+**Assets**
+
+11. **Localise the 20 hot-linked generated images** — `docs/ASSET-MANIFEST.md`.
+12. **Copy the 32 article images off `londonrealskin.com`.** They break when the old site comes
+    down.
+
+**Compliance**
+
+13. **Botox is named in one blog title**, carried over from the live site. Naming a
+    prescription-only medicine in public advertising needs a legal view. It appears nowhere else:
+    the price list and every treatment page say *anti-wrinkle injections*.
+14. Nothing on the site promises a result, and no before/after imagery is synthetic. Keep it
+    that way.
