@@ -1,7 +1,7 @@
 # Asset manifest
 
 What every image on the site is, and where it came from. Covers `index.html`, `about.html`,
-`treatments.html` and `404.html`.
+`treatments.html`, `conditions.html` and `404.html`.
 
 ## Summary
 
@@ -9,9 +9,9 @@ What every image on the site is, and where it came from. Covers `index.html`, `a
 |---|---|
 | Real client assets, committed to this repo | **29** |
 | AI-generated, committed to this repo | 0 |
-| AI-generated, still hot-linked from Higgsfield's CDN | **23** |
+| AI-generated, still hot-linked from Higgsfield's CDN | **24** |
 
-Everything the client supplied is now in the repo and in use. The 23 remaining hot-linked
+Everything the client supplied is now in the repo and in use. The 24 remaining hot-linked
 images are covered in section 4.
 
 ---
@@ -173,15 +173,26 @@ before or an after, so nothing here reads as an outcome claim.
 The page hero reuses `hero/hero-07-skinpen.jpg` and *Not sure where to start* reuses
 `consultation.jpg`. The 404 hero reuses `hero/hero-04-treatment.jpg`.
 
-## 4. The 23 hot-linked images
+### Conditions · hero and cards
+One new image: the page hero, a dermatoscope examination generated with Nano Banana Pro at 2K in
+16:9, carrying the palette lock and the skin-realism lock, with the left third held dark for the
+headline.
+
+The twelve cards reuse the twelve macro plates already generated for the homepage lens, so the
+same specimen appears in both places and nothing new was needed. *When it is not cosmetic* reuses
+`hero/hero-03-examination.jpg`.
+
+## 4. The 24 hot-linked images
 
 Still served from `d8j0ntlcm91z4.cloudfront.net`, not this repo:
 
-- **12** condition plates for the dermatoscope lens (`assets/js/main.js`, `PLATES`)
+- **12** macro condition plates, used twice: the homepage dermatoscope lens
+  (`assets/js/main.js`, `PLATES`) and the Conditions cards (`conditions.html`)
 - **4** journal thumbnails (`index.html`)
 - **1** "Body" treatment card (`index.html`)
 - **1** *Why choose LRS* full-bleed background on About Us (`about.html`)
 - **5** Treatments category images, one per category (`treatments.html`)
+- **1** Conditions page hero (`conditions.html`)
 
 They are macro skin studies and abstract stock-style imagery — nothing patient-identifying.
 They render fine in a browser, but a third-party CDN on the critical render path is not a
@@ -200,14 +211,14 @@ mkdir -p assets/img/generated
 
 # Every generated filename on the site. The 12 condition plates are stored in main.js as
 # bare filenames joined to a CDN constant, so match on the filename, not on the full URL.
-grep -ohE 'hf_[0-9]{8}_[0-9]{6}_[a-f0-9-]+\.png' index.html about.html treatments.html assets/js/main.js \
+grep -ohE 'hf_[0-9]{8}_[0-9]{6}_[a-f0-9-]+\.png' index.html about.html treatments.html conditions.html assets/js/main.js \
   | sort -u \
   | while read -r f; do curl -sSL -o "assets/img/generated/$f" "$CDN/$f"; done
 
-sed -i "s|$CDN/|/assets/img/generated/|g" index.html about.html treatments.html assets/js/main.js
+sed -i "s|$CDN/|/assets/img/generated/|g" index.html about.html treatments.html conditions.html assets/js/main.js
 ```
 
-That should write **23** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
+That should write **24** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
 rewrites `CDN` itself, so the plates follow automatically.
 
 > Note the leading slash. A relative `url()` inside a CSS custom property resolves against the

@@ -3,13 +3,14 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** homepage, About Us and Treatments built, for review. The remaining pages
-(Conditions, Devices, Blog, Pricing, Contact) are not built yet.
+**Status:** homepage, About Us, Treatments and Conditions built, for review. The remaining
+pages (Devices, Blog, Pricing, Contact) are not built yet.
 
 ```
 index.html                 the homepage
 about.html                 About Us
 treatments.html            Treatments directory
+conditions.html            Conditions we treat
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -95,6 +96,19 @@ Two category lists are almost certainly incomplete. The client's menu screenshot
 and *Medical treatments* were cut off, so those sections currently carry one and two treatments
 respectively. Send the full lists and they drop straight in.
 
+## Conditions sections
+
+Page hero · Concern first, machine second · the twelve concerns as a staggered card grid ·
+When it is not cosmetic · a cross-link to Treatments · Closing CTA · Footer.
+
+The twelve concerns are the same list as the homepage dermatoscope, and the cards reuse the same
+twelve macro plates, so nothing new had to be generated for them. Every card carries the
+treatments we use for that concern, each one linking into `treatments/<slug>.html`; the concern
+itself links to `conditions/<slug>.html`. Neither set of detail pages exists yet, so both land on
+`404.html` for now.
+
+The middle column of the grid is offset, so the rows never scan as a table.
+
 ## Quality floor
 
 - Responsive to 390px; single-column below 900px, drawer navigation below 1180px.
@@ -113,14 +127,14 @@ All of the client's real photography is in the repo and in use: 7 hero images, 7
 portraits, 4 consented before/after pairs, 6 device shots composited onto a shared set, the LRS
 logo, favicon, CQC mark and the 233 High Holborn entrance. See `docs/ASSET-MANIFEST.md`.
 
-Twenty-three generated images (12 dermatoscope condition plates, 4 journal thumbnails, one
-treatment card, the About Us *Why choose LRS* background and the 5 Treatments category images)
-are still hot-linked from a CDN because this build environment cannot download them. The
-manifest has a two-command fix.
+Twenty-four generated images (12 macro condition plates, 4 journal thumbnails, one treatment
+card, the About Us *Why choose LRS* background, the 5 Treatments category images and the
+Conditions hero) are still hot-linked from a CDN because this build environment cannot download
+them. The manifest has a two-command fix.
 
 ## Before this goes live
 
-1. **Localise the 23 hot-linked images** — `docs/ASSET-MANIFEST.md`.
+1. **Localise the 24 hot-linked images** — `docs/ASSET-MANIFEST.md`.
 2. **Replace the four journal cards** with real posts from `/news/`.
 3. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
 4. Wire the CTAs to Pabau booking and the enquiry form.

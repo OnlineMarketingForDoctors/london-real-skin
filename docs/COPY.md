@@ -673,3 +673,71 @@ Identical to the other pages.
 **Body:** Either it has moved, or it is one of the treatment pages still being written. The clinic is very much open in the meantime, and the phone is answered by a person.
 **CTAs:** Browse treatments · Call 020 7183 5892
 **Then:** Try one of these, followed by links to Home, About us, Treatments, Conditions we treat, Devices and Journal.
+
+
+---
+
+# Conditions
+
+The twelve concerns are the client's own list, carried over from the homepage dermatoscope. The
+descriptions are ours. Each one is written to do a specific job: say what the thing actually is,
+name the distinction that changes the treatment, and refuse the outcome claim. Nothing on this
+page promises a result.
+
+## C1. Page hero
+
+**Breadcrumb:** Home / Conditions
+**Eyebrow:** Conditions
+**H1:** Tell us what is *bothering you*
+**Body:** Most people arrive with a concern rather than a treatment in mind. These are the twelve we see most often, what each one actually is, and what we use for it.
+**CTAs:** Book a free consultation · See all twelve
+
+## C2. Concern first, machine second
+
+**Eyebrow:** How this works
+**H2:** Concern first, *machine second*
+**Lede:** A laser is not a diagnosis. Two people with what looks like the same brown patch can need two completely different plans, and one of them can be made worse by the treatment that helps the other.
+**Body:** So every plan here starts with a proper look at the skin, under magnification, by someone qualified to say what they are seeing. That consultation is free, and it is as likely to end in skincare and a review as it is in a course of treatment.
+**Figures:** 12 Concerns on this page · 20+ Years of consultant dermatology · CQC Registered facility
+
+## C3. The twelve
+
+**Eyebrow:** What we treat
+**H2:** Twelve concerns, *seen properly*
+**Lede:** Each one links through to the treatments we use for it. If what is bothering you is not listed, it is still worth asking.
+
+| | Concern | Copy | What we use |
+|---|---|---|---|
+| 01 | Acne Scarring | Textural change left behind once the acne itself has settled: rolling, boxcar or icepick. Which of the three you have decides what helps, which is why we look first. | Laser Resurfacing for Acne Scarring · SkinXcell RF Micro-needling · Sciton MOXI Fractional Resurfacing · Medical Grade Skin Peel London |
+| 02 | Ageing Skin | Volume loss, laxity and dullness tend to arrive together. Almost always a plan across several months rather than one appointment. | Profhilo London · Polynucleotides in London · Dermal Fillers · Fractional Radiofrequency Skin Tightening · Laser Facial Rejuvenation |
+| 03 | Crepey Skin | Fine, papery laxity on the neck, chest, upper arms or under the eye. It is not a wrinkle and it is not treated like one. | Fractional Radiofrequency Skin Tightening · SkinXcell RF Micro-needling · Body Contouring with Skin Tightening London · Profhilo London |
+| 04 | Excess Hair | Unwanted hair on the face or body. Laser suits some hair and skin combinations far better than others, and a patch test settles it before you commit to a course. | Laser Hair Removal |
+| 05 | Fine Lines & Wrinkles | Lines from expression, lines from sun, and usually both. Where a line comes from decides whether relaxing it or resurfacing it is the right answer. | Anti-Wrinkle Injections London · Dermal Fillers · Sciton MOXI Fractional Resurfacing · SkinXcell RF Micro-needling |
+| 06 | Genital Skin Tags & Warts | Benign lesions in an area people put off asking about. Assessed and removed discreetly, in a CQC-registered facility, by clinicians who see them every week. | Skin Tags |
+| 07 | Pigmentation & Age Spots | Sun damage, melasma and post-inflammatory marks look alike and behave nothing alike. Getting the diagnosis right matters more here than anywhere else on this page. | Sciton BBL for Pigmentation · Sciton MOXI Fractional Resurfacing · Medical Grade Skin Peel London |
+| 08 | Rosacea | Persistent redness, flushing and visible vessels, usually with a trigger pattern behind it. Managed rather than cured, and managed well. | Sciton BBL for Rosacea, Vascular Lesions and Pigmentation · Dye VL Rosacea & Vascular IPL · Kleresca Light Therapy |
+| 09 | Skin Tags | Small benign growths, usually where skin rubs against skin or clothing. Quick to remove, and far better looked at than picked at. | Skin Tags |
+| 10 | Stretch Marks & Cellulite | Structural change in the dermis rather than a surface mark. Improvement is realistic, erasure is not, and we will tell you that before you book. | BioDermaGenisi for Stretch Marks · Fractional Radiofrequency Skin Tightening · Laser Resurfacing for Scars |
+| 11 | Teeth Grinding | Bruxism, and the widening of the jaw that comes with it. Relaxing the masseter eases the clenching and softens the jawline at the same time. | Anti-Wrinkle Injections London |
+| 12 | Thread Veins | Fine broken capillaries on the face or legs. Vascular light targets the vessel itself and leaves the skin around it alone. | Dye VL Rosacea & Vascular IPL · Sciton BBL for Rosacea, Vascular Lesions and Pigmentation |
+
+## C4. When it is not cosmetic
+
+**Eyebrow:** When it is not cosmetic
+**H2:** Some skin needs a *diagnosis, not a plan*
+**Lede:** A mole that has changed, a rash that will not settle, a lesion you are unsure about. None of that belongs on a treatment menu, and we will not put it on one.
+**Body:** London Real Skin sits inside the London Skin and Hair Clinic, and our Medical Director is on the GMC specialist register for dermatology. If what you bring us needs a dermatologist rather than a device, you are already in the right building.
+**CTAs:** Book a free consultation · Meet the team
+
+> This section is the page's whole argument. It is also the one thing on the site that actively
+> turns work away, which is why it is written plainly and given a full dark band to itself.
+
+## C5. Cross-link
+
+**Eyebrow:** The other way round
+**H2:** Know the treatment already?
+**CTA:** Browse all treatments
+
+## C6. Closing CTA and footer
+
+Identical to the other pages.
