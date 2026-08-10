@@ -543,3 +543,133 @@ The same seven verified Google reviews as the homepage, same marquee, same 4.9 /
 ## A10. Footer
 
 Identical to the homepage, including the client-supplied legal line.
+
+
+---
+
+# Treatments
+
+Source: the client's existing site menu, supplied as screenshots. Every treatment name is
+theirs. Two edits were made:
+
+- `Sciton BBL – Roseacea, Vascular Lesions and Pigmentation` became **Sciton BBL for Rosacea,
+  Vascular Lesions and Pigmentation**, correcting the spelling and removing the dash.
+- Sentence case is used for headings; the treatment names themselves keep the client's casing.
+
+The category blurbs are ours, written to the same rule as the rest of the site: state the
+position, qualify the outcome, and never promise a result.
+
+> **The *For men* and *Medical treatments* lists are incomplete.** The supplied screenshots were
+> cut off after the first item and the first two items respectively. Everything listed is
+> confirmed; there is very likely more.
+
+## T1. Page hero
+
+**Breadcrumb:** Home / Treatments
+**Eyebrow:** Treatments
+**H1:** Everything we do, *and who it is for*
+**Body:** Thirty-seven treatments across five categories, every one hand-selected by our Medical Director on the strength of the clinical evidence behind it. Start anywhere. A free consultation will tell you which of them, if any, is right for your skin.
+**CTAs:** Book a free consultation · Browse treatments
+
+## T2. Injectables
+
+**Eyebrow:** Category 01
+**H2:** Injectables
+**Lede:** Doctor-led precision work. Wrinkle relaxing, dermal filler, biostimulators and skin boosters, planned around your face rather than a template.
+**Aside:** Every injectable at London Real Skin is administered by a GMC-registered doctor, after a consultation that includes what we would not recommend.
+**Count:** 11 treatments
+
+1. Anti-Wrinkle Injections London
+2. Dermal Fillers
+3. Polynucleotides in London
+4. Lip Enhancement
+5. Non-Surgical Rhinoplasty
+6. Profhilo London
+7. Excessive Sweating
+8. Vampire Facelift
+9. Non Surgical Eye Lift
+10. Jaw Enhancement London
+11. Hand Rejuvenation
+
+## T3. Face
+
+**Eyebrow:** Category 02
+**H2:** Face
+**Lede:** Lasers, light and resurfacing. The technology end of the clinic, matched to your skin type and concern after a proper assessment rather than sold off a menu.
+**Aside:** Skin type, sun exposure and medical history all change which device is appropriate. That is settled at consultation, not at booking.
+**Count:** 13 treatments
+
+1. Laser Resurfacing for Acne Scarring
+2. Sciton BBL for Rosacea, Vascular Lesions and Pigmentation
+3. Sciton MOXI Fractional Resurfacing
+4. Dye VL Rosacea & Vascular IPL
+5. Laser Facial Rejuvenation
+6. Skin Tightening Treatments
+7. SkinXcell RF Micro-needling
+8. HydraFacial London
+9. Dermalux LED Phototherapy London
+10. Kleresca Light Therapy
+11. Medical Grade Skin Peel London
+12. Laser Tattoo Removal
+13. Skin Consultation
+
+## T4. Body
+
+**Eyebrow:** Category 03
+**H2:** Body
+**Lede:** Contour, tighten and smooth. Muscle and fat work, skin tightening, hair reduction and scar revision, from the neck down.
+**Aside:** Body treatments usually run as a course. We will tell you how many sessions the evidence supports before you commit to any of them.
+**Count:** 10 treatments
+
+1. Emsculpt NEO
+2. Laser Hair Removal
+3. HydraFacial HydraBody
+4. Fractional Radiofrequency Skin Tightening
+5. BioDermaGenisi for Stretch Marks
+6. Body Contouring with Skin Tightening London
+7. Laser Resurfacing for Scars
+8. Sciton BBL for Pigmentation
+9. Medical Grade Chemical Peels
+10. Laser Tattoo Removal
+
+## T5. For men
+
+**Eyebrow:** Category 04
+**H2:** For men
+**Lede:** Men's skin is thicker, oilier and beard-bearing, and it scars and pigments differently. Same technology, different protocol.
+**Aside:** Roughly a third of our patients are men. Treatment plans are built for a face that gets shaved daily and rarely wears sunscreen.
+**Count:** 01 treatment
+
+1. MOXI for Men
+
+## T6. Medical treatments
+
+**Eyebrow:** Category 05
+**H2:** Medical treatments
+**Lede:** The dermatology-led end of the clinic. Lesion removal and medical-grade skin work, carried out under a Consultant Dermatologist.
+**Aside:** If something on your skin needs a diagnosis rather than a treatment, you are in the right building. Dr Wade sits on the GMC specialist register for dermatology.
+**Count:** 02 treatments
+
+1. Skin Tags
+2. Medical Grade Skin Peel London
+
+## T7. Not sure where to start
+
+**Eyebrow:** Not sure where to start
+**H2:** Come in for the *consultation first*
+**Body:** Thirty-seven treatments is a lot to choose between, and choosing badly is how people end up disappointed. The consultation is free, it includes an in-depth skin analysis, and it ends with a written plan. Sometimes that plan is a single treatment. Sometimes it is skincare and a review in three months.
+**CTAs:** Book a free consultation · Explore conditions
+
+## T8. Closing CTA and footer
+
+Identical to the other pages.
+
+---
+
+# 404
+
+**Eyebrow:** Error 404
+**H1:** This page is not *here yet*
+**Body:** Either it has moved, or it is one of the treatment pages still being written. The clinic is very much open in the meantime, and the phone is answered by a person.
+**CTAs:** Browse treatments · Call 020 7183 5892
+**Then:** Try one of these, followed by links to Home, About us, Treatments, Conditions we treat, Devices and Journal.

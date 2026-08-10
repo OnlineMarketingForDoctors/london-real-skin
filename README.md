@@ -3,12 +3,14 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** homepage and About Us built, for review. The remaining pages (Treatments,
-Conditions, Devices, Blog, Pricing, Contact) are not built yet.
+**Status:** homepage, About Us and Treatments built, for review. The remaining pages
+(Conditions, Devices, Blog, Pricing, Contact) are not built yet.
 
 ```
 index.html                 the homepage
 about.html                 About Us
+treatments.html            Treatments directory
+404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
 docs/COPY.md               full copy deck
@@ -67,8 +69,25 @@ and the seven reasons are the clinic's own words, lightly tightened. The dated *
 point was dropped. The official team roles on that page also corrected the homepage, where
 Dr Meriem Martins had a placeholder role.
 
-Both pages share one stylesheet and one script; the homepage-only behaviour (hero slideshow,
-promotions widget, drawer) is guarded so the same bundle runs on either page.
+All pages share one stylesheet and one script; page-specific behaviour (hero slideshow,
+promotions widget, drawer, treatment category nav) is guarded so the same bundle runs anywhere.
+
+## Treatments sections
+
+Page hero · sticky category nav · five category sections, each with an image, a short position
+statement and the full treatment list · Not sure where to start · Closing CTA · Footer.
+
+The five categories and their thirty-seven treatments come from the client's existing site
+menu. Layout weight and ground tone alternate together, so no two categories read the same, and
+*For men* inverts to the dark ground.
+
+Every treatment links to `treatments/<slug>.html`. **Those pages do not exist yet**, which is
+what `404.html` is for: Vercel serves it for any unknown path, and it says the page is still
+being written rather than showing a bare error.
+
+Two category lists are almost certainly incomplete. The client's menu screenshots for *For men*
+and *Medical treatments* were cut off, so those sections currently carry one and two treatments
+respectively. Send the full lists and they drop straight in.
 
 ## Quality floor
 
@@ -88,13 +107,14 @@ All of the client's real photography is in the repo and in use: 7 hero images, 7
 portraits, 4 consented before/after pairs, 6 device shots composited onto a shared set, the LRS
 logo, favicon, CQC mark and the 233 High Holborn entrance. See `docs/ASSET-MANIFEST.md`.
 
-Eighteen generated images (the 12 dermatoscope condition plates, 4 journal thumbnails, one
-treatment card and the About Us *Why choose LRS* background) are still hot-linked from a CDN
-because this build environment cannot download them. The manifest has a two-command fix.
+Twenty-three generated images (12 dermatoscope condition plates, 4 journal thumbnails, one
+treatment card, the About Us *Why choose LRS* background and the 5 Treatments category images)
+are still hot-linked from a CDN because this build environment cannot download them. The
+manifest has a two-command fix.
 
 ## Before this goes live
 
-1. **Localise the 18 hot-linked images** — `docs/ASSET-MANIFEST.md`.
+1. **Localise the 23 hot-linked images** — `docs/ASSET-MANIFEST.md`.
 2. **Replace the four journal cards** with real posts from `/news/`.
 3. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
 4. Wire the CTAs to Pabau booking and the enquiry form.

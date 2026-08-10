@@ -403,6 +403,26 @@
     toTopState();
   }
 
+  /* ---------- Treatments: sticky category nav ----------
+     Marks the category you are currently reading. Cheap enough to run on
+     every scroll frame: five elements, one rect read each. */
+  var tnav = $('#tnav');
+  if (tnav) {
+    var chips = $$('.tnav__chip', tnav);
+    var trtSecs = chips.map(function (c) { return document.querySelector(c.getAttribute('href')); });
+    var spyTnav = function () {
+      var line = masthead.offsetHeight + tnav.offsetHeight + 40;
+      var active = 0;
+      for (var i = 0; i < trtSecs.length; i++) {
+        if (trtSecs[i] && trtSecs[i].getBoundingClientRect().top <= line) active = i;
+      }
+      chips.forEach(function (c, i) { c.classList.toggle('is-on', i === active); });
+    };
+    window.addEventListener('scroll', spyTnav, { passive: true });
+    window.addEventListener('resize', spyTnav);
+    spyTnav();
+  }
+
   /* ---------- Smooth in-page anchors, allowing for the sticky header ---------- */
   $$('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
@@ -411,7 +431,8 @@
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var offset = masthead.offsetHeight + 12;
+      /* the chip bar sits below the masthead and would otherwise cover the heading */
+      var offset = masthead.offsetHeight + 12 + (tnav ? tnav.offsetHeight : 0);
       var y = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
     });
