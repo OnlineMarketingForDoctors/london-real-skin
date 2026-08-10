@@ -1082,3 +1082,99 @@ Prices are held under review and may change. The price confirmed at your consult
 | Medical treatments | Nano Plasma, active acne lesions | Medium area, 10 x 10cm | £600 |
 | Medical treatments | Nano Plasma, active acne lesions | Full face | £800 |
 | Medical treatments | Lesion removal | Assessment and removal | £400 |
+
+
+---
+
+# Blog
+
+Source: the client's existing `/news/` page, supplied as an HTML export. All 32 articles carried
+over with their titles, excerpts and images intact.
+
+## What is ours and what is theirs
+
+**Theirs:** every title, every excerpt, every image, and the order they appear in.
+
+**Ours:** the six topics. The export carries no category data. It carries no dates either, and no
+reading times, so **the page shows neither** rather than inventing them. If the posts have real
+publication dates, they should go back on during the content migration.
+
+| Topic | Articles |
+|---|---|
+| Injectables | 10 |
+| Laser and light | 8 |
+| Facials and peels | 4 |
+| Lesions and moles | 4 |
+| Body | 3 |
+| The clinic | 3 |
+
+The lead article filters along with the grid, so the number on each chip is exactly what
+selecting it shows.
+
+## Excerpt handling
+
+The excerpts are WordPress auto-excerpts and roughly half were cut mid-sentence, some mid-word.
+Each was trimmed back to its last complete sentence, or given an ellipsis where there was no
+sentence boundary to fall back to. No wording was changed except:
+
+| Fix | Why |
+|---|---|
+| A trailing *Read more* removed | Template text, not copy |
+| *orget chasing youthful skin* to *Forget* | Dropped initial letter on the live site |
+| *Malasma* to *melasma* | Typo |
+| One em dash to a comma | House style, punctuation only |
+
+## Compliance note
+
+Article 13 is titled *Botox London: What to Expect & How to Choose the Right Clinic*. It is
+carried over verbatim because it is a live, indexed page on the client's site, but naming a
+prescription-only medicine in advertising aimed at the public is the same issue flagged on the
+pricing page. **Worth a legal and SEO review before launch**, since renaming it also changes
+the URL.
+
+## Page copy
+
+**Breadcrumb:** Home / Blog
+**Eyebrow:** Blog
+**H1:** Skin insights from a *dermatology-led clinic*
+**Body:** Thirty-two articles on what the treatments actually do, who they suit and where they do not help. Written by the team who carry them out, in Holborn.
+**CTAs:** Book a free consultation · Read the latest
+
+**Cross-link:** Rather see the treatments / Every article ends in the same place / Conditions we treat · All treatments
+
+## The articles, in order
+
+| | Topic | Title | Link |
+|---|---|---|---|
+| 1 | Facials and peels | Hydrafacial vs Medical Grade Peel: Which Facial Is Right for Your Skin? | `hydrafacial-vs-medical-grade-peel-london.html` |
+| 2 | Laser and light | Rosacea Treatment in London: What Actually Helps Redness and Flushing? | `rosacea-treatment-in-london-what-actually-helps.html` |
+| 3 | Laser and light | Ageing Skin in Your 30s, 40s and 50s: A Dermatologist-Led Treatment Guide | `ageing-skin-in-your-30s-40s-and-50s.html` |
+| 4 | Laser and light | Best Acne Scarring Treatments in London: Dermatologist-Led Options Explained | `best-acne-scarring-treatments-london.html` |
+| 5 | Body | EMSCULPT NEO in London: Fat Reduction, Muscle Toning and Who It’s Best For | `emsculpt-neo-london-fat-reduction-muscle-toning.html` |
+| 6 | Lesions and moles | Skin Tag Removal in London: What to Expect From a Specialist Clinic | `skin-tag-removal-in-london-what-to-expect.html` |
+| 7 | Laser and light | Laser Resurfacing for Acne Scars: What Results Can You Expect? | `laser-resurfacing-for-acne-scars-london.html` |
+| 8 | The clinic | Why Choose a Dermatologist-Led Aesthetics Clinic in London? | `why-choose-a-dermatologist-led-aesthetics-clinic-in-london.html` |
+| 9 | Body | EMSCULPT NEO London: What to Expect, Results, Cost and Best Treatment Areas | `emsculpt-neo-london-guide.html` |
+| 10 | Laser and light | Sciton Moxi vs BBL HERO: Which Is Better for Pigmentation and Early Ageing? | `sciton-moxi-vs-bbl-hero-london.html` |
+| 11 | Body | Body Contouring With Skin Tightening: Non-Surgical Options in London | `body-contouring-with-skin-tightening-london.html` |
+| 12 | Injectables | Polynucleotides London: The New Era of Skin Regeneration | `polynucleotides-london-the-new-era-of-skin-regeneration.html` |
+| 13 | Injectables | Botox London: What to Expect & How to Choose the Right Clinic | `botox-london-what-to-expect-how-to-choose-the-right-clinic.html` |
+| 14 | Facials and peels | HydraFacial London: The Ultimate Glow-Boosting Treatment | `hydrafacial-london-the-ultimate-glow-boosting-treatment.html` |
+| 15 | Injectables | Anti-Wrinkle Injections in Holborn | `anti-wrinkle-injections-in-holborn.html` |
+| 16 | Injectables | Dermal Filler at London Real Skin | `dermal-filler-at-london-real-skin.html` |
+| 17 | Facials and peels | Hydrafacial in Holborn | `hydrafacial-in-holborn.html` |
+| 18 | Injectables | Polynucleotides in Holborn | `polynucleotides-in-holborn.html` |
+| 19 | Lesions and moles | Cosmetic treatments for moles | `cosmetic-treatments-for-moles.html` |
+| 20 | Lesions and moles | What is Seborrheic Keratosis? | `what-is-seborrheic-keratosis.html` |
+| 21 | Lesions and moles | Can you safely remove skin tags yourself? | `can-you-safely-remove-skin-tags-yourself.html` |
+| 22 | Injectables | How to get the most out of your Profhilo treatment | `how-to-get-the-most-out-of-your-profhilo-treatment.html` |
+| 23 | Injectables | Combining Profhilo with BBL Skintyte | `combining-profhilo-with-bbl-skintyte.html` |
+| 24 | Injectables | What is Profhilo? | `what-is-profhilo.html` |
+| 25 | Laser and light | Sciton BBL + Moxi Combo in London – the perfect combo for flawless skin | `bbl-moxi-the-pefect-combo-for-flawless-skin.html` |
+| 26 | Laser and light | Get to know BBL Hero | `get-to-know-bbl-hero.html` |
+| 27 | Laser and light | Introducing the Moxi Laser from Sciton | `introducing-the-moxi-laser-from-sciton.html` |
+| 28 | The clinic | London Real Skin Open Day | `london-real-skin-open-day.html` |
+| 29 | Injectables | Unveiling Your Radiant Skin Story with Profhilo in 2024 | `unveiling-your-radiant-skin-story-with-profhilo-in-2024.html` |
+| 30 | Facials and peels | Top 5 Reasons Why You Should Get a HydraFacial in London | `top-5-reasons-why-you-should-get-a-hydrafacial-in-london.html` |
+| 31 | Injectables | Profhilo: Unveiling the Fountain of Youth Within Your Face | `profhilo-unveiling-the-fountain-of-youth-within-your-face.html` |
+| 32 | The clinic | Dermatologist vs. Aesthetician: Who Do You Need to See for Your Radiant Skin? | `dermatologist-vs-aesthetician-who-do-you-need-to-see-for-your-radiant-skin.html` |

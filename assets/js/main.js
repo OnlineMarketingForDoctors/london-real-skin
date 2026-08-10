@@ -423,6 +423,32 @@
     spyTnav();
   }
 
+  /* ---------- Blog: filter by topic ---------- */
+  var jf = $('#jf'), jcGrid = $('#jcGrid');
+  if (jf && jcGrid) {
+    var jfChips = $$('.jf__chip', jf);
+    /* the lead article filters with the grid, so the chip counts stay honest */
+    var jcCards = $$('.jlead[data-cat]').concat($$('.jc', jcGrid));
+    var jfEmpty = $('#jfEmpty');
+    jfChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var cat = chip.getAttribute('data-cat');
+        var shown = 0;
+        jfChips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-on', on);
+          c.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        jcCards.forEach(function (card) {
+          var show = cat === 'all' || card.getAttribute('data-cat') === cat;
+          card.hidden = !show;
+          if (show) shown++;
+        });
+        if (jfEmpty) jfEmpty.hidden = shown > 0;
+      });
+    });
+  }
+
   /* ---------- Smooth in-page anchors, allowing for the sticky header ---------- */
   $$('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {

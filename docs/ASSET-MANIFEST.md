@@ -1,7 +1,6 @@
 # Asset manifest
 
-What every image on the site is, and where it came from. Covers `index.html`, `about.html`,
-`treatments.html`, `conditions.html`, `devices.html` and `404.html`.
+What every image on the site is, and where it came from. Covers every page.
 
 ## Summary
 
@@ -9,10 +8,11 @@ What every image on the site is, and where it came from. Covers `index.html`, `a
 |---|---|
 | Real client assets, committed to this repo | **29** |
 | AI-generated, committed to this repo | 0 |
-| AI-generated, still hot-linked from Higgsfield's CDN | **24** |
+| AI-generated, still hot-linked from Higgsfield's CDN | **20** |
+| Article images hot-linked from `londonrealskin.com` | **32** |
 
-Everything the client supplied is now in the repo and in use. The 24 remaining hot-linked
-images are covered in section 4.
+Everything the client supplied is now in the repo and in use. The remaining hot-linked images
+are covered in section 4.
 
 ---
 
@@ -209,17 +209,26 @@ devices sit at the same optical weight. The lit ground behind them is CSS.
 The page hero uses `laser-treatment.jpg`, real hardware in the real clinic, in preference to a
 generated device photograph.
 
-## 4. The 24 hot-linked images
+## 4. Hot-linked images
 
-Still served from `d8j0ntlcm91z4.cloudfront.net`, not this repo:
+### From `d8j0ntlcm91z4.cloudfront.net` (20)
 
 - **12** macro condition plates, used twice: the homepage dermatoscope lens
   (`assets/js/main.js`, `PLATES`) and the Conditions cards (`conditions.html`)
-- **4** journal thumbnails (`index.html`)
 - **1** "Body" treatment card (`index.html`)
 - **1** *Why choose LRS* full-bleed background on About Us (`about.html`)
 - **5** Treatments category images, one per category (`treatments.html`)
 - **1** Conditions page hero (`conditions.html`)
+
+The four generated journal thumbnails are gone: the homepage now carries the four newest real
+articles, with the client's own photography.
+
+### From `londonrealskin.com` (32)
+
+Every article image on `blog.html`, plus the four repeated on the homepage. These are the
+client's own files on their current WordPress install. **They will break the moment the old site
+comes down** and need copying into `assets/img/blog/` as part of the content migration. This
+build environment cannot reach the domain, so they could not be pulled in here.
 
 They are macro skin studies and abstract stock-style imagery — nothing patient-identifying.
 They render fine in a browser, but a third-party CDN on the critical render path is not a
@@ -238,14 +247,14 @@ mkdir -p assets/img/generated
 
 # Every generated filename on the site. The 12 condition plates are stored in main.js as
 # bare filenames joined to a CDN constant, so match on the filename, not on the full URL.
-grep -ohE 'hf_[0-9]{8}_[0-9]{6}_[a-f0-9-]+\.png' index.html about.html treatments.html conditions.html assets/js/main.js \
+grep -ohE 'hf_[0-9]{8}_[0-9]{6}_[a-f0-9-]+\.png' *.html assets/js/main.js \
   | sort -u \
   | while read -r f; do curl -sSL -o "assets/img/generated/$f" "$CDN/$f"; done
 
-sed -i "s|$CDN/|/assets/img/generated/|g" index.html about.html treatments.html conditions.html assets/js/main.js
+sed -i "s|$CDN/|/assets/img/generated/|g" *.html assets/js/main.js
 ```
 
-That should write **24** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
+That should write **20** files. `main.js` builds the plate URLs as `CDN + file`, and the `sed`
 rewrites `CDN` itself, so the plates follow automatically.
 
 > Note the leading slash. A relative `url()` inside a CSS custom property resolves against the

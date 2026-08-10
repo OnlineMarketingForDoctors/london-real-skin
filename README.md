@@ -3,8 +3,8 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** homepage, About Us, Treatments, Conditions, Devices and Pricing built, for review.
-The remaining pages (Blog, Contact) are not built yet.
+**Status:** homepage, About Us, Treatments, Conditions, Devices, Pricing and Blog built, for
+review. Contact is not built yet.
 
 ```
 index.html                 the homepage
@@ -13,6 +13,7 @@ treatments.html            Treatments directory
 conditions.html            Conditions we treat
 devices.html               Devices
 pricing.html               full price list
+blog.html                  blog index, 32 articles
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -155,6 +156,32 @@ Two compliance points shaped the copy:
 
 The lists use CSS multi-column so a 188-line price list reads as a page rather than a scroll,
 with `break-inside: avoid` keeping each group whole.
+
+## Blog sections
+
+Page hero · lead article · topic filter · 31 more articles · cross-links · Closing CTA · Footer.
+
+All 32 articles are extracted from the client's existing `/news/` page, supplied as an HTML
+export. Titles, excerpts and images are theirs. The six topics are ours: the export carries no
+categories, and no dates either, so **the page shows neither a date nor a reading time** rather
+than inventing one. The lead article filters along with the grid, so every chip count is exact.
+
+Excerpts are WordPress auto-excerpts and around half were cut mid-sentence. Each one is trimmed
+back to its last complete sentence, or given an ellipsis where there was no sentence boundary to
+fall back to. One stray *Read more*, one dropped initial letter (*orget chasing*) and one
+*Malasma* were corrected.
+
+**Two things need deciding before launch.**
+
+1. **Article URLs.** Links point at `<slug>.html` at the root, matching the old site's
+   `/<slug>/` exactly, so the existing rankings survive the migration. If the posts end up
+   somewhere else, set up redirects.
+2. **Article images are hot-linked from `londonrealskin.com`.** They work today and will break
+   the moment the old site comes down. They need copying into `assets/img/blog/` as part of the
+   content migration.
+
+The homepage *Latest insights* cards now carry the four newest real articles instead of the
+placeholders, which removes four of the hot-linked CDN images.
 
 ## Quality floor
 
