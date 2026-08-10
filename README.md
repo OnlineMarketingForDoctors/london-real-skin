@@ -107,7 +107,9 @@ treatments we use for that concern, each one linking into `treatments/<slug>.htm
 itself links to `conditions/<slug>.html`. Neither set of detail pages exists yet, so both land on
 `404.html` for now.
 
-The middle column of the grid is offset, so the rows never scan as a table.
+Cards stretch to the tallest in their row, so every row starts and ends on one line. The
+"what we use" block is pushed to the bottom of the card, so the chips and the read-more link
+align across a row even when the descriptions run to different lengths.
 
 ## Quality floor
 
