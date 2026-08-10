@@ -203,9 +203,14 @@ markup will not need to change, only the submit handler in `assets/js/main.js`.
 
 Validation only marks a field once submit has been pressed, never while typing.
 
-There is no embedded map. *Get directions* opens Google Maps in a new tab instead, which keeps
-the page fast and avoids loading third-party tracking on a medical site. An embed can be added
-if the client wants one.
+The map is a full-bleed keyless Google Maps embed (`?output=embed`), lazily loaded, with the
+address card floating over it on wide screens and dropping below it under 820px so it never
+covers the pin or Google's attribution. The card takes pointer events, the rest of the section
+does not, so the map stays draggable around it.
+
+Note that the embed loads Google's own scripts and cookies. If that is a problem for the
+clinic's cookie policy, the section degrades to the address card and the *Open in Google Maps*
+link by removing one iframe.
 
 ## Quality floor
 

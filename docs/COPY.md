@@ -1238,7 +1238,16 @@ time to complete the registration forms and for us to update the details we hold
 
 All three are the client's own directions, lightly tightened.
 
-## C5. Trust strip and footer
+## C5. Map
+
+**Kicker:** Find us
+**Address:** London Real Skin, 233 High Holborn, first floor, London WC1V 7DN
+**Note:** Holborn station is a two minute walk. We are inside the congestion charging zone.
+**CTA:** Open in Google Maps
+
+Full bleed, with the card over the map on wide screens and below it on narrow ones.
+
+## C6. Trust strip and footer
 
 Free consultation · CQC-registered · 0% finance available · Dermatology-led since 2016, then the
 standard footer. This is the only page without the closing CTA section: the whole page is the
