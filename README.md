@@ -57,7 +57,7 @@ Closing CTA · Footer · back-to-top control.
 
 ## About Us sections
 
-Full-screen page hero (breadcrumb, mirrored consultation photograph) · Our story · Our mission /
+Full-screen page hero (breadcrumb, the Holborn waiting room) · Our story · Our mission /
 Our vision · Process makes perfect (four numbered steps) · Why choose us (seven reasons on a
 full-bleed background) · Our team (seven cards, shared with the homepage) · What our clients say
 (the same seven Google reviews) · Skincare banner · Closing CTA · Footer.

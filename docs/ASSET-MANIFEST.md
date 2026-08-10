@@ -27,7 +27,7 @@ The clinic's own photography, resized to 2400px and re-encoded (35 MB → 2.0 MB
 | `hero-03-examination.jpg` | Dr Martin Wade examining a patient with loupes |
 | `hero-04-treatment.jpg` | Dr Wade treating a patient |
 | `hero-05-device.jpg` | Device-led treatment in a clinic room |
-| `hero-06-consultation.jpg` | Consultation with a hand mirror — removed from the homepage hero at the client's request, now the **About Us page hero** |
+| `hero-06-consultation.jpg` | Consultation with a hand mirror — **in the repo but not in use**, removed from the homepage hero at the client's request |
 | `hero-07-skinpen.jpg` | SkinPen microneedling |
 
 A light cool grade (`saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6deg)`) pulls the
@@ -107,7 +107,7 @@ The real 233 High Holborn entrance, used as the closing CTA's portrait image on 
 ### About Us · client photography
 | Slot | File |
 |---|---|
-| Page hero | `hero/hero-06-consultation.jpg`, mirrored in CSS so the patient sits right of the headline |
+| Page hero | `waiting-room.jpg` |
 | Our story, main | `team-shot.jpg` |
 | Our story, inset | `hydrafacial-treatment.jpg` |
 | Our mission | `consultation.jpg` |
@@ -115,9 +115,15 @@ The real 233 High Holborn entrance, used as the closing CTA's portrait image on 
 | Skincare banner | `shop-banner.jpg` |
 | Closing CTA | `clinic-location.jpg` |
 
-The four new files arrived as 10 MB of PNG and were converted to progressive JPEG at quality
-86, longest edge 1500–1800px. That is 770 KB for all four, and it is why they are `.jpg` here
-and `.png` in the upload.
+The five new files arrived as PNG, 12 MB between them, and were converted to progressive JPEG
+at quality 86, longest edge 1500–1900px. That is under 1 MB for all five, and it is why they
+are `.jpg` here and `.png` in the upload.
+
+`waiting-room.jpg` is also cropped. The right-hand strip of the original carries the clinic
+name in vinyl on the far side of the glass partition, so from inside the room it reads
+backwards. The frame now stops short of it, and the ceiling is trimmed to bring the aspect back
+to roughly 3:2. Everything still in shot, including the SkinTyte poster, reads the right way
+round.
 
 ---
 

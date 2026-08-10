@@ -1972,12 +1972,10 @@ h1,h2,h3,h4,p{margin:0}
   inset:0;
   z-index:-2;
   background-size:cover;
-  background-position:center 30%;
+  background-position:center 55%;
   background-image:var(--img);
   filter:saturate(.72) contrast(1.05) brightness(.9) hue-rotate(-6deg);
-  /* Mirrored so the seated patient sits on the right, clear of the headline.
-     scaleX runs first in the list, so the 1.04 bleed still hides the edges. */
-  transform:scale(1.04) scaleX(-1);
+  transform:scale(1.04);
 }
 .phero::before{
   content:"";
@@ -2007,8 +2005,9 @@ h1,h2,h3,h4,p{margin:0}
 }
 .crumb a:hover{color:var(--focus)}
 .crumb span[aria-current]{color:rgba(231,238,245,.85)}
-/* Portrait viewports crop hard horizontally; hold the (mirrored) patient in frame. */
-@media (max-width:760px){.phero__bg{background-position:70% 28%}}
+/* Portrait viewports crop hard horizontally; hold the seating rather than the
+   reception desk at the left edge. */
+@media (max-width:760px){.phero__bg{background-position:64% 52%}}
 .phero__eyebrow{margin-bottom:clamp(14px,1.8vw,22px)}
 .phero__h1{
   font-size:clamp(2.5rem,5.8vw,5rem);
