@@ -2607,14 +2607,17 @@ h1,h2,h3,h4,p{margin:0}
   align-items:center;
   scroll-margin-top:calc(var(--mast-h,88px) + 24px);
 }
-.dvc__media{grid-column:1/span 5;margin:0}
-.dvc__copy{grid-column:7/span 6}
+/* grid-row is explicit on both. Without it, a flipped row places the media in
+   columns 8-12 first, and auto-placement will not walk backwards to columns 1-6
+   for the copy, so the copy drops to a second row. */
+.dvc__media{grid-column:1/span 5;grid-row:1;margin:0}
+.dvc__copy{grid-column:7/span 6;grid-row:1}
 /* Alternate, so the eye crosses the page rather than running down one gutter. */
 .dvc--flip .dvc__media{grid-column:8/span 5}
 .dvc--flip .dvc__copy{grid-column:1/span 6}
 @media (max-width:1020px){
   .dvc__media,.dvc--flip .dvc__media,
-  .dvc__copy,.dvc--flip .dvc__copy{grid-column:1/-1}
+  .dvc__copy,.dvc--flip .dvc__copy{grid-column:1/-1;grid-row:auto}
   .dvc__media{order:-1}
 }
 
