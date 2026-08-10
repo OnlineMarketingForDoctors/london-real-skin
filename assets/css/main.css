@@ -1955,7 +1955,11 @@ h1,h2,h3,h4,p{margin:0}
    22. About page
    ===================================================================== */
 
-/* ---- Page hero: shorter than the homepage's, but the same language ---- */
+/* ---- Page hero ----
+   THE STANDARD for every page below the homepage: full viewport height, the
+   masthead sitting over it, content bottom-left, breadcrumb above the eyebrow.
+   Only the background image and the copy change from page to page. Do not
+   introduce a shorter variant. */
 .phero{
   position:relative;
   margin-top:calc(-1 * var(--mast-h,88px));
@@ -2227,10 +2231,6 @@ h1,h2,h3,h4,p{margin:0}
 /* =====================================================================
    23. Treatments page
    ===================================================================== */
-
-/* A directory page, not a landing page: the hero states the scope and gets
-   out of the way. */
-.phero--short{min-height:min(72svh,660px)}
 
 /* ---- Sticky category nav ---- */
 .tnav{

@@ -72,6 +72,12 @@ Dr Meriem Martins had a placeholder role.
 All pages share one stylesheet and one script; page-specific behaviour (hero slideshow,
 promotions widget, drawer, treatment category nav) is guarded so the same bundle runs anywhere.
 
+## Page heroes
+
+Every page below the homepage opens with the same hero: `.phero`, full viewport height, the
+masthead sitting over it, breadcrumb and copy bottom-left, two buttons. Only the background
+image and the copy change. New pages should reuse it as-is rather than introducing a variant.
+
 ## Treatments sections
 
 Page hero · sticky category nav · five category sections, each with an image, a short position
