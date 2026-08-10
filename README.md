@@ -3,8 +3,8 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** homepage, About Us, Treatments, Conditions and Devices built, for review. The
-remaining pages (Blog, Pricing, Contact) are not built yet.
+**Status:** homepage, About Us, Treatments, Conditions, Devices and Pricing built, for review.
+The remaining pages (Blog, Contact) are not built yet.
 
 ```
 index.html                 the homepage
@@ -12,6 +12,7 @@ about.html                 About Us
 treatments.html            Treatments directory
 conditions.html            Conditions we treat
 devices.html               Devices
+pricing.html               full price list
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -128,6 +129,32 @@ the hardware.
 
 **Device pricing needs confirming.** The figures came over from the first homepage build and
 have no client source behind them. So does the balance of what each platform is used for.
+
+## Pricing sections
+
+Page hero · sticky section nav · How pricing works · eight price sections, 188 lines · small
+print · cross-links to Conditions and Treatments · Closing CTA · Footer.
+
+Prices come from `LRS_Service_Price_Review_2026_1.xlsx`, the **New** sheet, **column E, "Price
+LRS"**. That column was chosen over column F, "FINAL PRICE", on evidence: the workbook lists
+microneedling twice, once under *Skin Treatments* and again under *Skin Pen*, and the two blocks
+agree exactly in column E (340 / 370 / 575) while column F contradicts itself (275 / 320 / 580).
+Column E is the coherent list; column F is a proposed revision that was not applied throughout.
+**Confirm before launch** — around thirty lines differ between the two.
+
+Cost price, profit margin and the competitor benchmarks for six named clinics are in the same
+workbook. **None of that is on the page**, and none of it should ever be.
+
+Two compliance points shaped the copy:
+
+- **Botox is not named anywhere.** UK law prohibits advertising prescription-only medicines to
+  the public, so the client's own wording, *anti-wrinkle injections*, is used throughout. Fillers
+  and skin boosters are devices rather than POMs, so brand names are fine.
+- **Nothing on the page promises a result**, and the small print states that suitability is
+  clinical and that the quotation given at consultation is the price.
+
+The lists use CSS multi-column so a 188-line price list reads as a page rather than a scroll,
+with `break-inside: avoid` keeping each group whole.
 
 ## Quality floor
 

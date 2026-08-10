@@ -2741,3 +2741,97 @@ h1,h2,h3,h4,p{margin:0}
 .also__link:hover{color:var(--ink);border-color:var(--ink)}
 
 .xlink__acts{display:flex;gap:12px;flex-wrap:wrap}
+
+/* =====================================================================
+   26. Pricing page
+   ===================================================================== */
+
+/* ---- How pricing works ---- */
+.how{background:var(--ink-deep);color:var(--paper)}
+.how__l{grid-column:1/span 4}
+.how__r{grid-column:6/span 7}
+@media (max-width:940px){.how__l,.how__r{grid-column:1/-1}}
+.how__h2{margin-top:clamp(14px,1.6vw,20px)}
+.how__list{border-top:1px solid var(--line-light)}
+.how__item{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(14px,2vw,32px);
+  padding:clamp(18px,2.2vw,28px) 0;
+  border-bottom:1px solid var(--line-light);
+}
+.how__no{
+  font-family:var(--mono);
+  font-size:.66rem;
+  letter-spacing:.16em;
+  color:var(--focus);
+  padding-top:.4em;
+}
+.how__item h3{
+  font-family:var(--disp);
+  font-size:clamp(1.1rem,1.5vw,1.35rem);
+  line-height:1.16;
+  margin-bottom:.45rem;
+}
+.how__item p{color:rgba(231,238,245,.7);font-size:.9rem;max-width:60ch}
+
+/* ---- The price list ---- */
+.prc{background:var(--paper-pure)}
+.prc--alt{background:var(--paper)}
+.prc__head{max-width:60ch;margin-bottom:clamp(30px,3.6vw,50px)}
+.prc__h2{margin:clamp(12px,1.4vw,18px) 0 clamp(12px,1.4vw,18px)}
+.prc__note{color:var(--muted);font-size:1rem}
+
+/* Multi-column so a long list reads as a page rather than a scroll. Groups
+   are kept whole; only the gaps between them break. */
+.prc__groups{columns:2;column-gap:clamp(30px,4vw,72px)}
+@media (max-width:900px){.prc__groups{columns:1}}
+.prc__group{
+  break-inside:avoid;
+  -webkit-column-break-inside:avoid;
+  page-break-inside:avoid;
+  margin-bottom:clamp(28px,3.2vw,46px);
+}
+.prc__gname{
+  font-family:var(--disp);
+  font-size:clamp(1.15rem,1.6vw,1.4rem);
+  line-height:1.16;
+  padding-bottom:.6rem;
+  border-bottom:1px solid var(--ink);
+}
+.prc__gnote{
+  margin-top:.6rem;
+  font-size:.82rem;
+  color:var(--muted);
+}
+.prc__list{margin-top:.35rem}
+.prc__row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:baseline;
+  gap:12px;
+  padding:clamp(9px,1vw,12px) 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.prc__row dt{font-size:.92rem;line-height:1.4;text-wrap:pretty}
+.prc__row dd{
+  margin:0;
+  font-family:var(--mono);
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--ink);
+  white-space:nowrap;
+}
+
+/* ---- Small print ---- */
+.fine{background:var(--ink)}
+.fine,.fine .u-eyebrow{color:var(--paper)}
+.fine .u-eyebrow{color:var(--focus)}
+.fine__cols{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px,3vw,52px);
+  margin-top:clamp(20px,2.4vw,30px);
+}
+@media (max-width:860px){.fine__cols{grid-template-columns:1fr;gap:18px}}
+.fine__cols p{color:rgba(231,238,245,.74);font-size:.88rem;line-height:1.6}

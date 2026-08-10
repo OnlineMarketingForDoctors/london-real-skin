@@ -817,3 +817,268 @@ spec sheets.
 ## D6. Closing CTA and footer
 
 Identical to the other pages.
+
+
+---
+
+# Pricing
+
+Source: `LRS_Service_Price_Review_2026_1.xlsx`, the **New** sheet, **column E, "Price LRS"**.
+
+## Which price column, and why
+
+The workbook carries two candidate columns: E, *Price LRS*, and F, *FINAL PRICE*. Column E is
+populated for essentially every line; column F only for the lines that were benchmarked against
+competitors, and the two disagree on roughly thirty of them.
+
+Column E was chosen on evidence rather than preference. The workbook lists microneedling twice,
+once under *Skin Treatments* and again under *Skin Pen*. In column E the two blocks agree
+exactly, at 340 / 370 / 575. In column F they contradict each other, 275 / 320 / 580 against the
+same three treatments. A column that disagrees with itself cannot be the published list.
+
+**This still needs the client's confirmation.** If *FINAL PRICE* is the intended 2026 list, about
+thirty lines change, and the microneedling conflict has to be settled first.
+
+## What was left out
+
+The same workbook holds **cost price**, **profit margin**, and benchmark pricing for six named
+competitor clinics. None of it is on the page and none of it should ever reach one.
+
+Four lines had no LRS price at all, only competitor figures, and were dropped: Hyalase,
+Sclerotherapy, PRP Face and PRP Hair. *PRP Face with SkinPen* does carry a price and is listed.
+
+The booking deposit is £25 in column E and £0 in column F. It appears in the small print as £25,
+deducted from the treatment cost, which needs confirming along with everything else.
+
+## Compliance
+
+**Botox is not named anywhere on the site.** UK law prohibits advertising prescription-only
+medicines to the public, and the spreadsheet's *Botox One Area* is published as *anti-wrinkle
+injections, one area*, matching the client's own treatment menu. Dermal fillers and skin boosters
+are devices rather than prescription-only medicines, so Juvéderm, Teoxane, Teosyal, Profhilo and
+Sunekos are named as supplied.
+
+## Spellings corrected
+
+| Workbook | Published | Why |
+|---|---|---|
+| Millia | Milia | Typo |
+| Rosecea | Rosacea | Typo |
+| Blepheroplasty | Blepharoplasty | Typo |
+| Juvederm Vobella | Juvéderm Volbella | The Allergan product is Volbella |
+| Skin Tyte | SkinTyte | Sciton's own casing |
+| Botox | Anti-wrinkle injections | See compliance, above |
+
+*Harmonica* (£550, under skin boosters) is published as supplied. It may be intended as
+**HArmonyCa**, the Allergan hybrid filler, but that is a guess and was not applied.
+
+## Page copy
+
+**Breadcrumb:** Home / Pricing
+**Eyebrow:** Pricing
+**H1:** What it costs, *all of it*
+**Body:** The full price list, not a selection of it. The consultation that decides what you actually need is free, and nothing is booked until you have the plan and the total in writing.
+
+### How pricing works
+
+1. **The consultation is free** — An in-depth skin analysis before anything is booked. It costs nothing and commits you to nothing, and it is as likely to end in skincare as in a course of treatment.
+2. **Prices are per session** — Unless a line says otherwise. Where the evidence supports a course, we will tell you how many sessions before you commit to the first one.
+3. **Interest-free finance over 3 to 12 months** — Flexible terms to spread a course of treatment, with a saving for paying upfront. Terms and conditions apply.
+4. **You get the total in writing** — Your plan, the number of sessions and the full cost, confirmed before you book. The figures on this page are a guide; your quotation is the price.
+
+### Small print
+
+Prices are held under review and may change. The price confirmed at your consultation is the price you pay. A £25 deposit is taken at booking and comes off the cost of your treatment. Suitability is decided clinically. If a treatment is not right for your skin we will say so, and it will not be booked.
+
+## The full list, as published
+
+| Section | Group | Treatment | Price |
+|---|---|---|---|
+| Injectables | Anti-wrinkle injections | One area | £240 |
+| Injectables | Anti-wrinkle injections | Two areas | £360 |
+| Injectables | Anti-wrinkle injections | Three areas | £470 |
+| Injectables | Anti-wrinkle injections | Four areas | £520 |
+| Injectables | Excessive sweating | Scalp | £650 |
+| Injectables | Excessive sweating | Armpits | £550 |
+| Injectables | Excessive sweating | Hands | £550 |
+| Injectables | Excessive sweating | Feet | £550 |
+| Injectables | Dermal fillers | Juvéderm Ultra Smile 0.55ml | £350 |
+| Injectables | Dermal fillers | Juvéderm Ultra 2 | £350 |
+| Injectables | Dermal fillers | Juvéderm Ultra 3 | £350 |
+| Injectables | Dermal fillers | Juvéderm Ultra 4 | £350 |
+| Injectables | Dermal fillers | Juvéderm Voluma / Volux | £500 |
+| Injectables | Dermal fillers | Juvéderm Volift | £500 |
+| Injectables | Dermal fillers | Juvéderm Volbella 1ml | £500 |
+| Injectables | Dermal fillers | Juvéderm Volite | £350 |
+| Injectables | Dermal fillers | Juvéderm Volite, neck and décolletage | £700 |
+| Injectables | Dermal fillers | Juvéderm Volift Retouch with lidocaine 0.55ml | £350 |
+| Injectables | Dermal fillers | Juvéderm Volux with lidocaine 1ml | £400 |
+| Injectables | Dermal fillers | Teoxane RHA Kiss | £350 |
+| Injectables | Dermal fillers | Teoxane RHA 1 | £350 |
+| Injectables | Dermal fillers | Teoxane RHA 2 | £500 |
+| Injectables | Dermal fillers | Teoxane RHA 3 | £500 |
+| Injectables | Dermal fillers | Teoxane RHA 4 | £500 |
+| Injectables | Dermal fillers | Teoxane Baby Glow | £495 |
+| Injectables | Dermal fillers | Teosyal Redensity | £350 |
+| Injectables | Dermal fillers | Filler for acne scarring | £450 |
+| Injectables | Skin boosters | Profhilo | £395 |
+| Injectables | Skin boosters | Polynucleotides | £350 |
+| Injectables | Skin boosters | Sunekos | £450 |
+| Injectables | Skin boosters | ICONA8 | £350 |
+| Injectables | Skin boosters | Harmonica | £550 |
+| Injectables | Non-surgical contouring | Jaw reduction | £450 |
+| Injectables | Non-surgical contouring | 8-point face lift | £650 |
+| Injectables | Non-surgical contouring | Male jaw enhancement | £1,200 |
+| Injectables | Non-surgical contouring | Rhinoplasty | £600 |
+| Injectables | Non-surgical contouring | Chin enhancement | £650 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Eyes | £250 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Face | £395 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Face and neck | £450 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Face, neck and décolletage | £495 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Body, small | £300 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Body, medium | £450 |
+| Microneedling and radiofrequency | SkinXcell, RF microneedling | Body, large | £550 |
+| Microneedling and radiofrequency | SkinXcell, fractional RF | Eyes | £200 |
+| Microneedling and radiofrequency | SkinXcell, fractional RF | Face | £250 |
+| Microneedling and radiofrequency | SkinXcell, fractional RF | Face and neck | £300 |
+| Microneedling and radiofrequency | SkinXcell, fractional RF | Face, neck and décolletage | £350 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Eyes | £300 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Face | £450 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Face and neck | £500 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Face, neck and décolletage | £550 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Body, small | £300 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Body, medium | £450 |
+| Microneedling and radiofrequency | Exion, RF microneedling | Body, large | £550 |
+| Microneedling and radiofrequency | Exion, fractional RF | Eyes | £200 |
+| Microneedling and radiofrequency | Exion, fractional RF | Face | £250 |
+| Microneedling and radiofrequency | Exion, fractional RF | Face and neck | £300 |
+| Microneedling and radiofrequency | Exion, fractional RF | Face, neck and décolletage | £350 |
+| Microneedling and radiofrequency | Exion, fractional RF | Body, one area | £300 |
+| Microneedling and radiofrequency | Exion, fractional RF | Body, two areas | £450 |
+| Microneedling and radiofrequency | Exion, fractional RF | Body, three areas | £550 |
+| Microneedling and radiofrequency | SkinPen microneedling | Full face | £340 |
+| Microneedling and radiofrequency | SkinPen microneedling | Chest | £370 |
+| Microneedling and radiofrequency | SkinPen microneedling | Face and chest | £575 |
+| Microneedling and radiofrequency | SkinPen microneedling | Small area | £250 |
+| Microneedling and radiofrequency | SkinPen microneedling | Face with platelet rich plasma | £550 |
+| Sciton laser and light | BBL | Full face | £450 |
+| Sciton laser and light | BBL | Half face | £300 |
+| Sciton laser and light | BBL | Small area | £250 |
+| Sciton laser and light | BBL | Medium area | £350 |
+| Sciton laser and light | BBL | Large area | £500 |
+| Sciton laser and light | BBL | Small area, added to another treatment | £150 |
+| Sciton laser and light | BBL | Medium area, added | £200 |
+| Sciton laser and light | BBL | Large area, added | £250 |
+| Sciton laser and light | MOXI | Full face | £550 |
+| Sciton laser and light | MOXI | Small area, added | £100 |
+| Sciton laser and light | MOXI | Medium area, added | £150 |
+| Sciton laser and light | MOXI | Large area, added | £200 |
+| Sciton laser and light | BBL and MOXI together | Full face | £800 |
+| Sciton laser and light | BBL and MOXI together | Small area, added | £250 |
+| Sciton laser and light | BBL and MOXI together | Medium area, added | £350 |
+| Sciton laser and light | BBL and MOXI together | Large area, added | £450 |
+| Sciton laser and light | BBL for acne | Face | £250 |
+| Sciton laser and light | BBL for acne | Body | £300 |
+| Sciton laser and light | Forever Young BBL | Full face | £600 |
+| Sciton laser and light | SkinTyte | Full face and neck | £500 |
+| Sciton laser and light | SkinTyte | Small area | £200 |
+| Sciton laser and light | SkinTyte | Medium area | £500 |
+| Sciton laser and light | SkinTyte | Large area | £600 |
+| Alma Harmony laser | Dye-VL, rosacea and vascular | Small area, for example veins around the nose or chin | £150 |
+| Alma Harmony laser | Dye-VL, rosacea and vascular | Half face | £150 |
+| Alma Harmony laser | Dye-VL, rosacea and vascular | Full face | £250 |
+| Alma Harmony laser | Dye-VL, rosacea and vascular | Chest | £300 |
+| Alma Harmony laser | Dye-VL, rosacea and vascular | Full face and chest | £400 |
+| Alma Harmony laser | SR (AFT) for pigmentation | Small area | £100 |
+| Alma Harmony laser | SR (AFT) for pigmentation | Full face | £250 |
+| Alma Harmony laser | SR (AFT) for pigmentation | Chest | £300 |
+| Alma Harmony laser | SR (AFT) for pigmentation | Full face and chest | £400 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Hands | £100 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Face | £250 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Face and neck | £320 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Décolletage | £350 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Face, neck and hands | £400 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Face, neck and décolletage | £650 |
+| Alma Harmony laser | ClearLift facial rejuvenation | Face, neck, décolletage and hands | £750 |
+| Alma Harmony laser | iPixel fractional resurfacing | Small area, for example a cheek | £300 |
+| Alma Harmony laser | iPixel fractional resurfacing | Half face | £250 |
+| Alma Harmony laser | iPixel fractional resurfacing | Full face | £500 |
+| Alma Harmony laser | iPixel fractional resurfacing | Neck | £400 |
+| Alma Harmony laser | iPixel fractional resurfacing | Chest | £600 |
+| Alma Harmony laser | iPixel fractional resurfacing | Face and neck | £700 |
+| Alma Harmony laser | iPixel fractional resurfacing | Neck and chest | £800 |
+| Alma Harmony laser | iPixel fractional resurfacing | Face, neck and chest | £950 |
+| Alma Harmony laser | Laser tattoo removal | Small, 1 to 3cm | £75 |
+| Alma Harmony laser | Laser tattoo removal | Medium, 4 to 8cm | £100 |
+| Alma Harmony laser | Laser tattoo removal | Large, 9 to 15cm | £175 |
+| Alma Harmony laser | Laser tattoo removal | Extra large, 16 to 20cm | £280 |
+| Laser hair removal | Face and neck | Lip, chin or between the brows | £60 |
+| Laser hair removal | Face and neck | Lip and chin | £90 |
+| Laser hair removal | Face and neck | Lip, chin and jaw | £100 |
+| Laser hair removal | Face and neck | Lower face | £120 |
+| Laser hair removal | Face and neck | Lower face including neck | £130 |
+| Laser hair removal | Face and neck | Full face | £150 |
+| Laser hair removal | Face and neck | Full face including neck | £160 |
+| Laser hair removal | Face and neck | Neck | £80 |
+| Laser hair removal | Arms and hands | Underarms | £80 |
+| Laser hair removal | Arms and hands | Upper arms | £120 |
+| Laser hair removal | Arms and hands | Lower arms | £120 |
+| Laser hair removal | Arms and hands | Full arms | £200 |
+| Laser hair removal | Arms and hands | Hands | £75 |
+| Laser hair removal | Arms and hands | Fingers | £50 |
+| Laser hair removal | Legs and feet | Lower leg including knees | £160 |
+| Laser hair removal | Legs and feet | Thighs | £170 |
+| Laser hair removal | Legs and feet | Full legs | £260 |
+| Laser hair removal | Legs and feet | Feet | £75 |
+| Laser hair removal | Legs and feet | Toes | £50 |
+| Laser hair removal | Body | Shoulders | £110 |
+| Laser hair removal | Body | Chest or abdomen | £130 |
+| Laser hair removal | Body | Chest and abdomen | £210 |
+| Laser hair removal | Body | Mid-line or female sternum | £75 |
+| Laser hair removal | Body | Nipples | £50 |
+| Laser hair removal | Body | Back and shoulders | £225 |
+| Laser hair removal | Body | Full back | £170 |
+| Laser hair removal | Bikini | Bikini line | £100 |
+| Laser hair removal | Bikini | Extended bikini line | £120 |
+| Laser hair removal | Bikini | Brazilian | £140 |
+| Laser hair removal | Bikini | Hollywood | £160 |
+| Laser hair removal | Bikini | Buttocks | £130 |
+| Laser hair removal | Bikini | Partial male bikini | £150 |
+| Laser hair removal | Bikini | Full male bikini | £180 |
+| Laser hair removal | Bikini | Natal cleft | £180 |
+| Laser hair removal | Combinations | Full legs excluding feet, bikini and underarms | £395 |
+| Laser hair removal | Combinations | Lower leg, bikini and underarm | £340 |
+| Laser hair removal | Combinations | Full back, full chest and abdomen, shoulders and upper arms | £475 |
+| Body | EmSculpt Neo | One area | £400 |
+| Body | EmSculpt Neo | Two areas | £700 |
+| Body | EmSculpt Neo | Three areas | £900 |
+| Body | Exion skin tightening | Body, one area | £300 |
+| Body | Exion skin tightening | Body, two areas | £450 |
+| Body | Exion skin tightening | Body, three areas | £550 |
+| Body | Biodermogenesi | Single area | £350 |
+| Body | Biodermogenesi | Face | £250 |
+| Facials, LED and peels | HydraFacial | Signature | £150 |
+| Facials, LED and peels | HydraFacial | Platinum | £175 |
+| Facials, LED and peels | HydraFacial | Deluxe | £200 |
+| Facials, LED and peels | Dermalux LED phototherapy | Single session | £65 |
+| Facials, LED and peels | Kleresca | Single session | £250 |
+| Facials, LED and peels | Medical-grade skin peels | Obagi Blue Peel Radiance | £160 |
+| Facials, LED and peels | Medical-grade skin peels | NeoStrata clarifying peel, mandelic and citric acids | £160 |
+| Facials, LED and peels | Medical-grade skin peels | NeoStrata glycolic peel, 20%, 35% or 50% | £160 |
+| Facials, LED and peels | Medical-grade skin peels | Body peel | £180 |
+| Medical treatments | Sterex ACP electrolysis | Milia | £50 |
+| Medical treatments | Sterex ACP electrolysis | Skin tags | £250 |
+| Medical treatments | Sterex ACP electrolysis | Warts | £300 |
+| Medical treatments | Sterex ACP electrolysis | Genital | £400 |
+| Medical treatments | Nano Plasma, non-surgical blepharoplasty | Upper or lower eyelid | £600 |
+| Medical treatments | Nano Plasma, non-surgical blepharoplasty | Neck rejuvenation | £700 |
+| Medical treatments | Nano Plasma, non-surgical blepharoplasty | Smokers’ lines | £500 |
+| Medical treatments | Nano Plasma, non-surgical blepharoplasty | Marionette lines or chin | £500 |
+| Medical treatments | Nano Plasma, non-surgical blepharoplasty | Front of the ear lift | £550 |
+| Medical treatments | Nano Plasma, scar and acne scar treatment | Small area, 4 x 4cm | £500 |
+| Medical treatments | Nano Plasma, scar and acne scar treatment | Medium area, 10 x 10cm | £700 |
+| Medical treatments | Nano Plasma, scar and acne scar treatment | Full face | £900 |
+| Medical treatments | Nano Plasma, active acne lesions | Small area, 4 x 4cm | £400 |
+| Medical treatments | Nano Plasma, active acne lesions | Medium area, 10 x 10cm | £600 |
+| Medical treatments | Nano Plasma, active acne lesions | Full face | £800 |
+| Medical treatments | Lesion removal | Assessment and removal | £400 |
