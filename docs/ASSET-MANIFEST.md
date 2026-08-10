@@ -103,12 +103,12 @@ Used in the *As featured in* stripe beneath the hero. Rendered greyscale at one 
 > its ink box; the untrimmed original is kept alongside it.
 
 ### Location · `assets/img/clinic-location.jpg`
-The real 233 High Holborn entrance, used as the closing CTA's portrait image on both pages.
+The real 233 High Holborn entrance, used as the closing CTA's portrait image across the site.
 
 ### About Us · client photography
 | Slot | File |
 |---|---|
-| Page hero | `waiting-room.jpg` |
+| Page hero | `waiting-room.jpg`, shared with the Contact page hero |
 | Our story, main | `team-shot.jpg` |
 | Our story, inset | `hydrafacial-treatment.jpg` |
 | Our mission | `consultation.jpg` |
