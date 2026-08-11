@@ -1344,7 +1344,45 @@ a product card that must not be skimmed past.
 > clinic that sells in person. If the new site is to sell online, this section changes and the
 > cards need an add-to-basket route.
 
-## S5. Cross-links, CTA and footer
+## S5. Product pages
+
+Sixteen detail pages at `product/<slug>.html`, one per product, matching the old site's
+`/product/<slug>/` so the URLs survive a migration.
+
+Layout: photograph left, buy box right and sticky, then *About this product* beside a
+specification list, then three related products chosen by shared category. The buy box carries
+the eyebrow *London Real Skin*, the name, the price, the opening description, a quantity stepper,
+**Add to basket**, and one line the client should check:
+
+> Collect at the clinic, 233 High Holborn. Ask about the range at your free consultation, or call
+> 020 7183 5892.
+
+That line assumes collection rather than delivery, which is the safe assumption while there is no
+checkout. It changes the moment the shop sells online.
+
+Everything else on a product page is the client's own copy, unrewritten: description, key
+ingredients, key benefits, directions and cautions. Cautions get their own bordered panel rather
+than a line in the specification list.
+
+**These pages have no hero.** Every other page below the homepage opens with the full-height
+`.phero`. A product page has one job, which is to put the product and the price above the fold,
+and a hero would bury both. It is a deliberate exception, not an oversight.
+
+## S6. Basket
+
+Interface only. Nothing is charged and nothing is sent.
+
+**Panel title:** Your basket
+**Empty state:** Your basket is empty.
+**Subtotal row**, then: Checkout is not connected yet. Reserve by phone on 020 7183 5892 or collect at the clinic.
+**Checkout button:** present, permanently disabled.
+**Below it:** Continue shopping
+
+Contents live in `localStorage`, so the count survives navigation and the demo behaves like a real
+shop. The basket icon in the masthead carries the item count. Add to basket appears both on the
+shop cards and on each product page, where it respects the quantity stepper.
+
+## S7. Cross-links, CTA and footer
 
 **Eyebrow:** Skincare is half of it
 **H2:** The other half happens in clinic

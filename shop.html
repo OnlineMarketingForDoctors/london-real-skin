@@ -42,9 +42,10 @@
       <button class="icon-btn" aria-label="Search">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       </button>
-      <a class="icon-btn" href="shop.html" aria-label="Shop">
+      <button class="icon-btn icon-btn--cart" id="cartBtn" type="button" aria-label="Basket" aria-expanded="false">
         <svg viewBox="0 0 24 24"><path d="M6 7h12l1.5 13h-15L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-      </a>
+        <span class="icon-btn__n" id="cartBadge" hidden>0</span>
+      </button>
       <a class="masthead__phone" href="tel:+442071835892">
         <small>Call the clinic</small>
         <b>020 7183 5892</b>
@@ -154,14 +155,18 @@
 
     <div class="pc__grid" id="pcGrid">
       <article class="pc r" data-cat="dry rosacea sensitive">
+        <a class="pc__hit" href="product/calming-day-serum.html" aria-label="Calming Day Serum"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Calming Day Serum" src="assets/img/shop/calming-day-serum.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Calming Day Serum</h3>
+          <h3 class="pc__name"><a href="product/calming-day-serum.html">Calming Day Serum</a></h3>
           <p class="pc__price">£70.80</p>
           <p class="pc__sum">Skin concerns: Redness, irritation, sensitivity, dryness, dullness, skin laxity</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="calming-day-serum" data-name="Calming Day Serum" data-price="70.80" data-img="assets/img/shop/calming-day-serum.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Skin concerns</dt><dd>Redness, irritation, sensitivity, dryness, dullness, skin laxity</dd></div>
             <div class="pc__row"><dt>Skin types</dt><dd>Sensitive, rosacea-prone, hormonal, menopausal</dd></div>
@@ -172,14 +177,18 @@
       </article>
 
       <article class="pc r" style="--d:60ms" data-cat="dry rosacea sensitive">
+        <a class="pc__hit" href="product/calming-night-cream.html" aria-label="Calming Night Cream"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Calming Night Cream" src="assets/img/shop/calming-night-cream.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Calming Night Cream</h3>
+          <h3 class="pc__name"><a href="product/calming-night-cream.html">Calming Night Cream</a></h3>
           <p class="pc__price">£59.00</p>
           <p class="pc__sum">A gentle yet effective overnight treatment designed to soothe sensitive, reactive skin whilst you sleep. This nourishing cream combines bakuchiol, a plant-based retinol alternative, with niacinamide and peptides to strengthen your skin barrier, reduce redness, and promote firmer, more resilient skin.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="calming-night-cream" data-name="Calming Night Cream" data-price="59.00" data-img="assets/img/shop/calming-night-cream.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt></dt><dd>Albatrellus Confluens extract works to calm flushing and irritation, making this the perfect choice for those with rosacea-prone or easily sensitised skin. Wake up to a visibly calmer, more even complexion with improved hydration and reduced sensitivity. Suitable for sensitive, reactive, and rosacea-prone skin types.</dd></div>
             <div class="pc__row"><dt>Key ingredients</dt><dd><ul class="pc__ul"><li>Niacinamide &ndash; Strengthens skin barrier, evens tone, and soothes irritation</li><li>Bakuchiol &ndash; Gentle retinol alternative that supports collagen production</li><li>Peptides &ndash; Promote collagen and elastin for firmer skin</li><li>Albatrellus Confluens Extract &ndash; Reduces flushing and calms sensitive skin</li></ul></dd></div>
@@ -189,14 +198,18 @@
       </article>
 
       <article class="pc r" style="--d:120ms" data-cat="acne ageing pigmentation">
+        <a class="pc__hit" href="product/daily-exfoliating-glycolic-wash.html" aria-label="Daily Exfoliating Glycolic Wash"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Daily Exfoliating Glycolic Wash" src="assets/img/shop/daily-exfoliating-glycolic-wash.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Daily Exfoliating Glycolic Wash</h3>
+          <h3 class="pc__name"><a href="product/daily-exfoliating-glycolic-wash.html">Daily Exfoliating Glycolic Wash</a></h3>
           <p class="pc__price">£42.00</p>
           <p class="pc__sum">A treatment wash gentle enough to use each day which unclogs pores and chemically exfoliates the skin to reveal brighter, clearer skin. 5% Glycolic acid (an AHA) smooths the skin&rsquo;s surface, treats fine lines, dullness and oiliness. 2% Salicylic acid has anti-acne and anti-inflammatory properties. Aloe Vera is soothing and anti-inflammatory. Citric acid has anti-oxidant properties.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="daily-exfoliating-glycolic-wash" data-name="Daily Exfoliating Glycolic Wash" data-price="42.00" data-img="assets/img/shop/daily-exfoliating-glycolic-wash.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Massage two to three full pumps onto your dry (not wet) face avoiding the eyes. Leave for two minutes before rinsing off with warm water. Do not use as an eye make-up remover.</dd></div>
             <div class="pc__row pc__row--note"><dt>Please note</dt><dd>All skin types. Caution in sensitive skin.</dd></div>
@@ -205,14 +218,18 @@
       </article>
 
       <article class="pc r" style="--d:180ms" data-cat="acne ageing dry pigmentation rosacea sensitive">
+        <a class="pc__hit" href="product/daily-moisturiser-and-sun-protection-spf-20.html" aria-label="Daily Moisturiser and Sun Protection SPF 20"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Daily Moisturiser and Sun Protection SPF 20" src="assets/img/shop/daily-moisturiser-and-sun-protection-spf-20.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Daily Moisturiser and Sun Protection SPF 20</h3>
+          <h3 class="pc__name"><a href="product/daily-moisturiser-and-sun-protection-spf-20.html">Daily Moisturiser and Sun Protection SPF 20</a></h3>
           <p class="pc__price">£41.00</p>
           <p class="pc__sum">A daily hydrating, non-irritating and protective moisturiser with peptides that helps to stimulate collagen.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="daily-moisturiser-and-sun-protection-spf-20" data-name="Daily Moisturiser and Sun Protection SPF 20" data-price="41.00" data-img="assets/img/shop/daily-moisturiser-and-sun-protection-spf-20.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt></dt><dd>Contains antioxidants to help protect the skin from daily pollution and SPF 20.</dd></div>
             <div class="pc__row"><dt>Directions</dt><dd>Apply liberally to face and neck.</dd></div>
@@ -221,14 +238,18 @@
       </article>
 
       <article class="pc r" style="--d:0ms" data-cat="acne ageing dry pigmentation rosacea sensitive">
+        <a class="pc__hit" href="product/daily-skin-protection.html" aria-label="Daily Skin Moisturiser and Sun Protection SPF50"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Daily Skin Moisturiser and Sun Protection SPF50" src="assets/img/shop/daily-skin-protection.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Daily Skin Moisturiser and Sun Protection SPF50</h3>
+          <h3 class="pc__name"><a href="product/daily-skin-protection.html">Daily Skin Moisturiser and Sun Protection SPF50</a></h3>
           <p class="pc__price">£43.00</p>
           <p class="pc__sum">High UVA and SPF50 UVB Filters. Water Resistant. Provides broad spectrum UVA and UVB radiation protection for the skin in a moisturising, tinted base. Glycerine works to maintain the barrier function of the skin. Citric acid helps combat oxidative stress. Aloe vera reduces the irritation from daily pollution.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="daily-skin-protection" data-name="Daily Skin Moisturiser and Sun Protection SPF50" data-price="43.00" data-img="assets/img/shop/daily-skin-protection.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply to the face as the last layer of your morning skin care regime each day. Can be used underneath makeup. Re-apply regularly if in a high sun environment. Suitable on all skin types.</dd></div>
           </dl>
@@ -236,14 +257,18 @@
       </article>
 
       <article class="pc r" style="--d:60ms" data-cat="ageing dry">
+        <a class="pc__hit" href="product/eye-lift-serum.html" aria-label="Eye Lift Gel"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Eye Lift Gel" src="assets/img/shop/eye-lift-serum.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Eye Lift Gel</h3>
+          <h3 class="pc__name"><a href="product/eye-lift-serum.html">Eye Lift Gel</a></h3>
           <p class="pc__price">£77.00</p>
           <p class="pc__sum">An intensive eye serum, which actively works to rejuvenate the delicate skin surrounding the eyes. Contains a unique blend of ingredients including vitamin E to hydrate, almond oil to reduce signs of ageing, and lactic acid, which has gentle resurfacing properties to diminish the appearance of crow&rsquo;s feet and visibly improve clarity and tone.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="eye-lift-serum" data-name="Eye Lift Gel" data-price="77.00" data-img="assets/img/shop/eye-lift-serum.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply daily around the orbit of the eye. Add 1-2 pumps to the ring finger and apply in an outward sweeping motion.</dd></div>
           </dl>
@@ -251,14 +276,18 @@
       </article>
 
       <article class="pc r" style="--d:120ms" data-cat="acne ageing dry pigmentation rosacea sensitive">
+        <a class="pc__hit" href="product/gentle-facial-cleanser.html" aria-label="Gentle Facial Cleanser"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Gentle Facial Cleanser" src="assets/img/shop/gentle-facial-cleanser.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Gentle Facial Cleanser</h3>
+          <h3 class="pc__name"><a href="product/gentle-facial-cleanser.html">Gentle Facial Cleanser</a></h3>
           <p class="pc__price">£34.00</p>
           <p class="pc__sum">A gentle skin cleanser suitable for sensitive skin containing Cucumis Melo (melon) extract which is antiseptic, antibacterial, and anti-inflammatory. Cleanser prepares the skin for your daily skin care.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="gentle-facial-cleanser" data-name="Gentle Facial Cleanser" data-price="34.00" data-img="assets/img/shop/gentle-facial-cleanser.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply to damp skin, massage gently, and rinse well. Effective as a makeup remover. All skin types.</dd></div>
           </dl>
@@ -266,14 +295,18 @@
       </article>
 
       <article class="pc r" style="--d:180ms" data-cat="acne ageing">
+        <a class="pc__hit" href="product/hydrating-glycolic-serum.html" aria-label="Hydrating Glycolic Serum"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Hydrating Glycolic Serum" src="assets/img/shop/hydrating-glycolic-serum.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Hydrating Glycolic Serum</h3>
+          <h3 class="pc__name"><a href="product/hydrating-glycolic-serum.html">Hydrating Glycolic Serum</a></h3>
           <p class="pc__price">£51.00</p>
           <p class="pc__sum">Hydrates and refines the skin and helps improve the skin&rsquo;s barrier function. 12% Glycolic acid stimulates collagen production, increases water content in the dermis and smooths the skin whilst the 2% Hyaluronic acid increases water content of the epidermis.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="hydrating-glycolic-serum" data-name="Hydrating Glycolic Serum" data-price="51.00" data-img="assets/img/shop/hydrating-glycolic-serum.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply two to three pumps to your clean, dry face daily. Ideal to use after showering or washing your skin to lock in moisture. Can also be used on the neck, décolletage and the backs of hands.</dd></div>
             <div class="pc__row pc__row--note"><dt>Please note</dt><dd>All skin types. Caution in sensitive skin.</dd></div>
@@ -282,14 +315,18 @@
       </article>
 
       <article class="pc r" style="--d:0ms" data-cat="sensitive">
+        <a class="pc__hit" href="product/hydration-moisturiser.html" aria-label="Hydration Moisturiser"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Hydration Moisturiser" src="assets/img/shop/hydration-moisturiser.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Hydration Moisturiser</h3>
+          <h3 class="pc__name"><a href="product/hydration-moisturiser.html">Hydration Moisturiser</a></h3>
           <p class="pc__price">£54.00</p>
           <p class="pc__sum">Contains 15% natural hyaluronic acid, a powerful humectant to attract moisture into your skin. Absorbs quickly to hydrate and keep skin supple. Helps reduce the appearance of fine lines and wrinkles whilst promoting an even skin tone and a fresh complexion. Optimal skin hydration helps to heal and soothe inflammation.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="hydration-moisturiser" data-name="Hydration Moisturiser" data-price="54.00" data-img="assets/img/shop/hydration-moisturiser.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Use once or twice a day after cleansing. All skin types.</dd></div>
           </dl>
@@ -297,14 +334,18 @@
       </article>
 
       <article class="pc r" style="--d:60ms" data-cat="ageing dry sensitive">
+        <a class="pc__hit" href="product/neck-and-decolletage-firming-cream.html" aria-label="Neck and Décolletage Firming Cream"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Neck and Décolletage Firming Cream" src="assets/img/shop/neck-and-decolletage-firming-cream.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Neck and Décolletage Firming Cream</h3>
+          <h3 class="pc__name"><a href="product/neck-and-decolletage-firming-cream.html">Neck and Décolletage Firming Cream</a></h3>
           <p class="pc__price">£69.00</p>
           <p class="pc__sum">A clinically-effective, daily anti-ageing treatment containing peptides, emollients and antioxidants to reduce visible signs of ageing on the neck and décolletage for skin that appears firmer, lifted and more evenly toned. Suitable for all skin types.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="neck-and-decolletage-firming-cream" data-name="Neck and Décolletage Firming Cream" data-price="69.00" data-img="assets/img/shop/neck-and-decolletage-firming-cream.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply 1 pump to cleansed, dry neck and décolletage area. Massage until fully absorbed.</dd></div>
           </dl>
@@ -312,14 +353,18 @@
       </article>
 
       <article class="pc r" style="--d:120ms" data-cat="ageing dry rosacea">
+        <a class="pc__hit" href="product/nightly-retinyl-repair-cream.html" aria-label="Nightly Retinyl Repair Cream"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Nightly Retinyl Repair Cream" src="assets/img/shop/nightly-retinyl-repair-cream.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Nightly Retinyl Repair Cream</h3>
+          <h3 class="pc__name"><a href="product/nightly-retinyl-repair-cream.html">Nightly Retinyl Repair Cream</a></h3>
           <p class="pc__price">£46.00</p>
           <p class="pc__sum">A topical 0.8% retinyl to combat acne and unblock pores whilst repairing sun-damaged skin. Increases cell renewal and collagen remodelling resulting in plumper, firmer, more evenly pigmented skin. Gentle enough to use every night with moisturising 1% hyaluronic acid.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="nightly-retinyl-repair-cream" data-name="Nightly Retinyl Repair Cream" data-price="46.00" data-img="assets/img/shop/nightly-retinyl-repair-cream.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply two to three pumps to the face at night. Do not use during the day. A daily sunscreen should be used whilst using this product.</dd></div>
             <div class="pc__row pc__row--note"><dt>Please note</dt><dd>Not suitable during pregnancy or breastfeeding.</dd></div>
@@ -328,14 +373,18 @@
       </article>
 
       <article class="pc r" style="--d:180ms" data-cat="ageing dry pigmentation">
+        <a class="pc__hit" href="product/retinol-serum.html" aria-label="Retinol Serum"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Retinol Serum" src="assets/img/shop/retinol-serum.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Retinol Serum</h3>
+          <h3 class="pc__name"><a href="product/retinol-serum.html">Retinol Serum</a></h3>
           <p class="pc__price">£58.00</p>
           <p class="pc__sum">Highly-effective with 1% liposomal retinol, a stabilised vitamin A derivative, which has been clinically proven to increase cell turnover. Reduces pore size and visible signs of ageing including pigmentation and uneven skin tone, resulting in firmer, younger looking skin. Suitable for all skin types. Caution on sensitive skin.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="retinol-serum" data-name="Retinol Serum" data-price="58.00" data-img="assets/img/shop/retinol-serum.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>After cleansing, apply to clean, dry skin at night. It is important to use SPF50 when using a retinol product as retinol increases the skin&rsquo;s sensitivity to sun exposure. Caution on sensitive skin.</dd></div>
           </dl>
@@ -343,14 +392,18 @@
       </article>
 
       <article class="pc r" style="--d:0ms" data-cat="pigmentation">
+        <a class="pc__hit" href="product/skin-brightening-serum.html" aria-label="Skin Brightening Serum"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Skin Brightening Serum" src="assets/img/shop/skin-brightening-serum.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Skin Brightening Serum</h3>
+          <h3 class="pc__name"><a href="product/skin-brightening-serum.html">Skin Brightening Serum</a></h3>
           <p class="pc__price">£72.00</p>
           <p class="pc__sum">This highly active serum helps reduce pigmentation and discolouration of the skin. Containing azelaic acid to calm inflammation, alpha-arbutin and glutathione to inhibit melanin synthesis, the main cause of pigmentation, and vitamins E and C to provide antioxidant protection.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="skin-brightening-serum" data-name="Skin Brightening Serum" data-price="72.00" data-img="assets/img/shop/skin-brightening-serum.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply liberally to areas of concern at night-time only. Use as a maintenance treatment when not using hydroquinone based anti-pigmentation products. Suitable for all skin types.</dd></div>
           </dl>
@@ -358,14 +411,18 @@
       </article>
 
       <article class="pc r" style="--d:60ms" data-cat="ageing dry">
+        <a class="pc__hit" href="product/ultra-hyaluronic-acid.html" aria-label="Ultra Hyaluronic Serum"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Ultra Hyaluronic Serum" src="assets/img/shop/ultra-hyaluronic-acid.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Ultra Hyaluronic Serum</h3>
+          <h3 class="pc__name"><a href="product/ultra-hyaluronic-acid.html">Ultra Hyaluronic Serum</a></h3>
           <p class="pc__price">£64.00</p>
           <p class="pc__sum">Clinically proven to increase hydration up to 130%, our Ultra Hyaluronic Serum is an ultra-low molecular weight hyaluronic complex that provides 72-hours of hydration, plumps and reduces the appearance of fine lines and wrinkles for a youthful appearance.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="ultra-hyaluronic-acid" data-name="Ultra Hyaluronic Serum" data-price="64.00" data-img="assets/img/shop/ultra-hyaluronic-acid.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply 1-2 drops directly onto your clean, dry face daily. Ideal to use after showering or washing your skin to lock in moisture. Can also be used on neck, décolletage and the back of your hands.</dd></div>
           </dl>
@@ -373,14 +430,18 @@
       </article>
 
       <article class="pc r" style="--d:120ms" data-cat="dry rosacea sensitive">
+        <a class="pc__hit" href="product/vitamin-c-antioxidant-gel.html" aria-label="Vitamin-C Antioxidant Gel"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Vitamin-C Antioxidant Gel" src="assets/img/shop/vitamin-c-antioxidant-gel.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Vitamin-C Antioxidant Gel</h3>
+          <h3 class="pc__name"><a href="product/vitamin-c-antioxidant-gel.html">Vitamin-C Antioxidant Gel</a></h3>
           <p class="pc__price">£53.00</p>
           <p class="pc__sum">Contains 10% L-ascorbic Acid. This uniquely-formulated products lightens and brightens the skin, and prevents and delays skin ageing from harmful pollutants and environmental damage.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="vitamin-c-antioxidant-gel" data-name="Vitamin-C Antioxidant Gel" data-price="53.00" data-img="assets/img/shop/vitamin-c-antioxidant-gel.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Apply daily to clean skin before applying SPF or makeup and gently massage into the skin until fully absorbed. Can also be used on the neck, décolletage and the backs of the hands. Suitable for all skin types.</dd></div>
           </dl>
@@ -388,14 +449,18 @@
       </article>
 
       <article class="pc r" style="--d:180ms" data-cat="ageing pigmentation sensitive">
+        <a class="pc__hit" href="product/vitamin-c-ferulic-antioxidant-gel.html" aria-label="Vitamin-C-E Ferulic Antioxidant Gel"></a>
         <div class="pc__media">
           <img loading="lazy" alt="Vitamin-C-E Ferulic Antioxidant Gel" src="assets/img/shop/vitamin-c-ferulic-antioxidant-gel.jpg">
         </div>
         <div class="pc__body">
-          <h3 class="pc__name">Vitamin-C-E Ferulic Antioxidant Gel</h3>
+          <h3 class="pc__name"><a href="product/vitamin-c-ferulic-antioxidant-gel.html">Vitamin-C-E Ferulic Antioxidant Gel</a></h3>
           <p class="pc__price">£76.00</p>
           <p class="pc__sum">High potency 20% L-ascorbic acid (the purest form of Vitamin C), 1% vitamin E and 0.5% Ferulic acid to stabilise and increase the antioxidant benefits. Evens pigmentation, brightens the skin, promotes collagen production and protects against environmental damage. In a light gel base making it easy to apply.</p>
-          <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          <div class="pc__acts">
+            <button class="u-btn u-btn--focus pc__add" type="button" data-add data-slug="vitamin-c-ferulic-antioxidant-gel" data-name="Vitamin-C-E Ferulic Antioxidant Gel" data-price="76.00" data-img="assets/img/shop/vitamin-c-ferulic-antioxidant-gel.jpg"><span>Add to basket</span></button>
+            <button class="pc__more" type="button" aria-expanded="false">Details</button>
+          </div>
           <dl class="pc__detail" hidden>
             <div class="pc__row"><dt>Directions</dt><dd>Pump two to three times into a cupped hand and apply to your clean, dry face. Allow to dry before applying anything on top. Can also be used on the neck, décolletage and the backs of the hands. Suitable for all skin types.</dd></div>
           </dl>
@@ -515,6 +580,28 @@
 <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5M5 12l7-7 7 7"/></svg>
 </button>
+
+
+<!-- ============ Basket ============ -->
+<div class="bk" id="cart" hidden>
+  <div class="bk__scrim" data-cart-close></div>
+  <aside class="bk__panel" role="dialog" aria-modal="true" aria-label="Your basket">
+    <header class="bk__head">
+      <p class="bk__title">Your basket <span class="bk__n" id="cartN">0</span></p>
+      <button class="bk__close" type="button" data-cart-close aria-label="Close basket">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="bk__body" id="cartBody"></div>
+    <footer class="bk__foot">
+      <div class="bk__sum"><span>Subtotal</span><b id="cartTotal">&pound;0.00</b></div>
+      <p class="bk__note">Checkout is not connected yet. Reserve by phone on
+        <a href="tel:+442071835892">020 7183 5892</a> or collect at the clinic.</p>
+      <button class="u-btn u-btn--focus bk__go" type="button" disabled><span>Checkout</span></button>
+      <a class="bk__cont" href="shop.html" data-cart-close>Continue shopping</a>
+    </footer>
+  </aside>
+</div>
 
 </div><!-- /.page -->
 

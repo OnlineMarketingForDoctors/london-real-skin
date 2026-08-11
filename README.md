@@ -3,7 +3,7 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** all nine pages built, for review.
+**Status:** all nine pages plus sixteen product pages built, for review.
 
 ```
 index.html                 the homepage
@@ -15,6 +15,7 @@ pricing.html               full price list
 blog.html                  blog index, 32 articles
 contact.html               contact, enquiry form, getting here
 shop.html                  the skincare range
+product/*.html             16 product detail pages
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -230,10 +231,28 @@ Four names in the URLs differ from what the client actually calls the product, a
 theirs: Eye Lift **Gel**, Ultra Hyaluronic **Serum**, Daily Skin Moisturiser and Sun Protection
 **SPF50**, **Vitamin-C-E** Ferulic Antioxidant Gel.
 
-> **The old site sells online**, through WooCommerce with a basket and Stripe express checkout. A
-> static rebuild cannot take payment, so the page lists the range and points at the clinic.
-> Whether the new site sells online, links out to a hosted checkout, or keeps selling in clinic is
-> a decision for before launch.
+## Product pages and the basket
+
+Sixteen detail pages at `product/<slug>.html`, matching the old site's `/product/<slug>/` so the
+URLs survive a migration. Each carries the photograph, name, price, quantity stepper and add to
+basket, then the client's own description, ingredients, benefits, directions and cautions, and
+three related products chosen by shared category.
+
+**Product pages deliberately have no page hero.** Every other page below the homepage opens with
+the full-height `.phero`; a product page has one job, which is to put the product and the price
+above the fold, and a full-screen hero would bury both. Say the word and it goes back to the
+standard. This is also why `onScrollHeader` now forces the solid masthead on any page with
+neither hero: light-on-light was unreadable at the top of a product page.
+
+**The basket is interface only.** Nothing is charged and nothing is sent. Contents live in
+`localStorage` so the count survives navigation and the demo behaves like a real shop; the
+checkout button is present and permanently disabled, with the clinic's number beside it. It is
+one function in `assets/js/main.js` to swap for a commerce backend, and the markup will not need
+to change.
+
+> The old site takes payment through WooCommerce and Stripe. **Whether the new site sells online,
+> links out to a hosted checkout, or keeps selling in clinic is still a decision for before
+> launch.** What is built is the interface for the first of those.
 
 ## Quality floor
 

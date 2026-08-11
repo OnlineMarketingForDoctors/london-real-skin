@@ -44,9 +44,12 @@
     document.documentElement.style.setProperty('--mast-h', masthead.offsetHeight + 'px');
   }
   var onScrollHeader = function () {
-    // Switch as soon as the hero's dark area no longer sits behind the bar.
-    var hero = $('.hero');
-    var limit = hero ? hero.offsetHeight - masthead.offsetHeight - 40 : 12;
+    // Switch as soon as the dark area behind the bar no longer sits under it.
+    // A page with neither hero has nothing dark to float over, so the bar is
+    // solid from the first pixel; light-on-light would be unreadable.
+    var hero = $('.hero') || $('.phero');
+    if (!hero) { masthead.classList.add('is-stuck'); return; }
+    var limit = hero.offsetHeight - masthead.offsetHeight - 40;
     masthead.classList.toggle('is-stuck', window.scrollY > limit);
   };
   measureHead();
@@ -448,6 +451,98 @@
       });
     });
   }
+
+  /* ---------- Basket ----------
+     Interface only. Nothing is charged and nothing is sent; the contents live in
+     localStorage so the count survives navigation and the demo behaves like a
+     real shop. Swap this for the commerce backend when there is one. */
+  var KEY = 'lrs-basket-v1';
+  var cartEl = $('#cart'), cartBtn = $('#cartBtn');
+  function readCart() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; }
+  }
+  function writeCart(items) {
+    try { localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) {}
+    renderCart(items);
+  }
+  function money(n) { return '£' + n.toFixed(2); }
+  function renderCart(items) {
+    items = items || readCart();
+    var count = items.reduce(function (n, i) { return n + i.qty; }, 0);
+    var total = items.reduce(function (n, i) { return n + i.qty * i.price; }, 0);
+    var badge = $('#cartBadge'), nEl = $('#cartN'), totalEl = $('#cartTotal'), body = $('#cartBody');
+    if (badge) { badge.textContent = count; badge.hidden = count === 0; }
+    if (nEl) nEl.textContent = count;
+    if (totalEl) totalEl.textContent = money(total);
+    var go = $('.bk__go');
+    if (go) go.disabled = true;              /* no checkout yet, by design */
+    if (!body) return;
+    if (!items.length) { body.innerHTML = '<p class="bk__empty">Your basket is empty.</p>'; return; }
+    body.innerHTML = items.map(function (i, n) {
+      return '<div class="bki">' +
+        '<img class="bki__img" src="' + i.img + '" alt="">' +
+        '<div><p class="bki__n">' + i.name + '</p>' +
+        '<p class="bki__p">' + money(i.price) + '</p>' +
+        '<div class="bki__row"><span class="bki__q">' +
+          '<button class="bki__s" type="button" data-step="-1" data-i="' + n + '" aria-label="Decrease quantity">&minus;</button>' +
+          '<span class="bki__v">' + i.qty + '</span>' +
+          '<button class="bki__s" type="button" data-step="1" data-i="' + n + '" aria-label="Increase quantity">+</button>' +
+        '</span><button class="bki__x" type="button" data-remove="' + n + '">Remove</button></div>' +
+        '</div></div>';
+    }).join('');
+  }
+  function openCart(on) {
+    if (!cartEl) return;
+    if (on) { cartEl.hidden = false; requestAnimationFrame(function () { cartEl.classList.add('is-on'); }); }
+    else { cartEl.classList.remove('is-on'); setTimeout(function () { cartEl.hidden = true; }, 420); }
+    document.body.classList.toggle('bk-open', !!on);
+    if (cartBtn) cartBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  if (cartEl) {
+    renderCart();
+    if (cartBtn) cartBtn.addEventListener('click', function () { openCart(cartEl.hidden); });
+    cartEl.addEventListener('click', function (e) {
+      if (e.target.closest('[data-cart-close]')) {
+        if (!e.target.closest('.bk__cont')) e.preventDefault();
+        openCart(false);
+        return;
+      }
+      var step = e.target.closest('[data-step]'), rm = e.target.closest('[data-remove]');
+      if (step) {
+        var items = readCart(), i = +step.getAttribute('data-i');
+        items[i].qty += +step.getAttribute('data-step');
+        if (items[i].qty < 1) items.splice(i, 1);
+        writeCart(items);
+      } else if (rm) {
+        var it = readCart(); it.splice(+rm.getAttribute('data-remove'), 1); writeCart(it);
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !cartEl.hidden) openCart(false);
+    });
+  }
+  $$('[data-add]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var qty = 1, from = btn.getAttribute('data-qty-from');
+      if (from) { var f = $('#' + from); qty = Math.max(1, parseInt(f && f.value, 10) || 1); }
+      var slug = btn.getAttribute('data-slug');
+      var items = readCart();
+      var found = items.filter(function (i) { return i.slug === slug; })[0];
+      if (found) found.qty += qty;
+      else items.push({ slug: slug, name: btn.getAttribute('data-name'),
+                        price: parseFloat(btn.getAttribute('data-price')),
+                        img: btn.getAttribute('data-img'), qty: qty });
+      writeCart(items);
+      openCart(true);
+    });
+  });
+  $$('.pd__step').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var input = $('#qty'); if (!input) return;
+      var v = (parseInt(input.value, 10) || 1) + (+b.getAttribute('data-qty'));
+      input.value = Math.min(99, Math.max(1, v));
+    });
+  });
 
   /* ---------- Shop: filter and product details ---------- */
   var pf = $('#pf'), pcGrid = $('#pcGrid');
