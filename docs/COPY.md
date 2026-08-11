@@ -515,10 +515,14 @@ Specialist skin care should not sit behind a velvet rope. We want every patient 
 | Leigh | Aesthetician |
 | Kylie | Aesthetician |
 | Ellen | Aesthetician |
+| Mina | Aesthetician |
 
 **Closing note:** Our aesthetic team are highly qualified in the treatments they offer, and regularly update their knowledge of techniques and products by attending training, leading conferences and workshops across the aesthetics industry.
 
-> Bios are still ours. No source gives per-person biographies.
+> Bios are still ours, with one exception: **Mina's is condensed from biography the client
+> supplied**, so the facts in it are hers. Her **role is our inference**. The client's own team
+> list predates her and gives no title, so she carries *Aesthetician*, matching the clinic's
+> vocabulary for its non-doctor practitioners. Confirm it.
 
 ## A7. What our clients say
 

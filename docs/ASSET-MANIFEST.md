@@ -52,7 +52,8 @@ headshot filename maps to a person — so the pairing is the client's, not a gue
 > within what the role and the clinic's own copy support. Send real bios and they drop straight
 > in.
 >
-> *Mina*, named in the questionnaire and in a Google review, still has no photo.
+> *Mina* now has a photograph. It arrived as a 1060x1412 PNG, cropped square around the subject
+> and saved at 900x900 to match the other seven headshots exactly.
 
 ### Before & after — 4 consented patient pairs · `assets/img/ba/`
 | Case | Files |

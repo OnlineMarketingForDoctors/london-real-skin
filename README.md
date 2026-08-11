@@ -246,7 +246,9 @@ them. The manifest has a two-command fix.
 3. **Send the full *For men* and *Medical treatments* treatment lists.** The supplied menu
    screenshots were cut off.
 4. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
-5. Mina, named in the questionnaire and in a Google review, still has no photograph.
+5. **Confirm Mina's role.** She joined the team cards with a photograph and a biography from
+   the client, but their own team list predates her and gives no title, so she carries
+   *Aesthetician* by inference.
 6. Real publication dates for the 32 blog articles, if they exist.
 
 **Wiring**
