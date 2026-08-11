@@ -3323,44 +3323,7 @@ h1,h2,h3,h4,p{margin:0}
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-.pc.is-open .pc__sum{-webkit-line-clamp:unset;overflow:visible}
-.pc__more{
-  margin-top:auto;
-  padding-top:clamp(14px,1.6vw,20px);
-  align-self:flex-start;
-  font-family:var(--mono);
-  font-size:.6rem;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--focus-deep);
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-}
-.pc__more::after{content:"+";font-size:1.05em;transition:transform .4s var(--ease-out)}
-.pc.is-open .pc__more::after{transform:rotate(45deg)}
-.pc__more:hover{color:var(--ink)}
-
-.pc__detail{margin-top:clamp(14px,1.6vw,18px);border-top:1px solid var(--line)}
-.pc__row{padding:clamp(10px,1.2vw,14px) 0;border-bottom:1px solid var(--line-soft)}
-.pc__row:last-child{border-bottom:0}
-.pc__row dt{
-  font-family:var(--mono);
-  font-size:.56rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:.4rem;
-}
-.pc__row dt:empty{display:none}
-.pc__row dd{margin:0;font-size:.83rem;line-height:1.55;color:var(--ink)}
-.pc__ul{display:grid;gap:.4rem}
-.pc__ul li{position:relative;padding-left:14px}
-.pc__ul li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--focus)}
-/* A caution is the one thing on a product card that must not be skimmed past. */
-.pc__row--note dd{color:var(--ink);font-weight:500}
-.pc__row--note dt{color:var(--focus-deep)}
-
+.pc.is-open 
 /* ---- How to buy ---- */
 .buy{background:var(--ink-deep);color:var(--paper)}
 .buy__grid{align-items:center;row-gap:clamp(28px,3.4vw,48px)}
@@ -3533,11 +3496,10 @@ h1,h2,h3,h4,p{margin:0}
 /* A full-card hit area, sitting under the buttons so they stay clickable. */
 .pc__hit{position:absolute;inset:0;z-index:0}
 .pc__media,.pc__body{position:relative;z-index:1;pointer-events:none}
-.pc__name a,.pc__acts,.pc__detail{pointer-events:auto}
+.pc__name a,.pc__acts{pointer-events:auto}
 .pc__name a:hover{color:var(--focus-deep)}
 .pc__acts{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:auto;padding-top:clamp(14px,1.6vw,20px)}
 .pc__add{border:0;font-size:.58rem;padding:11px 17px}
-.pc__acts .pc__more{margin-top:0;padding-top:0}
 
 /* ---- Basket ---- */
 .icon-btn--cart{position:relative}

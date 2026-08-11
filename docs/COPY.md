@@ -1302,16 +1302,15 @@ their names.
 
 **Eyebrow:** The range
 **H2:** Sixteen products, *and what is in them*
-**Lede:** Filter by what your skin is actually doing. Every product opens to its full ingredients, directions and cautions, because those are the parts worth reading.
+**Lede:** Filter by what your skin is actually doing. Every product has its own page with the full ingredients, directions and cautions, because those are the parts worth reading.
 
 Filters are the client's own product categories, not ours: Dry and dehydrated (11), Ageing skin
 (11), Sensitive (9), Rosacea and redness (7), Pigmentation (7), Acne-prone (5). *Skin care*
 applies to all sixteen and is dropped in favour of *All*.
 
-Each card carries the photograph, name, price and opening description. **Details** expands to skin
-concerns, skin types, key ingredients, key benefits, directions and any caution. Cautions are
-styled to stand out, because *Not suitable during pregnancy or breastfeeding* is the one line on
-a product card that must not be skimmed past.
+Each card carries the photograph, name, price, opening description and **Add to basket**. The
+whole card links through to the product page, which is where the ingredients, directions and
+cautions live; the card no longer duplicates them behind a Details toggle.
 
 | Product | Price | Categories |
 |---|---|---|
@@ -1335,14 +1334,13 @@ a product card that must not be skimmed past.
 ## S4. How to buy
 
 **Eyebrow:** How to buy
-**H2:** Ask before *you buy*
+**H2:** Order online, *ask first if unsure*
 **Lede:** Retinol suits most skin and ruins some. Acids and vitamin C do not always belong in the same routine. Which of these is right for you, and in what order, is a five minute conversation at consultation.
-**Body:** Products are available at the clinic at 233 High Holborn, and we can talk you through the range over the phone if you already know what you are looking for.
+**Body:** Everything here is delivered to your door. If you already know what you are looking for, add it to your basket. If you do not, the consultation is free and it is the quickest route to a routine that actually suits your skin.
 
-> **The old site sells online**, through WooCommerce with a basket, Stripe express checkout and
-> product categories. A static rebuild cannot take payment, so this section is written for a
-> clinic that sells in person. If the new site is to sell online, this section changes and the
-> cards need an add-to-basket route.
+> **The shop sells online with delivery**, confirmed by the client. Nothing on the site offers
+> collection. No delivery cost, threshold or timeframe appears anywhere, because none has been
+> supplied; those need writing before launch, along with returns and the countries served.
 
 ## S5. Product pages
 
@@ -1354,11 +1352,11 @@ specification list, then three related products chosen by shared category. The b
 the eyebrow *London Real Skin*, the name, the price, the opening description, a quantity stepper,
 **Add to basket**, and one line the client should check:
 
-> Collect at the clinic, 233 High Holborn. Ask about the range at your free consultation, or call
-> 020 7183 5892.
+> Delivered to your door. Not sure whether this one is right for your skin? Ask at your free
+> consultation, or call 020 7183 5892.
 
-That line assumes collection rather than delivery, which is the safe assumption while there is no
-checkout. It changes the moment the shop sells online.
+It says delivery and nothing more: no cost, no threshold, no timeframe, because none has been
+supplied.
 
 Everything else on a product page is the client's own copy, unrewritten: description, key
 ingredients, key benefits, directions and cautions. Cautions get their own bordered panel rather
@@ -1374,7 +1372,7 @@ Interface only. Nothing is charged and nothing is sent.
 
 **Panel title:** Your basket
 **Empty state:** Your basket is empty.
-**Subtotal row**, then: Checkout is not connected yet. Reserve by phone on 020 7183 5892 or collect at the clinic.
+**Subtotal row**, then: Checkout is not connected yet. To order in the meantime, call 020 7183 5892.
 **Checkout button:** present, permanently disabled.
 **Below it:** Continue shopping
 

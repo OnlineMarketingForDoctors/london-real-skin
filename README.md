@@ -223,9 +223,12 @@ Sixteen products, built from the client's WooCommerce export: names, prices, des
 ingredients, key benefits, directions and cautions are all theirs, unrewritten. Photography is
 theirs too, padded square on white and committed to `assets/img/shop/`, 250 KB for all sixteen.
 
-Filters are the client's own product categories rather than groupings of ours. Each card opens to
-its full detail; cautions are styled to stand out, because *Not suitable during pregnancy or
-breastfeeding* is the one line on a product card that must not be skimmed past.
+Filters are the client's own product categories rather than groupings of ours. Cards carry the
+photograph, name, price, opening line and add to basket, and link through to the product page;
+the ingredients, directions and cautions live there rather than being duplicated on the card.
+
+Primary nav order: About Us, Treatments, Conditions, Devices, Blog, Pricing, **Shop**, Contact.
+The drawer matches, with Shop at 06 and Contact at 07.
 
 Four names in the URLs differ from what the client actually calls the product, and the page uses
 theirs: Eye Lift **Gel**, Ultra Hyaluronic **Serum**, Daily Skin Moisturiser and Sun Protection
@@ -250,9 +253,13 @@ checkout button is present and permanently disabled, with the clinic's number be
 one function in `assets/js/main.js` to swap for a commerce backend, and the markup will not need
 to change.
 
-> The old site takes payment through WooCommerce and Stripe. **Whether the new site sells online,
-> links out to a hosted checkout, or keeps selling in clinic is still a decision for before
-> launch.** What is built is the interface for the first of those.
+The shop is **online with delivery**. No page offers collection, and no page states a delivery
+cost, threshold or timeframe, because the client has not supplied any.
+
+> **The shop sells online with delivery**, confirmed by the client. Nothing on the site offers
+> collection. The remaining work is the checkout itself and the delivery terms: cost, thresholds,
+> dispatch times, returns and the countries served. None of that is written anywhere yet, and
+> none of it has been invented.
 
 ## Quality floor
 
@@ -281,8 +288,11 @@ them. The manifest has a two-command fix.
 
 **Content and data**
 
-0. **Decide how the shop sells.** The range, prices and copy are all in; the old site's
-   WooCommerce checkout is not, and cannot be on a static build.
+0. **Supply the delivery terms** for the shop: cost, free-delivery threshold, dispatch time,
+   returns and where you ship to. The basket and product pages say delivery and nothing more,
+   because nothing more is known.
+0b. **Connect the checkout.** A static build cannot take payment, so this needs a hosted
+   checkout or a commerce backend.
 
 1. **Confirm the price column.** `pricing.html` uses *Price LRS*; *FINAL PRICE* differs on about
    thirty lines. See the Pricing notes in `docs/COPY.md`.

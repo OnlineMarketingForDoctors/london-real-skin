@@ -568,16 +568,6 @@
       });
     });
   }
-  $$('.pc').forEach(function (card) {
-    var btn = $('.pc__more', card), detail = $('.pc__detail', card);
-    if (!btn || !detail) return;
-    btn.addEventListener('click', function () {
-      var open = card.classList.toggle('is-open');
-      detail.hidden = !open;
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.firstChild.nodeValue = open ? 'Close' : 'Details';
-    });
-  });
 
   /* ---------- Contact: enquiry form ----------
      There is no backend on a static site, so a validated submit composes a
