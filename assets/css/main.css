@@ -2577,8 +2577,10 @@ h1,h2,h3,h4,p{margin:0}
 .med__actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(24px,2.8vw,34px)}
 .med__media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
 
-/* ---- Cross-link ---- */
-.xlink{background:var(--paper-pure)}
+/* ---- Cross-link ----
+   A closing rule rather than a section: it carries its own hairline and its own
+   internal padding, so a full section's padding above it just opened a void. */
+.xlink{background:var(--paper-pure);padding-top:0}
 .xlink__in{
   display:flex;
   align-items:center;
@@ -2701,7 +2703,9 @@ h1,h2,h3,h4,p{margin:0}
 .dvc__chip--cn{border-style:dashed}
 
 /* ---- Also in the clinic ---- */
-.also{background:var(--paper-pure)}
+/* The list already closes on a hairline, so it needs less air beneath it than a
+   section that ends on running text. */
+.also{background:var(--paper-pure);padding-bottom:clamp(44px,5vw,88px)}
 .also__head{max-width:62ch;margin-bottom:clamp(30px,3.6vw,52px)}
 .also__h2{margin:clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)}
 .also__list{border-top:1px solid var(--line)}
