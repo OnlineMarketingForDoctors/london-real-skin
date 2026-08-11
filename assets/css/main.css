@@ -3274,7 +3274,7 @@ h1,h2,h3,h4,p{margin:0}
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:clamp(20px,2.4vw,36px);
-  align-items:start;   /* a card grows when its details open, without dragging the row */
+  align-items:stretch;   /* every card in a row starts and ends on the same line */
 }
 @media (max-width:1180px){.pc__grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:860px){.pc__grid{grid-template-columns:repeat(2,1fr)}}
