@@ -3323,7 +3323,6 @@ h1,h2,h3,h4,p{margin:0}
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-.pc.is-open 
 /* ---- How to buy ---- */
 .buy{background:var(--ink-deep);color:var(--paper)}
 .buy__grid{align-items:center;row-gap:clamp(28px,3.4vw,48px)}
