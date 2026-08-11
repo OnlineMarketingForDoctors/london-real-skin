@@ -1256,3 +1256,87 @@ Full bleed, with the card over the map on wide screens and below it on narrow on
 Free consultation · CQC-registered · 0% finance available · Dermatology-led since 2016, then the
 standard footer. This is the only page without the closing CTA section: the whole page is the
 call to action, and `#contact` points at the enquiry form instead.
+
+
+---
+
+# Shop
+
+Sixteen products from the London Real Skin own label, grouped by the step they belong to rather
+than by product type.
+
+> **What is missing, and why.** The client asked for product information and photography to be
+> extracted from the sixteen pages on `londonrealskin.com/product/`. This build environment's
+> egress policy blocks that domain, as it has blocked it since the first build, so **prices,
+> descriptions, sizes, ingredients and images could not be retrieved**.
+>
+> The product names are real, taken from the URLs and cross-checked against the labels legible in
+> the client's own range photograph. Everything else on the page is either the client's existing
+> copy or ours. **No product claim, ingredient or price has been invented**, which matters more
+> here than anywhere else on the site: cosmetic claims are regulated, and a wrong ingredient on a
+> skincare page is a safety issue rather than a typo.
+>
+> An HTML export of the shop pages fills the gaps, exactly as it did for About, News and Contact.
+
+## S1. Page hero
+
+**Breadcrumb:** Home / Shop
+**Eyebrow:** Shop
+**H1:** Our own label, *and nothing else*
+**Body:** Sixteen products formulated for the clinic. Skincare does most of the work between appointments, which is why we would rather sell you the right cleanser than the wrong laser.
+
+## S2. Proud stockists
+
+**Eyebrow:** Industry-leading skincare
+**H2:** Proud stockists, *and our own label*
+**Lede (client's own):** We are proud stockists of the Obagi range alongside our own London Real Skin label, which aims to restore and rejuvenate with a Vitamin C antioxidant gel, gentle cleanser and exfoliator, brightening serum and hydrating moisturiser that consistently deliver results.
+**Body:** Everything here is chosen the same way the treatments are: on the evidence behind it. A routine is put together after your skin has been looked at properly, and it is usually shorter than people expect.
+**Figures:** 16 Products in the range · 04 Steps in a routine · Free Skin consultation
+
+## S3. The range
+
+**Eyebrow:** The range
+**H2:** Sixteen products, *in routine order*
+
+| | Step | Product | Link |
+|---|---|---|---|
+| 01 | Cleanse and exfoliate | Gentle Facial Cleanser | `product/gentle-facial-cleanser.html` |
+| 02 | Cleanse and exfoliate | Daily Exfoliating Glycolic Wash | `product/daily-exfoliating-glycolic-wash.html` |
+| 03 | Serums and gels | Calming Day Serum | `product/calming-day-serum.html` |
+| 04 | Serums and gels | Ultra Hyaluronic Acid | `product/ultra-hyaluronic-acid.html` |
+| 05 | Serums and gels | Eye Lift Serum | `product/eye-lift-serum.html` |
+| 06 | Serums and gels | Retinol Serum | `product/retinol-serum.html` |
+| 07 | Serums and gels | Vitamin C Ferulic Antioxidant Gel | `product/vitamin-c-ferulic-antioxidant-gel.html` |
+| 08 | Serums and gels | Vitamin C Antioxidant Gel | `product/vitamin-c-antioxidant-gel.html` |
+| 09 | Serums and gels | Skin Brightening Serum | `product/skin-brightening-serum.html` |
+| 10 | Serums and gels | Hydrating Glycolic Serum | `product/hydrating-glycolic-serum.html` |
+| 11 | Moisturise | Hydration Moisturiser | `product/hydration-moisturiser.html` |
+| 12 | Moisturise | Calming Night Cream | `product/calming-night-cream.html` |
+| 13 | Moisturise | Nightly Retinyl Repair Cream | `product/nightly-retinyl-repair-cream.html` |
+| 14 | Moisturise | Neck and Décolletage Firming Cream | `product/neck-and-decolletage-firming-cream.html` |
+| 15 | Protect | Daily Moisturiser and Sun Protection SPF 20 | `product/daily-moisturiser-and-sun-protection-spf-20.html` |
+| 16 | Protect | Daily Skin Protection | `product/daily-skin-protection.html` |
+
+The step groupings are ours. The names are the client's.
+
+Note that the packaging in the range photograph reads slightly differently from some of the URL
+slugs: *Eye Lift Serum* is labelled **Eyelift Gel**, *Ultra Hyaluronic Acid* is labelled **Ultra
+Hyaluronic Serum**, and *Calming Day Serum* is labelled **Calming Restore Day Serum**. The page
+uses the slug names for now. **Confirm which is correct** when the export arrives.
+
+## S4. How to buy
+
+**Eyebrow:** How to buy
+**H2:** Ask before *you buy*
+**Lede:** Retinol suits most skin and ruins some. Acids and vitamin C do not always belong in the same routine. Which of these is right for you, and in what order, is a five minute conversation at consultation.
+**Body:** Products are available at the clinic at 233 High Holborn, and we can talk you through the range over the phone if you already know what you are looking for.
+
+> This section is written for a clinic that sells in person. **The old site sells online**, with a
+> WooCommerce basket and checkout, which a static site cannot do. If the new site is to sell
+> online, this section and the product links both change.
+
+## S5. Cross-links, CTA and footer
+
+**Eyebrow:** Skincare is half of it
+**H2:** The other half happens in clinic
+**CTAs:** Conditions we treat · All treatments

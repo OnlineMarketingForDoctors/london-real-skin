@@ -3,7 +3,7 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** all eight pages built, for review.
+**Status:** all nine pages built, for review.
 
 ```
 index.html                 the homepage
@@ -14,6 +14,7 @@ devices.html               Devices
 pricing.html               full price list
 blog.html                  blog index, 32 articles
 contact.html               contact, enquiry form, getting here
+shop.html                  the skincare range
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -212,6 +213,26 @@ Note that the embed loads Google's own scripts and cookies. If that is a problem
 clinic's cookie policy, the section degrades to the address card and the *Open in Google Maps*
 link by removing one iframe.
 
+## Shop sections
+
+Page hero · Proud stockists and our own label · the range in routine order · How to buy ·
+cross-links · Closing CTA · Footer.
+
+The sixteen products are grouped by the step they belong to, cleanse, treat, moisturise, protect,
+rather than by product type, and each links to `product/<slug>.html` using the old site's slugs so
+the URLs survive a migration.
+
+> **The product data is not here yet.** `londonrealskin.com` is blocked by this build
+> environment's egress policy, so the prices, descriptions, sizes, ingredients and product
+> photography could not be extracted from the sixteen shop pages. **The names are real** and come
+> from the URLs, and the group copy is ours; nothing about any product has been invented. Send an
+> HTML export of the shop pages, as with About, News and Contact, and the cards fill in.
+
+> **The old site runs a real WooCommerce shop with a basket and checkout.** This rebuild is
+> static and cannot take payment. Whether the new site sells online, links out to a hosted
+> checkout, or lists the range and sells in clinic is a decision the client needs to make before
+> launch. The page as built does the last of those.
+
 ## Quality floor
 
 - Responsive to 390px; single-column below 900px, drawer navigation below 1180px.
@@ -238,6 +259,9 @@ them. The manifest has a two-command fix.
 ## Before this goes live
 
 **Content and data**
+
+0. **Send the shop page export.** Sixteen products are listed by name only; prices, descriptions
+   and photography are all missing, and the e-commerce question above needs answering.
 
 1. **Confirm the price column.** `pricing.html` uses *Price LRS*; *FINAL PRICE* differs on about
    thirty lines. See the Pricing notes in `docs/COPY.md`.
