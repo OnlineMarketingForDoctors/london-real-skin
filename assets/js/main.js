@@ -449,6 +449,41 @@
     });
   }
 
+  /* ---------- Shop: filter and product details ---------- */
+  var pf = $('#pf'), pcGrid = $('#pcGrid');
+  if (pf && pcGrid) {
+    var pfChips = $$('.pf__chip', pf);
+    var pcCards = $$('.pc', pcGrid);
+    var pfEmpty = $('#pfEmpty');
+    pfChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var cat = chip.getAttribute('data-cat'), shown = 0;
+        pfChips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-on', on);
+          c.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        pcCards.forEach(function (card) {
+          var cats = (card.getAttribute('data-cat') || '').split(' ');
+          var show = cat === 'all' || cats.indexOf(cat) > -1;
+          card.hidden = !show;
+          if (show) shown++;
+        });
+        if (pfEmpty) pfEmpty.hidden = shown > 0;
+      });
+    });
+  }
+  $$('.pc').forEach(function (card) {
+    var btn = $('.pc__more', card), detail = $('.pc__detail', card);
+    if (!btn || !detail) return;
+    btn.addEventListener('click', function () {
+      var open = card.classList.toggle('is-open');
+      detail.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.firstChild.nodeValue = open ? 'Close' : 'Details';
+    });
+  });
+
   /* ---------- Contact: enquiry form ----------
      There is no backend on a static site, so a validated submit composes a
      pre-filled email to the clinic. Replace with a real endpoint when the

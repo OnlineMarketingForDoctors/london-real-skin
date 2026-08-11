@@ -210,6 +210,15 @@ devices sit at the same optical weight. The lit ground behind them is CSS.
 The page hero uses `laser-treatment.jpg`, real hardware in the real clinic, in preference to a
 generated device photograph.
 
+### Shop · product photography
+Sixteen product shots from the client's own WooCommerce library, supplied with the product page
+export. Transparent PNGs are flattened onto white, non-square shots are padded rather than
+cropped so no packaging is cut off, and everything is capped at 800px and saved as progressive
+JPEG. **250 KB for all sixteen**, in `assets/img/shop/<slug>.jpg`.
+
+Two of the photographs carry the client's own teal *NEW* starburst in the artwork, which is why
+the cards do not add a badge of their own.
+
 ## 4. Hot-linked images
 
 ### From `d8j0ntlcm91z4.cloudfront.net` (20)

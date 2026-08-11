@@ -215,23 +215,25 @@ link by removing one iframe.
 
 ## Shop sections
 
-Page hero · Proud stockists and our own label · the range in routine order · How to buy ·
-cross-links · Closing CTA · Footer.
+Page hero · Proud stockists and our own label · the range · How to buy · cross-links · Closing
+CTA · Footer.
 
-The sixteen products are grouped by the step they belong to, cleanse, treat, moisturise, protect,
-rather than by product type, and each links to `product/<slug>.html` using the old site's slugs so
-the URLs survive a migration.
+Sixteen products, built from the client's WooCommerce export: names, prices, descriptions, key
+ingredients, key benefits, directions and cautions are all theirs, unrewritten. Photography is
+theirs too, padded square on white and committed to `assets/img/shop/`, 250 KB for all sixteen.
 
-> **The product data is not here yet.** `londonrealskin.com` is blocked by this build
-> environment's egress policy, so the prices, descriptions, sizes, ingredients and product
-> photography could not be extracted from the sixteen shop pages. **The names are real** and come
-> from the URLs, and the group copy is ours; nothing about any product has been invented. Send an
-> HTML export of the shop pages, as with About, News and Contact, and the cards fill in.
+Filters are the client's own product categories rather than groupings of ours. Each card opens to
+its full detail; cautions are styled to stand out, because *Not suitable during pregnancy or
+breastfeeding* is the one line on a product card that must not be skimmed past.
 
-> **The old site runs a real WooCommerce shop with a basket and checkout.** This rebuild is
-> static and cannot take payment. Whether the new site sells online, links out to a hosted
-> checkout, or lists the range and sells in clinic is a decision the client needs to make before
-> launch. The page as built does the last of those.
+Four names in the URLs differ from what the client actually calls the product, and the page uses
+theirs: Eye Lift **Gel**, Ultra Hyaluronic **Serum**, Daily Skin Moisturiser and Sun Protection
+**SPF50**, **Vitamin-C-E** Ferulic Antioxidant Gel.
+
+> **The old site sells online**, through WooCommerce with a basket and Stripe express checkout. A
+> static rebuild cannot take payment, so the page lists the range and points at the clinic.
+> Whether the new site sells online, links out to a hosted checkout, or keeps selling in clinic is
+> a decision for before launch.
 
 ## Quality floor
 
@@ -260,8 +262,8 @@ them. The manifest has a two-command fix.
 
 **Content and data**
 
-0. **Send the shop page export.** Sixteen products are listed by name only; prices, descriptions
-   and photography are all missing, and the e-commerce question above needs answering.
+0. **Decide how the shop sells.** The range, prices and copy are all in; the old site's
+   WooCommerce checkout is not, and cannot be on a static build.
 
 1. **Confirm the price column.** `pricing.html` uses *Price LRS*; *FINAL PRICE* differs on about
    thirty lines. See the Pricing notes in `docs/COPY.md`.

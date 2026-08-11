@@ -3233,66 +3233,133 @@ h1,h2,h3,h4,p{margin:0}
 .sp__head{max-width:62ch;margin-bottom:clamp(34px,4vw,58px)}
 .sp__h2{margin:clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)}
 
-.sp__groups{display:grid;gap:clamp(30px,3.6vw,56px)}
-.sp__group{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:clamp(20px,2.4vw,40px);
-  align-items:start;
-  padding-top:clamp(24px,2.8vw,40px);
-  border-top:1px solid var(--ink);
+/* ---- Filter ---- */
+.pf{
+  display:flex;
+  align-items:center;
+  gap:clamp(14px,2vw,26px);
+  padding-bottom:clamp(20px,2.4vw,30px);
+  margin-bottom:clamp(26px,3vw,42px);
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap;
 }
-.sp__ghead{grid-column:1/span 4;grid-row:1;position:sticky;top:calc(var(--mast-h,88px) + 26px)}
-.sp__list{grid-column:6/span 7;grid-row:1;border-top:1px solid var(--line)}
-@media (max-width:940px){
-  .sp__ghead,.sp__list{grid-column:1/-1;grid-row:auto;position:static}
-}
-.sp__gname{font-size:clamp(1.3rem,1.9vw,1.7rem);line-height:1.14}
-.sp__gnote{margin-top:.7rem;font-size:.88rem;color:var(--muted);max-width:34ch;line-height:1.55}
-.sp__gcount{
-  margin-top:clamp(12px,1.4vw,18px);
+.pf__label{
   font-family:var(--mono);
   font-size:.62rem;
-  letter-spacing:.2em;
+  letter-spacing:.18em;
   text-transform:uppercase;
-  color:var(--focus-deep);
-}
-
-.sp__li{border-bottom:1px solid var(--line)}
-.sp__link{
-  display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center;
-  gap:clamp(14px,1.6vw,24px);
-  padding:clamp(14px,1.7vw,21px) 6px;
-  transition:padding-left .45s var(--ease-out),color .35s var(--ease);
-}
-.sp__no{
-  font-family:var(--mono);
-  font-size:.66rem;
-  letter-spacing:.12em;
   color:var(--muted);
-  transition:color .35s var(--ease);
+  flex:none;
 }
-.sp__name{
+.pf__chips{display:flex;gap:8px;flex-wrap:wrap}
+.pf__chip{
+  font-family:var(--mono);
+  font-size:.68rem;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:9px 15px;
+  border:1px solid var(--line);
+  border-radius:100px;
+  color:var(--ink);
+  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);
+}
+.pf__chip:hover{border-color:var(--focus);color:var(--focus-deep)}
+.pf__chip.is-on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.pf__n{opacity:.55;margin-left:.4em}
+.pf__empty{color:var(--muted);padding:clamp(30px,4vw,60px) 0}
+
+/* ---- Product cards ---- */
+.pc__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(20px,2.4vw,36px);
+  align-items:start;   /* a card grows when its details open, without dragging the row */
+}
+@media (max-width:1180px){.pc__grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:860px){.pc__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.pc__grid{grid-template-columns:1fr}}
+
+.pc{
+  display:flex;
+  flex-direction:column;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+  transition:border-color .5s var(--ease),box-shadow .55s var(--ease-out);
+}
+.pc:hover{border-color:rgba(29,176,186,.45);box-shadow:0 34px 60px -46px rgba(22,41,60,.5)}
+.pc__media{position:relative;background:var(--white);padding:clamp(10px,1.4vw,20px)}
+.pc__media img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:contain;
+  transition:transform 1s var(--ease-out);
+}
+.pc:hover .pc__media img{transform:scale(1.04)}
+.pc__body{padding:clamp(16px,1.8vw,24px);display:flex;flex-direction:column;flex:1;border-top:1px solid var(--line-soft)}
+.pc__name{
   font-family:var(--disp);
-  font-size:clamp(1.02rem,1.35vw,1.25rem);
-  line-height:1.22;
+  font-size:clamp(1.02rem,1.3vw,1.2rem);
+  line-height:1.18;
   text-wrap:pretty;
 }
-.sp__arrow{
-  width:17px;height:17px;
-  flex:none;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:1.5;
-  opacity:0;
-  transform:translateX(-6px);
-  transition:opacity .4s var(--ease),transform .5s var(--ease-out);
+.pc__price{
+  font-family:var(--mono);
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--focus-deep);
+  margin-top:.45rem;
 }
-.sp__link:hover,.sp__link:focus-visible{padding-left:14px;color:var(--focus-deep)}
-.sp__link:hover .sp__no,.sp__link:focus-visible .sp__no{color:var(--focus)}
-.sp__link:hover .sp__arrow,.sp__link:focus-visible .sp__arrow{opacity:1;transform:none}
+.pc__sum{
+  font-size:.83rem;
+  line-height:1.55;
+  color:var(--muted);
+  margin-top:.7rem;
+  text-wrap:pretty;
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.pc.is-open .pc__sum{-webkit-line-clamp:unset;overflow:visible}
+.pc__more{
+  margin-top:auto;
+  padding-top:clamp(14px,1.6vw,20px);
+  align-self:flex-start;
+  font-family:var(--mono);
+  font-size:.6rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--focus-deep);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.pc__more::after{content:"+";font-size:1.05em;transition:transform .4s var(--ease-out)}
+.pc.is-open .pc__more::after{transform:rotate(45deg)}
+.pc__more:hover{color:var(--ink)}
+
+.pc__detail{margin-top:clamp(14px,1.6vw,18px);border-top:1px solid var(--line)}
+.pc__row{padding:clamp(10px,1.2vw,14px) 0;border-bottom:1px solid var(--line-soft)}
+.pc__row:last-child{border-bottom:0}
+.pc__row dt{
+  font-family:var(--mono);
+  font-size:.56rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:.4rem;
+}
+.pc__row dt:empty{display:none}
+.pc__row dd{margin:0;font-size:.83rem;line-height:1.55;color:var(--ink)}
+.pc__ul{display:grid;gap:.4rem}
+.pc__ul li{position:relative;padding-left:14px}
+.pc__ul li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--focus)}
+/* A caution is the one thing on a product card that must not be skimmed past. */
+.pc__row--note dd{color:var(--ink);font-weight:500}
+.pc__row--note dt{color:var(--focus-deep)}
 
 /* ---- How to buy ---- */
 .buy{background:var(--ink-deep);color:var(--paper)}
