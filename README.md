@@ -86,20 +86,21 @@ image and the copy change. New pages should reuse it as-is rather than introduci
 
 ## Treatments sections
 
-Page hero · sticky category nav · five category sections, each with an image, a short position
-statement and the full treatment list · Not sure where to start · Closing CTA · Footer.
+Page hero · sticky category nav · five category sections · Not sure where to start · Closing CTA
+· Footer.
 
-The five categories and their thirty-seven treatments come from the client's existing site
-menu. Layout weight and ground tone alternate together, so no two categories read the same, and
-*For men* inverts to the dark ground.
+**Fifty-one treatments**, restructured to the client's *Website Development, suggested amendments
+and additions* document. Injectables and Body now carry the client's own sub-groups (five and four
+respectively) rather than one flat run; Face became **Laser and device treatments**; titles were
+made consistent, so *Sciton BBL for Rosacea, Vascular Lesions and Pigmentation* is now *Sciton BBL
+London*. For men went from one treatment to four.
 
-Every treatment links to `treatments/<slug>.html`. **Those pages do not exist yet**, which is
-what `404.html` is for: Vercel serves it for any unknown path, and it says the page is still
-being written rather than showing a bare error.
+Numbering runs 01 to 21 in Injectables and 01 to 10 in Body, continuously across their sub-groups.
+The document repeated 12 and 13 and skipped 14; nothing was added or dropped to fix that.
 
-Two category lists are almost certainly incomplete. The client's menu screenshots for *For men*
-and *Medical treatments* were cut off, so those sections currently carry one and two treatments
-respectively. Send the full lists and they drop straight in.
+Renaming changed most treatment slugs, so every cross-link on the homepage, Conditions and Devices
+was remapped and relabelled to match. Four points the document left open were settled with the
+client and are recorded at the top of the Treatments section in `docs/COPY.md`.
 
 ## Conditions sections
 

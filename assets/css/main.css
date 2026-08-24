@@ -3568,3 +3568,19 @@ body.bk-open{overflow:hidden}
   .bk__panel,.bk__scrim{transition:none}
   .pd__buy{position:static}
 }
+
+/* ---- Treatment sub-groups ----
+   Injectables and Body now split into the client's own sub-categories, so each
+   group carries a label above its own list rather than one flat run. */
+.trt__sub + .trt__sub{margin-top:clamp(26px,3vw,44px)}
+.trt__subname{
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--focus-deep);
+  padding-bottom:clamp(10px,1.2vw,14px);
+  border-bottom:1px solid var(--ink);
+  margin-bottom:2px;
+}
+.trt--dark .trt__subname{color:var(--focus);border-bottom-color:var(--line-light)}

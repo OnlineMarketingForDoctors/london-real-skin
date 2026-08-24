@@ -553,131 +553,135 @@ Identical to the homepage, including the client-supplied legal line.
 
 # Treatments
 
-Source: the client's existing site menu, supplied as screenshots. Every treatment name is
-theirs. Two edits were made:
+Source: the client's own site menu, then restructured to their **Website Development, suggested
+amendments and additions** document. The categories, the sub-groups inside Injectables and Body,
+and every treatment name are theirs.
 
-- `Sciton BBL – Roseacea, Vascular Lesions and Pigmentation` became **Sciton BBL for Rosacea,
-  Vascular Lesions and Pigmentation**, correcting the spelling and removing the dash.
-- Sentence case is used for headings; the treatment names themselves keep the client's casing.
+**Fifty-one treatments across five categories.**
 
-The category blurbs are ours, written to the same rule as the rest of the site: state the
-position, qualify the outcome, and never promise a result.
+| Category | Count | Sub-groups |
+|---|---|---|
+| Injectables | 21 | Anti-wrinkle treatments, Dermal fillers and facial contouring, Skin boosters and skin quality, Collagen biostimulators, Regenerative |
+| Laser and device treatments | 14 | flat list |
+| Body | 10 | Body contouring, Hair, Body skin quality, pigmentation and scars, Tattoo |
+| For men | 04 | flat list |
+| Medical treatments | 02 | flat list |
 
-> **The *For men* and *Medical treatments* lists are incomplete.** The supplied screenshots were
-> cut off after the first item and the first two items respectively. Everything listed is
-> confirmed; there is very likely more.
+## What the amendments document changed
+
+- **Injectables** goes from a flat list of eleven to twenty-one treatments in five sub-groups. New:
+  cheek fillers, chin fillers, skin boosters, Jalupro, Juvelook, collagen-stimulating injectables,
+  JULÄINE™, HArmonyCa™, Sculptra and PRP skin rejuvenation.
+- **Face** becomes **Laser and device treatments**, and *Microneedling London* is added, which the
+  document flagged as missing.
+- Titles are made consistent. *Sciton BBL for Rosacea, Vascular Lesions and Pigmentation* becomes
+  **Sciton BBL London**, on the document's point that naming the condition on one treatment and
+  not the others reads oddly.
+- **Body** gets a new opening paragraph, a revised list of ten, and four sub-groups.
+- **For men** goes from one treatment to four, and gets a new opening paragraph.
+- **Medical treatments** was not mentioned and is unchanged.
+
+**Numbering.** The document repeated 12 and 13 in the Injectables list and skipped 14, so the page
+renumbers 01 to 19 continuously. No treatment was added or removed to make that work.
+
+## Four points the document left open, settled with the client
+
+1. **Skin Consultation is kept**, at the top of Laser and device treatments, so that category runs
+   to fourteen rather than the thirteen numbered in the document.
+2. **For men** uses the second of the two paragraphs offered, the one that leads on concerns rather
+   than on physiological differences.
+3. **Vampire Facelift and Non Surgical Eye Lift are both kept**, although neither appears in the
+   document's new list. The eye lift sits with dermal fillers and facial contouring, the Vampire
+   Facelift with PRP under Regenerative. Injectables therefore runs to twenty-one, not nineteen.
+4. **HydraBody gets a page of its own**, rather than pointing at HydraFacial.
 
 ## T1. Page hero
 
 **Breadcrumb:** Home / Treatments
 **Eyebrow:** Treatments
 **H1:** Everything we do, *and who it is for*
-**Body:** Thirty-seven treatments across five categories, every one hand-selected by our Medical Director on the strength of the clinical evidence behind it. Start anywhere. A free consultation will tell you which of them, if any, is right for your skin.
-**CTAs:** Book a free consultation · Browse treatments
+**Body:** Fifty-one treatments across five categories, every one hand-selected by our Medical Director on the strength of the clinical evidence behind it. Start anywhere. A free consultation will tell you which of them, if any, is right for your skin.
 
-## T2. Injectables
+## T2. Category copy
 
-**Eyebrow:** Category 01
-**H2:** Injectables
-**Lede:** Doctor-led precision work. Wrinkle relaxing, dermal filler, biostimulators and skin boosters, planned around your face rather than a template.
-**Aside:** Every injectable at London Real Skin is administered by a GMC-registered doctor, after a consultation that includes what we would not recommend.
-**Count:** 11 treatments
+**Injectables.** Doctor-led precision work. Wrinkle relaxing, dermal filler, biostimulators and skin boosters, planned around your face rather than a template.
 
-1. Anti-Wrinkle Injections London
-2. Dermal Fillers
-3. Polynucleotides in London
-4. Lip Enhancement
-5. Non-Surgical Rhinoplasty
-6. Profhilo London
-7. Excessive Sweating
-8. Vampire Facelift
-9. Non Surgical Eye Lift
-10. Jaw Enhancement London
-11. Hand Rejuvenation
+**Laser and device treatments.** Lasers, light and resurfacing. The technology end of the clinic, matched to your skin type and concern after a proper assessment rather than sold off a menu.
 
-## T3. Face
+**Body** (client's own replacement). Improve shape, skin quality and texture. Our body treatments combine advanced technologies and dermatological expertise to address skin laxity, body contouring, unwanted hair and scarring.
 
-**Eyebrow:** Category 02
-**H2:** Face
-**Lede:** Lasers, light and resurfacing. The technology end of the clinic, matched to your skin type and concern after a proper assessment rather than sold off a menu.
-**Aside:** Skin type, sun exposure and medical history all change which device is appropriate. That is settled at consultation, not at booking.
-**Count:** 13 treatments
+**For men** (client's own replacement, second option). Roughly a third of our patients are men. Treatment is tailored to address the concerns that matter most, from congestion and oil to pigmentation, texture and visible signs of ageing.
 
-1. Laser Resurfacing for Acne Scarring
-2. Sciton BBL for Rosacea, Vascular Lesions and Pigmentation
-3. Sciton MOXI Fractional Resurfacing
-4. Dye VL Rosacea & Vascular IPL
-5. Laser Facial Rejuvenation
-6. Skin Tightening Treatments
-7. SkinXcell RF Micro-needling
-8. HydraFacial London
-9. Dermalux LED Phototherapy London
-10. Kleresca Light Therapy
-11. Medical Grade Skin Peel London
-12. Laser Tattoo Removal
-13. Skin Consultation
+Its aside is new, from the document: *Beard growth changes what is possible. BBL for men is usually a half-face course, because treating over the beard disrupts hair growth.*
 
-## T4. Body
+**Medical treatments.** The dermatology-led end of the clinic. Lesion removal and medical-grade skin work, carried out under a Consultant Dermatologist.
 
-**Eyebrow:** Category 03
-**H2:** Body
-**Lede:** Contour, tighten and smooth. Muscle and fat work, skin tightening, hair reduction and scar revision, from the neck down.
-**Aside:** Body treatments usually run as a course. We will tell you how many sessions the evidence supports before you commit to any of them.
-**Count:** 10 treatments
+## T3. The full list
 
-1. Emsculpt NEO
-2. Laser Hair Removal
-3. HydraFacial HydraBody
-4. Fractional Radiofrequency Skin Tightening
-5. BioDermaGenisi for Stretch Marks
-6. Body Contouring with Skin Tightening London
-7. Laser Resurfacing for Scars
-8. Sciton BBL for Pigmentation
-9. Medical Grade Chemical Peels
-10. Laser Tattoo Removal
+| Category | Sub-group | | Treatment | Link |
+|---|---|---|---|---|
+| Injectables | Anti-wrinkle treatments | 01 | Anti-Wrinkle Injections London | `treatments/anti-wrinkle-injections-london.html` |
+| Injectables | Anti-wrinkle treatments | 02 | Excessive Sweating and Hyperhidrosis | `treatments/excessive-sweating-hyperhidrosis.html` |
+| Injectables | Dermal fillers and facial contouring | 03 | Dermal Fillers London | `treatments/dermal-fillers-london.html` |
+| Injectables | Dermal fillers and facial contouring | 04 | Lip Enhancement London | `treatments/lip-enhancement-london.html` |
+| Injectables | Dermal fillers and facial contouring | 05 | Cheek Fillers London | `treatments/cheek-fillers-london.html` |
+| Injectables | Dermal fillers and facial contouring | 06 | Chin Fillers London | `treatments/chin-fillers-london.html` |
+| Injectables | Dermal fillers and facial contouring | 07 | Jawline Enhancement London | `treatments/jawline-enhancement-london.html` |
+| Injectables | Dermal fillers and facial contouring | 08 | Non-Surgical Rhinoplasty London | `treatments/non-surgical-rhinoplasty-london.html` |
+| Injectables | Dermal fillers and facial contouring | 09 | Hand Rejuvenation | `treatments/hand-rejuvenation.html` |
+| Injectables | Dermal fillers and facial contouring | 10 | Non Surgical Eye Lift | `treatments/non-surgical-eye-lift.html` |
+| Injectables | Skin boosters and skin quality | 11 | Skin Boosters London | `treatments/skin-boosters-london.html` |
+| Injectables | Skin boosters and skin quality | 12 | Profhilo London | `treatments/profhilo-london.html` |
+| Injectables | Skin boosters and skin quality | 13 | Polynucleotides London | `treatments/polynucleotides-london.html` |
+| Injectables | Skin boosters and skin quality | 14 | Jalupro London | `treatments/jalupro-london.html` |
+| Injectables | Skin boosters and skin quality | 15 | Juvelook London | `treatments/juvelook-london.html` |
+| Injectables | Collagen biostimulators | 16 | Collagen-Stimulating Injectables London | `treatments/collagen-stimulating-injectables-london.html` |
+| Injectables | Collagen biostimulators | 17 | JULÄINE™ | `treatments/julaine.html` |
+| Injectables | Collagen biostimulators | 18 | HArmonyCa™ | `treatments/harmonyca.html` |
+| Injectables | Collagen biostimulators | 19 | Sculptra | `treatments/sculptra.html` |
+| Injectables | Regenerative | 20 | PRP Skin Rejuvenation London | `treatments/prp-skin-rejuvenation-london.html` |
+| Injectables | Regenerative | 21 | Vampire Facelift | `treatments/vampire-facelift.html` |
+| Laser and device treatments | &mdash; | 01 | Skin Consultation | `treatments/skin-consultation.html` |
+| Laser and device treatments | &mdash; | 02 | Laser Skin Resurfacing | `treatments/laser-skin-resurfacing.html` |
+| Laser and device treatments | &mdash; | 03 | Sciton BBL London | `treatments/sciton-bbl-london.html` |
+| Laser and device treatments | &mdash; | 04 | MOXI Laser London | `treatments/moxi-laser-london.html` |
+| Laser and device treatments | &mdash; | 05 | Dye-VL Laser London | `treatments/dye-vl-laser-london.html` |
+| Laser and device treatments | &mdash; | 06 | Laser Skin Rejuvenation London | `treatments/laser-skin-rejuvenation-london.html` |
+| Laser and device treatments | &mdash; | 07 | Non-Surgical Skin Tightening London | `treatments/non-surgical-skin-tightening-london.html` |
+| Laser and device treatments | &mdash; | 08 | RF Microneedling London | `treatments/rf-microneedling-london.html` |
+| Laser and device treatments | &mdash; | 09 | Microneedling London | `treatments/microneedling-london.html` |
+| Laser and device treatments | &mdash; | 10 | HydraFacial London | `treatments/hydrafacial-london.html` |
+| Laser and device treatments | &mdash; | 11 | Dermalux LED Phototherapy London | `treatments/dermalux-led-phototherapy-london.html` |
+| Laser and device treatments | &mdash; | 12 | Kleresca Light Therapy London | `treatments/kleresca-light-therapy-london.html` |
+| Laser and device treatments | &mdash; | 13 | Medical-Grade Skin Peels London | `treatments/medical-grade-skin-peels-london.html` |
+| Laser and device treatments | &mdash; | 14 | Laser Tattoo Removal London | `treatments/laser-tattoo-removal-london.html` |
+| Body | Body contouring | 01 | Emsculpt NEO London | `treatments/emsculpt-neo-london.html` |
+| Body | Body contouring | 02 | Body Contouring London | `treatments/body-contouring-london.html` |
+| Body | Body contouring | 03 | RF Skin Tightening London | `treatments/rf-skin-tightening-london.html` |
+| Body | Hair | 04 | Laser Hair Removal London | `treatments/laser-hair-removal-london.html` |
+| Body | Body skin quality, pigmentation and scars | 05 | HydraBody | `treatments/hydrabody.html` |
+| Body | Body skin quality, pigmentation and scars | 06 | Sciton BBL London | `treatments/sciton-bbl-london.html` |
+| Body | Body skin quality, pigmentation and scars | 07 | Stretch Mark Treatment London | `treatments/stretch-mark-treatment-london.html` |
+| Body | Body skin quality, pigmentation and scars | 08 | Laser Scar Revision London | `treatments/laser-scar-revision-london.html` |
+| Body | Body skin quality, pigmentation and scars | 09 | Medical-Grade Chemical Peels London | `treatments/medical-grade-chemical-peels-london.html` |
+| Body | Tattoo | 10 | Laser Tattoo Removal London | `treatments/laser-tattoo-removal-london.html` |
+| For men | &mdash; | 01 | MOXI for Men | `treatments/moxi-for-men.html` |
+| For men | &mdash; | 02 | BBL for Men | `treatments/bbl-for-men.html` |
+| For men | &mdash; | 03 | HydraFacial London | `treatments/hydrafacial-london.html` |
+| For men | &mdash; | 04 | Bespoke Facial | `treatments/bespoke-facial.html` |
+| Medical treatments | &mdash; | 01 | Skin Tags | `treatments/skin-tags.html` |
+| Medical treatments | &mdash; | 02 | Medical-Grade Skin Peels London | `treatments/medical-grade-skin-peels-london.html` |
 
-## T5. For men
-
-**Eyebrow:** Category 04
-**H2:** For men
-**Lede:** Men's skin is thicker, oilier and beard-bearing, and it scars and pigments differently. Same technology, different protocol.
-**Aside:** Roughly a third of our patients are men. Treatment plans are built for a face that gets shaved daily and rarely wears sunscreen.
-**Count:** 01 treatment
-
-1. MOXI for Men
-
-## T6. Medical treatments
-
-**Eyebrow:** Category 05
-**H2:** Medical treatments
-**Lede:** The dermatology-led end of the clinic. Lesion removal and medical-grade skin work, carried out under a Consultant Dermatologist.
-**Aside:** If something on your skin needs a diagnosis rather than a treatment, you are in the right building. Dr Wade sits on the GMC specialist register for dermatology.
-**Count:** 02 treatments
-
-1. Skin Tags
-2. Medical Grade Skin Peel London
-
-## T7. Not sure where to start
+## T4. Not sure where to start
 
 **Eyebrow:** Not sure where to start
 **H2:** Come in for the *consultation first*
-**Body:** Thirty-seven treatments is a lot to choose between, and choosing badly is how people end up disappointed. The consultation is free, it includes an in-depth skin analysis, and it ends with a written plan. Sometimes that plan is a single treatment. Sometimes it is skincare and a review in three months.
+**Body:** Fifty-one treatments is a lot to choose between, and choosing badly is how people end up disappointed. The consultation is free, it includes an in-depth skin analysis, and it ends with a written plan. Sometimes that plan is a single treatment. Sometimes it is skincare and a review in three months.
 **CTAs:** Book a free consultation · Explore conditions
 
-## T8. Closing CTA and footer
+## T5. Closing CTA and footer
 
 Identical to the other pages.
-
----
-
-# 404
-
-**Eyebrow:** Error 404
-**H1:** This page is not *here yet*
-**Body:** Either it has moved, or it is one of the treatment pages still being written. The clinic is very much open in the meantime, and the phone is answered by a person.
-**CTAs:** Browse treatments · Call 020 7183 5892
-**Then:** Try one of these, followed by links to Home, About us, Treatments, Conditions we treat, Devices and Journal.
-
 
 ---
 
