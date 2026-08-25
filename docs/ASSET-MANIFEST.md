@@ -48,9 +48,9 @@ headshot filename maps to a person — so the pairing is the client's, not a gue
 > Kylie are both **Aestheticians**. Homepage and About Us now carry the same seven cards, in the
 > client's order.
 >
-> Individual bios are still ours. No source gives per-person biographies, so each one stays
-> within what the role and the clinic's own copy support. Send real bios and they drop straight
-> in.
+> **Biographies are now the client's own**, fetched from their live `/about-us/<name>/` pages and
+> used unrewritten on `about-us/*.html` and on the team cards. Mina's came from a supplied Word
+> document, as she has no page on the old site.
 >
 > *Mina* now has a photograph. It arrived as a 1060x1412 PNG, cropped square around the subject
 > and saved at 900x900 to match the other seven headshots exactly.

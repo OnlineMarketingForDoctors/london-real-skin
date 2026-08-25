@@ -3,7 +3,7 @@
 New site for **London Real Skin**, a dermatology-led skin and aesthetic clinic at
 233 High Holborn, London WC1V 7DN. Trading name of The London Skin and Hair Clinic Ltd.
 
-**Status:** all nine pages plus sixteen product pages built, for review.
+**Status:** all nine pages, sixteen product pages and eight team biographies built, for review.
 
 ```
 index.html                 the homepage
@@ -16,6 +16,7 @@ blog.html                  blog index, 32 articles
 contact.html               contact, enquiry form, getting here
 shop.html                  the skincare range
 product/*.html             16 product detail pages
+about-us/*.html            8 team biography pages
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -262,6 +263,21 @@ cost, threshold or timeframe, because the client has not supplied any.
 > dispatch times, returns and the countries served. None of that is written anywhere yet, and
 > none of it has been invented.
 
+## Team biography pages
+
+Eight pages at `about-us/<slug>.html`, matching the old site's `/about-us/<slug>/` so the URLs
+survive a migration. Portrait sticky on the left, biography on the right, then the other seven
+team members, then the standard CTA and footer. No page hero, for the same reason product pages
+have none.
+
+**Seven biographies are the client's own**, fetched from their live team pages and used
+unrewritten. Dr Flor Kent's list of past positions renders as a list rather than running text.
+Mina's comes from the Word document the client supplied, since she has no page on the old site.
+
+This also retires the last of my invented copy on the site: the team cards on the homepage and
+About Us carried short biographies I had written, and now carry the real opening paragraph. The
+portrait, the name and *Read full bio* all link to the page.
+
 ## Quality floor
 
 - Responsive to 390px; single-column below 900px, drawer navigation below 1180px.
@@ -302,9 +318,8 @@ them. The manifest has a two-command fix.
 3. **Send the full *For men* and *Medical treatments* treatment lists.** The supplied menu
    screenshots were cut off.
 4. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
-5. **Confirm Mina's role.** She joined the team cards with a photograph and a biography from
-   the client, but their own team list predates her and gives no title, so she carries
-   *Aesthetician* by inference.
+5. **Confirm Mina's role.** Her photograph and biography are the client's, but their own team
+   list predates her and gives no title, so she carries *Aesthetician* by inference.
 6. Real publication dates for the 32 blog articles, if they exist.
 
 **Wiring**

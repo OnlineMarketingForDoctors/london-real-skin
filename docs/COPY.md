@@ -519,10 +519,38 @@ Specialist skin care should not sit behind a velvet rope. We want every patient 
 
 **Closing note:** Our aesthetic team are highly qualified in the treatments they offer, and regularly update their knowledge of techniques and products by attending training, leading conferences and workshops across the aesthetics industry.
 
-> Bios are still ours, with one exception: **Mina's is condensed from biography the client
-> supplied**, so the facts in it are hers. Her **role is our inference**. The client's own team
-> list predates her and gives no title, so she carries *Aesthetician*, matching the clinic's
-> vocabulary for its non-doctor practitioners. Confirm it.
+> **Biographies are the client's own.** Seven were taken from their live `/about-us/<name>/`
+> pages and are used unrewritten; Mina's came from a supplied Word document, as she has no page on
+> the old site. The card carries the opening paragraph, and the portrait, the name and *Read full
+> bio* all link to the full page.
+>
+> Her **role is still our inference**. The client's own team list predates her and gives no title,
+> so she carries *Aesthetician*, matching the clinic's vocabulary for its non-doctor
+> practitioners. Confirm it.
+
+## A6b. Team biography pages
+
+Eight pages at `about-us/<slug>.html`, matching the old site's `/about-us/<slug>/`.
+
+| Name | Role | Page | Paragraphs |
+|---|---|---|---|
+| Dr Martin Wade | Consultant Dermatologist & Medical Director | `about-us/dr-martin-wade.html` | 6 |
+| Dr Meriem Martins | Aesthetic Doctor | `about-us/dr-meriem-martins.html` | 3 |
+| Dr Flor Kent | Aesthetic Doctor | `about-us/dr-flor-kent.html` | 8 |
+| Dr Inna | Aesthetic Doctor | `about-us/dr-inna.html` | 4 |
+| Leigh | Aesthetician | `about-us/leigh.html` | 2 |
+| Kylie | Aesthetician | `about-us/kylie.html` | 3 |
+| Ellen | Aesthetician | `about-us/ellen.html` | 2 |
+| Mina | Aesthetician | `about-us/mina.html` | 3 |
+
+Layout: breadcrumb, portrait sticky on the left, biography on the right, then the other seven
+team members and the standard CTA. Dr Flor Kent's list of past positions renders as a list rather
+than running text. No page hero, on the same reasoning as the product pages.
+
+Roles come from our team cards, which came from the client's own About Us list. Two individual
+pages state a shorter title than that list: Dr Martin Wade's says *Consultant Dermatologist*
+where ours says *Consultant Dermatologist & Medical Director*, and Dr Flor Kent's is lower case.
+The list version is used, for consistency across the site.
 
 ## A7. What our clients say
 

@@ -326,7 +326,8 @@
   /* ---------- Team bios: Read more ---------- */
   $$('.team__card').forEach(function (card) {
     var bio = $('.team__bio', card), btn = $('.team__more', card);
-    if (!bio || !btn) return;
+    /* Read more is a link to the full biography now, not an expander. */
+    if (!bio || !btn || btn.tagName !== 'BUTTON') return;
     btn.addEventListener('click', function () {
       var open = card.classList.toggle('is-open');
       btn.textContent = open ? 'Read less' : 'Read more';
