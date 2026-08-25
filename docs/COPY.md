@@ -1442,14 +1442,14 @@ The CSS lives in one block, section 32 of `assets/css/main.css`, and every class
 
 | # | Section | H-level | Layout |
 |---|---|---|---|
-| 1 | Microneedling Treatment London (Holborn) | H1 | Homepage hero frame: one static slide, five selling points, CTA, Google badge, at-a-glance card |
+| 1 | Microneedling Treatment London (Holborn) | H1 | Homepage hero frame: one static slide, five selling points, CTA, Google badge |
 | 2 | As featured in | — | The homepage stripe |
 | 3 | Reviews | — | The homepage marquee, same seven verified reviews |
 | 4 | Before & after | H2 (site) | The landing page's carousel: snap-scrolling track, arrows in the head, disclaimer and CTA along the foot |
-| 5 | Refine Skin Texture and Support Natural Collagen Renewal | H2 | Opening statement: display heading, two paragraphs, one tall portrait |
-| 6 | What Is Microneedling? | H2 | Copy left, tall macro right, one pulled sentence in the gutter |
+| 5 | Refine Skin Texture and Support Natural Collagen Renewal | H2 | Opening statement: copy left with the at-a-glance spec strip, portrait right |
+| 6 | What Is Microneedling? | H2 | The mirror of section 5 — macro left, copy right, closing with a pulled sentence |
 | 7 | What Conditions Can Microneedling Treat? | H2 | Dark full-bleed plate, four-column numbered index |
-| 8 | What Are the Benefits of Microneedling? | H2 | Ten cards in a five-wide band, every second column dropped |
+| 8 | What Are the Benefits of Microneedling? | H2 | Ten equal cards in a five-wide band, each numbered over a hairline |
 | 9 | How Does Microneedling Work? | H2 | Three-phase rail on a dark plate, prose beneath |
 | 10 | Which Microneedling Device Do We Use? | H2 | Device photograph left, four spec panels in a 2×2 |
 | 11 | Microneedling with Serums | H2 + 5×H3 | Five cards on dark; a snap-scroller below 1080px |
@@ -1468,8 +1468,8 @@ the heading structure survives the accordion.
 
 **Copy changes, all of them:**
 
-- The at-a-glance card carries the *Treatment areas / Course / From £340* line as rows rather
-  than a sentence, which is the only place that content appears.
+- The *Treatment areas / Course / From £340* line is set as a four-item spec strip under the
+  opening paragraphs rather than as a sentence. That is the only place the content appears.
 - The three phase names on *How Does Microneedling Work?* are a diagram; the document's two
   paragraphs sit beneath it verbatim.
 - The price list had a line-break error: *Microneedling Full Face, 6 sessions: £1275 Microneedling*
@@ -1507,6 +1507,17 @@ The landing page's `hero-before.webp` / `hero-after.webp` pair is not used here:
 acne-scarring case as `acne-scarring.webp` at a different crop, so it would have been a duplicate
 card. Both files remain in the landing-page repo if a draggable hero reveal is ever wanted.
 
-**Imagery.** Nineteen Nano Banana Pro images in the house palette, plus two real photographs
-lifted from the landing-page repo: the XCellarisPRO Twist unit and the serum ampoules. The device
-shot is genuine product photography and should not be replaced with a generated substitute.
+**Imagery.** Nineteen Nano Banana Pro images in the house palette, plus the real XCellarisPRO
+Twist photograph lifted from the landing-page repo. That one is genuine product photography and
+should not be replaced with a generated substitute.
+
+Sections 5 and 6 are deliberately mirrored: same column span, same 4:5 crop, image on opposite
+sides. Two prose sections back to back otherwise read as the same layout twice.
+
+**The journey stepper's rail is a grid track, not a 50% offset.** The stages use
+`1fr 1px 1fr`, and the line is drawn inside that middle track. An earlier version put the line at
+50% of the row while the columns were split 1fr / .8fr, so the two disagreed and the rail ran
+through the copy. Keep the line in its own track if the ratio is ever changed.
+
+**The reviews score carries the Google mark** on this page and on the homepage and About page,
+so the rating is attributed visually as well as in the caption.

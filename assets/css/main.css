@@ -3700,43 +3700,10 @@ body.bk-open{overflow:hidden}
 .hero--mn{min-height:100svh}
 .hero--mn .hero__h1{font-size:clamp(2.05rem,3.9vw,3.35rem);letter-spacing:-.008em;max-width:15ch}
 .hero--mn .hero__h1 em{display:block}
-.hero--mn .hero__copy{grid-column:1/span 7;max-width:none}
+.hero--mn .hero__copy{grid-column:1/span 8;max-width:none}
 .hero--mn .hero__lede{max-width:56ch}
-@media (max-width:1080px){.hero--mn .hero__copy{grid-column:1/span 9}}
+@media (max-width:1080px){.hero--mn .hero__copy{grid-column:1/span 10}}
 @media (max-width:760px){.hero--mn .hero__copy{grid-column:1/-1}}
-
-/* The at-a-glance card replaces the homepage's promotions slider. It carries
-   the treatment-areas / course / price line from the copy deck, which would
-   otherwise be a stranded orphan paragraph under the lede. */
-.mnglance{
-  grid-column:9/span 4;align-self:end;
-  background:rgba(12,26,40,.58);
-  border:1px solid var(--line-light);
-  border-radius:4px;
-  padding:clamp(22px,2.2vw,30px);
-  backdrop-filter:blur(9px);
-}
-@media (max-width:1080px){.mnglance{grid-column:1/span 6;align-self:start;margin-top:clamp(24px,3vw,34px)}}
-@media (max-width:760px){.mnglance{grid-column:1/-1}}
-.mnglance__h{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--focus);padding-bottom:14px;border-bottom:1px solid var(--line-light);
-}
-.mnglance__row{
-  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
-  padding:11px 0;border-bottom:1px solid rgba(231,238,245,.1);
-}
-.mnglance__row dt{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(231,238,245,.5);flex:none;
-}
-.mnglance__row dd{margin:0;font-size:.86rem;color:var(--paper);text-align:right}
-.mnglance__from{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:16px}
-.mnglance__from span{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(231,238,245,.5);
-}
-.mnglance__from b{font-family:var(--disp);font-size:1.7rem;font-weight:400;color:var(--focus);line-height:1}
 
 /* ---- Before & after ----
    The layout from the client's own microneedling landing page: a horizontal
@@ -3816,25 +3783,29 @@ body.bk-open{overflow:hidden}
 /* ---- What is microneedling ----
    Copy left, one tall macro right, and a single pulled sentence sitting in the
    gutter between them, which is the one idea the section exists to land. */
+/* Mirrors .mnopen exactly, flipped: the image leads on the left and the copy
+   follows on the right, so two consecutive prose sections do not read as the
+   same layout twice. Same column span and same 4:5 crop as .mnopen__media, so
+   the two images are the same size down the page. */
 .mnwhat{background:var(--paper-pure)}
-.mnwhat__copy{grid-column:1/span 5}
-.mnwhat__media{grid-column:7/span 6;margin:0;grid-row:1/span 2}
+.mnwhat__media{grid-column:1/span 5;margin:0}
+.mnwhat__copy{grid-column:7/span 6}
 @media (max-width:960px){
   .mnwhat__copy,.mnwhat__media{grid-column:1/-1;grid-row:auto}
+  .mnwhat__media{max-width:440px;margin-bottom:clamp(24px,3vw,34px)}
 }
-.mnwhat__media img{width:100%;display:block;border-radius:4px}
+.mnwhat__media img{width:100%;display:block;border-radius:4px;aspect-ratio:4/5;object-fit:cover}
 .mnwhat__media figcaption{
   margin-top:12px;font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;
   line-height:1.7;color:var(--muted);
 }
 .mnwhat__p{color:var(--muted);line-height:1.68;margin-top:1.05em;max-width:52ch;text-wrap:pretty}
 .mnwhat__pull{
-  grid-column:1/span 5;margin-top:clamp(24px,2.8vw,36px);
+  margin-top:clamp(26px,3vw,38px);
   padding-left:clamp(16px,1.6vw,22px);border-left:2px solid var(--focus);
   font-family:var(--disp);font-size:clamp(1.05rem,1.4vw,1.3rem);line-height:1.42;
   color:var(--ink-deep);max-width:34ch;
 }
-@media (max-width:960px){.mnwhat__pull{grid-column:1/-1}}
 
 /* ---- Conditions ----
    A dark full-bleed plate carrying a four-column index. Each entry is a row
@@ -3885,16 +3856,13 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 @media (max-width:680px){.mnben__grid{grid-template-columns:repeat(2,1fr)}}
 .mnben__c{
   background:var(--paper-pure);border:1px solid var(--line-soft);border-radius:4px;
-  padding:clamp(18px,1.8vw,24px);display:flex;flex-direction:column;gap:14px;
-  min-height:clamp(150px,13vw,186px);
+  padding:clamp(20px,1.9vw,26px);display:flex;flex-direction:column;gap:12px;
 }
-/* The offset only makes sense while five columns survive; below that it turns
-   into a ragged edge for no reason. */
-@media (min-width:1101px){.mnben__c:nth-child(even){transform:translateY(clamp(22px,2.4vw,38px))}}
 .mnben__n{
   font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:var(--focus-deep);
+  padding-bottom:12px;border-bottom:1px solid var(--line-soft);
 }
-.mnben__t{font-size:.96rem;line-height:1.42;color:var(--ink-deep);margin-top:auto}
+.mnben__t{font-size:.96rem;line-height:1.42;color:var(--ink-deep)}
 
 /* ---- How it works ----
    Three phases, so three columns joined by one continuous hairline that runs
@@ -4062,26 +4030,37 @@ a.mncond__i:hover::after{opacity:1;transform:none}
    page where the eye is meant to travel vertically rather than across. Below
    900px the centre line moves to the left edge and every stage sits right of
    it, because alternating on a narrow screen just reads as misalignment. */
+/* Three tracks, not two: the middle one is a fixed 1px gutter that the rail is
+   drawn inside. With two tracks and an uneven ratio the line sat at 50% of the
+   row while the column boundary sat somewhere else, so it ran straight through
+   the copy. Giving the line its own track makes the two agree by construction
+   at any width. */
 .mnjour{background:var(--paper)}
 .mnjour__rail{position:relative;margin-top:clamp(38px,4.4vw,66px)}
-.mnjour__rail::before{
-  content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;
-  background:var(--line);transform:translateX(-.5px);
-}
 .mnjour__s{
-  position:relative;display:grid;grid-template-columns:1fr .8fr;
-  gap:clamp(24px,4vw,72px);align-items:center;
+  position:relative;display:grid;
+  grid-template-columns:1fr 1px 1fr;
+  column-gap:clamp(24px,4vw,64px);align-items:center;
 }
-.mnjour__s + .mnjour__s{margin-top:clamp(30px,3.6vw,56px)}
+.mnjour__s + .mnjour__s{margin-top:clamp(34px,4vw,64px)}
+/* The line lives in the middle track and is drawn tall enough to close the gap
+   to the next stage, so the rail reads as continuous. */
+.mnjour__s::after{
+  content:"";grid-column:2;grid-row:1;justify-self:center;
+  width:1px;background:var(--line);
+  height:calc(100% + clamp(34px,4vw,64px));
+}
+.mnjour__s:last-child::after{height:100%}
 .mnjour__s::before{
-  content:"";position:absolute;top:50%;left:50%;width:9px;height:9px;border-radius:50%;
+  content:"";position:absolute;top:50%;left:50%;z-index:1;
+  width:9px;height:9px;border-radius:50%;
   background:var(--focus);transform:translate(-50%,-50%);box-shadow:0 0 0 5px var(--paper);
 }
-.mnjour__txt{grid-column:1}
-.mnjour__fig{grid-column:2;margin:0}
+.mnjour__txt{grid-column:1;grid-row:1}
+.mnjour__fig{grid-column:3;grid-row:1;margin:0}
 /* Odd stages swap sides. grid-column is set explicitly on both children,
    because auto-placement will not walk backwards to fill column 1. */
-.mnjour__s--flip .mnjour__txt{grid-column:2}
+.mnjour__s--flip .mnjour__txt{grid-column:3}
 .mnjour__s--flip .mnjour__fig{grid-column:1}
 .mnjour__fig img{width:100%;display:block;border-radius:4px;aspect-ratio:3/2;object-fit:cover}
 .mnjour__n{
@@ -4090,12 +4069,15 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 .mnjour__h{margin-top:10px;font-size:clamp(1.1rem,1.5vw,1.36rem);line-height:1.25;color:var(--ink-deep)}
 .mnjour__p{margin-top:12px;color:var(--muted);line-height:1.68;text-wrap:pretty}
 @media (max-width:900px){
-  .mnjour__rail::before{left:5px;transform:none}
-  .mnjour__s,.mnjour__s--flip{grid-template-columns:1fr;padding-left:32px}
+  .mnjour__s,.mnjour__s--flip{grid-template-columns:1px 1fr;column-gap:26px}
   .mnjour__fig img{aspect-ratio:4/3}
-  .mnjour__txt,.mnjour__fig,.mnjour__s--flip .mnjour__txt,.mnjour__s--flip .mnjour__fig{grid-column:1}
-  .mnjour__fig{margin-top:18px}
-  .mnjour__s::before{left:5px;top:8px;transform:translate(-50%,0)}
+  .mnjour__txt,.mnjour__fig,.mnjour__s--flip .mnjour__txt,.mnjour__s--flip .mnjour__fig{
+    grid-column:2;grid-row:auto;
+  }
+  .mnjour__s{align-items:start}
+  .mnjour__s::after{grid-row:1/-1;height:calc(100% + clamp(34px,4vw,64px))}
+  .mnjour__s::before{left:0;top:9px;transform:translate(-50%,0)}
+  .mnjour__fig{margin-top:20px}
 }
 
 /* ---- Risks ----
@@ -4227,13 +4209,31 @@ a.mncond__i:hover::after{opacity:1;transform:none}
   .mnopen__copy,.mnopen__media{grid-column:1/-1}
   .mnopen__media{max-width:440px;margin-top:clamp(24px,3vw,34px)}
 }
-.mnopen__media img{width:100%;display:block;border-radius:4px}
+.mnopen__media img{width:100%;display:block;border-radius:4px;aspect-ratio:4/5;object-fit:cover}
 .mnopen__h2{
   font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.12;
   margin-top:clamp(12px,1.4vw,18px);max-width:20ch;
 }
 .mnopen__h2 em{font-style:italic;color:var(--focus-deep)}
 .mnopen__p{color:var(--muted);line-height:1.72;margin-top:1.15em;max-width:60ch;text-wrap:pretty}
+/* The treatment-areas / course / price line from the copy deck. It was a card
+   floating over the hero image, which the client did not want, so it reads as a
+   spec strip under the opening paragraphs instead. Same content, no card. */
+.mnopen__facts{
+  margin-top:clamp(28px,3.2vw,42px);
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:0 clamp(24px,3vw,48px);
+  border-top:1px solid var(--ink);
+}
+@media (max-width:620px){.mnopen__facts{grid-template-columns:1fr}}
+.mnopen__fact{padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.mnopen__fact dt{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--focus-deep);
+}
+.mnopen__fact dd{margin:6px 0 0;font-size:.94rem;line-height:1.45;color:var(--ink-deep)}
+.mnopen__fact dd b{font-family:var(--disp);font-weight:400;font-size:1.5rem;line-height:1;color:var(--focus-deep)}
+
 
 /* ---- Cross-link cards ----
    A card variant of the closing band, for pages long enough that a single
@@ -4277,3 +4277,7 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 .mnwhy__p a:hover{color:var(--paper)}
 .mnba__btn:disabled{opacity:.32;cursor:default}
 .mnba__btn:disabled:hover{background:transparent;color:var(--paper);border-color:var(--line-light)}
+/* The score is a Google rating, so it says so with the mark as well as the
+   caption — the same treatment the hero badge already uses. */
+.revs__g{flex:none;width:26px;height:26px;display:grid;place-items:center;align-self:center}
+.revs__g svg{width:100%;height:100%}
