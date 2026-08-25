@@ -304,9 +304,9 @@ Two things worth knowing before the next one is built:
   entry. The Twist has now been added as device 07, and the SkinXcell entry says plainly that it
   is the radiofrequency one. **Worth confirming with the client** that both are in the clinic and
   that the naming on the site matches how they refer to them.
-- **The before-and-after photographs are real patients.** Nine of the twelve are from RF
-  microneedling, a different treatment, so they are grouped and labelled as such rather than
-  presented as microneedling results. Do not move them under a microneedling heading.
+- **The before-and-after photographs are real patients.** Nine of the ten are from RF
+  microneedling, a different treatment, so every caption names the device and the disclaimer says
+  so outright. Do not strip that attribution when adding cases.
 
 ## Quality floor
 

@@ -608,6 +608,34 @@
     });
   }
 
+  /* ---------- Before & after carousel ----------
+     Scrolls by whole pages rather than one card, so the arrows advance the
+     track by however many cards are actually in view at the current width. */
+  (function () {
+    var track = $('[data-ba-track]');
+    if (!track) return;
+    var prev = $('[data-ba-prev]'), next = $('[data-ba-next]');
+    function page() {
+      var first = track.children[0];
+      if (!first) return track.clientWidth * 0.8;
+      var cs = getComputedStyle(track);
+      var gap = parseFloat(cs.columnGap || cs.gap) || 26;
+      var per = first.getBoundingClientRect().width + gap;
+      var visible = Math.max(1, Math.floor((track.clientWidth + gap) / per));
+      return per * visible;
+    }
+    function ends() {
+      var max = track.scrollWidth - track.clientWidth - 1;
+      if (prev) prev.disabled = track.scrollLeft <= 0;
+      if (next) next.disabled = track.scrollLeft >= max;
+    }
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: reduced ? 'auto' : 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: reduced ? 'auto' : 'smooth' }); });
+    track.addEventListener('scroll', ends, { passive: true });
+    window.addEventListener('resize', ends, { passive: true });
+    ends();
+  })();
+
   /* ---------- FAQ accordion ----------
      Height is animated from a measured pixel value rather than max-height, so
      a long answer opens at the same speed as a short one. Several may be open

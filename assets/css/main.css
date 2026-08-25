@@ -3739,59 +3739,79 @@ body.bk-open{overflow:hidden}
 .mnglance__from b{font-family:var(--disp);font-size:1.7rem;font-weight:400;color:var(--focus);line-height:1}
 
 /* ---- Before & after ----
-   A lead comparison the visitor can drag, held sticky beside a scrolling
-   column of composite cases. The composites are single images with the two
-   halves already joined, so they cannot use .cmp — they get a corner chip on
-   each half instead, positioned by whether the join runs vertical or across. */
+   The layout from the client's own microneedling landing page: a horizontal
+   snap-scrolling track of cards, arrows in the section head, the disclaimer and
+   a CTA along the foot. Each composite is a single image with the two halves
+   already joined, so the chips are positioned by whether the join runs down the
+   middle or across it. */
 .mnba{background:var(--ink-deep);color:var(--paper)}
 .mnba__head{
-  display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,3vw,54px);
-  align-items:end;margin-bottom:clamp(30px,3.6vw,54px);
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:clamp(20px,3vw,48px);flex-wrap:wrap;
+  margin-bottom:clamp(28px,3.4vw,46px);
 }
-@media (max-width:900px){.mnba__head{grid-template-columns:1fr}}
-.mnba__lead{grid-column:1/span 5;align-self:start;position:sticky;top:calc(var(--mast-h,88px) + 26px)}
-.mnba__cases{grid-column:7/span 6;display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,24px)}
-@media (max-width:1080px){
-  .mnba__lead,.mnba__cases{grid-column:1/-1;position:static}
-  .mnba__lead{max-width:520px;margin-inline:auto}
+.mnba__h2{margin-top:14px}
+.mnba__nav{display:flex;gap:10px}
+.mnba__btn{
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--line-light);background:transparent;color:var(--paper);
+  display:grid;place-items:center;cursor:pointer;
+  transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
 }
-@media (max-width:560px){.mnba__cases{grid-template-columns:1fr}}
-.mnba__lead .cmp{aspect-ratio:1;border-radius:4px;overflow:hidden}
-.mnba__cap{
-  margin-top:14px;font-size:.84rem;color:rgba(231,238,245,.62);line-height:1.6;
+.mnba__btn:hover{background:var(--paper);color:var(--ink-deep);border-color:var(--paper)}
+.mnba__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mnba__track{
+  display:flex;gap:26px;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding-bottom:12px;scrollbar-width:none;
 }
-.mnba__cap b{display:block;color:var(--paper);font-weight:600;font-size:.92rem;margin-bottom:3px}
-.mnba__note{
-  margin-top:clamp(18px,2vw,26px);padding-top:16px;border-top:1px solid var(--line-light);
-  font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;line-height:1.75;
-  color:rgba(231,238,245,.42);
+.mnba__track::-webkit-scrollbar{display:none}
+@media (prefers-reduced-motion:reduce){.mnba__track{scroll-behavior:auto}}
+.mnba__fig{
+  scroll-snap-align:start;flex:0 0 clamp(280px,46%,520px);margin:0;
+  background:rgba(231,238,245,.06);border:1px solid var(--line-light);
+  border-radius:4px;padding:16px;
 }
-/* A group heading inside the case column, so a reader always knows which
-   device produced the result they are looking at. */
-.mnba__group{
-  grid-column:1/-1;margin-top:clamp(10px,1.2vw,16px);
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--focus);padding-bottom:10px;border-bottom:1px solid var(--line-light);
-}
-.mnba__group:first-child{margin-top:0}
-.shotc{margin:0}
-.shotc__f{position:relative;border-radius:4px;overflow:hidden;background:#0b1a28}
-.shotc__f img{width:100%;height:auto;display:block}
-.shotc__lab{
-  position:absolute;z-index:2;
-  font-family:var(--mono);font-size:.53rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:5px 9px;border-radius:2px;color:var(--paper);
+@media (max-width:720px){.mnba__fig{flex:0 0 86%}}
+.mnba__shot{position:relative;border-radius:3px;overflow:hidden;background:#000}
+.mnba__shot img{width:100%;height:auto;display:block}
+.mnba__lab{
+  position:absolute;bottom:12px;z-index:2;
+  font-family:var(--body);font-size:.62rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--paper);
+  padding:6px 13px;border-radius:3px;
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.6);
 }
 /* Side-by-side composite: before on the left half, after on the right. */
-.shotc__lab--b{left:10px;bottom:10px;background:rgba(12,26,40,.85)}
-.shotc__lab--a{left:calc(50% + 10px);bottom:10px;background:var(--focus-deep)}
+.mnba__lab--b{left:12px;background:var(--ink)}
+.mnba__lab--a{left:calc(50% + 12px);background:var(--focus-deep)}
 /* Stacked composite: before on top, after underneath. */
-.shotc--v .shotc__lab--b{left:10px;top:10px;bottom:auto}
-.shotc--v .shotc__lab--a{left:10px;top:auto;bottom:10px}
-.shotc figcaption{
-  margin-top:10px;font-size:.78rem;line-height:1.55;color:rgba(231,238,245,.6);
+.mnba__shot--v .mnba__lab--b{top:12px;bottom:auto;left:12px}
+.mnba__shot--v .mnba__lab--a{top:auto;bottom:12px;left:12px}
+@media (max-width:420px){
+  .mnba__lab{font-size:.55rem;padding:5px 10px}
+  .mnba__lab--b{left:8px}
+  .mnba__lab--a{left:calc(50% + 8px)}
+  .mnba__shot--v .mnba__lab--b,.mnba__shot--v .mnba__lab--a{left:8px}
 }
-.shotc figcaption b{display:block;color:var(--paper);font-weight:600;margin-bottom:2px}
+.mnba__fig figcaption{
+  padding:16px 6px 4px;font-size:.88rem;line-height:1.55;
+  color:rgba(231,238,245,.78);
+}
+.mnba__fig figcaption b{
+  display:block;margin-bottom:4px;font-family:var(--disp);font-weight:400;
+  font-size:1.1rem;color:var(--paper);
+}
+.mnba__foot{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(24px,4vw,56px);margin-top:28px;flex-wrap:wrap;
+}
+.mnba__disc{
+  font-size:.72rem;line-height:1.6;color:rgba(231,238,245,.6);
+  max-width:80ch;flex:1 1 420px;
+}
+.mnba__disc a{color:var(--focus);text-decoration:underline;text-underline-offset:3px}
+.mnba__cta{flex:0 0 auto}
 
 /* ---- What is microneedling ----
    Copy left, one tall macro right, and a single pulled sentence sitting in the
@@ -4255,3 +4275,5 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 .mnser__link:hover{color:var(--paper)}
 .mnwhy__p a{color:var(--focus);text-decoration:underline;text-underline-offset:3px}
 .mnwhy__p a:hover{color:var(--paper)}
+.mnba__btn:disabled{opacity:.32;cursor:default}
+.mnba__btn:disabled:hover{background:transparent;color:var(--paper);border-color:var(--line-light)}

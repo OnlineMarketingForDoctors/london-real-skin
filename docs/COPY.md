@@ -1445,7 +1445,7 @@ The CSS lives in one block, section 32 of `assets/css/main.css`, and every class
 | 1 | Microneedling Treatment London (Holborn) | H1 | Homepage hero frame: one static slide, five selling points, CTA, Google badge, at-a-glance card |
 | 2 | As featured in | — | The homepage stripe |
 | 3 | Reviews | — | The homepage marquee, same seven verified reviews |
-| 4 | Before & after | H2 (site) | Sticky draggable comparison beside a two-column case grid |
+| 4 | Before & after | H2 (site) | The landing page's carousel: snap-scrolling track, arrows in the head, disclaimer and CTA along the foot |
 | 5 | Refine Skin Texture and Support Natural Collagen Renewal | H2 | Opening statement: display heading, two paragraphs, one tall portrait |
 | 6 | What Is Microneedling? | H2 | Copy left, tall macro right, one pulled sentence in the gutter |
 | 7 | What Conditions Can Microneedling Treat? | H2 | Dark full-bleed plate, four-column numbered index |
@@ -1488,11 +1488,24 @@ been given a conditions link it did not have.
 **Structured data:** MedicalProcedure, FAQPage (all fourteen) and BreadcrumbList, plus a canonical
 pointing at the client's live URL.
 
-**Before & after.** Twelve photographs, taken from the client's own microneedling landing page at
-`lp.londonrealskin.com/microneedling` (repo `OnlineMarketingForDoctors/london-real-skin-lp`).
-Three are mechanical microneedling; nine are RF microneedling, which the document is explicit is
-a separate treatment. They are therefore grouped under two labels, and each card names the device
-that produced it. The consent note under the lead comparison is ours, not the client's.
+**Before & after.** Ten photographs, and the same layout as the client's own microneedling
+landing page at `lp.londonrealskin.com/microneedling` (repo
+`OnlineMarketingForDoctors/london-real-skin-lp`): a horizontal snap-scrolling track of cards,
+paging arrows in the section head, and the disclaimer and CTA along the foot. The arrows advance
+by however many cards are in view at the current width, not by one card.
+
+Each composite is a single image with the two halves already joined, so the Before/After chips are
+positioned by whether the join runs down the middle or across it — `.mnba__shot--v` moves them to
+top-left and bottom-left for the stacked pairs.
+
+One case is mechanical microneedling and nine are RF microneedling, which the document is explicit
+is a separate treatment, so every caption names the device that produced it and the disclaimer
+says so in as many words with a link to the RF page. The disclaimer is the landing page's own
+wording plus that final sentence.
+
+The landing page's `hero-before.webp` / `hero-after.webp` pair is not used here: it is the same
+acne-scarring case as `acne-scarring.webp` at a different crop, so it would have been a duplicate
+card. Both files remain in the landing-page repo if a draggable hero reveal is ever wanted.
 
 **Imagery.** Nineteen Nano Banana Pro images in the house palette, plus two real photographs
 lifted from the landing-page repo: the XCellarisPRO Twist unit and the serum ampoules. The device

@@ -192,118 +192,67 @@
     <div class="mnba__head">
       <div>
         <p class="u-eyebrow u-eyebrow--light r">Before &amp; after</p>
-        <h2 class="u-display u-h2 r" style="--d:80ms">Real skin,<br><em>real results</em></h2>
+        <h2 class="u-display u-h2 mnba__h2 r" style="--d:80ms">Real skin,<br><em>real results</em></h2>
       </div>
-      <p class="u-lede r" style="--d:160ms">
-        Outcomes from patients of the clinic, shown exactly as they were taken. Drag the handle
-        across the first image to compare; the rest are joined pairs.
-      </p>
+      <div class="mnba__nav r" style="--d:140ms">
+        <button class="mnba__btn" type="button" data-ba-prev aria-label="Previous result"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="mnba__btn" type="button" data-ba-next aria-label="Next result"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
     </div>
 
-    <div class="u-grid">
-      <div class="mnba__lead r">
-        <div class="cmp" style="--pos:50%">
-          <div class="cmp__side cmp__before" style="background-image:url('/assets/img/ba/hero-before.webp')"></div>
-          <div class="cmp__side cmp__after" style="background-image:url('/assets/img/ba/hero-after.webp')"></div>
-          <span class="cmp__tag cmp__tag--b">Before</span>
-          <span class="cmp__tag cmp__tag--a">After</span>
-          <div class="cmp__handle"><span class="cmp__knob">
-            <svg viewBox="0 0 24 24"><path d="M8 9h11l-3-3M16 15H5l3 3"/></svg>
-          </span></div>
-        </div>
-        <p class="mnba__cap"><b>Acne scarring, microneedling</b>Smoother, more even texture across the cheek as remodelled collagen softens the appearance of indented scarring.</p>
-        <p class="mnba__note">
-          Individual results vary. Photographs are of real patients of London Real Skin and are
-          published with consent. Session counts, serums used and intervals differ from case to case
-          &mdash; your practitioner will set out what is realistic for your skin at consultation.
-        </p>
-      </div>
-
-      <div class="mnba__cases">
-        <p class="mnba__group r">Microneedling</p>
-        <figure class="shotc r" style="--d:60ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/acne-scarring.webp" alt="Microneedling for acne scarring, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
-          <figcaption><b>Acne scarring</b>Smoother, more even texture as remodelled collagen softens the appearance of scars.</figcaption>
+    <div class="mnba__track" data-ba-track>
+        <figure class="mnba__fig">
+          <div class="mnba__shot"><img loading="lazy" src="/assets/img/ba/acne-scarring.webp" alt="Microneedling for acne scarring, before and after" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
+          <figcaption><b>Acne scarring</b>Microneedling. Smoother, more even texture as remodelled collagen softens the appearance of scars.</figcaption>
         </figure>
-        <figure class="shotc r" style="--d:100ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-7.webp" alt="Pitted acne scarring, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
-          <figcaption><b>Pitted acne scarring</b>Two weeks post-treatment.</figcaption>
+        <figure class="mnba__fig">
+          <div class="mnba__shot"><img loading="lazy" src="/assets/img/ba/rf-1.webp" alt="SkinXcell RF microneedling, before and after" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
+          <figcaption><b>SkinXcell RF microneedling</b>Firmer, smoother skin with improved tone and texture after a course of treatments.</figcaption>
         </figure>
-
-        <p class="mnba__group r">RF microneedling &mdash; a related treatment</p>
-        <figure class="shotc r" style="--d:60ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/rf-1.webp" alt="SkinXcell RF microneedling, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
-          <figcaption><b>SkinXcell RF microneedling</b>Firmer, smoother skin with improved tone and texture after a course.</figcaption>
+        <figure class="mnba__fig">
+          <div class="mnba__shot"><img loading="lazy" src="/assets/img/ba/rf-2.webp" alt="SkinXcell RF microneedling, before and after" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
+          <figcaption><b>SkinXcell RF microneedling</b>Visible lifting and tightening, with a refreshed, more even complexion.</figcaption>
         </figure>
-        <figure class="shotc r" style="--d:100ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/rf-2.webp" alt="SkinXcell RF microneedling, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
-          <figcaption><b>SkinXcell RF microneedling</b>Visible lifting and tightening, with a more even complexion.</figcaption>
-        </figure>
-        <figure class="shotc shotc--v r" style="--d:60ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-1.webp" alt="BTL Exion fractional RF, acne scarring and texture, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot mnba__shot--v"><img loading="lazy" src="/assets/img/ba/exion-1.webp" alt="BTL Exion fractional RF before and after, acne scarring and texture" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
           <figcaption><b>Acne scarring &amp; texture</b>BTL Exion fractional RF, 3 months post-treatment.</figcaption>
         </figure>
-        <figure class="shotc shotc--v r" style="--d:100ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-2.webp" alt="BTL Exion fractional RF, fine lines and crepey skin, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot mnba__shot--v"><img loading="lazy" src="/assets/img/ba/exion-2.webp" alt="BTL Exion fractional RF before and after, fine lines and crepey skin" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
           <figcaption><b>Fine lines &amp; crepey skin</b>BTL Exion fractional RF, 3 months post-treatment.</figcaption>
         </figure>
-        <figure class="shotc shotc--v r" style="--d:60ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-3.webp" alt="BTL Exion fractional RF, acne scarring and firmness, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot mnba__shot--v"><img loading="lazy" src="/assets/img/ba/exion-3.webp" alt="BTL Exion fractional RF before and after, acne scarring and firmness" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
           <figcaption><b>Acne scarring &amp; firmness</b>BTL Exion fractional RF, 1 month post-treatment.</figcaption>
         </figure>
-        <figure class="shotc shotc--v r" style="--d:100ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-4.webp" alt="BTL Exion fractional RF, uneven tone and texture, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot mnba__shot--v"><img loading="lazy" src="/assets/img/ba/exion-4.webp" alt="BTL Exion fractional RF before and after, uneven tone and texture" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
           <figcaption><b>Uneven tone &amp; texture</b>BTL Exion fractional RF, 1 month post-treatment.</figcaption>
         </figure>
-        <figure class="shotc shotc--v r" style="--d:60ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-5.webp" alt="BTL Exion fractional RF, congested uneven skin, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot mnba__shot--v"><img loading="lazy" src="/assets/img/ba/exion-5.webp" alt="BTL Exion fractional RF before and after, congested uneven skin" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
           <figcaption><b>Congested, uneven skin</b>BTL Exion fractional RF, 1 month post-treatment.</figcaption>
         </figure>
-        <figure class="shotc shotc--v r" style="--d:100ms">
-          <div class="shotc__f">
-            <img loading="lazy" src="/assets/img/ba/exion-6.webp" alt="BTL Exion fractional RF, acne scarring on deeper skin, before and after" width="1080" height="1040">
-            <span class="shotc__lab shotc__lab--b">Before</span>
-            <span class="shotc__lab shotc__lab--a">After</span>
-          </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot mnba__shot--v"><img loading="lazy" src="/assets/img/ba/exion-6.webp" alt="BTL Exion fractional RF before and after, acne scarring on deeper skin" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
           <figcaption><b>Acne scarring on deeper skin</b>BTL Exion fractional RF, 6 months post-treatment.</figcaption>
         </figure>
-      </div>
+        <figure class="mnba__fig">
+          <div class="mnba__shot"><img loading="lazy" src="/assets/img/ba/exion-7.webp" alt="BTL Exion fractional RF before and after, pitted acne scarring" width="1080" height="1040"><span class="mnba__lab mnba__lab--b">Before</span><span class="mnba__lab mnba__lab--a">After</span></div>
+          <figcaption><b>Pitted acne scarring</b>BTL Exion fractional RF, 2 weeks post-treatment.</figcaption>
+        </figure>
+    </div>
+
+    <div class="mnba__foot">
+      <p class="mnba__disc">
+        All photos are of actual patients of London Real Skin and are displayed with their consent.
+        The outcomes shown are relevant only for these patients and do not necessarily reflect the
+        results other patients may experience. Your practitioner will discuss any factors that could
+        influence your own results. Cases marked RF were treated with
+        <a href="/treatments/rf-microneedling-london.html">radiofrequency microneedling</a>, a
+        related but separate treatment.
+      </p>
+      <a class="u-btn u-btn--focus mnba__cta" href="/contact.html"><span>Book a free consultation</span></a>
     </div>
   </div>
 </section>
