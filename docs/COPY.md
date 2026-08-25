@@ -1519,5 +1519,12 @@ sides. Two prose sections back to back otherwise read as the same layout twice.
 50% of the row while the columns were split 1fr / .8fr, so the two disagreed and the rail ran
 through the copy. Keep the line in its own track if the ratio is ever changed.
 
+**Eyebrow-to-heading spacing is a rule now, not a per-section value.** Every section built
+before this page set its own 20px on its own h2 class; this page's headings mostly carry a bare
+`.u-h2`, so they had none and butted straight up against the eyebrow. `.u-eyebrow + :where(.u-h2)`
+supplies the house 20px at exactly one class of specificity — enough to beat the element reset,
+low enough that any section declaring its own margin-top still wins on source order. Hero h1s are
+deliberately outside it; their eyebrow already carries a larger margin-bottom.
+
 **The reviews score carries the Google mark** on this page and on the homepage and About page,
 so the rating is attributed visually as well as in the caption.

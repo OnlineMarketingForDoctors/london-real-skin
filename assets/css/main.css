@@ -80,6 +80,18 @@ h1,h2,h3,h4,p{margin:0}
 .u-h2{font-size:clamp(2.3rem,4.6vw,4.3rem)}
 .u-h3{font-size:clamp(1.45rem,2.1vw,2.05rem)}
 
+/* An eyebrow sitting directly above a heading gets the house gap. Every section
+   that predates this rule set the same 20px on its own h2 class; this catches
+   the headings that carry no section class of their own, which were otherwise
+   butting straight up against the eyebrow.
+   The :where() wraps only the second half, so the specificity is exactly one
+   class — enough to beat the `h1,h2,h3,h4,p{margin:0}` reset above, and low
+   enough that a section's own h2 rule wins on source order, since every one of
+   those is declared further down this file. Scoped to .u-h2 rather than every
+   display heading, so the hero h1s keep the spacing their own eyebrow already
+   gives them. */
+.u-eyebrow + :where(.u-h2){margin-top:20px}
+
 .u-eyebrow{
   font-family:var(--mono);
   font-size:clamp(.76rem,.86vw,.85rem);
