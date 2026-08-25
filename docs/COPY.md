@@ -174,7 +174,7 @@ offer tailored, results driven solutions.
 - 2016 — treating real skin concerns since
 - 1 — clinic, in the heart of Holborn
 
-**Signature line:** Dr Martin Wade · B.Med Sci, MB BS, FACD · GMC 4080323
+**Signature line:** Dr Martin Wade · BMed Sci, MB BS, FACD · GMC 4080323
 
 **CTA:** Meet the team
 
@@ -534,7 +534,7 @@ Eight pages at `about-us/<slug>.html`, matching the old site's `/about-us/<slug>
 
 | Name | Role | Page | Paragraphs |
 |---|---|---|---|
-| Dr Martin Wade | Consultant Dermatologist & Medical Director | `about-us/dr-martin-wade.html` | 6 |
+| Dr Martin Wade | Consultant Dermatologist & Medical Director | `about-us/dr-martin-wade.html` | 14 + 2 subheadings |
 | Dr Meriem Martins | Aesthetic Doctor | `about-us/dr-meriem-martins.html` | 3 |
 | Dr Flor Kent | Aesthetic Doctor | `about-us/dr-flor-kent.html` | 8 |
 | Dr Inna | Aesthetic Doctor | `about-us/dr-inna.html` | 4 |
@@ -547,10 +547,23 @@ Layout: breadcrumb, portrait sticky on the left, biography on the right, then th
 team members and the standard CTA. Dr Flor Kent's list of past positions renders as a list rather
 than running text. No page hero, on the same reasoning as the product pages.
 
-Roles come from our team cards, which came from the client's own About Us list. Two individual
-pages state a shorter title than that list: Dr Martin Wade's says *Consultant Dermatologist*
-where ours says *Consultant Dermatologist & Medical Director*, and Dr Flor Kent's is lower case.
-The list version is used, for consistency across the site.
+Roles come from our team cards, which came from the client's own About Us list. Dr Flor Kent's
+individual page states a lower-case title; the list version is used, for consistency across the
+site. The Dr Martin Wade role discrepancy is resolved: the client's replacement bio (Aug 2026)
+confirms *Consultant Dermatologist and Medical Director*.
+
+Dr Martin Wade's page carries a rewritten biography supplied by the client in August 2026, which
+supersedes the old site's text entirely. It runs to fourteen paragraphs under two subheadings,
+*A dermatological approach to aesthetic skin treatment* and *Evidence-led, personalised and
+natural*, rendered as `.bio__h2`. Two points to confirm with the client:
+
+- The second subheading was supplied as *Evidence-led, Personalised and Natural.* — set here in
+  sentence case with no full stop, to match every other heading on the site.
+- The degree is spelled *BMed Sci* in the new copy where the old site had *B.Med Sci*. The new
+  spelling has been applied to the homepage signature line too.
+
+The opening paragraph of the new bio replaces the old card summary on the homepage and the About
+page, so the team cards and the biography page now agree.
 
 ## A7. What our clients say
 

@@ -3616,6 +3616,22 @@ body.bk-open{overflow:hidden}
   border-bottom:1px solid var(--line);
 }
 .bio__p{color:var(--muted);line-height:1.68;margin-top:1.05em;max-width:62ch;text-wrap:pretty}
+/* A subheading inside a long biography. Sized between .bio__role and .bio__name
+   so it breaks the column without competing with the h1, and it carries its own
+   rule above rather than extra space, which reads as a new chapter. No max-width:
+   the hairline is meant to run the full copy column, the way .bio__role's does,
+   and a ch cap set in the display face would not line up with the paragraphs'. */
+.bio__h2{
+  font-family:var(--disp);
+  font-size:clamp(1.24rem,1.7vw,1.6rem);
+  line-height:1.2;
+  color:var(--ink-deep);
+  text-wrap:balance;
+  margin-top:clamp(30px,3.4vw,46px);
+  padding-top:clamp(24px,2.8vw,34px);
+  border-top:1px solid var(--line-soft);
+}
+.bio__h2 + .bio__p{margin-top:.9em}
 .bio__lab{
   margin-top:clamp(22px,2.6vw,32px);
   font-family:var(--mono);

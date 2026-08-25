@@ -270,9 +270,15 @@ survive a migration. Portrait sticky on the left, biography on the right, then t
 team members, then the standard CTA and footer. No page hero, for the same reason product pages
 have none.
 
-**Seven biographies are the client's own**, fetched from their live team pages and used
+**Every biography is the client's own.** Six were fetched from their live team pages and used
 unrewritten. Dr Flor Kent's list of past positions renders as a list rather than running text.
 Mina's comes from the Word document the client supplied, since she has no page on the old site.
+Dr Martin Wade's is a rewritten bio the client supplied in August 2026 that supersedes the old
+site's text: fourteen paragraphs under two subheadings, which is why `.bio__h2` exists. It
+confirms his title as *Consultant Dermatologist and Medical Director*, closing the discrepancy
+between the old individual page and the team list. Two small edits are flagged in `docs/COPY.md`
+for the client to confirm — the second subheading was set in sentence case without a full stop,
+and the degree is now spelled *BMed Sci* everywhere, following the new copy.
 
 This also retires the last of my invented copy on the site: the team cards on the homepage and
 About Us carried short biographies I had written, and now carry the real opening paragraph. The
