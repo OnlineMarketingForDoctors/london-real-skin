@@ -608,6 +608,29 @@
     });
   }
 
+  /* ---------- FAQ accordion ----------
+     Height is animated from a measured pixel value rather than max-height, so
+     a long answer opens at the same speed as a short one. Several may be open
+     at once: on a two-column layout, closing one to open another would make
+     the other column jump. */
+  $$('.mnfaq__i').forEach(function (item) {
+    var q = $('.mnfaq__q', item), a = $('.mnfaq__a', item);
+    if (!q || !a) return;
+    var inner = a.firstElementChild;
+    q.setAttribute('aria-expanded', 'false');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('is-open');
+      q.setAttribute('aria-expanded', String(open));
+      a.style.height = open ? inner.offsetHeight + 'px' : '0px';
+    });
+  });
+  window.addEventListener('resize', function () {
+    $$('.mnfaq__i.is-open').forEach(function (item) {
+      var a = $('.mnfaq__a', item);
+      if (a && a.firstElementChild) a.style.height = a.firstElementChild.offsetHeight + 'px';
+    });
+  }, { passive: true });
+
   /* ---------- Smooth in-page anchors, allowing for the sticky header ---------- */
   $$('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {

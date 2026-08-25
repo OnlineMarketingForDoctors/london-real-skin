@@ -1430,3 +1430,70 @@ shop cards and on each product page, where it respects the quantity stepper.
 **Eyebrow:** Skincare is half of it
 **H2:** The other half happens in clinic
 **CTAs:** Conditions we treat · All treatments
+
+# Microneedling (treatments/microneedling-london.html)
+
+The first of the treatment detail pages, built from the client's SEO-optimised content
+optimisation document (July 2026). The copy is theirs, kept essentially verbatim; what this page
+adds is structure. The URL mirrors the old site's `/treatments/microneedling-london/`.
+
+**Rule for this page: no two sections share a layout.** Nineteen sections, nineteen arrangements.
+The CSS lives in one block, section 32 of `assets/css/main.css`, and every class is used once.
+
+| # | Section | H-level | Layout |
+|---|---|---|---|
+| 1 | Microneedling Treatment London (Holborn) | H1 | Homepage hero frame: one static slide, five selling points, CTA, Google badge, at-a-glance card |
+| 2 | As featured in | — | The homepage stripe |
+| 3 | Reviews | — | The homepage marquee, same seven verified reviews |
+| 4 | Before & after | H2 (site) | Sticky draggable comparison beside a two-column case grid |
+| 5 | Refine Skin Texture and Support Natural Collagen Renewal | H2 | Opening statement: display heading, two paragraphs, one tall portrait |
+| 6 | What Is Microneedling? | H2 | Copy left, tall macro right, one pulled sentence in the gutter |
+| 7 | What Conditions Can Microneedling Treat? | H2 | Dark full-bleed plate, four-column numbered index |
+| 8 | What Are the Benefits of Microneedling? | H2 | Ten cards in a five-wide band, every second column dropped |
+| 9 | How Does Microneedling Work? | H2 | Three-phase rail on a dark plate, prose beneath |
+| 10 | Which Microneedling Device Do We Use? | H2 | Device photograph left, four spec panels in a 2×2 |
+| 11 | Microneedling with Serums | H2 + 5×H3 | Five cards on dark; a snap-scroller below 1080px |
+| 12 | Which Serum Is Right for Your Skin? | H2 | The client's table, set as a table |
+| 13 | Am I a Suitable Candidate? | H2 | Two panels — may suit / may need to wait — over a wide banner |
+| 14 | Your Microneedling Journey | H2 + 5×H3 | Alternating vertical stepper down a centre line |
+| 15 | Possible Risks and Side Effects | H2 | Deliberately the quietest section: inline pills, no image |
+| 16 | How Much Does Microneedling Cost? | H2 | Price rows with leader rules on a dark plate |
+| 17 | Why Choose London Real Skin? | H2 | Full-bleed photograph, two-column checklist |
+| 18 | Book a Microneedling Consultation | H2 | Teal band, sentence and two buttons |
+| 19 | Microneedling FAQs | H2 + 14×H3 | Two balanced columns of accordions |
+
+All forty of the document's headings are present at the document's own levels, checked
+programmatically rather than by eye. The FAQ questions are `h3` elements wrapping the button, so
+the heading structure survives the accordion.
+
+**Copy changes, all of them:**
+
+- The at-a-glance card carries the *Treatment areas / Course / From £340* line as rows rather
+  than a sentence, which is the only place that content appears.
+- The three phase names on *How Does Microneedling Work?* are a diagram; the document's two
+  paragraphs sit beneath it verbatim.
+- The price list had a line-break error: *Microneedling Full Face, 6 sessions: £1275 Microneedling*
+  then *Localised Area, Small Scar: £200*. Read as intended, £1,275 and a localised area at £200.
+- *Client to provide pricing for the serums* is an instruction to the client, not page copy. It
+  is replaced with "Serum pricing is confirmed at consultation, since the formulation is selected
+  for your skin." **The client still needs to supply those prices.**
+- Serum subheadings use an em dash where the document used a hyphen, matching house style.
+
+**Links.** Every link in the document is kept, repointed at our equivalents: the four concern
+links to `conditions.html` anchors, `/about-us/` to `about.html`, `/contact-us/` to
+`contact.html`, and the two treatment links to `treatments/polynucleotides-london.html` and
+`treatments/microneedling-with-exosomes.html`, neither of which is built yet. *Stretch marks* has
+been given a conditions link it did not have.
+
+**Structured data:** MedicalProcedure, FAQPage (all fourteen) and BreadcrumbList, plus a canonical
+pointing at the client's live URL.
+
+**Before & after.** Twelve photographs, taken from the client's own microneedling landing page at
+`lp.londonrealskin.com/microneedling` (repo `OnlineMarketingForDoctors/london-real-skin-lp`).
+Three are mechanical microneedling; nine are RF microneedling, which the document is explicit is
+a separate treatment. They are therefore grouped under two labels, and each card names the device
+that produced it. The consent note under the lead comparison is ours, not the client's.
+
+**Imagery.** Nineteen Nano Banana Pro images in the house palette, plus two real photographs
+lifted from the landing-page repo: the XCellarisPRO Twist unit and the serum ampoules. The device
+shot is genuine product photography and should not be replaced with a generated substitute.

@@ -54,7 +54,7 @@ body{
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ul,ol{margin:0;padding:0;list-style:none}
@@ -3685,3 +3685,573 @@ body.bk-open{overflow:hidden}
 .team__name a{transition:color .35s var(--ease)}
 .team__name a:hover{color:var(--focus-deep)}
 .team__more{text-decoration:none}
+
+/* ---------- 32. Microneedling treatment page ----------
+   One page, fifteen sections, and a deliberate rule: no two sections share a
+   layout. What follows is therefore long, but each block is small and only
+   ever used once. The shared primitives (.u-grid, .u-btn, .r) do the heavy
+   lifting; these classes only describe the arrangement.                     */
+
+/* ---- Hero ----
+   The homepage hero frame, reused wholesale: one static slide instead of six,
+   so the slideshow timer in main.js bails on `slides.length < 2` and nothing
+   else needs a guard. Only the headline scale and the right-hand
+   column differ. */
+.hero--mn{min-height:100svh}
+.hero--mn .hero__h1{font-size:clamp(2.05rem,3.9vw,3.35rem);letter-spacing:-.008em;max-width:15ch}
+.hero--mn .hero__h1 em{display:block}
+.hero--mn .hero__copy{grid-column:1/span 7;max-width:none}
+.hero--mn .hero__lede{max-width:56ch}
+@media (max-width:1080px){.hero--mn .hero__copy{grid-column:1/span 9}}
+@media (max-width:760px){.hero--mn .hero__copy{grid-column:1/-1}}
+
+/* The at-a-glance card replaces the homepage's promotions slider. It carries
+   the treatment-areas / course / price line from the copy deck, which would
+   otherwise be a stranded orphan paragraph under the lede. */
+.mnglance{
+  grid-column:9/span 4;align-self:end;
+  background:rgba(12,26,40,.58);
+  border:1px solid var(--line-light);
+  border-radius:4px;
+  padding:clamp(22px,2.2vw,30px);
+  backdrop-filter:blur(9px);
+}
+@media (max-width:1080px){.mnglance{grid-column:1/span 6;align-self:start;margin-top:clamp(24px,3vw,34px)}}
+@media (max-width:760px){.mnglance{grid-column:1/-1}}
+.mnglance__h{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--focus);padding-bottom:14px;border-bottom:1px solid var(--line-light);
+}
+.mnglance__row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding:11px 0;border-bottom:1px solid rgba(231,238,245,.1);
+}
+.mnglance__row dt{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(231,238,245,.5);flex:none;
+}
+.mnglance__row dd{margin:0;font-size:.86rem;color:var(--paper);text-align:right}
+.mnglance__from{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:16px}
+.mnglance__from span{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(231,238,245,.5);
+}
+.mnglance__from b{font-family:var(--disp);font-size:1.7rem;font-weight:400;color:var(--focus);line-height:1}
+
+/* ---- Before & after ----
+   A lead comparison the visitor can drag, held sticky beside a scrolling
+   column of composite cases. The composites are single images with the two
+   halves already joined, so they cannot use .cmp — they get a corner chip on
+   each half instead, positioned by whether the join runs vertical or across. */
+.mnba{background:var(--ink-deep);color:var(--paper)}
+.mnba__head{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,3vw,54px);
+  align-items:end;margin-bottom:clamp(30px,3.6vw,54px);
+}
+@media (max-width:900px){.mnba__head{grid-template-columns:1fr}}
+.mnba__lead{grid-column:1/span 5;align-self:start;position:sticky;top:calc(var(--mast-h,88px) + 26px)}
+.mnba__cases{grid-column:7/span 6;display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,24px)}
+@media (max-width:1080px){
+  .mnba__lead,.mnba__cases{grid-column:1/-1;position:static}
+  .mnba__lead{max-width:520px;margin-inline:auto}
+}
+@media (max-width:560px){.mnba__cases{grid-template-columns:1fr}}
+.mnba__lead .cmp{aspect-ratio:1;border-radius:4px;overflow:hidden}
+.mnba__cap{
+  margin-top:14px;font-size:.84rem;color:rgba(231,238,245,.62);line-height:1.6;
+}
+.mnba__cap b{display:block;color:var(--paper);font-weight:600;font-size:.92rem;margin-bottom:3px}
+.mnba__note{
+  margin-top:clamp(18px,2vw,26px);padding-top:16px;border-top:1px solid var(--line-light);
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;line-height:1.75;
+  color:rgba(231,238,245,.42);
+}
+/* A group heading inside the case column, so a reader always knows which
+   device produced the result they are looking at. */
+.mnba__group{
+  grid-column:1/-1;margin-top:clamp(10px,1.2vw,16px);
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--focus);padding-bottom:10px;border-bottom:1px solid var(--line-light);
+}
+.mnba__group:first-child{margin-top:0}
+.shotc{margin:0}
+.shotc__f{position:relative;border-radius:4px;overflow:hidden;background:#0b1a28}
+.shotc__f img{width:100%;height:auto;display:block}
+.shotc__lab{
+  position:absolute;z-index:2;
+  font-family:var(--mono);font-size:.53rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:5px 9px;border-radius:2px;color:var(--paper);
+}
+/* Side-by-side composite: before on the left half, after on the right. */
+.shotc__lab--b{left:10px;bottom:10px;background:rgba(12,26,40,.85)}
+.shotc__lab--a{left:calc(50% + 10px);bottom:10px;background:var(--focus-deep)}
+/* Stacked composite: before on top, after underneath. */
+.shotc--v .shotc__lab--b{left:10px;top:10px;bottom:auto}
+.shotc--v .shotc__lab--a{left:10px;top:auto;bottom:10px}
+.shotc figcaption{
+  margin-top:10px;font-size:.78rem;line-height:1.55;color:rgba(231,238,245,.6);
+}
+.shotc figcaption b{display:block;color:var(--paper);font-weight:600;margin-bottom:2px}
+
+/* ---- What is microneedling ----
+   Copy left, one tall macro right, and a single pulled sentence sitting in the
+   gutter between them, which is the one idea the section exists to land. */
+.mnwhat{background:var(--paper-pure)}
+.mnwhat__copy{grid-column:1/span 5}
+.mnwhat__media{grid-column:7/span 6;margin:0;grid-row:1/span 2}
+@media (max-width:960px){
+  .mnwhat__copy,.mnwhat__media{grid-column:1/-1;grid-row:auto}
+}
+.mnwhat__media img{width:100%;display:block;border-radius:4px}
+.mnwhat__media figcaption{
+  margin-top:12px;font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;
+  line-height:1.7;color:var(--muted);
+}
+.mnwhat__p{color:var(--muted);line-height:1.68;margin-top:1.05em;max-width:52ch;text-wrap:pretty}
+.mnwhat__pull{
+  grid-column:1/span 5;margin-top:clamp(24px,2.8vw,36px);
+  padding-left:clamp(16px,1.6vw,22px);border-left:2px solid var(--focus);
+  font-family:var(--disp);font-size:clamp(1.05rem,1.4vw,1.3rem);line-height:1.42;
+  color:var(--ink-deep);max-width:34ch;
+}
+@media (max-width:960px){.mnwhat__pull{grid-column:1/-1}}
+
+/* ---- Conditions ----
+   A dark full-bleed plate carrying a four-column index. Each entry is a row
+   with its own hairline, numbered in mono, so the list reads as a reference
+   rather than as decoration. */
+.mncond{position:relative;isolation:isolate;color:var(--paper);overflow:hidden}
+.mncond__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.mncond::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(12,26,40,.93),rgba(12,26,40,.88));
+}
+.mncond__head{grid-column:1/span 5}
+.mncond__lede{grid-column:7/span 6;align-self:end;color:rgba(231,238,245,.7);line-height:1.7}
+@media (max-width:900px){.mncond__head,.mncond__lede{grid-column:1/-1}}
+.mncond__grid{
+  margin-top:clamp(34px,4vw,58px);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(20px,2.4vw,38px);
+}
+@media (max-width:1000px){.mncond__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.mncond__grid{grid-template-columns:1fr}}
+.mncond__i{
+  display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;border-bottom:1px solid rgba(231,238,245,.14);
+  color:var(--paper);font-size:.94rem;line-height:1.35;
+  transition:color .35s var(--ease);
+}
+.mncond__i span{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;
+  color:rgba(231,238,245,.34);flex:none;
+}
+a.mncond__i:hover{color:var(--focus)}
+a.mncond__i:hover span{color:var(--focus)}
+a.mncond__i::after{content:"→";margin-left:auto;color:var(--focus);opacity:0;transition:opacity .35s var(--ease),transform .35s var(--ease);transform:translateX(-4px)}
+a.mncond__i:hover::after{opacity:1;transform:none}
+
+/* ---- Benefits ----
+   Ten short claims. A plain grid would read as a shopping list, so the cards
+   sit in a five-column band where every second column is dropped by half a
+   card — the stagger is the whole layout. */
+.mnben{background:var(--paper)}
+.mnben__head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,54px);align-items:end}
+@media (max-width:820px){.mnben__head{grid-template-columns:1fr}}
+.mnben__grid{
+  margin-top:clamp(38px,4.6vw,68px);
+  display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.4vw,22px);
+}
+@media (max-width:1100px){.mnben__grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:680px){.mnben__grid{grid-template-columns:repeat(2,1fr)}}
+.mnben__c{
+  background:var(--paper-pure);border:1px solid var(--line-soft);border-radius:4px;
+  padding:clamp(18px,1.8vw,24px);display:flex;flex-direction:column;gap:14px;
+  min-height:clamp(150px,13vw,186px);
+}
+/* The offset only makes sense while five columns survive; below that it turns
+   into a ragged edge for no reason. */
+@media (min-width:1101px){.mnben__c:nth-child(even){transform:translateY(clamp(22px,2.4vw,38px))}}
+.mnben__n{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:var(--focus-deep);
+}
+.mnben__t{font-size:.96rem;line-height:1.42;color:var(--ink-deep);margin-top:auto}
+
+/* ---- How it works ----
+   Three phases, so three columns joined by one continuous hairline that runs
+   behind the numerals. The rule is drawn on the container, not on the cards,
+   which is why it does not break in the gaps. */
+.mnwork{position:relative;isolation:isolate;color:var(--paper);overflow:hidden}
+.mnwork__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.mnwork::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(12,26,40,.9),rgba(12,26,40,.94));
+}
+.mnwork__head{max-width:44ch}
+.mnwork__rail{position:relative;margin-top:clamp(40px,5vw,74px);padding-top:clamp(28px,3vw,42px)}
+.mnwork__rail::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--focus),rgba(29,176,186,.2));
+}
+.mnwork__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,50px)}
+@media (max-width:860px){.mnwork__steps{grid-template-columns:1fr;gap:clamp(26px,4vw,38px)}}
+.mnwork__s{position:relative;padding-top:clamp(14px,1.6vw,20px)}
+.mnwork__s::before{
+  content:"";position:absolute;top:calc(-1 * clamp(28px,3vw,42px));left:0;
+  width:2px;height:clamp(28px,3vw,42px);background:var(--focus);
+}
+.mnwork__n{font-family:var(--disp);font-size:clamp(2.1rem,3.4vw,3rem);line-height:1;color:var(--focus)}
+.mnwork__t{margin-top:12px;font-size:1.02rem;color:var(--paper);font-weight:600}
+.mnwork__sub{
+  margin-top:7px;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(231,238,245,.44);
+}
+.mnwork__foot{
+  margin-top:clamp(30px,3.6vw,50px);display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(20px,3vw,54px);
+}
+@media (max-width:860px){.mnwork__foot{grid-template-columns:1fr}}
+.mnwork__foot p{color:rgba(231,238,245,.72);line-height:1.72;text-wrap:pretty}
+
+/* ---- Device ----
+   Product photography of the actual unit, so it is given the room a real
+   photograph deserves: image left across five columns, four spec panels
+   stacked right in a 2×2 that collapses to one. */
+.mndev{background:var(--paper-pure)}
+.mndev__media{grid-column:1/span 5;grid-row:1/span 3;margin:0;align-self:start}
+.mndev__copy{grid-column:7/span 6;grid-row:1}
+.mndev__specs{grid-column:7/span 6;grid-row:3;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:clamp(24px,2.6vw,34px)}
+@media (max-width:1000px){
+  .mndev__media,.mndev__copy,.mndev__specs,.mndev__lead{grid-column:1/-1;grid-row:auto}
+  .mndev__media{max-width:520px}
+}
+@media (max-width:520px){.mndev__specs{grid-template-columns:1fr}}
+.mndev__media img{width:100%;display:block;border-radius:4px;border:1px solid var(--line-soft)}
+.mndev__media figcaption{
+  margin-top:12px;font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;
+  color:var(--muted);line-height:1.7;
+}
+.mndev__p{color:var(--muted);line-height:1.68;margin-top:1.05em;max-width:56ch;text-wrap:pretty}
+.mndev__spec{background:var(--paper-pure);padding:clamp(18px,1.9vw,26px)}
+.mndev__spec b{
+  display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--focus-deep);margin-bottom:10px;
+}
+.mndev__spec span{display:block;font-size:.95rem;line-height:1.45;color:var(--ink-deep)}
+
+/* ---- Serums ----
+   Five formulations on a dark ground, each with its own still. A row of five
+   at desktop; below that it becomes a horizontal snap-scroller rather than a
+   two-up grid, because five is an odd number and a 2/2/1 grid looks broken. */
+.mnser{background:var(--ink);color:var(--paper)}
+.mnser__head{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,3vw,54px);align-items:end}
+@media (max-width:900px){.mnser__head{grid-template-columns:1fr}}
+.mnser__intro{color:rgba(231,238,245,.72);line-height:1.72;text-wrap:pretty}
+.mnser__intro + .mnser__intro{margin-top:1.05em}
+.mnser__row{
+  margin-top:clamp(36px,4.4vw,64px);
+  display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.5vw,22px);
+}
+@media (max-width:1080px){
+  .mnser__row{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding-bottom:14px;margin-inline:calc(-1 * var(--gutter));
+    padding-inline:var(--gutter);
+  }
+  .mnser__c{flex:0 0 clamp(230px,66vw,300px);scroll-snap-align:start}
+}
+.mnser__c{
+  background:rgba(231,238,245,.05);border:1px solid var(--line-light);
+  border-radius:4px;overflow:hidden;display:flex;flex-direction:column;
+}
+.mnser__img{aspect-ratio:1;overflow:hidden;background:#12283c}
+.mnser__img img{width:100%;height:100%;object-fit:cover;display:block}
+.mnser__body{padding:clamp(16px,1.7vw,22px);display:flex;flex-direction:column;flex:1}
+.mnser__name{font-size:.98rem;line-height:1.32;color:var(--paper);font-weight:600}
+.mnser__lab{
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--focus);margin-bottom:9px;
+}
+.mnser__p{margin-top:10px;font-size:.86rem;line-height:1.62;color:rgba(231,238,245,.64)}
+
+/* ---- Serum match ----
+   A two-column table, set as a table because it is one. Mono on the left for
+   the concern, body face on the right for the recommendation. */
+.mnmatch{background:var(--paper)}
+.mnmatch__grid{align-items:start}
+.mnmatch__copy{grid-column:1/span 4}
+.mnmatch__table{grid-column:6/span 7}
+@media (max-width:960px){.mnmatch__copy,.mnmatch__table{grid-column:1/-1}}
+.mnmatch__table table{width:100%;border-collapse:collapse}
+.mnmatch__table caption{
+  text-align:left;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--focus-deep);padding-bottom:14px;
+}
+.mnmatch__table th{
+  text-align:left;font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;
+  padding-bottom:12px;border-bottom:1px solid var(--ink);
+}
+.mnmatch__table td{padding:16px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.mnmatch__table tr td:first-child{color:var(--ink-deep);font-size:.95rem;padding-right:20px;line-height:1.45}
+.mnmatch__table tr td:last-child{
+  color:var(--focus-deep);font-weight:600;font-size:.95rem;text-align:right;white-space:nowrap;
+}
+@media (max-width:520px){
+  .mnmatch__table tr td:last-child{white-space:normal}
+}
+.mnmatch__note{
+  margin-top:clamp(18px,2vw,26px);font-family:var(--mono);font-size:.62rem;
+  line-height:1.75;color:var(--muted);
+}
+.mnmatch__p{color:var(--muted);line-height:1.68;margin-top:1.05em;text-wrap:pretty}
+
+/* ---- Suitability ----
+   Two panels that answer the two halves of the question, side by side, with
+   the image running full-bleed underneath them rather than beside. */
+.mnsuit{background:var(--paper-pure)}
+.mnsuit__panels{
+  margin-top:clamp(30px,3.4vw,48px);
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,30px);
+}
+@media (max-width:820px){.mnsuit__panels{grid-template-columns:1fr}}
+.mnsuit__p{border-radius:4px;padding:clamp(24px,2.6vw,36px)}
+.mnsuit__p--yes{background:var(--ink-deep);color:var(--paper)}
+.mnsuit__p--no{background:var(--paper);border:1px solid var(--line)}
+.mnsuit__lab{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:16px;display:flex;align-items:center;gap:.7em;
+}
+.mnsuit__p--yes .mnsuit__lab{color:var(--focus)}
+.mnsuit__p--no .mnsuit__lab{color:var(--muted)}
+.mnsuit__lab svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round}
+.mnsuit__p p{line-height:1.7;text-wrap:pretty}
+.mnsuit__p--yes p{color:rgba(231,238,245,.78)}
+.mnsuit__p--no p{color:var(--muted)}
+.mnsuit__fig{margin:clamp(30px,3.4vw,48px) 0 0;position:relative;border-radius:4px;overflow:hidden}
+.mnsuit__fig img{width:100%;display:block;aspect-ratio:21/8;object-fit:cover;object-position:center}
+@media (max-width:760px){.mnsuit__fig img{aspect-ratio:3/2}}
+.mnsuit__fig figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:clamp(18px,2vw,28px);
+  background:linear-gradient(to top,rgba(12,26,40,.9),transparent);
+  color:var(--paper);font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;line-height:1.7;
+}
+
+/* ---- The journey ----
+   Five stages, alternating sides down a centre line — the one layout on this
+   page where the eye is meant to travel vertically rather than across. Below
+   900px the centre line moves to the left edge and every stage sits right of
+   it, because alternating on a narrow screen just reads as misalignment. */
+.mnjour{background:var(--paper)}
+.mnjour__rail{position:relative;margin-top:clamp(38px,4.4vw,66px)}
+.mnjour__rail::before{
+  content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;
+  background:var(--line);transform:translateX(-.5px);
+}
+.mnjour__s{
+  position:relative;display:grid;grid-template-columns:1fr .8fr;
+  gap:clamp(24px,4vw,72px);align-items:center;
+}
+.mnjour__s + .mnjour__s{margin-top:clamp(30px,3.6vw,56px)}
+.mnjour__s::before{
+  content:"";position:absolute;top:50%;left:50%;width:9px;height:9px;border-radius:50%;
+  background:var(--focus);transform:translate(-50%,-50%);box-shadow:0 0 0 5px var(--paper);
+}
+.mnjour__txt{grid-column:1}
+.mnjour__fig{grid-column:2;margin:0}
+/* Odd stages swap sides. grid-column is set explicitly on both children,
+   because auto-placement will not walk backwards to fill column 1. */
+.mnjour__s--flip .mnjour__txt{grid-column:2}
+.mnjour__s--flip .mnjour__fig{grid-column:1}
+.mnjour__fig img{width:100%;display:block;border-radius:4px;aspect-ratio:3/2;object-fit:cover}
+.mnjour__n{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--focus-deep);
+}
+.mnjour__h{margin-top:10px;font-size:clamp(1.1rem,1.5vw,1.36rem);line-height:1.25;color:var(--ink-deep)}
+.mnjour__p{margin-top:12px;color:var(--muted);line-height:1.68;text-wrap:pretty}
+@media (max-width:900px){
+  .mnjour__rail::before{left:5px;transform:none}
+  .mnjour__s,.mnjour__s--flip{grid-template-columns:1fr;padding-left:32px}
+  .mnjour__fig img{aspect-ratio:4/3}
+  .mnjour__txt,.mnjour__fig,.mnjour__s--flip .mnjour__txt,.mnjour__s--flip .mnjour__fig{grid-column:1}
+  .mnjour__fig{margin-top:18px}
+  .mnjour__s::before{left:5px;top:8px;transform:translate(-50%,0)}
+}
+
+/* ---- Risks ----
+   Deliberately the quietest section on the page. Side effects are not a
+   feature, so they get inline pills on paper rather than cards, and no image. */
+.mnrisk{background:var(--paper-pure)}
+.mnrisk__grid{align-items:start}
+.mnrisk__copy{grid-column:1/span 6}
+.mnrisk__list{grid-column:8/span 5}
+@media (max-width:900px){.mnrisk__copy,.mnrisk__list{grid-column:1/-1}}
+.mnrisk__p{color:var(--muted);line-height:1.68;margin-top:1.05em;max-width:54ch;text-wrap:pretty}
+.mnrisk__lab{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--focus-deep);padding-bottom:14px;border-bottom:1px solid var(--ink);
+}
+.mnrisk__pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.mnrisk__pills li{
+  border:1px solid var(--line);border-radius:100px;padding:.62em 1.05em;
+  font-size:.84rem;color:var(--ink);background:var(--paper);
+}
+
+/* ---- Cost ----
+   Price rows on a dark plate, the figure set in the display face so it is the
+   thing the eye lands on. A leader rule joins name to price. */
+.mncost{position:relative;isolation:isolate;color:var(--paper);overflow:hidden}
+.mncost__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.mncost::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(12,26,40,.92),rgba(12,26,40,.95));
+}
+.mncost__grid{align-items:start}
+.mncost__copy{grid-column:1/span 4}
+.mncost__rows{grid-column:6/span 7}
+@media (max-width:960px){.mncost__copy,.mncost__rows{grid-column:1/-1}}
+.mncost__p{color:rgba(231,238,245,.72);line-height:1.72;margin-top:1.05em;text-wrap:pretty}
+.mncost__r{
+  display:flex;align-items:baseline;gap:14px;
+  padding:17px 0;border-bottom:1px solid rgba(231,238,245,.14);
+}
+.mncost__r:first-child{border-top:1px solid var(--focus)}
+.mncost__name{color:var(--paper);font-size:.98rem;line-height:1.35}
+.mncost__dots{flex:1;height:1px;background:repeating-linear-gradient(90deg,rgba(231,238,245,.25) 0 2px,transparent 2px 6px)}
+.mncost__fig{font-family:var(--disp);font-size:1.28rem;color:var(--focus);flex:none;line-height:1}
+.mncost__note{
+  margin-top:clamp(20px,2.2vw,30px);font-family:var(--mono);font-size:.62rem;
+  line-height:1.8;color:rgba(231,238,245,.46);
+}
+.mncost__note a{color:var(--focus)}
+
+/* ---- Why choose us ----
+   Full-bleed photograph, dark scrim, and the ten reasons as a two-column
+   checklist with the copy sitting above rather than beside it. */
+.mnwhy{position:relative;isolation:isolate;color:var(--paper);overflow:hidden}
+.mnwhy__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.mnwhy::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,rgba(12,26,40,.95) 0%,rgba(12,26,40,.88) 52%,rgba(12,26,40,.72) 100%);
+}
+.mnwhy__head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,3vw,54px);align-items:end}
+@media (max-width:900px){.mnwhy__head{grid-template-columns:1fr}}
+.mnwhy__p{color:rgba(231,238,245,.74);line-height:1.72;text-wrap:pretty}
+.mnwhy__p + .mnwhy__p{margin-top:1.05em}
+.mnwhy__lab{
+  margin-top:clamp(32px,3.8vw,54px);
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--focus);padding-bottom:14px;border-bottom:1px solid var(--line-light);
+}
+.mnwhy__list{
+  margin-top:clamp(18px,2vw,26px);
+  display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,3.4vw,64px);
+}
+@media (max-width:760px){.mnwhy__list{grid-template-columns:1fr}}
+.mnwhy__list li{
+  display:flex;align-items:flex-start;gap:13px;
+  padding:14px 0;border-bottom:1px solid rgba(231,238,245,.12);
+  color:var(--paper);font-size:.96rem;line-height:1.45;
+}
+.mnwhy__list svg{width:16px;height:16px;flex:none;margin-top:2px;fill:none;stroke:var(--focus);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- FAQs ----
+   Fourteen questions. One column would run for a screen and a half, so they
+   are balanced across two with CSS columns; break-inside keeps an item whole. */
+.mnfaq{background:var(--paper-pure)}
+.mnfaq__head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,54px);align-items:end}
+@media (max-width:820px){.mnfaq__head{grid-template-columns:1fr}}
+.mnfaq__cols{
+  margin-top:clamp(30px,3.6vw,52px);
+  columns:2;column-gap:clamp(30px,4vw,72px);
+}
+@media (max-width:900px){.mnfaq__cols{columns:1}}
+.mnfaq__i{break-inside:avoid;-webkit-column-break-inside:avoid;border-bottom:1px solid var(--line-soft)}
+.mnfaq__q{
+  width:100%;text-align:left;display:flex;align-items:flex-start;gap:16px;
+  padding:19px 0;font-family:var(--body);font-size:1rem;font-weight:600;
+  line-height:1.42;color:var(--ink-deep);background:none;border:0;cursor:pointer;
+}
+.mnfaq__q::after{
+  content:"";flex:none;width:11px;height:11px;margin-top:5px;margin-left:auto;
+  border-right:1.5px solid var(--focus-deep);border-bottom:1.5px solid var(--focus-deep);
+  transform:rotate(45deg);transition:transform .4s var(--ease);
+}
+.mnfaq__i.is-open .mnfaq__q::after{transform:rotate(-135deg)}
+.mnfaq__a{height:0;overflow:hidden;transition:height .45s var(--ease)}
+.mnfaq__a p{padding-bottom:20px;color:var(--muted);line-height:1.7;max-width:52ch;text-wrap:pretty}
+.mnfaq__a a{color:var(--focus-deep);text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.mnfaq__a{transition:none}}
+
+/* ---- Booking band ----
+   The one section with nothing but a sentence and two buttons. */
+.mnbook{background:var(--focus-deep);color:var(--paper)}
+.mnbook__in{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,3.4vw,64px);align-items:center;
+}
+@media (max-width:900px){.mnbook__in{grid-template-columns:1fr}}
+.mnbook__h2{color:var(--paper);max-width:18ch}
+.mnbook__p{margin-top:clamp(14px,1.6vw,20px);color:rgba(231,238,245,.86);line-height:1.72;text-wrap:pretty}
+.mnbook__p a{color:var(--paper);text-decoration:underline;text-underline-offset:3px}
+.mnbook__acts{display:flex;flex-wrap:wrap;gap:14px}
+.mnbook .u-btn--light:hover{color:var(--focus-deep)}
+
+/* ---- Opening statement ----
+   The page's first block of prose. Display heading and two paragraphs across
+   six columns, one tall portrait across four, and nothing else. */
+.mnopen{background:var(--paper-pure)}
+.mnopen__grid{align-items:center}
+.mnopen__copy{grid-column:1/span 6}
+.mnopen__media{grid-column:8/span 5;margin:0}
+@media (max-width:900px){
+  .mnopen__copy,.mnopen__media{grid-column:1/-1}
+  .mnopen__media{max-width:440px;margin-top:clamp(24px,3vw,34px)}
+}
+.mnopen__media img{width:100%;display:block;border-radius:4px}
+.mnopen__h2{
+  font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.12;
+  margin-top:clamp(12px,1.4vw,18px);max-width:20ch;
+}
+.mnopen__h2 em{font-style:italic;color:var(--focus-deep)}
+.mnopen__p{color:var(--muted);line-height:1.72;margin-top:1.15em;max-width:60ch;text-wrap:pretty}
+
+/* ---- Cross-link cards ----
+   A card variant of the closing band, for pages long enough that a single
+   flex row of two links would look like an afterthought. */
+.xlink__grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border-block:1px solid var(--line);
+}
+@media (max-width:960px){.xlink__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.xlink__grid{grid-template-columns:1fr}}
+.xlink__c{
+  background:var(--paper-pure);padding:clamp(24px,2.6vw,36px);
+  display:flex;flex-direction:column;gap:10px;
+  transition:background .4s var(--ease);
+}
+.xlink__c:hover{background:var(--paper)}
+.xlink__k{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--focus-deep);
+}
+.xlink__n{
+  font-family:var(--disp);font-size:clamp(1.15rem,1.5vw,1.4rem);line-height:1.2;
+  color:var(--ink-deep);
+}
+.xlink__c:hover .xlink__n{color:var(--focus-deep)}
+.xlink__p{font-size:.87rem;line-height:1.6;color:var(--muted)}
+/* The question is a heading that happens to be operable, so the h3 carries the
+   semantics and the button inside it carries the behaviour. The h3 itself must
+   not add type styling of its own or it fights the button's. */
+.mnfaq__h{margin:0;font:inherit}
+.mndev__lead{
+  grid-column:7/span 6;grid-row:2;
+  margin-top:clamp(24px,2.6vw,34px);
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--focus-deep);
+}
+.mndev__lead + .mndev__specs{margin-top:14px}
+.mnser__link{color:var(--focus);text-decoration:underline;text-underline-offset:3px}
+.mnser__link:hover{color:var(--paper)}
+.mnwhy__p a{color:var(--focus);text-decoration:underline;text-underline-offset:3px}
+.mnwhy__p a:hover{color:var(--paper)}

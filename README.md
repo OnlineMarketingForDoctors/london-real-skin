@@ -17,6 +17,7 @@ contact.html               contact, enquiry form, getting here
 shop.html                  the skincare range
 product/*.html             16 product detail pages
 about-us/*.html            8 team biography pages
+treatments/*.html          treatment detail pages (microneedling built; the rest are stubs to come)
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
 assets/js/main.js          interactions (vanilla, no dependencies)
@@ -284,6 +285,29 @@ This also retires the last of my invented copy on the site: the team cards on th
 About Us carried short biographies I had written, and now carry the real opening paragraph. The
 portrait, the name and *Read full bio* all link to the page.
 
+## Treatment detail pages
+
+`treatments/microneedling-london.html` is the first, built from the client's content-optimisation
+document. It is the template for the rest: the homepage hero frame with five selling points and
+the Google badge, the As-featured-in stripe, the reviews marquee, before-and-after, then the
+document's own sections in the document's own order.
+
+The constraint that shaped it was *no two sections share a layout* — nineteen sections, nineteen
+arrangements, one CSS block (section 32) in which every class is used exactly once. Section by
+section, and every deviation from the supplied copy, is documented in `docs/COPY.md`.
+
+Two things worth knowing before the next one is built:
+
+- **The XCellarisPRO Twist and SkinXcell are different devices.** The first is mechanical
+  microneedling, made in Germany by Dermaroller GmbH; the second is a radiofrequency platform.
+  An earlier pass through this repo treated them as one, and the Devices page carried only the RF
+  entry. The Twist has now been added as device 07, and the SkinXcell entry says plainly that it
+  is the radiofrequency one. **Worth confirming with the client** that both are in the clinic and
+  that the naming on the site matches how they refer to them.
+- **The before-and-after photographs are real patients.** Nine of the twelve are from RF
+  microneedling, a different treatment, so they are grouped and labelled as such rather than
+  presented as microneedling results. Do not move them under a microneedling heading.
+
 ## Quality floor
 
 - Responsive to 390px; single-column below 900px, drawer navigation below 1180px.
@@ -335,8 +359,10 @@ them. The manifest has a two-command fix.
 8. Wire the *Book free consultation* buttons to Pabau.
 9. **Decide the article URLs.** Links assume `<slug>.html` at the root, matching the old site,
    so the rankings survive. Anything else needs redirects.
-10. Build the `treatments/` and `conditions/` detail pages, or point those links elsewhere.
-    Until then they land on `404.html`.
+10. Build the remaining `treatments/` and `conditions/` detail pages, or point those links
+    elsewhere. Until then they land on `404.html`. Microneedling is built;
+    `treatments/polynucleotides-london.html` and `treatments/microneedling-with-exosomes.html`
+    are both linked from it and do not exist yet.
 
 **Assets**
 
@@ -346,8 +372,19 @@ them. The manifest has a two-command fix.
 
 **Compliance**
 
-13. **Botox is named in one blog title**, carried over from the live site. Naming a
+13. **Serum prices for the microneedling page.** The client's document says "Client to provide
+    pricing for the serums". The page currently says pricing is confirmed at consultation.
+14. **Confirm the XCellarisPRO Twist / SkinXcell naming** with the client, per the treatment-page
+    notes above.
+15. **Consent and case detail for the before-and-after photographs.** The client's own document
+    asks for "more before and after images with consent from user and description of what was
+    done, concern treated, serum used, amount of sessions". The captions currently carry the
+    device and the interval only.
+16. **A named medical reviewer on the treatment pages.** The client's document proposes Dr Martin
+    Wade and asks for an expanded page on his expertise; that page now exists at
+    `about-us/dr-martin-wade.html`, so the reviewer by-line can be added whenever they confirm it.
+17. **Botox is named in one blog title**, carried over from the live site. Naming a
     prescription-only medicine in public advertising needs a legal view. It appears nowhere else:
     the price list and every treatment page say *anti-wrinkle injections*.
-14. Nothing on the site promises a result, and no before/after imagery is synthetic. Keep it
+18. Nothing on the site promises a result, and no before/after imagery is synthetic. Keep it
     that way.
