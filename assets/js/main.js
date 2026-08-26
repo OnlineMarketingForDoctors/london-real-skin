@@ -83,6 +83,32 @@
   });
   }
 
+  /* ---------- Primary nav dropdown ----------
+     Hover is handled in CSS. This adds the keyboard and touch path: the caret
+     button toggles, Escape closes and returns focus, and a click anywhere else
+     closes it. The parent link is left alone so it still navigates. */
+  $$('.nav__has').forEach(function (wrap) {
+    var btn = $('.nav__toggle', wrap);
+    if (!btn) return;
+    function setOpen(open) {
+      btn.setAttribute('aria-expanded', String(open));
+      wrap.classList.toggle('is-open', open);
+    }
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
+    });
+    wrap.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) setOpen(false);
+    });
+  });
+
   /* ---------- Hero slideshow (homepage only) ---------- */
   var slides = $$('.hero__slide');
   var heroNum = $('#heroNum');

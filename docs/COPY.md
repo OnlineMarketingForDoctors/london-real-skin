@@ -1519,6 +1519,25 @@ sides. Two prose sections back to back otherwise read as the same layout twice.
 50% of the row while the columns were split 1fr / .8fr, so the two disagreed and the rail ran
 through the copy. Keep the line in its own track if the ratio is ever changed.
 
+**Navigation.** Treatments in the primary nav is now a dropdown: the word stays a real link to
+the index, the caret is decoration, and an invisible button over the caret is what keyboard and
+touch users operate — so the link is never hijacked into a toggle. Hover opens it on pointer
+devices; Escape closes it and returns focus; a click outside closes it. There is deliberately no
+`:focus-within` in the open rule, because with it Escape could never close the panel: closing
+returns focus to the toggle, which reopened it immediately. The mobile drawer gets an indented
+child row under Treatments instead. Adding the next treatment page means one `.nav__item` and one
+`.drawer__sub` on all 35 pages.
+
+**A jump-to bar sits under the reviews**, reusing the `.tnav` component and scrollspy already
+built for the Treatments page — twelve anchors, sticky under the masthead, active chip tracking
+the section in view. The smooth-anchor handler already offsets by the masthead plus `#tnav`, so
+landing positions clear both bars.
+
+**The device photograph is sticky** while its copy and specs scroll past. The figure spans all
+three grid rows so its grid area is the full column height, while `align-self:start` keeps the
+box only as tall as the image; that difference is the distance it travels. Released below 1000px,
+where the layout stacks and there is nothing to scroll past.
+
 **Eyebrow-to-heading spacing is a rule now, not a per-section value.** Every section built
 before this page set its own 20px on its own h2 class; this page's headings mostly carry a bare
 `.u-h2`, so they had none and butted straight up against the eyebrow. `.u-eyebrow + :where(.u-h2)`

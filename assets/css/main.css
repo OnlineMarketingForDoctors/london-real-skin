@@ -402,6 +402,64 @@ h1,h2,h3,h4,p{margin:0}
 }
 .nav__a:hover::after,.nav__a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
 .nav__a[aria-current="page"]{color:var(--focus-deep)}
+
+/* ---- Treatments dropdown ----
+   The parent stays a real link to the index; the caret is decoration and the
+   invisible button beside it is what keyboard and touch users operate, so the
+   link is never hijacked into a toggle. Hover opens it on pointer devices;
+   the button's aria-expanded is the single source of truth for the open state. */
+.nav__has{position:relative;display:flex;align-items:center}
+.nav__car{
+  width:11px;height:11px;margin-left:.45em;vertical-align:middle;
+  fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .35s var(--ease);
+}
+.nav__has:hover .nav__car{transform:rotate(180deg)}
+/* Sits over the caret only, so clicking the word still follows the link. */
+.nav__toggle{position:absolute;right:-2px;top:0;bottom:0;width:18px;z-index:2}
+.nav__menu{
+  position:absolute;top:100%;left:-14px;z-index:60;
+  min-width:210px;padding:8px;margin-top:10px;
+  background:var(--paper-pure);
+  border:1px solid var(--line);
+  border-radius:4px;
+  box-shadow:0 26px 50px -28px rgba(22,41,60,.5);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
+}
+/* Hover for pointers, the toggle's own state for everyone else. Deliberately
+   no :focus-within here — with it, Escape could never close the panel, because
+   closing returns focus to the toggle and focus-within reopened it at once. */
+.nav__has:hover .nav__menu,
+.nav__toggle[aria-expanded="true"] ~ .nav__menu{opacity:1;visibility:visible;transform:none}
+.nav__item{
+  display:block;padding:9px 12px;border-radius:3px;
+  font-size:.8rem;font-weight:600;color:var(--ink);
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.nav__item:hover,.nav__item:focus-visible{background:var(--paper);color:var(--focus-deep)}
+.nav__item + .nav__item{margin-top:1px}
+/* The bar is transparent over a hero until it sticks, so the panel needs its
+   own solid ground either way; only the trigger colour follows the bar. */
+@media (prefers-reduced-motion:reduce){
+  .nav__menu{transition:none}
+  .nav__car{transition:none}
+}
+
+/* Drawer: a child row indented under its parent. */
+.drawer__sub{
+  display:block;
+  padding-left:calc(2.6em + 6px);
+  margin-top:-.2em;
+  font-family:var(--body);
+  font-size:clamp(.95rem,2.4vw,1.05rem);
+  font-weight:500;
+  color:rgba(231,238,245,.62);
+  padding-block:.5em;
+  transition:color .3s var(--ease);
+}
+.drawer__sub::before{content:"\2014";margin-right:.6em;opacity:.5}
+.drawer__sub:hover{color:var(--focus)}
 @media (max-width:1180px){.nav{display:none}}
 
 .masthead__act{display:flex;align-items:center;gap:clamp(8px,1.1vw,16px);flex:none}
@@ -3917,12 +3975,19 @@ a.mncond__i:hover::after{opacity:1;transform:none}
    photograph deserves: image left across five columns, four spec panels
    stacked right in a 2×2 that collapses to one. */
 .mndev{background:var(--paper-pure)}
-.mndev__media{grid-column:1/span 5;grid-row:1/span 3;margin:0;align-self:start}
+/* The photograph holds while the copy and specs scroll past it. The figure
+   spans all three rows, so its grid area is the full height of the column,
+   while align-self:start keeps the box itself only as tall as the image —
+   that gap is the distance it has to travel. Same mechanism as .bio__media. */
+.mndev__media{
+  grid-column:1/span 5;grid-row:1/span 3;margin:0;align-self:start;
+  position:sticky;top:calc(var(--mast-h,88px) + 26px);
+}
 .mndev__copy{grid-column:7/span 6;grid-row:1}
 .mndev__specs{grid-column:7/span 6;grid-row:3;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:clamp(24px,2.6vw,34px)}
 @media (max-width:1000px){
   .mndev__media,.mndev__copy,.mndev__specs,.mndev__lead{grid-column:1/-1;grid-row:auto}
-  .mndev__media{max-width:520px}
+  .mndev__media{max-width:520px;position:static}
 }
 @media (max-width:520px){.mndev__specs{grid-template-columns:1fr}}
 .mndev__media img{width:100%;display:block;border-radius:4px;border:1px solid var(--line-soft)}
@@ -4293,3 +4358,5 @@ a.mncond__i:hover::after{opacity:1;transform:none}
    caption — the same treatment the hero badge already uses. */
 .revs__g{flex:none;width:26px;height:26px;display:grid;place-items:center;align-self:center}
 .revs__g svg{width:100%;height:100%}
+.nav__has.is-open .nav__menu{opacity:1;visibility:visible;transform:none}
+.nav__has.is-open .nav__car{transform:rotate(180deg)}
