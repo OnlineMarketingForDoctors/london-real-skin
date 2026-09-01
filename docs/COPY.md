@@ -1628,12 +1628,26 @@ spots, rosacea, thread veins, skin tags, fine lines and wrinkles, ageing skin, c
 stretch marks and cellulite, and excess hair. Genital skin tags and warts and teeth grinding were
 marked "no amendments" and are untouched.
 
-**Two things in the document need the client to confirm:**
+**Skin Tightening & Body Sculpting** is now the twelfth concern, at the position the client's
+list gives it, with **Excess Hair** thirteenth. Thirteen concerns in total.
 
-- Their ordered list has twelve entries ending with **Skin Tightening and Body Sculpting**, which
-  is not currently a concern on the site and came with no description. It has not been added —
-  writing clinical copy for it is not ours to invent. It also needs a dermatoscope plate.
-- **Excess Hair** is absent from that ordered list, but the document supplies rewritten copy for
-  it. Read as an oversight rather than a deletion, so it is kept, with the new copy, in last
-  position. If it is meant to be replaced by Skin Tightening and Body Sculpting, say so and it
-  comes out.
+The client asked for it without supplying copy, so the description is ours and **needs their
+sign-off**. It is written to the same shape as their own rewrites — what the concern is, why the
+causes differ, and that assessment comes before the recommendation — and it claims nothing the
+site does not already say elsewhere:
+
+> Laxity in the skin and changes in body contour are two different things, and they often occur
+> together. Skin can lose firmness as collagen and elastin decline, while stubborn pockets of fat
+> and loss of muscle tone alter the shape underneath it. Because the causes differ, we assess both
+> before recommending an approach, and treatment frequently combines tightening and contouring
+> rather than relying on either alone.
+
+Its treatment chips point at the five relevant pages already linked elsewhere on the site: RF
+skin tightening, non-surgical skin tightening, EmSculpt Neo, body contouring and RF microneedling.
+Its dermatoscope plate is a new Nano Banana Pro macro in the same series as the other twelve —
+skin over the flank and lower abdomen at a raking angle, no face — hot-linked from the same CDN as
+the rest.
+
+The `data-i` attributes have been removed from the homepage buttons. They were never read by
+`condGo()`, which indexes `PLATES` by the button's position, so they were a second ordering that
+could silently disagree with the real one. One source of truth now.

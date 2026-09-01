@@ -307,7 +307,8 @@
   /* ---------- Conditions: the dermatoscope ---------- */
   /* One plate per concern, in the SAME ORDER as the .cond__btn list in the
      markup — condGo() indexes this array by the button's position, so the two
-     must be reordered together or every image shows the wrong concern. */
+     must be reordered together or every image shows the wrong concern. The buttons
+     carry no index attribute for exactly that reason: one source of truth. */
   var PLATES = [
     'hf_20260805_221518_c62357cc-4f33-41f5-853b-8fac0619d6ea.png',   // Acne scarring
     'hf_20260805_221518_70dc563b-4ad4-441b-989b-c6117b432cfe.png',   // Pigmentation
@@ -320,6 +321,7 @@
     'hf_20260805_221518_c6e1b1d0-4f59-4db4-aa8b-f0a7e12c9c63.png',   // Ageing skin
     'hf_20260805_221518_7067dbbf-d0c8-4f3b-8c15-c5b2e9d25915.png',   // Crepey skin
     'hf_20260805_222244_206e16e2-d3ad-410a-81cd-094b26de7c11.png',   // Stretch marks
+    'hf_20260901_202047_191fe466-bb33-48de-ab75-1a50a6dda6c2.png',   // Skin tightening and body sculpting
     'hf_20260805_221518_f69fbb70-041f-4608-8a70-6870cc219253.png'    // Excess hair
   ];
   var scope = $('#scope'), scopeName = $('#scopeName'), scopeNo = $('#scopeNo');

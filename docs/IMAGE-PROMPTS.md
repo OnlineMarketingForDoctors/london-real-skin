@@ -123,9 +123,9 @@ tone variation. Clinical and precise. + *Block A* + *Block B*
 
 ---
 
-## 4. Conditions we treat — 12 tiles · 1:1
+## 4. Conditions we treat — 13 tiles · 1:1
 
-All twelve are **macro skin studies, no faces**, so the grid reads as one continuous material.
+All thirteen are **macro skin studies, no faces**, so the grid reads as one continuous material.
 Each: *"Macro photograph of real human skin filling the frame, extreme detail, visible pores and
 natural texture, cool clinical lighting, shallow depth of field"* + the specific note below +
 *Block A* + *Block B*.
@@ -144,6 +144,7 @@ natural texture, cool clinical lighting, shallow depth of field"* + the specific
 | COND-10 | Stretch Marks & Cellulite | hip and thigh skin with silvery mature striae under soft directional light |
 | COND-11 | Teeth Grinding | sculpted jawline and masseter muscle in profile, hard cool light, mouth closed and tense |
 | COND-12 | Thread Veins | cheek skin with fine red telangiectasia branching beneath the surface |
+| COND-13 | Skin Tightening & Body Sculpting | skin over the flank and lower abdomen at a low raking angle, soft contour and slight laxity reading against hard directional light, no face |
 
 ---
 
