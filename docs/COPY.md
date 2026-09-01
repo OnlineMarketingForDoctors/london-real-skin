@@ -1599,3 +1599,41 @@ client's live URL.
 network policy on every route, so the layout follows the conventional reading of "post categories
 and recent posts" rather than that specific page. Worth a look before the remaining 31 are built
 from this template.
+
+## Conditions — client revision (Sept 2026)
+
+Applied from `Website_Development_concerns.odt`.
+
+**The count is gone.** The page led on "Twelve concerns, seen properly", with the number repeated
+in the meta description, the hero lede and a *See all twelve* button. The number was doing the job
+of signalling a finite, complete list rather than a sample, but it is a weak thing to lead on and
+it is brittle: this very revision changes the list, which would have made all four wrong at once.
+The heading is now the client's own wording, *Skin concerns, seen properly*, the button reads
+*See what we treat*, and `FIELD nn / 12` in the homepage dermatoscope is derived from
+`condBtns.length` rather than hardcoded, so adding a concern cannot desync it again.
+
+**Order** now follows the client's list: acne scarring, pigmentation and age spots, rosacea,
+thread veins, skin tags, genital skin tags and warts, teeth grinding, fine lines and wrinkles,
+ageing skin, crepey skin, stretch marks and cellulite. It groups by kind — pigment, vascular,
+lesions, ageing, body — where the old order was alphabetical.
+
+The homepage dermatoscope index follows the same order. Its `PLATES` array had to be reordered in
+lockstep: `condGo()` indexes that array by the button's position in the markup, not by the
+`data-i` attribute, so reordering the buttons alone would have shown the wrong image for every
+concern. There is now a comment on the array saying so. Verified in the browser that hovering each
+of the twelve lights the matching plate.
+
+**Ten descriptions rewritten** to the client's supplied copy: acne scarring, pigmentation and age
+spots, rosacea, thread veins, skin tags, fine lines and wrinkles, ageing skin, crepey skin,
+stretch marks and cellulite, and excess hair. Genital skin tags and warts and teeth grinding were
+marked "no amendments" and are untouched.
+
+**Two things in the document need the client to confirm:**
+
+- Their ordered list has twelve entries ending with **Skin Tightening and Body Sculpting**, which
+  is not currently a concern on the site and came with no description. It has not been added —
+  writing clinical copy for it is not ours to invent. It also needs a dermatoscope plate.
+- **Excess Hair** is absent from that ordered list, but the document supplies rewritten copy for
+  it. Read as an oversight rather than a deletion, so it is kept, with the new copy, in last
+  position. If it is meant to be replaced by Skin Tightening and Body Sculpting, say so and it
+  comes out.

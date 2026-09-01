@@ -305,19 +305,22 @@
   }, { passive: true });
 
   /* ---------- Conditions: the dermatoscope ---------- */
+  /* One plate per concern, in the SAME ORDER as the .cond__btn list in the
+     markup — condGo() indexes this array by the button's position, so the two
+     must be reordered together or every image shows the wrong concern. */
   var PLATES = [
-    'hf_20260805_221518_c62357cc-4f33-41f5-853b-8fac0619d6ea.png', // Acne scarring
-    'hf_20260805_221518_c6e1b1d0-4f59-4db4-aa8b-f0a7e12c9c63.png', // Ageing skin
-    'hf_20260805_221518_7067dbbf-d0c8-4f3b-8c15-c5b2e9d25915.png', // Crepey skin
-    'hf_20260805_221518_f69fbb70-041f-4608-8a70-6870cc219253.png', // Excess hair
-    'hf_20260805_221518_7858a2f9-378f-490f-a1bb-8c8a7f60549a.png', // Fine lines
-    'hf_20260805_221518_1c04d77b-08f7-4790-a04c-4cc83512e71e.png', // Genital tags/warts (instruments)
-    'hf_20260805_221518_70dc563b-4ad4-441b-989b-c6117b432cfe.png', // Pigmentation
-    'hf_20260805_221518_7767a1b4-2d6a-440e-9265-ca70a99bbf34.png', // Rosacea
-    'hf_20260805_221518_3cc610fc-06c4-4e01-bf02-4fe70ea31fc7.png', // Skin tags
-    'hf_20260805_222244_206e16e2-d3ad-410a-81cd-094b26de7c11.png', // Stretch marks
-    'hf_20260805_221518_8bf0b401-88e1-4092-b8bb-7b3d554ef260.png', // Teeth grinding
-    'hf_20260805_221518_e61e1d16-c206-4825-a17d-fe426a2969ac.png'  // Thread veins
+    'hf_20260805_221518_c62357cc-4f33-41f5-853b-8fac0619d6ea.png',   // Acne scarring
+    'hf_20260805_221518_70dc563b-4ad4-441b-989b-c6117b432cfe.png',   // Pigmentation
+    'hf_20260805_221518_7767a1b4-2d6a-440e-9265-ca70a99bbf34.png',   // Rosacea
+    'hf_20260805_221518_e61e1d16-c206-4825-a17d-fe426a2969ac.png',   // Thread veins
+    'hf_20260805_221518_3cc610fc-06c4-4e01-bf02-4fe70ea31fc7.png',   // Skin tags
+    'hf_20260805_221518_1c04d77b-08f7-4790-a04c-4cc83512e71e.png',   // Genital tags and warts (instruments)
+    'hf_20260805_221518_8bf0b401-88e1-4092-b8bb-7b3d554ef260.png',   // Teeth grinding
+    'hf_20260805_221518_7858a2f9-378f-490f-a1bb-8c8a7f60549a.png',   // Fine lines
+    'hf_20260805_221518_c6e1b1d0-4f59-4db4-aa8b-f0a7e12c9c63.png',   // Ageing skin
+    'hf_20260805_221518_7067dbbf-d0c8-4f3b-8c15-c5b2e9d25915.png',   // Crepey skin
+    'hf_20260805_222244_206e16e2-d3ad-410a-81cd-094b26de7c11.png',   // Stretch marks
+    'hf_20260805_221518_f69fbb70-041f-4608-8a70-6870cc219253.png'    // Excess hair
   ];
   var scope = $('#scope'), scopeName = $('#scopeName'), scopeNo = $('#scopeNo');
   var condBtns = $$('.cond__btn');
@@ -341,7 +344,7 @@
     condBtns.forEach(function (b, n) { b.classList.toggle('is-on', n === i); });
     var label = $('.cond__label', condBtns[i]).textContent;
     if (scopeName) scopeName.textContent = label;
-    if (scopeNo) scopeNo.textContent = 'FIELD ' + String(i + 1).padStart(2, '0') + ' / 12';
+    if (scopeNo) scopeNo.textContent = 'FIELD ' + String(i + 1).padStart(2, '0') + ' / ' + condBtns.length;
   }
   condBtns.forEach(function (b, i) {
     b.addEventListener('mouseenter', function () { condGo(i); });
