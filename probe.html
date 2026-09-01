@@ -1,0 +1,12 @@
+<!doctype html><meta charset=utf-8>
+<style>
+ .clip{overflow-x:clip}
+ .grid{display:grid;grid-template-columns:1fr 300px;gap:40px;padding:20px}
+ .main{height:3000px;background:#eef}
+ .s{position:sticky;bottom:26px;align-self:start;height:1200px;background:#fcc}
+ .t{position:sticky;top:26px;align-self:start;height:300px;background:#ccf}
+</style>
+<body>
+<div class="grid"><div class="main">1 no clip, bottom-sticky</div><div class="s" id="s1">1</div></div>
+<div class="clip"><div class="grid"><div class="main">2 clipped, bottom-sticky</div><div class="s" id="s2">2</div></div></div>
+<div class="grid"><div class="main">3 no clip, TOP-sticky (control)</div><div class="t" id="s3">3</div></div>

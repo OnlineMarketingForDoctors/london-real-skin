@@ -1547,3 +1547,55 @@ deliberately outside it; their eyebrow already carries a larger margin-bottom.
 
 **The reviews score carries the Google mark** on this page and on the homepage and About page,
 so the rating is attributed visually as well as in the caption.
+
+# Hydrafacial vs Medical Grade Peel (hydrafacial-vs-medical-grade-peel-london.html)
+
+The first of the 32 blog articles to get a page, and the template for the rest. The slug sits at
+the site root, matching the old site's `/hydrafacial-vs-medical-grade-peel-london/` so the ranking
+survives. It was already the lead card on `blog.html`, linking to a page that did not exist.
+
+**Copy** is the client's, taken verbatim from their live page: fourteen H2 sections, three bullet
+lists and eight FAQs, with the FAQ questions and answers lifted from the source's own `<details>`
+markup rather than retyped.
+
+**Links** are repointed at our equivalents where a page exists — Hydrafacial and the medical-grade
+peel treatment pages, the skin consultation page, and the pigmentation and fine-lines conditions
+anchors. The two treatment pages are not built yet; they are linked on the same basis as every
+other future treatment URL on the site.
+
+**Layout.** No page hero — leaf pages on this site do not carry one, the same reasoning as the
+product and biography pages. A compact header carries the breadcrumb, category, H1, date, reading
+time and the featured image, then the body is two tracks: article and sidebar.
+
+The article body uses its own narrower container, 1160px against the site's 1480px. On the full
+grid an eight-column track came out around 870px while a readable measure is nearer 640, so the
+prose sat in the left half of its own column with a void beside it. Sizing the container so the
+column *is* the measure removes the gap rather than papering over it: measured 64–73 characters
+per line from 1100px up, and capped at 70ch below 1020px where the sidebar drops underneath.
+
+**The sidebar does not stick.** It measures about 1500px against roughly 880px of viewport below
+the masthead. Pinning its top would put the last 600px — the whole booking card — permanently out
+of reach, and sticking it by the bottom edge does not engage for a box that much taller than the
+scrollport. Left to scroll with the article, every card is reachable and the behaviour is the same
+everywhere. If the sidebar is ever trimmed to under a viewport, top-sticky becomes the better
+choice.
+
+Three cards, in order: **Post categories** with live counts, **Recent posts** — the five most
+recent excluding the current article, with thumbnail, category and date — and a booking card.
+
+**Category links carry `?cat=<slug>`** and `blog.html` now honours it, applying the filter on load
+and scrolling to the grid. Only honoured when a chip actually carries that value, so a stale or
+hand-typed link falls back to All.
+
+**Publication dates.** All 32 were recovered from the `datePublished` field in the client's own
+JSON-LD and are now on the blog cards as well as this article. This closes the "real publication
+dates" item that was outstanding on the pre-launch checklist. The article is genuinely the most
+recent of the 32, dated 22 April 2026, which is why it is the lead card.
+
+**Structured data:** BlogPosting, FAQPage (all eight) and BreadcrumbList, plus a canonical at the
+client's live URL.
+
+**The reference sidebar could not be seen.** `saveminds.co.uk` is blocked by this environment's
+network policy on every route, so the layout follows the conventional reading of "post categories
+and recent posts" rather than that specific page. Worth a look before the remaining 31 are built
+from this template.

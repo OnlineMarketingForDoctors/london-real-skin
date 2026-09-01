@@ -4360,3 +4360,213 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 .revs__g svg{width:100%;height:100%}
 .nav__has.is-open .nav__menu{opacity:1;visibility:visible;transform:none}
 .nav__has.is-open .nav__car{transform:rotate(180deg)}
+
+/* ---------- 33. Article page ----------
+   The first of the 32 blog articles, and the template for the rest: a compact
+   header rather than a full-bleed hero, a measured single column of prose, and
+   a sidebar that holds while the article scrolls. Leaf pages on this site do
+   not carry the page hero — same reasoning as the product and biography pages. */
+
+/* ---- Header ---- */
+.art{background:var(--paper-pure);padding-top:calc(var(--mast-h,88px) + clamp(26px,3.2vw,50px))}
+.art__head{max-width:56rem}
+.art__cat{
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--focus-deep);
+}
+.art__cat::before{content:"";width:26px;height:1px;background:var(--focus)}
+.art__h1{
+  font-size:clamp(1.95rem,3.7vw,3.2rem);line-height:1.12;
+  margin-top:clamp(14px,1.6vw,20px);text-wrap:balance;
+}
+.art__meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.7em clamp(14px,1.6vw,22px);
+  margin-top:clamp(18px,2vw,26px);
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+}
+.art__meta span{display:inline-flex;align-items:center;gap:.55em}
+.art__meta svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.art__fig{margin:clamp(26px,3.2vw,44px) 0 0;border-radius:4px;overflow:hidden}
+.art__fig img{width:100%;display:block;aspect-ratio:16/7;object-fit:cover}
+@media (max-width:760px){.art__fig img{aspect-ratio:3/2}}
+
+/* ---- Body: article and sidebar ---- */
+.art__body{padding-block:clamp(38px,4.4vw,64px) clamp(60px,7vw,104px);background:var(--paper-pure)}
+/* Two tracks, not the 12-column grid, and a narrower container than the rest of
+   the site. On the full-width grid an eight-column track came out around 870px
+   while a readable measure is nearer 640, so the article sat in the left half of
+   its own column with a void beside it. Sizing the container so the column IS
+   the measure removes the gap instead of papering over it. */
+.art__body .u-wrap,.art .u-wrap{max-width:1160px}
+.art__grid{
+  display:grid;align-items:start;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap:clamp(36px,4.4vw,72px);
+}
+.art__main{min-width:0}
+/* The sidebar scrolls with the article rather than sticking. Measured at about
+   1500px against roughly 880px of viewport below the masthead: pinning its top
+   would park the last 600px, the whole booking card, permanently out of reach,
+   and sticking it by the bottom edge does not engage for a box this much taller
+   than the scrollport. Left to scroll, every card is reachable and the
+   behaviour is the same in every browser. align-self:start stops it stretching
+   to the article's height and spacing the cards out. */
+.art__side{align-self:start}
+@media (max-width:1020px){
+  .art__grid{grid-template-columns:minmax(0,1fr)}
+  .art__side{position:static;margin-top:clamp(48px,6vw,80px)}
+  /* With the sidebar gone the track is the full container, which would run the
+     measure past 100 characters. Above this width the column already is the
+     measure, so the cap is only needed here. */
+  .art__prose,.art__faq{max-width:70ch}
+}
+
+/* ---- Prose ----
+   One measure, one rhythm. Everything here is the article's own typography, so
+   the copy can be dropped in unchanged from the source. */
+.art__prose{font-size:1.02rem}
+.art__prose > p{color:var(--muted);line-height:1.78;margin-top:1.15em;text-wrap:pretty}
+.art__prose > p:first-child{margin-top:0}
+.art__prose .art__lede{
+  font-size:clamp(1.04rem,1.35vw,1.2rem);line-height:1.62;color:var(--ink);
+}
+.art__prose h2{
+  font-family:var(--disp);font-weight:400;
+  font-size:clamp(1.35rem,2.05vw,1.85rem);line-height:1.22;color:var(--ink-deep);
+  margin-top:clamp(38px,4.2vw,60px);
+  padding-top:clamp(22px,2.4vw,30px);
+  border-top:1px solid var(--line-soft);
+  text-wrap:balance;
+}
+.art__prose h2 + p{margin-top:.9em}
+.art__prose h3{
+  font-size:1.02rem;font-weight:700;color:var(--ink-deep);
+  margin-top:clamp(24px,2.6vw,32px);
+}
+.art__prose ul{margin-top:1.1em;display:grid;gap:11px}
+.art__prose ul li{
+  position:relative;padding-left:26px;color:var(--muted);line-height:1.65;
+}
+.art__prose ul li::before{
+  content:"";position:absolute;left:2px;top:.62em;
+  width:7px;height:7px;border-radius:50%;
+  border:1.5px solid var(--focus);
+}
+.art__prose ul li strong{color:var(--ink-deep);font-weight:700}
+.art__prose a{
+  color:var(--focus-deep);text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+.art__prose a:hover{color:var(--ink-deep)}
+
+/* ---- Article FAQs ----
+   Native <details>, so the answers are in the DOM for search engines and open
+   without JavaScript. The marker is replaced rather than hidden, because
+   ::-webkit-details-marker alone still leaves a bullet in Firefox. */
+.art__faq{margin-top:clamp(38px,4.2vw,60px);padding-top:clamp(22px,2.4vw,30px);border-top:1px solid var(--line-soft)}
+.art__faqlist{margin-top:clamp(18px,2vw,26px);border-top:1px solid var(--line-soft)}
+.art__q{border-bottom:1px solid var(--line-soft)}
+.art__q > summary{
+  list-style:none;cursor:pointer;
+  display:flex;align-items:flex-start;gap:16px;
+  padding:18px 0;font-weight:600;font-size:.98rem;line-height:1.45;color:var(--ink-deep);
+}
+.art__q > summary::-webkit-details-marker{display:none}
+.art__q > summary::after{
+  content:"";flex:none;width:10px;height:10px;margin-top:5px;margin-left:auto;
+  border-right:1.5px solid var(--focus-deep);border-bottom:1.5px solid var(--focus-deep);
+  transform:rotate(45deg);transition:transform .35s var(--ease);
+}
+.art__q[open] > summary::after{transform:rotate(-135deg)}
+.art__q > summary:hover{color:var(--focus-deep)}
+.art__q p{padding:0 0 20px;color:var(--muted);line-height:1.7}
+@media (prefers-reduced-motion:reduce){.art__q > summary::after{transition:none}}
+
+/* ---- Article footer: share and back ---- */
+.art__foot{
+  margin-top:clamp(38px,4.4vw,58px);padding-top:clamp(22px,2.4vw,30px);
+  border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+
+/* ---- Sidebar ---- */
+.side{display:grid;gap:clamp(20px,2.2vw,28px)}
+.side__card{
+  background:var(--paper);border:1px solid var(--line-soft);border-radius:4px;
+  padding:clamp(20px,1.9vw,26px);
+}
+.side__h{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--focus-deep);padding-bottom:14px;border-bottom:1px solid var(--ink);
+}
+
+/* Categories: a row per category with its live count */
+.side__cats{margin-top:4px}
+.side__cat{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--line-soft);
+  font-size:.92rem;color:var(--ink);
+  transition:color .3s var(--ease);
+}
+.side__cat:last-child{border-bottom:0;padding-bottom:0}
+.side__cat:hover{color:var(--focus-deep)}
+.side__n{
+  margin-left:auto;flex:none;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;
+  color:var(--muted);
+  background:var(--paper-pure);border:1px solid var(--line-soft);
+  border-radius:100px;padding:2px 9px;
+}
+.side__cat:hover .side__n{border-color:var(--focus);color:var(--focus-deep)}
+
+/* Recent posts: thumbnail, title, date */
+.side__posts{margin-top:6px;display:grid}
+.side__post{
+  display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;
+  padding:14px 0;border-bottom:1px solid var(--line-soft);
+}
+.side__post:last-child{border-bottom:0;padding-bottom:0}
+.side__thumb{
+  width:64px;height:64px;border-radius:3px;overflow:hidden;background:var(--paper-pure);
+}
+.side__thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.side__post:hover .side__thumb img{transform:scale(1.06)}
+.side__pt{
+  font-size:.87rem;line-height:1.4;color:var(--ink-deep);font-weight:600;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.side__post:hover .side__pt{color:var(--focus-deep)}
+.side__pd{
+  margin-top:6px;font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+}
+.side__all{
+  display:inline-flex;align-items:center;gap:.6em;margin-top:16px;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--focus-deep);
+}
+.side__all:hover{color:var(--ink-deep)}
+.side__all span{transition:transform .4s var(--ease-out)}
+.side__all:hover span{transform:translateX(4px)}
+
+/* The one card that asks for the appointment */
+.side__card--cta{background:var(--ink-deep);border-color:var(--ink-deep);color:var(--paper)}
+.side__card--cta .side__h{color:var(--focus);border-bottom-color:var(--line-light)}
+.side__ctap{margin-top:16px;font-size:.9rem;line-height:1.62;color:rgba(231,238,245,.74)}
+.side__card--cta .u-btn{width:100%;margin-top:18px}
+.side__tel{
+  display:block;margin-top:12px;text-align:center;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:rgba(231,238,245,.62);
+}
+.side__tel:hover{color:var(--focus)}
+
+/* Publication dates, recovered from the client's live site. Set in mono beside
+   the category so the card meta reads as one line of record. */
+.jc__date,.jlead__date{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+.jc__date::before,.jlead__date::before{content:"·";margin:0 .6em;opacity:.6}
+.jlead__date{color:rgba(231,238,245,.6)}

@@ -460,23 +460,35 @@
     /* the lead article filters with the grid, so the chip counts stay honest */
     var jcCards = $$('.jlead[data-cat]').concat($$('.jc', jcGrid));
     var jfEmpty = $('#jfEmpty');
-    jfChips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        var cat = chip.getAttribute('data-cat');
-        var shown = 0;
-        jfChips.forEach(function (c) {
-          var on = c === chip;
-          c.classList.toggle('is-on', on);
-          c.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-        jcCards.forEach(function (card) {
-          var show = cat === 'all' || card.getAttribute('data-cat') === cat;
-          card.hidden = !show;
-          if (show) shown++;
-        });
-        if (jfEmpty) jfEmpty.hidden = shown > 0;
+    function jfApply(cat) {
+      var shown = 0;
+      jfChips.forEach(function (c) {
+        var on = c.getAttribute('data-cat') === cat;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
+      jcCards.forEach(function (card) {
+        var show = cat === 'all' || card.getAttribute('data-cat') === cat;
+        card.hidden = !show;
+        if (show) shown++;
+      });
+      if (jfEmpty) jfEmpty.hidden = shown > 0;
+    }
+    jfChips.forEach(function (chip) {
+      chip.addEventListener('click', function () { jfApply(chip.getAttribute('data-cat')); });
     });
+    /* Arriving from a category link elsewhere on the site — the article sidebar,
+       for one — lands here with ?cat=<slug>. Only honoured when a chip actually
+       carries that value, so a stale or hand-typed link falls back to All. */
+    var wanted = new URLSearchParams(location.search).get('cat');
+    if (wanted && jfChips.some(function (c) { return c.getAttribute('data-cat') === wanted; })) {
+      jfApply(wanted);
+      var head = $('#latest') || jf;
+      if (head) {
+        var y = head.getBoundingClientRect().top + window.scrollY - masthead.offsetHeight - 20;
+        window.scrollTo({ top: y, behavior: 'auto' });
+      }
+    }
   }
 
   /* ---------- Basket ----------

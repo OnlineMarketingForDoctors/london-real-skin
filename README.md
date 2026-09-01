@@ -17,6 +17,7 @@ contact.html               contact, enquiry form, getting here
 shop.html                  the skincare range
 product/*.html             16 product detail pages
 about-us/*.html            8 team biography pages
+<slug>.html                blog articles (1 of 32 built)
 treatments/*.html          treatment detail pages (microneedling built; the rest are stubs to come)
 404.html                   branded not-found page
 assets/css/main.css        design system + all section styles
@@ -350,7 +351,8 @@ them. The manifest has a two-command fix.
 4. Supply before/after pairs for the Microneedling, HydraFacial, BBL Hero and Sciton Moxi tabs.
 5. **Confirm Mina's role.** Her photograph and biography are the client's, but their own team
    list predates her and gives no title, so she carries *Aesthetician* by inference.
-6. Real publication dates for the 32 blog articles, if they exist.
+6. ~~Real publication dates for the 32 blog articles.~~ Done — all 32 recovered from the
+   `datePublished` field in the client's own JSON-LD and applied to the blog cards.
 
 **Wiring**
 
@@ -358,7 +360,12 @@ them. The manifest has a two-command fix.
    Contact notes above.
 8. Wire the *Book free consultation* buttons to Pabau.
 9. **Decide the article URLs.** Links assume `<slug>.html` at the root, matching the old site,
-   so the rankings survive. Anything else needs redirects.
+   so the rankings survive. Anything else needs redirects. One of the 32 is built —
+   `hydrafacial-vs-medical-grade-peel-london.html` — and it is the template for the rest; the
+   other 31 still land on `404.html`.
+9b. **Check the article sidebar against the client's reference.** `saveminds.co.uk` is blocked by
+   the build environment's network policy, so the sidebar follows the conventional reading of
+   "post categories and recent posts" rather than that specific page.
 10. Build the remaining `treatments/` and `conditions/` detail pages, or point those links
     elsewhere. Until then they land on `404.html`. Microneedling is built;
     `treatments/polynucleotides-london.html` and `treatments/microneedling-with-exosomes.html`
