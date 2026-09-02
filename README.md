@@ -387,9 +387,11 @@ them. The manifest has a two-command fix.
     asks for "more before and after images with consent from user and description of what was
     done, concern treated, serum used, amount of sessions". The captions currently carry the
     device and the interval only.
-16. **A named medical reviewer on the treatment pages.** The client's document proposes Dr Martin
-    Wade and asks for an expanded page on his expertise; that page now exists at
-    `about-us/dr-martin-wade.html`, so the reviewer by-line can be added whenever they confirm it.
+16. **A named medical reviewer on the treatment pages.** Done for the first article —
+    `hydrafacial-vs-medical-grade-peel-london.html` carries an About the author card for Dr Martin
+    Wade, with the byline and the BlogPosting schema updated to match. Still to add to the
+    treatment pages, and to the other 31 articles as they are built. Note the client's document
+    said *reviewer* where this says *author*; see `docs/COPY.md` if they want that wording.
 17. **Botox is named in one blog title**, carried over from the live site. Naming a
     prescription-only medicine in public advertising needs a legal view. It appears nowhere else:
     the price list and every treatment page say *anti-wrinkle injections*.

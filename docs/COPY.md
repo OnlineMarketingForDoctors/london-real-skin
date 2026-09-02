@@ -1651,3 +1651,19 @@ the rest.
 The `data-i` attributes have been removed from the homepage buttons. They were never read by
 `condGo()`, which indexes `PLATES` by the button's position, so they were a second ordering that
 could silently disagree with the real one. One source of truth now.
+
+**About the author.** The article closes with an author card for Dr Martin Wade, built from his own
+biography page rather than written fresh: the opening paragraph verbatim, his role as it appears
+there, his portrait, and five credentials pulled from the memberships paragraph and the homepage
+signature line. It links to the full profile in two places.
+
+The byline in the article header now names him instead of the clinic, and the BlogPosting schema's
+`author` changed from an Organization to a Person carrying his post-nominals, job title and
+profile URL — the visible byline and the structured data have to agree or the markup is worth
+less than nothing.
+
+Worth noting for the remaining 31 articles: the client's content-optimisation document asked for
+"a medical reviewer on the page", which is a slightly different claim from author. This page
+attributes authorship because that is what was asked for here. If they would rather it read
+*Medically reviewed by*, it is a label change in the card and a `reviewedBy` field in the schema
+rather than `author`.
