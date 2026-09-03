@@ -1667,3 +1667,13 @@ Worth noting for the remaining 31 articles: the client's content-optimisation do
 attributes authorship because that is what was asked for here. If they would rather it read
 *Medically reviewed by*, it is a label change in the card and a `reviewedBy` field in the schema
 rather than `author`.
+
+**The stat stripe under "Concern first, machine second" is gone.** It carried *12 — Concerns on
+this page*, which was the same self-referential count the client had already objected to in the
+heading, sitting a screen further down. The other two figures went with it rather than leaving a
+lone stat. `.pos__facts` stays in the stylesheet because the shop and devices pages still use it.
+
+While checking those, two numbers on the devices page were found stale: adding the XCellarisPRO
+Twist had made *06 Platforms in the clinic* and *04 Manufacturers* wrong. Now 07 and 05. This is
+the second time a hardcoded count has gone out of date behind a content change — worth preferring
+a derived figure, or no figure, whenever one of these is added.
