@@ -15,6 +15,26 @@ every outcome claim is qualified. UK English throughout.
 
 # Homepage
 
+> **SEO copy pass — July 2026.** The client's SEO team supplied
+> *Page Optimisation Copy for Homepage, July 2026*, optimised for "london skin clinic /
+> skin clinic london". It was applied with **no layout or design changes** beyond what the new
+> copy structurally required: one sub-heading block added inside About, an "Other treatments"
+> chip row added under the treatments switcher, an FAQ section added before the closing CTA,
+> and the hero display size reduced so the new headline holds two lines. Sections the document
+> did not touch (reviews, before & after, team, devices, journal, footer) are unchanged and are
+> documented below as originally written.
+>
+> **Meta title:** London Skin Clinic | Dermatologist-Led, Holborn | LRS
+> **Meta description:** Dermatologist-led skin clinic in Holborn, Central London, led by
+> Consultant Dermatologist Dr Martin Wade. CQC-registered. Book a free consultation.
+> **Canonical:** https://londonrealskin.com/
+> **Schema added:** MedicalClinic (address, geo, telephone, openingHours, priceRange,
+> medicalSpecialty Dermatology, founder/employee Dr Martin Wade, AggregateRating 4.9/338),
+> Organization (sameAs Instagram · Facebook · TikTok), FAQPage.
+>
+> **Two items from the document could not be applied as written** — see
+> "What the homepage SEO document left open" at the end of this section.
+
 ## 0. Header
 
 > The announcement / utility bar was removed at the client's request. The phone number now sits
@@ -32,25 +52,33 @@ every outcome claim is qualified. UK English throughout.
 
 ## 1. Hero
 
-**Eyebrow:** Dermatology-led skin & aesthetic clinic · Holborn, London
+**H1 (the eyebrow slot):** A Dermatology-Led Skin Clinic in Central London
 
-**H1:** Real skin.
-*Real results.*
+**H2 (the display line):** Your Skin,
+*Expertly Cared For*
 
-> Set "Real results." in the display italic. The full stop after each half is deliberate —
-> it makes the tagline read as two statements, not a slogan.
+> The client asked for this inversion **on the homepage only**: the keyword line carries the H1
+> and the brand line drops to H2. Every other page keeps the conventional order, so the rule is
+> a documented exception rather than a pattern to copy. Visually nothing moves — both elements
+> keep the classes (`.u-eyebrow.hero__eyebrow`, `.u-display.hero__h1`) that were already fully
+> specifying their own font, size and weight, so the swap is purely semantic.
+>
+> `.hero__h1` came down from `clamp(2.9rem,7.1vw,6.6rem)` to `clamp(2.4rem,5.4vw,4.9rem)` so
+> that "Expertly Cared For" holds a single line. Verified at 360, 390, 430, 600, 768, 900,
+> 1100, 1280, 1440, 1600 and 1920px. Only the homepage uses the bare `.hero`, and the
+> microneedling page overrides the size itself, so nothing else is affected.
 
 **Standfirst:**
-Aesthetic medicine led by a consultant dermatologist, in a CQC-registered clinic in the heart
-of Holborn. We take the time to understand your skin before we treat it — then build a plan
-around it.
+London Real Skin is a dermatology-led skin clinic in Holborn, offering personalised treatments
+for your skin. Our team has delivered real results for real skin concerns since 2016, all
+within a Care Quality Commission (CQC) registered clinic.
 
-**Five selling points** (supplied by client, used verbatim):
-1. Medically led team with deep clinical knowledge
-2. CQC-registered clinic in the heart of London
-3. Trusted, evidence-based treatments using FDA-cleared devices
-4. Hundreds of satisfied patients with real, visible results
-5. Interest free finance
+**Five selling points** (from the SEO document, verbatim):
+1. Dermatology-led aesthetics clinic
+2. Consultant Dermatologist Dr Martin Wade (Medical Director)
+3. Care Quality Commission (CQC) registered
+4. Pay monthly with flexible 0% finance
+5. Long-lasting, natural-looking results
 
 **Primary CTA:** Book a free consultation
 **Secondary CTA:** Explore treatments
@@ -160,13 +188,27 @@ London Real Skin. Very happy customer :)"
 **Eyebrow:** About the clinic
 **Heading:** London's dermatology experts
 
-**Body** (supplied by client, used verbatim):
-Headed up by our Medical Director, Consultant Dermatologist Dr Martin Wade, the fully trained
-medical team at London Real Skin have been treating real skin concerns with real solutions
-since 2016.
+**Body** (from the SEO document, verbatim; split across the two existing paragraphs):
+As a leading London skin clinic, we're headed up by our Medical Director, Consultant
+Dermatologist Dr Martin Wade. The fully trained medical team at London Real Skin has been
+treating real skin concerns with real solutions since 2016.
 
-Our friendly team work closely with our patients to fully understand their skin health needs and
-offer tailored, results driven solutions.
+Our friendly team works closely with every patient to understand their skin-health needs and
+recommend tailored, results-driven treatment plans.
+
+**Second heading (new, H2):** A Holborn-based skin clinic in London
+
+**Body:**
+At London Real Skin we care about your skin health. We know that ageing and skin conditions can
+affect self-esteem, so we work tirelessly to help our patients achieve their skincare goals.
+Our skin clinic in London operates from a CQC-registered facility at 233 High Holborn, a safe,
+modern environment moments from Holborn and Chancery Lane stations. Our team of medically
+trained aesthetics experts will help you determine exactly what you need to achieve the skin
+quality you deserve.
+
+> Added inside the existing About column rather than as a standalone section, so the two-column
+> grid is untouched. `.about__sub` is a step down from `.about__h2` with a hairline above it —
+> the section still reads as having one lead heading.
 
 **Pull-stat block (asymmetric, offset right):**
 - 20+ — years of consultant dermatology experience
@@ -217,8 +259,19 @@ that could influence the results that you may get.
 ## 5. Treatments (interactive, grouped)
 
 **Eyebrow:** Treatments
-**Heading:** Everything we do, and what it costs
-**Sub:** Five areas of the clinic. Open any one to see the treatments inside and where prices start.
+**Heading:** Skin treatments offered at London Real Skin
+**Sub:** From injectables and advanced facials to laser, skin-tightening and body treatments,
+our London skin clinic offers a full range of dermatologist-led options. Open any area below to
+see the treatments inside and where prices start.
+
+> The second sentence is ours, kept from the original sub: the first is the document's, and the
+> switcher below still needs an instruction.
+
+**Other treatments** (chip row under the switcher, from the SEO document — the document's own
+links point at the live WordPress URLs, remapped here to their equivalents on this site):
+Profhilo · Polynucleotide skin regeneration · Microneedling · SkinXcell RF microneedling ·
+EmSculpt NEO body contouring · Skin tag, wart & lesion removal · Acne scarring treatment ·
+Free dermatologist-led skin consultation
 
 ### Injectables
 *Precision work, done by doctors.*
@@ -256,30 +309,37 @@ Rosacea · Pigmentation · Prescription Skincare (Tretinoin, Hydroquinone, 15% A
 ## 6. Why choose us
 
 **Eyebrow:** Why London Real Skin
-**Heading:** Six reasons patients stay with us
+**Heading:** Why choose our London skin clinic
 
-1. **Dermatology-led, always**
+> The six card headings are the SEO document's six reasons, verbatim and in its order. The
+> document supplies no body copy for them, so each card's paragraph is drawn from copy that
+> already existed on the site. Two cards from the previous set — "Technology chosen on evidence"
+> and "Personalised plans and real follow-up" — were displaced to make room; **flag for the
+> client** if they want them kept somewhere.
+
+1. **Consultant Dermatologist-led care**
    Every protocol sits under Medical Director Dr Martin Wade, on the GMC specialist register for
    dermatology and a Fellow of the Australasian College of Dermatologists.
 
-2. **CQC-registered facility**
+2. **CQC-registered medical clinic**
    We treat inside a Care Quality Commission registered clinic, alongside The London Skin and
    Hair Clinic. The standards are medical, not cosmetic.
 
-3. **Complimentary consultations**
-   Every treatment starts with an in-depth skin analysis at no cost — including the honest
-   conversation about what won't work for you.
+3. **Central London location in Holborn**
+   A modern, purpose-built facility at 233 High Holborn, a few minutes' walk from Holborn and
+   Chancery Lane Underground stations.
 
-4. **Technology chosen on evidence**
-   Sciton BBL & MOXI, BTL Exion, EmSculpt Neo and the xCellaris Pro Twist — selected from
-   clinical studies, not trade shows.
+4. **Free consultation and 0% finance options**
+   Every plan starts with an in-depth skin analysis at no cost, and courses can be spread over
+   3–12 months at 0% through GoCardless. Terms and conditions apply.
 
-5. **Personalised plans and real follow-up**
-   Tailored protocols, post-care emailed the same day, and review appointments built in.
+5. **Obagi and dermatologist-led own-brand skincare**
+   Our own formulations alongside dermatologist-selected medical-grade skincare from Obagi,
+   NeoStrata and prescription-only topicals, to hold the results you pay for in clinic.
 
-6. **Interest-free finance**
-   0% finance over 3–12 months through GoCardless, with an upfront saving on courses.
-   Terms and conditions apply.
+6. **Real, natural-looking patient results since 2016**
+   Hundreds of patients treated, a 4.9 average from 338 Google reviews, and before-and-after
+   cases you can see for yourself.
 
 ---
 
@@ -313,7 +373,10 @@ guessed at — see the asset manifest.
 ## 8. Shop banner
 
 **Eyebrow:** London Real Skin skincare
-**Heading:** The regime, continued at home
+**Heading:** Dermatologist-recommended skincare
+
+> The SEO document supplies this H2 and no body copy for the section, so the existing
+> standfirst, product line-up and CTA are unchanged.
 **Body:** Our own formulations plus dermatologist-selected medical-grade skincare — Obagi,
 NeoStrata and prescription-only topicals — chosen to hold the results you pay for in clinic.
 
@@ -329,8 +392,9 @@ Vitamin C+E Ferulic Antioxidant Gel £41.00
 ## 9. Conditions we treat
 
 **Eyebrow:** Conditions
-**Heading:** Tell us what's bothering you
-**Sub:** Twelve concerns we see most often. Each one has a route through the clinic.
+**Heading:** Skin concerns we treat
+**Sub:** Our dermatology-led team treats the full range of medical and cosmetic skin concerns.
+Move through the index and the lens re-focuses.
 
 Acne Scarring · Ageing Skin · Crepey Skin · Excess Hair · Fine Lines & Wrinkles ·
 Genital Skin Tag & Wart Removal · Pigmentation & Age Spots · Rosacea · Skin Tags ·
@@ -385,15 +449,68 @@ trained and signed off on it.
 ## 12. Closing CTA
 
 **Eyebrow:** Start here
-**Heading:** Every plan starts with a free consultation
+**Heading:** Visit our London skin clinic in Holborn
 **Body:** An in-depth skin analysis with a practitioner who will tell you what will help, what
 won't, and what it will cost — before you commit to anything.
 
 **Primary CTA:** Book a free consultation
 **Secondary CTA:** Call 020 7183 5892
 
+**Find us:** London Real Skin, 233 High Holborn, London WC1V 7DN. Call 020 7183 5892 or email
+info@londonrealskin.com. A short walk from Holborn and Chancery Lane Underground stations.
+
+**Opening hours:** Monday – Tuesday 09.00 – 17.30 · Wednesday – Friday 10.00 – 19.30 ·
+Saturday 09.30 – 17.30 · Sunday closed
+
+> The hours come from the SEO document and are mirrored in the MedicalClinic
+> `openingHoursSpecification`. **Confirm they are current before launch.**
+
 **Reassurance strip:** Free consultation · CQC-registered · 0% finance available ·
 Dermatology-led since 2016
+
+---
+
+## 12b. Frequently asked questions *(new — SEO document)*
+
+Placed between the journal and the closing CTA. Reuses the accordion pattern built for the
+microneedling page (`.mnfaq`), so no new component was needed. Mirrored in FAQPage schema.
+
+**Eyebrow:** Questions
+**Heading:** Frequently asked questions
+**Sub:** Where to find us, who runs the clinic, and what a first appointment costs.
+
+**Where is London Real Skin clinic?**
+London Real Skin is a skin clinic in Central London, based at 233 High Holborn, London
+WC1V 7DN, a short walk from Holborn and Chancery Lane stations.
+
+**Is London Real Skin a dermatologist-led clinic?**
+Yes. Our Medical Director is Consultant Dermatologist Dr Martin Wade, who works alongside our
+licensed aesthetic practitioners and nurses. We are a CQC-registered medical clinic.
+
+**Does London Real Skin offer a free consultation?**
+Yes. We offer a free, in-depth skin consultation where we assess your skin and create a
+personalised treatment plan. 0% finance options are available.
+
+---
+
+## 12c. What the homepage SEO document left open
+
+**1. The main treatments list is missing from the document.** Under
+"Skin Treatments Offered at London Real Skin" the document has the intro sentence, then a bare
+`:`, then jumps straight to "Other treatments:". In place of the list there is a pasted
+screenshot of the current live site's Anti-Wrinkle / HydraFacial / BBL Hero cards. The existing
+five-group switcher (Injectables, Face, Body, For Men, Medical) has been left in place as the
+main list. **Ask the SEO team whether a specific list was intended.**
+
+**2. "Excessive sweating (hyperhidrosis)" is in the document's concerns list but is not one of
+our concerns.** The conditions index carries thirteen concerns, signed off by the client, and
+hyperhidrosis is not among them. It has not been added — treating a new medical concern is the
+client's call, not a copy decision. **Ask whether hyperhidrosis should be added to the
+conditions set**, in which case it needs its own entry, tile image and body copy.
+
+**3. Social profiles for schema.** The document asks for `sameAs` covering Facebook, X/Twitter,
+Instagram and YouTube. Only Instagram, Facebook and TikTok URLs are held on the site, so those
+three are what the Organization node carries. **Supply X and YouTube URLs if they exist.**
 
 ---
 

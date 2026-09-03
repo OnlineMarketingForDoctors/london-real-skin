@@ -64,7 +64,25 @@ Header (floating masthead) · Hero (6-slide Ken Burns slideshow, five selling
 points, Google rating, three-slide promotions widget) · As featured in · Reviews marquee · About · Before & after
 (five treatment tabs, draggable comparison) · Treatments (accordion synced to a sticky image) ·
 Why choose us · Team · Shop banner · Conditions (dermatoscope) · Devices slider · Journal ·
-Closing CTA · Footer · back-to-top control.
+FAQs · Closing CTA · Footer · back-to-top control.
+
+The homepage copy is the SEO team's *Page Optimisation Copy for Homepage, July 2026*, applied in
+September 2026 with no layout or design changes beyond what the new copy needed structurally.
+Two things about it are worth knowing before editing:
+
+- **The homepage inverts the heading order, deliberately.** The keyword line
+  ("A Dermatology-Led Skin Clinic in Central London") carries the `<h1>` in the eyebrow slot, and
+  the brand line ("Your Skin, Expertly Cared For") is an `<h2>` in the display slot. The client
+  asked for this on the homepage only — every other page keeps the conventional order. Both
+  elements kept the classes that were already fully specifying their type, so the swap changes
+  nothing visually.
+- **The FAQ accordion is a shared component.** It still carries the `.mnfaq` prefix it was born
+  with on the microneedling page; the homepage FAQ reuses it as-is, and `main.js` binds
+  `.mnfaq__i` globally. Renaming it means touching both pages together.
+
+Three questions the SEO document left open — a missing main treatments list, hyperhidrosis
+appearing as a concern we do not treat, and missing X/YouTube URLs for `sameAs` — are recorded
+at the end of the Homepage section in `docs/COPY.md`.
 
 ## About Us sections
 
