@@ -1172,7 +1172,18 @@ h1,h2,h3,h4,p{margin:0}
 /* Two ways to fill a side: a background-image (the homepage, written before the
    gallery existed) or an <img>. The gallery uses the <img> form so each photo can
    be lazy-loaded — a category panel can hold dozens of pairs. */
-.cmp__side img{width:100%;height:100%;object-fit:cover;display:block}
+.cmp__side img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  /* An <img> is a native drag source, so pressing on one and moving started the
+     browser's own image drag instead of the slider — the background-image form
+     the homepage uses was never hit by this. Taking the images out of hit
+     testing lands every pointer event on .cmp itself, where the handler is. */
+  pointer-events:none;
+  -webkit-user-drag:none;
+  user-select:none;
+}
 .cmp__after{clip-path:inset(0 0 0 var(--pos,50%))}
 .cmp__tag{
   position:absolute;

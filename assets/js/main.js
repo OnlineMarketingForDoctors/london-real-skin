@@ -281,6 +281,10 @@
       var pct = Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
       cmp.style.setProperty('--pos', pct + '%');
     }
+    /* Belt and braces with the pointer-events rule in CSS: if anything inside
+       ever becomes a drag source again, this stops the browser running off with
+       a ghost image instead of moving the handle. */
+    cmp.addEventListener('dragstart', function (e) { e.preventDefault(); });
     cmp.addEventListener('pointerdown', function (e) { dragging = true; cmp.setPointerCapture(e.pointerId); setPos(e.clientX); });
     cmp.addEventListener('pointermove', function (e) { if (dragging) setPos(e.clientX); });
     cmp.addEventListener('pointerup',   function () { dragging = false; });
