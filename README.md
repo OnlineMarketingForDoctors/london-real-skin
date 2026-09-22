@@ -212,30 +212,26 @@ It is a separate JS block from the homepage's horizontal `.ba__tab` strip rather
 with an axis flag — that one is a row that moves focus with Left/Right, and sharing would have
 meant a flag for the axis plus a flag for the mode.
 
-### A patient photographed from several angles is one case
+### One photograph per patient
 
-Six of the 55 cases carry more than one angle — a jawline shot front and profile, expression lines
-shot at brow raise, frown and smile. They are shots inside a single case with a named switcher
-under the slider, not the same face repeated three times down the grid. The buttons are named
-rather than dots: "front / profile" tells you what you are about to see and a dot does not. The
-generator refuses to merge angles whose captions disagree, since a merged case shows one caption.
+The library supplies several angles of some patients — a jawline front and profile, expression
+lines at brow raise, frown and smile. Only the first is published, ranked by `ANGLE_ORDER` in the
+build script so a face reads front-first rather than in whatever order `index.csv` lists it. A
+second viewpoint of a case the reader has already understood is clutter rather than evidence.
 
-Two things about the layout are easy to break:
-
-- **`.gal__grid` must not set `align-items:start`.** The rail sticks inside `.gal__side`, so that
-  column has to stretch to the row height or `position:sticky` has no track to travel along and
-  silently does nothing.
-- **The gallery sets its own aspect ratio.** `.cmp` defaults to 3/2 because that is what the
-  homepage pairs are; the library is uniformly 4:3, so `.gal__case .cmp` sets that once rather
-  than sixty-three cases each declaring it. A pair matching neither can still override with `--ar`.
+`ONE_ANGLE_PER_PATIENT` in `docs/before-and-after-manifest.py` turns this off. Doing so brings back
+a per-case angle switcher, and the CSS (`.gal__angles`, section 34) and the JS block that drove it
+have to come back with it — both were deleted when the rule was applied, and are in the history of
+the commit that added it. The build prints which angles it dropped on every run, so nothing is lost
+silently.
 
 ### Where the photographs come from
 
 The client supplied a prepared library: 63 matched before/after pairs covering 28 procedures and
 55 patients, every image cropped to 1600×1200 with the before and after framed to match, plus a
 caption per case and an `index.csv` tracing each pair back to its original file. The gallery is
-built from that CSV, not from hand-written markup. The 63 pairs become **55 cases**, because a
-patient shot from several angles is one case.
+built from that CSV, not from hand-written markup. The 63 pairs become **55 published pairs**:
+one was a duplicate, and seven are extra angles of a patient already shown.
 
 `assets/img/ba/lib/` holds the published pairs: 1200px WebP, about 7.7MB for all 126 files. Only
 the open category's images load, because the other panels are `hidden`.
@@ -256,6 +252,29 @@ are the kind of thing that survives review and then ships:
   advertising rules bar naming a POM to the public. The source folder is `19 Botox`; the published
   category, the slugs and the filenames all say "anti-wrinkle injections". One supplied caption
   named a prescription topical and is overridden in the script for the same reason.
+
+### Corrections to the source library live in the build script
+
+Two dictionaries near the top of `docs/before-and-after-manifest.py` hold corrections to what the
+library shipped, each keyed on the `index.csv` row and carrying its reason:
+
+- **`DROP_SHOTS`** — shots not to publish. One so far: a third "crow's feet" angle that was
+  byte-identical to its three-quarter pair on both halves.
+- **`SWAP_SHOTS`** — pairs whose before and after were the wrong way round. One so far: the nano
+  plasma eyelid case, which showed the tightened lid as the "before".
+
+They belong here rather than in renamed files because the library is the source of truth and the
+build regenerates `assets/img/ba/lib/` from scratch — a correction made by renaming an output file
+is undone by the next rebuild, silently.
+
+The build also **refuses to run** if two angles of one case resolve to the same two images. That
+duplicate reached the live page once; a warning would have been ignored, so it is a hard failure,
+and a genuine duplicate is always either a `DROP_SHOTS` entry or a mistake upstream.
+
+The library's "best guess" flag marks the rows where neither source file was labelled, so the
+order was inferred. It is the right place to start a review, and the one inversion found so far was
+in that set — but it is a marker of *uncertainty*, not a guarantee about the rest, so every pair
+wants eyes on it before launch. The build prints the open flags on each run.
 
 ### Adding cases
 

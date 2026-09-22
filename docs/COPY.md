@@ -586,29 +586,35 @@ ten categories by the kind of work, so laser sits with the concern it treats rat
 | 09 | Body, stretch marks & laxity | 3 | Biodermogenesi |
 | 10 | Hair & tattoo removal | 6 | Laser Hair Removal · Tattoo Removal |
 
-**55 cases, from the library's 63 pairs.** Two placements are deliberate and worth knowing:
+**55 cases, one photograph each, from the library's 63 pairs.** Two placements are deliberate
+and worth knowing:
 
 - The two **iPixel under-eye** cases are moved out of *Skin texture* into *Eye rejuvenation*,
   where they read better beside the other eye work.
 - **Jaw Reduction** is filed under *Anti-wrinkle injections*, not fillers — see B5.
 
-### Patients photographed from more than one angle
+### One photograph per patient
 
-Six patients were shot from several angles. Each is **one case with a named angle switcher under
-the slider**, not the same person repeated down the grid. The angles are ordered so a face reads
-front-first rather than in the order `index.csv` happens to list them.
+Six patients were photographed from several angles. **Only the first angle of each is published**
+— a second viewpoint of a case the reader has already understood adds clutter rather than
+evidence. The library's other angles are untouched in the source; they are simply not built.
 
-| Case | Angles |
-|---|---|
-| Age spots on the hands | palms down · closed |
-| Inflamed papules and flushing | three-quarter · close-up |
-| Extensive scarring across cheek and jaw | three-quarter · close-up |
-| Jawline definition | front · profile |
-| Forehead, frown and eye lines | front · three-quarter · crow's feet |
-| Treated lines seen in movement | brow raise · frowning · smiling |
+| Case | Published | Not published |
+|---|---|---|
+| Age spots on the hands | palms down | closed |
+| Inflamed papules and flushing | three-quarter | close-up |
+| Extensive scarring across cheek and jaw | three-quarter | close-up |
+| Jawline definition | front | profile |
+| Forehead, frown and eye lines | front | three-quarter |
+| Treated lines seen in movement | brow raise | frowning, smiling |
 
-All six share one caption across their angles, which is how the library supplied them. The build
-stops rather than guessing if a future patient's angles ever disagree on the caption.
+Angles are ranked so a face reads front-first rather than in the order `index.csv` happens to list
+them. **55 cases and 55 pairs are published**, from the library's 63 pairs: seven are unpublished
+extra angles and one was a duplicate (below).
+
+To publish every angle again, flip `ONE_ANGLE_PER_PATIENT` in the build script — but note the
+switcher UI was removed with the rule, so it needs restoring too. The build prints the dropped
+angles on every run.
 
 ## B3. Captions and headings
 
@@ -644,18 +650,28 @@ repository re-creating.
 
 ## B5. What needs the client's confirmation
 
+0. **One pair was published the wrong way round.** *Excess upper eyelid skin* (nano plasma)
+   showed the tightened lid as the "before", which read as the treatment causing the hooding. The
+   clinic spotted it. It is corrected in `SWAP_SHOTS` in the build script, keyed on the source row
+   so a rebuild keeps the correction.
+
+   **Every pair should be checked before launch, not only the flagged ones.** Four contact sheets
+   covering every published pair were produced for exactly this; ask for them again if they are
+   not to hand. Corrections go in `SWAP_SHOTS`, not by renaming files, or the next rebuild undoes them.
+
 1. **Twelve pairs are flagged "best guess" by the library's own index** — neither file was labelled,
    so before/after order was inferred from the photographs. They are published in the inferred
    order. Please confirm each:
+   `nano-plasma` is now resolved (see 0 above). The other eleven still stand:
    `laser-pigmentation-treatment-2` · `dye-vl-laser-2` ·
    `acne-scar-treatment-three-quarter` · `acne-scar-treatment-close` ·
    `ipixel-fractional-laser-4` · `medical-grade-skin-peel` · `medical-grade-skin-peel-2` ·
    `anti-wrinkle-injections-3-brow-raise` · `anti-wrinkle-injections-3-frown` ·
-   `anti-wrinkle-injections-3-smile` · `nano-plasma` · `laser-tattoo-removal-5`
+   `anti-wrinkle-injections-3-smile` · `laser-tattoo-removal-5`
 
-   Note that all three angles of *Treated lines seen in movement* and both angles of
-   *Extensive scarring across cheek and jaw* are flagged, so those two cases are entirely
-   best-guess. The build prints this list on every run.
+   All three angles of *Treated lines seen in movement* and both angles of *Extensive scarring
+   across cheek and jaw* are flagged, so those two cases are entirely best-guess. The build prints
+   the open list, the resolved ones and any correction the library did not flag, on every run.
 
 2. **"Dermal Filler — Jaw Reduction" does not match its own caption.** The caption reads "a softer,
    narrower lower face achieved by relaxing the masseter muscles", which describes a muscle-relaxing
@@ -668,7 +684,8 @@ repository re-creating.
 
 4. **Written consent.** The page states that every photograph is published with written consent.
    This repository holds no consent register, so that is asserted on the client's behalf. **Confirm
-   consent exists for all 63 pairs before launch**, particularly the named patients.
+   consent exists for every published pair before launch**, particularly the named patients.
+   Unpublished angles still sit in the library, so consent should cover the patient, not the shot.
 
 5. **Thirteen pairs share one source file** between the before and the after, per `index.csv` —
    the two states were cropped out of a single image. The delivered files are genuinely different

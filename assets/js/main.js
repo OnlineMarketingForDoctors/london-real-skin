@@ -362,24 +362,6 @@
     else if (mq.addListener) mq.addListener(function (e) { setMode(e.matches); });
   })();
 
-  /* ---------- Before & after gallery: angles within one case ----------
-     A patient photographed from several angles is one case with several shots,
-     not the same face repeated down the grid.                             */
-  $$('[data-shots]').forEach(function (wrap) {
-    var shots = $$('[data-shot]', wrap);
-    var btns = $$('.gal__angle', wrap.parentElement);
-    if (shots.length < 2 || !btns.length) return;
-    btns.forEach(function (btn, i) {
-      btn.addEventListener('click', function () {
-        shots.forEach(function (sh, n) { sh.hidden = n !== i; });
-        btns.forEach(function (b, n) {
-          b.classList.toggle('is-on', n === i);
-          b.setAttribute('aria-pressed', String(n === i));
-        });
-      });
-    });
-  });
-
   /* ---------- Before & after: draggable comparison ----------
      Wired up now so that dropping real consented photos into a
      .cmp (with .cmp__before / .cmp__after) needs no further code.        */

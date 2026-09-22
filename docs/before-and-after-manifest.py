@@ -30,7 +30,7 @@ Adding photography later: drop it into the library in the same
 <Procedure>/<Patient>/{before,after}.jpg shape, add the row to index.csv, map the
 procedure in CATEGORIES below, and re-run.
 """
-import argparse, csv, os, re, sys
+import argparse, csv, hashlib, os, re, sys
 
 # --- procedure -> category -------------------------------------------------
 # The client asked for grouping by kind of work rather than one tab per folder:
@@ -216,7 +216,39 @@ def slugify(s):
     return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', s.lower())).strip('-')
 
 
-# Angles are shown in this order inside a case, not in the order index.csv
+# Shots dropped from the library, with the reason. The library ships them and
+# index.csv lists them, so without this they would silently come back the next
+# time the build is re-run against the source folder.
+DROP_SHOTS = {
+    # Byte-identical to this patient's three-quarter pair, both halves. It was a
+    # second label on one photograph, not a second viewpoint.
+    ('19 Botox', 'Female patient A', 'crows-feet'):
+        'identical to the three-quarter pair',
+}
+
+# Pairs whose before and after the library had the wrong way round. Every one
+# of these is a shot index.csv already marks "best guess" — the library says
+# plainly that neither source file was labelled and the order was inferred from
+# the photographs — so a correction here is the clinic reading its own case, not
+# a second guess at the same evidence.
+SWAP_SHOTS = {
+    # Confirmed by the clinic: the hooded lid is the before. The inferred order
+    # showed the tightened lid first, which read as the treatment adding hooding.
+    ('22 Nano Plasma - Non-Surgical Blepharoplasty', 'Female patient', 'main'):
+        'clinic confirmed the order was inverted',
+}
+
+# One photograph per patient. Where the library supplies several angles of the
+# same person, only the first in ANGLE_ORDER is published: the client's decision
+# is that a second viewpoint of a case the reader has already understood adds
+# clutter rather than evidence. Set this False to publish every angle again —
+# the case then renders an angle switcher, and the CSS (.gal__angles in section
+# 34 of main.css) and the JS block that drives it have to come back with it.
+# Both were removed when this rule was applied; they are in the history of the
+# commit that added this line.
+ONE_ANGLE_PER_PATIENT = True
+
+# Angles are ranked in this order, not in the order index.csv
 # happens to list them: a face reads front-first, and the hands case reads flat
 # before closed. An angle missing from here sorts last.
 ANGLE_ORDER = ['front', 'three-quarter', 'profile', 'close', 'crows-feet',
@@ -275,14 +307,28 @@ def build(images_root, repo_root):
             stem = '%s-%d' % (base, n); n += 1
         seen.add(stem)
 
+        shots = [r for r in shots
+                 if (proc, patient, r['Angle']) not in DROP_SHOTS]
+        if not shots:
+            sys.exit('Every shot of %r / %r is dropped; remove the case instead.'
+                     % (proc, patient))
+
         shots.sort(key=lambda r: (ANGLE_ORDER.index(r['Angle'])
                                   if r['Angle'] in ANGLE_ORDER else len(ANGLE_ORDER)))
+        dropped_angles = []
+        if ONE_ANGLE_PER_PATIENT and len(shots) > 1:
+            dropped_angles = [ANGLE_LABEL.get(r['Angle'], r['Angle']) for r in shots[1:]]
+            shots = shots[:1]
 
         out_shots = []
         for r in shots:
             angle = r['Angle']
             suffix = '' if (angle == 'main' and len(shots) == 1) else '-' + slugify(angle)
-            for half, col in (('before', 'Before file'), ('after', 'After file')):
+            digest = []
+            halves = (('before', 'Before file'), ('after', 'After file'))
+            if (proc, patient, angle) in SWAP_SHOTS:
+                halves = (('before', 'After file'), ('after', 'Before file'))
+            for half, col in halves:
                 src = os.path.join(images_root, r[col])
                 dst = os.path.join(out_dir, '%s%s-%s.webp' % (stem, suffix, half))
                 im = Image.open(src)
@@ -290,9 +336,25 @@ def build(images_root, repo_root):
                     im = im.resize((1200, round(im.height * 1200 / im.width)), Image.LANCZOS)
                 im.save(dst, 'WEBP', quality=82, method=6)
                 total_bytes += os.path.getsize(dst)
+                digest.append(hashlib.md5(open(dst, 'rb').read()).hexdigest())
+            digest = tuple(digest)
             out_shots.append(dict(file='%s%s' % (stem, suffix),
+                                  digest=digest,
+                                  resolved=(proc, patient, angle) in SWAP_SHOTS,
                                   label=ANGLE_LABEL.get(angle, angle),
                                   flagged=bool(r['Flagged as best guess'].strip())))
+
+        # Two angles of one patient that resolve to the same two files are one
+        # photograph wearing two labels. The library shipped such a pair and it
+        # reached the live page, so the build now refuses rather than warns:
+        # a duplicate is always either a DROP_SHOTS entry or a mistake upstream.
+        by_digest = {}
+        for sh in out_shots:
+            if sh['digest'] in by_digest:
+                sys.exit('%r / %r: the %s and %s shots are the same two images.\n'
+                         '  Drop one in DROP_SHOTS, or fix the pairing in index.csv.'
+                         % (proc, patient, by_digest[sh['digest']], sh['label']))
+            by_digest[sh['digest']] = sh['label']
 
         caps = {CAPTION_OVERRIDES.get((proc, patient, r['Angle']), r['Caption']) for r in shots}
         if len(caps) > 1:
@@ -301,6 +363,9 @@ def build(images_root, repo_root):
 
         buckets[cid].append(dict(
             stem=stem,
+            kept_angle=(ANGLE_LABEL.get(shots[0]['Angle'], shots[0]['Angle'])
+                        if dropped_angles else None),
+            dropped_angles=dropped_angles,
             h3=esc(heading(proc, patient)),
             p=esc(caps.pop()),
             meta=PROC_LABEL[proc],
@@ -414,14 +479,35 @@ if __name__ == '__main__':
     flagged = [(c, sh) for v in buckets.values() for c in v
                for sh in c['shots'] if sh['flagged']]
     shots = sum(len(c['shots']) for v in buckets.values() for c in v)
-    multi = [c for v in buckets.values() for c in v if len(c['shots']) > 1]
     print('%d cases (%d pairs) across %d categories, %d KB of images'
           % (total, shots, len(CATEGORIES), nbytes // 1024))
-    print('%d cases carry more than one angle:' % len(multi))
-    for c in multi:
-        print('    %-34s %s' % (c['stem'], ' / '.join(sh['label'] for sh in c['shots'])))
+    if ONE_ANGLE_PER_PATIENT:
+        trimmed = [c for v in buckets.values() for c in v if c['dropped_angles']]
+        print('ONE_ANGLE_PER_PATIENT is on; %d case(s) kept one angle of several:' % len(trimmed))
+        for c in trimmed:
+            print('    %-34s kept %-14s dropped %s'
+                  % (c['stem'], c['kept_angle'], ', '.join(c['dropped_angles'])))
+    else:
+        multi = [c for v in buckets.values() for c in v if len(c['shots']) > 1]
+        print('%d cases carry more than one angle:' % len(multi))
+        for c in multi:
+            print('    %-34s %s' % (c['stem'], ' / '.join(sh['label'] for sh in c['shots'])))
     for cid, name, *_ in CATEGORIES:
         print('  %-14s %2d  %s' % (cid, len(buckets[cid]), name.replace('&amp;', '&')))
-    print('%d pairs flagged best-guess by the library, needing client confirmation:' % len(flagged))
-    for c, sh in flagged:
+    open_q = [x for x in flagged if not x[1]['resolved']]
+    done = [x for x in flagged if x[1]['resolved']]
+    print('%d pairs were flagged best-guess by the library; %d still need confirmation:'
+          % (len(flagged), len(open_q)))
+    for c, sh in open_q:
         print('    %s  (%s)' % (sh['file'], sh['label']))
+    if done:
+        print('%d resolved since, the clinic having confirmed the order was inverted:' % len(done))
+        for c, sh in done:
+            print('    %s  (%s)' % (sh['file'], sh['label']))
+    swapped_unflagged = [(c, sh) for v in buckets.values() for c in v for sh in c['shots']
+                         if sh['resolved'] and not sh['flagged']]
+    if swapped_unflagged:
+        print('%d pair(s) corrected that the library did NOT flag \u2014 the marking is not a '
+              'complete list of the inversions:' % len(swapped_unflagged))
+        for c, sh in swapped_unflagged:
+            print('    %s  (%s)' % (sh['file'], sh['label']))

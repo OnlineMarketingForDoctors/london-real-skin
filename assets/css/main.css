@@ -4780,24 +4780,11 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 .gal__case .cmp{aspect-ratio:4/3}
 @media (max-width:640px){.gal__cases{grid-template-columns:1fr}}
 .gal__case{margin:0}
+/* One shot per case: ONE_ANGLE_PER_PATIENT in the build script publishes only
+   the first angle of a patient photographed several ways. The switcher this
+   wrapper used to carry lived here; turning that flag off needs it back, and it
+   is in the history of the commit that removed it. */
 .gal__shots{position:relative}
-/* Several angles of one patient are shots inside a single case rather than the
-   same person repeated down the grid. The buttons are named rather than dots:
-   "front / profile" tells you what you are about to see, a dot does not. */
-.gal__angles{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.gal__angle{
-  font-family:var(--mono);
-  font-size:.6rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--muted);
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:.5em 1em;
-  transition:border-color .35s var(--ease),color .35s var(--ease);
-}
-.gal__angle:hover{border-color:var(--ink);color:var(--ink)}
-.gal__angle.is-on{border-color:var(--focus);color:var(--focus-deep)}
 .gal__cap{padding-top:clamp(14px,1.6vw,20px)}
 .gal__cap h3{
   font-family:var(--disp);
