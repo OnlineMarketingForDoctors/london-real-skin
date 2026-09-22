@@ -168,32 +168,49 @@ Two things about the layout are easy to break:
 - **`.gal__grid` must not set `align-items:start`.** The rail sticks inside `.gal__side`, so that
   column has to stretch to the row height or `position:sticky` has no track to travel along and
   silently does nothing.
-- **Each case declares its own `--ar`.** `.cmp` defaults to 3/2 because that is what the homepage
-  pairs are, but the gallery carries pairs split out of stacked composites at 27/13 and 27/52.
-  Without `--ar` the slider would crop most of the photograph away.
-
-Cases whose pair is very wide (27/13) carry `.gal__case--wide` and run the full width instead of
-sitting in the two-up grid, where they would be a letterbox slot.
+- **The gallery sets its own aspect ratio.** `.cmp` defaults to 3/2 because that is what the
+  homepage pairs are; the library is uniformly 4:3, so `.gal__case .cmp` sets that once rather
+  than sixty-three cases each declaring it. A pair matching neither can still override with `--ar`.
 
 ### Where the photographs come from
 
-`assets/img/ba/pairs/` holds before/after halves split out of the composite images the landing
-page used — `exion-*.webp` and `rf-*.webp` were single files with the two states baked in, which a
-reveal slider cannot use. The orientation of each split came from the microneedling page's own
-`mnba__shot--v` classes, not from guessing at the aspect ratio. The four `ba-*.jpg` lesion pairs
-were already separate files and are used as they are.
+The client supplied a prepared library: 63 matched before/after pairs covering 28 procedures and
+55 patients, every image cropped to 1600×1200 with the before and after framed to match, plus a
+caption per case and an `index.csv` tracing each pair back to its original file. The gallery is
+built from that CSV, not from hand-written markup.
 
-Those four were photographed separately rather than cropped from one frame, so the two halves do
-not line up into one continuous face the way the split pairs do. That is how they behave on the
-homepage too, and it is inherent to the source photographs rather than something the component
-is doing.
+`assets/img/ba/lib/` holds the published pairs: 1200px WebP, about 7.7MB for all 126 files. Only
+the open category's images load, because the other panels are `hidden`.
+
+**The library itself is not in this repository and must not be.** Everything here is served
+publicly by Vercel, and the library's folder names are real patient names. `.gitignore` blocks
+`*.zip` and `assets/img/ba/_library/` for that reason. Keep the library outside the repo and point
+the script at it.
+
+### Two rules the build script enforces
+
+Both are in `docs/before-and-after-manifest.py` rather than left to a careful human, because both
+are the kind of thing that survives review and then ships:
+
+- **Patient names never reach the page.** They exist only as dictionary keys in the script. Slugs,
+  filenames, headings and alt text are built from the procedure and the angle.
+- **"Botox" never reaches the page either.** It is a brand of a prescription-only medicine, and UK
+  advertising rules bar naming a POM to the public. The source folder is `19 Botox`; the published
+  category, the slugs and the filenames all say "anti-wrinkle injections". One supplied caption
+  named a prescription topical and is overridden in the script for the same reason.
 
 ### Adding cases
 
-`before-and-after.html` is plain static HTML like every other page, but it was generated from a
-manifest so that adding a category or a case is a data edit rather than markup surgery in three
-places. Keep that manifest with the page when adding to it: the tab list, the per-category counts
-and the panels all derive from it and will drift apart if hand-edited.
+Drop the new photography into the library in the same `<Procedure>/<Patient>/{before,after}.jpg`
+shape, add its row to `index.csv`, map the procedure in `CATEGORIES`, give it a heading in
+`HEADINGS`, and re-run:
+
+    python3 docs/before-and-after-manifest.py --images /path/to/library
+
+It rewrites everything between the Gallery and Disclaimer comments in `before-and-after.html` and
+regenerates `assets/img/ba/lib/`. An unmapped procedure or a missing heading stops the build
+rather than being silently dropped. The committed page stays plain static HTML — the script is a
+tool, not a build step.
 
 ## Devices sections
 

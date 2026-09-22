@@ -1,0 +1,6 @@
+# Patient photo libraries are never committed: the folder names inside them
+# carry real patient names, and anything in this repo is served publicly by
+# Vercel. Keep the library outside the repo and run
+# docs/before-and-after-manifest.py against it.
+*.zip
+assets/img/ba/_library/

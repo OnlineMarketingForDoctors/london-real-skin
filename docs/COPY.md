@@ -547,10 +547,10 @@ info@londonrealskin.com
 
 # Before & after
 
-`before-and-after.html`. The case list, the category names and the per-category counts all come
-from `docs/before-and-after-manifest.py`, which generated the page. Edit that, re-run it, and
-paste the result back between the Gallery and Disclaimer comments — do not hand-edit the markup,
-or the tab counts will drift away from the panels.
+`before-and-after.html`. **Everything on this page is generated from
+`docs/before-and-after-manifest.py` run against the client's photo library.** The categories, the
+headings, the per-category counts and the panels all come from there. Do not hand-edit the markup:
+the tab counts will drift away from the panels, and the safeguards below only exist in the script.
 
 ## B1. Page hero
 
@@ -561,30 +561,94 @@ Nothing is retouched, and every case names the device and the number of sessions
 
 ## B2. Categories
 
-The client asked for grouping "more efficiently" than one tab per source folder — one tab for all
-laser work, one for fillers, and so on. Three categories cover everything currently in the repo:
+The client asked for grouping "more efficiently" than one tab per source folder — "one tab for all
+laser treatments, one tab for dermal fillers". The library's 28 procedure folders are grouped into
+ten categories by the kind of work, so laser sits with the concern it treats rather than in a
+"laser" bucket that would mix age spots with tattoo removal.
 
-| # | Category | Cases | What is in it |
+| # | Category | Cases | Source folders |
 |---|---|---|---|
-| 01 | Skin lesions, tags & blemishes | 4 | Sterex ACP electrolysis and diathermy |
-| 02 | Acne scarring & skin texture | 7 | Microneedling and fractional RF |
-| 03 | Lines, laxity & skin quality | 3 | RF microneedling and fractional RF |
+| 01 | Skin lesions, tags & blemishes | 3 | ACP Electrolysis |
+| 02 | Pigmentation & sun damage | 7 | AFT Laser Age Spots · Alma Laser Pigmentation · Laser Pigmentation |
+| 03 | Rosacea, redness & thread veins | 6 | Alma Thread Veins · Dye-VL · Rosacea & Facial Flushing |
+| 04 | Acne & acne scarring | 9 | Kleresca · Microneedling · Acne Scarring · Filler for acne scarring |
+| 05 | Skin texture, pores & resurfacing | 6 | iPixel · Pore Refinement · Skin Peels · PRP |
+| 06 | Dermal fillers & facial contouring | 10 | the six filler folders · Non-Surgical Rhinoplasty |
+| 07 | Anti-wrinkle injections | 9 | folder 19 · Jaw Reduction |
+| 08 | Eye rejuvenation | 4 | Eye Rejuvenation · Nano Plasma · the two iPixel under-eye cases |
+| 09 | Body, stretch marks & laxity | 3 | Biodermogenesi |
+| 10 | Hair & tattoo removal | 6 | Laser Hair Removal · Tattoo Removal |
 
-> These three are what the fourteen photographs **currently in the repo** support. They are not
-> the final taxonomy: the client's two ZIP files of before/after photography did not reach the
-> session, so the categories they described (laser, dermal fillers, and so on) cannot be built
-> until those arrive. See "What is still needed" below.
+**63 cases in total.** Two placements are deliberate and worth knowing:
 
-## B3. Case captions
+- The two **iPixel under-eye** cases are moved out of *Skin texture* into *Eye rejuvenation*,
+  where they read better beside the other eye work.
+- **Jaw Reduction** is filed under *Anti-wrinkle injections*, not fillers — see B5.
 
-Each case carries a heading, one sentence of description and a mono meta line naming the device
-and whether it was a single session or a course. The four lesion captions are the ones already
-signed off on the homepage, verbatim. **The ten texture and laxity captions are new and need
-clinical sign-off** — they were written from the alt text on the microneedling page, which is all
-the source material there was, and none of them claims a specific number of sessions for that
-reason.
+## B3. Captions and headings
 
-## B4. About these photographs
+The captions are the client's own, from each case's `caption.txt`, used verbatim with one
+exception (B5). The headings are ours: the library has no heading field, and deriving one
+produced "Face" nine times over, so they are written out per case in the script.
+
+The mono meta line under each caption names the device or technique — "Dye-VL laser",
+"Dermal filler · cheek", "Anti-wrinkle injections".
+
+## B4. Two compliance rules, enforced in the build
+
+These are in code rather than left to a careful human, because both are the kind of thing that
+survives review and then ships:
+
+1. **No patient names are published.** The library's README is explicit that names appear only in
+   folder titles and must be dropped before publishing. In the script they exist only as
+   dictionary keys; slugs, image filenames, headings and alt text are all built from the procedure
+   and the angle. Verified: none of the seventeen names in the library appears in the page or in
+   any published filename.
+2. **No prescription-only medicine is named.** UK advertising rules bar naming a POM to the public.
+   The source folder is `19 Botox`; the published category, every slug and every filename say
+   "anti-wrinkle injections". The supplied captions already used that wording, so only the folder
+   name had to be kept back.
+
+**The ZIP files were removed from the repository.** They were pushed to `main` on 22 September; the
+repo is served publicly by Vercel, so the archives — and the patient names in their folder
+titles — would have been downloadable at a guessable URL. They are deleted and `.gitignore` now
+blocks `*.zip`. **Note that deleting them from the current commit does not remove them from git
+history.** If the repository is public, or may become public, the history needs rewriting or the
+repository re-creating.
+
+## B5. What needs the client's confirmation
+
+1. **Twelve pairs are flagged "best guess" by the library's own index** — neither file was labelled,
+   so before/after order was inferred from the photographs. They are published in the inferred
+   order. Please confirm each:
+   `laser-pigmentation-treatment-2` · `dye-vl-laser-2` · `acne-scar-treatment-close` ·
+   `acne-scar-treatment-three-quarter` · `ipixel-fractional-laser-4` ·
+   `medical-grade-skin-peel` · `medical-grade-skin-peel-2` ·
+   `anti-wrinkle-injections-brow-raise` · `anti-wrinkle-injections-frown` ·
+   `anti-wrinkle-injections-smile` · `nano-plasma` · `laser-tattoo-removal-5`
+
+2. **"Dermal Filler — Jaw Reduction" does not match its own caption.** The caption reads "a softer,
+   narrower lower face achieved by relaxing the masseter muscles", which describes a muscle-relaxing
+   injection, not a filler. It is filed under *Anti-wrinkle injections* so the page states nothing
+   false either way, but the folder and the caption disagree and one of them is wrong.
+
+3. **One caption named a prescription-only topical.** "Acne scarring treated with a combination of
+   microneedling and topical tretinoin" is published as "…and a prescription topical retinoid."
+   Same treatment, wording that complies.
+
+4. **Written consent.** The page states that every photograph is published with written consent.
+   This repository holds no consent register, so that is asserted on the client's behalf. **Confirm
+   consent exists for all 63 pairs before launch**, particularly the named patients.
+
+5. **Thirteen pairs share one source file** between the before and the after, per `index.csv` —
+   the two states were cropped out of a single image. The delivered files are genuinely different
+   and spot checks looked correct, but it is worth a glance.
+
+6. **The library's `_Review` folder was not supplied** — 69 unpaired or flagged files, per its
+   README, including three `.HEIC` files and some manufacturer marketing images. Nothing from it is
+   published. Send it if any of it should be.
+
+## B6. About these photographs
 
 **Eyebrow:** About these photographs
 
@@ -596,32 +660,6 @@ Results vary between people. Skin type, age, the concern being treated, how many
 completed and what happens at home afterwards all change the outcome, and none of these cases is
 a prediction of yours. What a course can realistically do for your skin is a conversation for the
 consultation, which is free.
-
-**Attribution note:** Several cases in *Acne scarring & skin texture* and *Lines, laxity & skin
-quality* were treated with radiofrequency microneedling or fractional radiofrequency rather than
-standard microneedling. They are related but separate treatments, and each caption names the
-device used. This carries over the honest-attribution rule already applied to the microneedling
-page — nine of the ten composite cases are RF, not plain microneedling.
-
-> **Consent is asserted, not verified.** The copy above states that every photograph is published
-> with written consent. That was true of the four lesion pairs as used on the homepage; the ten
-> images inherited from the landing page have not been checked against a consent register in this
-> repo. **Confirm written consent exists for all fourteen before launch**, and confirm the
-> "treated at London Real Skin or by our practitioners" wording is accurate for the Exion and
-> SkinXcell cases.
-
-## B5. What is still needed
-
-1. **The two ZIP files of before/after photography never reached the session.** Nothing matching
-   them was on disk or in the connected Drive. The page is built and working on the fourteen
-   images already in the repo; adding the client's set is a manifest edit plus dropping files into
-   `assets/img/ba/pairs/`. **Re-send them, or put them somewhere reachable.**
-2. **The final category list depends on those files.** The three categories above are derived from
-   what exists, not from the client's folders.
-3. **Pairs must be separate before and after files** to drive the reveal slider. Where the client's
-   set has them baked into one composite image, they can be split the same way the Exion and
-   SkinXcell images were — but the split axis has to be known per image, not guessed.
-4. **Clinical sign-off on the ten new captions** (B3), and **consent confirmation** (B4).
 
 
 # About Us

@@ -1157,9 +1157,9 @@ h1,h2,h3,h4,p{margin:0}
 
 .cmp{
   position:relative;
-  /* The homepage pairs are all 3:2, so that stays the default. The gallery page
-     carries pairs split out of stacked composites, which are nothing like 3:2 —
-     they set --ar so the slider crops none of the photograph. */
+  /* The homepage pairs are 3:2, so that stays the default; the gallery sets 4:3
+     for its whole library in section 34. An individual pair that matches neither
+     can override with --ar rather than being cropped to fit. */
   aspect-ratio:var(--ar,3/2);
   overflow:hidden;
   border-radius:8px;
@@ -4763,8 +4763,11 @@ a.mncond__i:hover::after{opacity:1;transform:none}
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:clamp(22px,2.8vw,44px);
 }
+/* The whole library is cropped to 1600x1200, so the ratio belongs here rather
+   than on sixty-three individual cases. A pair that is ever not 4:3 can still
+   override it with --ar on its own .cmp. */
+.gal__case .cmp{aspect-ratio:4/3}
 @media (max-width:640px){.gal__cases{grid-template-columns:1fr}}
-.gal__case--wide{grid-column:1/-1}
 .gal__case{margin:0}
 .gal__cap{padding-top:clamp(14px,1.6vw,20px)}
 .gal__cap h3{
