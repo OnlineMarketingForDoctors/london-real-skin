@@ -28,7 +28,7 @@ The clinic's own photography, resized to 2400px and re-encoded (35 MB → 2.0 MB
 | `hero-03-examination.jpg` | Dr Martin Wade examining a patient with loupes |
 | `hero-04-treatment.jpg` | Dr Wade treating a patient |
 | `hero-05-device.jpg` | Device-led treatment in a clinic room |
-| `hero-06-consultation.jpg` | Consultation with a hand mirror — **in the repo but not in use**, removed from the homepage hero at the client's request |
+| `hero-06-consultation.jpg` | Consultation with a hand mirror. Removed from the homepage hero at the client's request; now the supporting image in the shop page's "How to buy" section, where a consultation is what the copy is about. Resized 2400&rarr;1600px when it moved, since that slot is a fraction of a hero slide. |
 | `hero-07-skinpen.jpg` | SkinPen microneedling |
 
 A light cool grade (`saturate(.78) contrast(1.05) brightness(.94) hue-rotate(-6deg)`) pulls the
