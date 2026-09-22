@@ -58,6 +58,20 @@ skin properly before treating it, so the page is built around magnification.
 Treatment groups are lettered A–E rather than numbered, because they are categories, not a
 sequence. Conditions *are* numbered, because twelve items function as an index.
 
+## The masthead has nine primary links
+
+Adding "Results" took the primary nav to nine items, which no longer fits beside the CTA at
+common laptop widths. Two breakpoints moved as a result, and both are load-bearing:
+
+- `.masthead__phone` now hides below **1500px** rather than 1300. It is the widest optional thing
+  in the bar, and the number is already the first item in the drawer and in the footer, so it
+  steps out before the CTA label starts to clip.
+- `.nav` now collapses to the burger below **1300px** rather than 1180.
+
+The nav and outer gaps were tightened at the same time. Verified with no clipping at 1320, 1366,
+1400, 1440, 1500, 1600, 1700 and 1920px, and collapsed below that. Adding a tenth link will
+break this again — measure before adding one.
+
 ## Homepage sections
 
 Header (floating masthead) · Hero (6-slide Ken Burns slideshow, five selling
@@ -137,6 +151,49 @@ itself links to `conditions/<slug>.html`. Neither set of detail pages exists yet
 Cards stretch to the tallest in their row, so every row starts and ends on one line. The
 "what we use" block is pushed to the bottom of the card, so the chips and the read-more link
 align across a row even when the descriptions run to different lengths.
+
+## Before & after sections
+
+Page hero · the gallery (sticky vertical category rail + reveal-slider cases) · About these
+photographs · Closing CTA · Footer.
+
+The rail on the left is a real `role="tablist"` with `aria-orientation="vertical"`: Up/Down move
+between categories, Home/End jump to the ends, and a roving `tabindex` keeps the whole rail to a
+single Tab stop. It is a separate JS block from the homepage's horizontal `.ba__tab` strip rather
+than a shared one with an axis flag — the two have different keyboard contracts and sharing them
+bought less than it cost.
+
+Two things about the layout are easy to break:
+
+- **`.gal__grid` must not set `align-items:start`.** The rail sticks inside `.gal__side`, so that
+  column has to stretch to the row height or `position:sticky` has no track to travel along and
+  silently does nothing.
+- **Each case declares its own `--ar`.** `.cmp` defaults to 3/2 because that is what the homepage
+  pairs are, but the gallery carries pairs split out of stacked composites at 27/13 and 27/52.
+  Without `--ar` the slider would crop most of the photograph away.
+
+Cases whose pair is very wide (27/13) carry `.gal__case--wide` and run the full width instead of
+sitting in the two-up grid, where they would be a letterbox slot.
+
+### Where the photographs come from
+
+`assets/img/ba/pairs/` holds before/after halves split out of the composite images the landing
+page used — `exion-*.webp` and `rf-*.webp` were single files with the two states baked in, which a
+reveal slider cannot use. The orientation of each split came from the microneedling page's own
+`mnba__shot--v` classes, not from guessing at the aspect ratio. The four `ba-*.jpg` lesion pairs
+were already separate files and are used as they are.
+
+Those four were photographed separately rather than cropped from one frame, so the two halves do
+not line up into one continuous face the way the split pairs do. That is how they behave on the
+homepage too, and it is inherent to the source photographs rather than something the component
+is doing.
+
+### Adding cases
+
+`before-and-after.html` is plain static HTML like every other page, but it was generated from a
+manifest so that adding a category or a case is a data edit rather than markup surgery in three
+places. Keep that manifest with the page when adding to it: the tab list, the per-category counts
+and the panels all derive from it and will drift apart if hand-edited.
 
 ## Devices sections
 

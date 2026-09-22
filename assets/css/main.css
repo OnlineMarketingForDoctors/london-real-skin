@@ -326,7 +326,7 @@ h1,h2,h3,h4,p{margin:0}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:clamp(16px,3vw,44px);
+  gap:clamp(14px,2vw,30px);
   min-height:clamp(70px,7vw,92px);
 }
 .brand{display:flex;align-items:center;gap:.72rem;flex:none}
@@ -380,7 +380,7 @@ h1,h2,h3,h4,p{margin:0}
   margin-top:.34em;
 }
 
-.nav{display:flex;align-items:center;gap:clamp(12px,1.55vw,26px)}
+.nav{display:flex;align-items:center;gap:clamp(10px,1.15vw,19px)}
 .nav__a{
   font-size:.715rem;
   font-weight:700;
@@ -460,7 +460,9 @@ h1,h2,h3,h4,p{margin:0}
 }
 .drawer__sub::before{content:"\2014";margin-right:.6em;opacity:.5}
 .drawer__sub:hover{color:var(--focus)}
-@media (max-width:1180px){.nav{display:none}}
+/* Nine links need about 1300px before the CTA starts to clip; below that the
+   burger takes over, and the drawer carries the same nine in the same order. */
+@media (max-width:1300px){.nav{display:none}}
 
 .masthead__act{display:flex;align-items:center;gap:clamp(8px,1.1vw,16px);flex:none}
 .icon-btn{
@@ -495,7 +497,11 @@ h1,h2,h3,h4,p{margin:0}
   transition:color .35s var(--ease);
 }
 .masthead__phone:hover b{color:var(--focus)}
-@media (max-width:1300px){.masthead__phone{display:none}}
+/* The phone block is the widest optional thing in the bar. With nine primary
+   links it no longer fits alongside the CTA below ~1500px, and the number is
+   already the first thing in the drawer and the footer, so it steps out first
+   rather than letting the CTA label clip. */
+@media (max-width:1500px){.masthead__phone{display:none}}
 
 .masthead__cta{padding:1.05em 1.55em;font-size:.7rem}
 @media (max-width:620px){.masthead__cta{display:none}}
@@ -1151,7 +1157,10 @@ h1,h2,h3,h4,p{margin:0}
 
 .cmp{
   position:relative;
-  aspect-ratio:3/2;
+  /* The homepage pairs are all 3:2, so that stays the default. The gallery page
+     carries pairs split out of stacked composites, which are nothing like 3:2 —
+     they set --ar so the slider crops none of the photograph. */
+  aspect-ratio:var(--ar,3/2);
   overflow:hidden;
   border-radius:8px;
   background:var(--ink);
@@ -1160,6 +1169,10 @@ h1,h2,h3,h4,p{margin:0}
   touch-action:pan-y;
 }
 .cmp__side{position:absolute;inset:0;background-size:cover;background-position:center}
+/* Two ways to fill a side: a background-image (the homepage, written before the
+   gallery existed) or an <img>. The gallery uses the <img> form so each photo can
+   be lazy-loaded — a category panel can hold dozens of pairs. */
+.cmp__side img{width:100%;height:100%;object-fit:cover;display:block}
 .cmp__after{clip-path:inset(0 0 0 var(--pos,50%))}
 .cmp__tag{
   position:absolute;
@@ -4663,3 +4676,132 @@ a.mncond__i:hover::after{opacity:1;transform:none}
 /* The byline is a link now, so it needs to look like one in the meta row. */
 .art__meta a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .art__meta a:hover{color:var(--focus-deep)}
+
+/* =====================================================================
+   34. Before & after gallery page
+   ===================================================================== */
+/* scroll-margin so the "See the gallery" jump does not tuck the rail under the bar */
+.gal{background:var(--paper-pure);scroll-margin-top:calc(var(--mast-h,88px) + 24px)}
+.gal__grid{
+  display:grid;
+  grid-template-columns:clamp(210px,19vw,272px) minmax(0,1fr);
+  gap:clamp(28px,4vw,72px);
+  /* No align-items:start here, deliberately. The rail sticks inside .gal__side,
+     so .gal__side has to stretch to the row height or there is no track for it
+     to travel along and position:sticky silently does nothing. */
+}
+@media (max-width:900px){.gal__grid{grid-template-columns:1fr}}
+
+/* ---------- the vertical rail ---------- */
+.gal__side-in{
+  position:sticky;
+  top:calc(var(--mast-h,88px) + 26px);
+}
+@media (max-width:900px){.gal__side-in{position:static}}
+.gal__nav{
+  display:flex;
+  flex-direction:column;
+  margin-top:clamp(16px,1.8vw,22px);
+  border-top:1px solid var(--line-soft);
+}
+.gal__tab{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:baseline;
+  gap:.9em;
+  width:100%;
+  text-align:left;
+  padding:clamp(14px,1.5vw,18px) 0;
+  border-bottom:1px solid var(--line-soft);
+  color:var(--muted);
+  position:relative;
+  transition:color .35s var(--ease);
+}
+/* The active marker is a rule that grows out of the left edge rather than a
+   filled block: the rail has to sit quietly next to fourteen photographs. */
+.gal__tab::before{
+  content:"";
+  position:absolute;
+  left:-16px;
+  top:50%;
+  width:0;height:1px;
+  background:var(--focus);
+  transform:translateY(-50%);
+  transition:width .45s var(--ease-out);
+}
+.gal__tab:hover{color:var(--ink)}
+.gal__tab.is-on{color:var(--ink-deep)}
+.gal__tab.is-on::before{width:10px}
+.gal__tab-n{
+  font-family:var(--disp);
+  font-size:clamp(1rem,1.25vw,1.18rem);
+  line-height:1.2;
+  text-wrap:balance;
+}
+.gal__tab-c{
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.12em;
+  color:var(--muted);
+}
+.gal__tab.is-on .gal__tab-c{color:var(--focus-deep)}
+.gal__side-note{
+  margin-top:clamp(18px,2vw,24px);
+  font-size:.8rem;
+  color:var(--muted);
+  line-height:1.6;
+  max-width:26ch;
+}
+.gal__side-cta{margin-top:clamp(16px,1.8vw,22px)}
+@media (max-width:900px){.gal__side-cta{display:none}}
+
+/* ---------- the panels ---------- */
+.gal__phead{margin-bottom:clamp(24px,3vw,40px);max-width:62ch}
+.gal__phead .u-h2{margin-bottom:clamp(12px,1.4vw,18px)}
+.gal__cases{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(22px,2.8vw,44px);
+}
+@media (max-width:640px){.gal__cases{grid-template-columns:1fr}}
+.gal__case--wide{grid-column:1/-1}
+.gal__case{margin:0}
+.gal__cap{padding-top:clamp(14px,1.6vw,20px)}
+.gal__cap h3{
+  font-family:var(--disp);
+  font-size:clamp(1.04rem,1.35vw,1.24rem);
+  line-height:1.2;
+  color:var(--ink-deep);
+  margin-bottom:.5em;
+}
+.gal__cap p{font-size:.85rem;color:var(--muted);line-height:1.6;text-wrap:pretty}
+.gal__meta{
+  margin-top:.7em;
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--focus-deep);
+}
+
+/* ---------- the consent and variability note ---------- */
+.gdisc{background:var(--paper)}
+.gdisc__in{border-top:1px solid var(--line);padding-top:clamp(22px,2.6vw,32px)}
+.gdisc__cols{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(20px,3vw,54px);
+  margin-top:clamp(16px,1.8vw,22px);
+}
+@media (max-width:760px){.gdisc__cols{grid-template-columns:1fr}}
+.gdisc__cols p{color:var(--muted);line-height:1.7;text-wrap:pretty}
+.gdisc__note{
+  margin-top:clamp(20px,2.4vw,30px);
+  padding-top:clamp(16px,1.8vw,22px);
+  border-top:1px solid var(--line-soft);
+  font-size:.83rem;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:90ch;
+}
+.gdisc__note a{color:var(--focus-deep);text-decoration:underline;text-underline-offset:3px}

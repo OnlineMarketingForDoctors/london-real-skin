@@ -26,6 +26,9 @@
       if (top < vh * 0.92) { revealBy(el); revealables.splice(i, 1); }
     }
   }
+  /* Exposed so a section that was display:none at load — a closed gallery
+     category, say — can be swept again the moment it is shown. */
+  window.__lrsReveal = sweepReveals;
   if ('IntersectionObserver' in window && !reduced) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { revealBy(e.target); io.unobserve(e.target); } });
@@ -222,6 +225,50 @@
       if (e.key === 'ArrowLeft')  { tabs[(i - 1 + tabs.length) % tabs.length].focus(); tabs[(i - 1 + tabs.length) % tabs.length].click(); }
     });
   });
+
+  /* ---------- Before & after gallery: vertical category rail ----------
+     A separate block from the homepage .ba__tab strip above: that one is a
+     horizontal row and moves focus with Left/Right, this one is a column and
+     wants Up/Down. Sharing the code would have meant a flag for the axis and
+     two callers with different keyboard contracts, which is more tangle than
+     the twenty lines it would save.                                       */
+  (function () {
+    var gtabs = $$('.gal__tab');
+    if (!gtabs.length) return;
+
+    function show(tab, focus) {
+      gtabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-on', on);
+        t.setAttribute('aria-selected', String(on));
+        /* Roving tabindex: only the selected tab is in the tab order, so Tab
+           steps past the whole rail rather than through every category. */
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+      /* A panel that was hidden at load measures as a zero rect, so the load
+         sweep has already marked its contents revealed and they appear at
+         once. Sweeping again costs nothing and keeps that true if the reveal
+         pass ever learns to skip display:none. */
+      if (window.__lrsReveal) window.__lrsReveal();
+    }
+
+    gtabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { show(tab, false); });
+      tab.addEventListener('keydown', function (e) {
+        var i = gtabs.indexOf(tab), n = gtabs.length, j = -1;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') j = (i + 1) % n;
+        if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  j = (i - 1 + n) % n;
+        if (e.key === 'Home') j = 0;
+        if (e.key === 'End')  j = n - 1;
+        if (j < 0) return;
+        e.preventDefault();
+        show(gtabs[j], true);
+      });
+    });
+  })();
 
   /* ---------- Before & after: draggable comparison ----------
      Wired up now so that dropping real consented photos into a

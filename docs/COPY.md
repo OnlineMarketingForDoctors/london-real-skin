@@ -545,6 +545,85 @@ info@londonrealskin.com
 
 ---
 
+# Before & after
+
+`before-and-after.html`. The case list, the category names and the per-category counts all come
+from `docs/before-and-after-manifest.py`, which generated the page. Edit that, re-run it, and
+paste the result back between the Gallery and Disclaimer comments — do not hand-edit the markup,
+or the tab counts will drift away from the panels.
+
+## B1. Page hero
+
+**Eyebrow:** Before & after
+**H1:** Results, shown *as photographed*
+**Standfirst:** Real patients of the clinic, grouped by the kind of work rather than by machine.
+Nothing is retouched, and every case names the device and the number of sessions it took.
+
+## B2. Categories
+
+The client asked for grouping "more efficiently" than one tab per source folder — one tab for all
+laser work, one for fillers, and so on. Three categories cover everything currently in the repo:
+
+| # | Category | Cases | What is in it |
+|---|---|---|---|
+| 01 | Skin lesions, tags & blemishes | 4 | Sterex ACP electrolysis and diathermy |
+| 02 | Acne scarring & skin texture | 7 | Microneedling and fractional RF |
+| 03 | Lines, laxity & skin quality | 3 | RF microneedling and fractional RF |
+
+> These three are what the fourteen photographs **currently in the repo** support. They are not
+> the final taxonomy: the client's two ZIP files of before/after photography did not reach the
+> session, so the categories they described (laser, dermal fillers, and so on) cannot be built
+> until those arrive. See "What is still needed" below.
+
+## B3. Case captions
+
+Each case carries a heading, one sentence of description and a mono meta line naming the device
+and whether it was a single session or a course. The four lesion captions are the ones already
+signed off on the homepage, verbatim. **The ten texture and laxity captions are new and need
+clinical sign-off** — they were written from the alt text on the microneedling page, which is all
+the source material there was, and none of them claims a specific number of sessions for that
+reason.
+
+## B4. About these photographs
+
+**Eyebrow:** About these photographs
+
+Every photograph here is of a real patient treated at London Real Skin or by our practitioners,
+published with written consent, and shown without retouching, smoothing or relighting. Where a
+pair was taken under different lighting we say so rather than correcting it.
+
+Results vary between people. Skin type, age, the concern being treated, how many sessions are
+completed and what happens at home afterwards all change the outcome, and none of these cases is
+a prediction of yours. What a course can realistically do for your skin is a conversation for the
+consultation, which is free.
+
+**Attribution note:** Several cases in *Acne scarring & skin texture* and *Lines, laxity & skin
+quality* were treated with radiofrequency microneedling or fractional radiofrequency rather than
+standard microneedling. They are related but separate treatments, and each caption names the
+device used. This carries over the honest-attribution rule already applied to the microneedling
+page — nine of the ten composite cases are RF, not plain microneedling.
+
+> **Consent is asserted, not verified.** The copy above states that every photograph is published
+> with written consent. That was true of the four lesion pairs as used on the homepage; the ten
+> images inherited from the landing page have not been checked against a consent register in this
+> repo. **Confirm written consent exists for all fourteen before launch**, and confirm the
+> "treated at London Real Skin or by our practitioners" wording is accurate for the Exion and
+> SkinXcell cases.
+
+## B5. What is still needed
+
+1. **The two ZIP files of before/after photography never reached the session.** Nothing matching
+   them was on disk or in the connected Drive. The page is built and working on the fourteen
+   images already in the repo; adding the client's set is a manifest edit plus dropping files into
+   `assets/img/ba/pairs/`. **Re-send them, or put them somewhere reachable.**
+2. **The final category list depends on those files.** The three categories above are derived from
+   what exists, not from the client's folders.
+3. **Pairs must be separate before and after files** to drive the reveal slider. Where the client's
+   set has them baked into one composite image, they can be split the same way the Exion and
+   SkinXcell images were — but the split axis has to be known per image, not guessed.
+4. **Clinical sign-off on the ten new captions** (B3), and **consent confirmation** (B4).
+
+
 # About Us
 
 Source: the client's existing **About Us** page, supplied as HTML. The story, the four-step
