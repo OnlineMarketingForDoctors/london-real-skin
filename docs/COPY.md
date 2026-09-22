@@ -231,6 +231,11 @@ quality you deserve.
 
 ## 4. Before & after
 
+> This section is a **sample** of the full gallery at `/before-and-after.html`, and says so: the
+> standfirst links to it inline, and the section's primary button is "See the full before & after
+> gallery", with the consultation CTA demoted to the secondary style beside it. The gallery is the
+> destination; this is the trailer.
+
 **Eyebrow:** Before & after
 **Heading:** Small changes, quietly transformative
 **Sub:** Real outcomes from real patients, shown exactly as they were taken.
@@ -694,6 +699,20 @@ repository re-creating.
 6. **The library's `_Review` folder was not supplied** — 69 unpaired or flagged files, per its
    README, including three `.HEIC` files and some manufacturer marketing images. Nothing from it is
    published. Send it if any of it should be.
+
+## B5b. Where the gallery is linked from
+
+Beyond the primary nav, the drawer and the footer:
+
+- **Homepage, before & after section** — the standfirst links to the gallery inline, and the
+  section's main button leads there rather than to the contact page. That section shows four skin
+  tag cases; the gallery has fifty-five across ten categories, so the section is a sample of it.
+- **Journal articles, sidebar** — a card carrying a before/after image, sitting above the
+  consultation card. The image is `assets/img/ba/gallery-promo.webp`, built from the published
+  `alma-laser-2` pair (facial pigmentation), chosen because the change is legible at thumbnail
+  size. It is a plain two-up rather than a split composite: the two frames of that pair are not
+  aligned closely enough for a split to read as one face. **Rebuild it if that case is ever
+  unpublished or its order corrected** — nothing links the two automatically.
 
 ## B6. About these photographs
 

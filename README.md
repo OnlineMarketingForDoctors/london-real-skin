@@ -225,6 +225,18 @@ have to come back with it — both were deleted when the rule was applied, and a
 the commit that added it. The build prints which angles it dropped on every run, so nothing is lost
 silently.
 
+### How people reach it
+
+The nav, drawer and footer all carry it. Two other entry points are deliberate:
+
+- The **homepage before & after section** is a sample of the gallery, not a rival to it — four skin
+  tag cases against the gallery's fifty-five. Its standfirst links through inline and its primary
+  button is the gallery, with the consultation CTA beside it in the secondary style.
+- **Journal articles** carry a sidebar card with a before/after image above the consultation card.
+  The image is `assets/img/ba/gallery-promo.webp`, built by hand from the published `alma-laser-2`
+  pair. Nothing regenerates it, so if that case is ever unpublished or its order corrected the
+  banner needs rebuilding too — `docs/COPY.md` (B5b) says how it was made.
+
 ### Where the photographs come from
 
 The client supplied a prepared library: 63 matched before/after pairs covering 28 procedures and
