@@ -157,11 +157,41 @@ align across a row even when the descriptions run to different lengths.
 Page hero · the gallery (sticky vertical category rail + reveal-slider cases) · About these
 photographs · Closing CTA · Footer.
 
-The rail on the left is a real `role="tablist"` with `aria-orientation="vertical"`: Up/Down move
-between categories, Home/End jump to the ends, and a roving `tabindex` keeps the whole rail to a
-single Tab stop. It is a separate JS block from the homepage's horizontal `.ba__tab` strip rather
-than a shared one with an axis flag — the two have different keyboard contracts and sharing them
-bought less than it cost.
+### Two shapes, one set of panels
+
+Above 900px the categories are a vertical `role="tablist"` beside the gallery: Up/Down move between
+them, Home/End jump to the ends, and a roving `tabindex` keeps the rail to a single Tab stop.
+
+Below 900px the same panels become an **accordion**. The rail is a screenful on a phone, so
+switching a panel that sits below the fold read as nothing happening at all. Each panel is moved in
+the DOM to sit directly under its own heading, tapping a heading scrolls it clear of the masthead,
+and tapping it again collapses the row.
+
+The panels are **moved, not duplicated**, and the ARIA moves with them — `role="tab"` and
+`aria-selected` on a wide screen, `aria-expanded` and `role="region"` on a narrow one, because a
+tablist is not an accordion and should not claim to be one. `main.js` drives the mode from the same
+900px breakpoint the CSS uses and sets `.gal--acc` on the section, so the stylesheet and the script
+can never disagree about which structure is currently in the DOM.
+
+Two consequences worth knowing:
+
+- A tablist always has exactly one panel open; the accordion is allowed to have none. Returning to
+  the wide layout with everything collapsed would leave an empty column, so the mode switch
+  re-opens the last category.
+- Resizing across the breakpoint restores all ten panels to `.gal__main` **in their original
+  order**. That is asserted in the mode tests rather than assumed.
+
+It is a separate JS block from the homepage's horizontal `.ba__tab` strip rather than a shared one
+with an axis flag — that one is a row that moves focus with Left/Right, and sharing would have
+meant a flag for the axis plus a flag for the mode.
+
+### A patient photographed from several angles is one case
+
+Six of the 55 cases carry more than one angle — a jawline shot front and profile, expression lines
+shot at brow raise, frown and smile. They are shots inside a single case with a named switcher
+under the slider, not the same face repeated three times down the grid. The buttons are named
+rather than dots: "front / profile" tells you what you are about to see and a dot does not. The
+generator refuses to merge angles whose captions disagree, since a merged case shows one caption.
 
 Two things about the layout are easy to break:
 
@@ -177,7 +207,8 @@ Two things about the layout are easy to break:
 The client supplied a prepared library: 63 matched before/after pairs covering 28 procedures and
 55 patients, every image cropped to 1600×1200 with the before and after framed to match, plus a
 caption per case and an `index.csv` tracing each pair back to its original file. The gallery is
-built from that CSV, not from hand-written markup.
+built from that CSV, not from hand-written markup. The 63 pairs become **55 cases**, because a
+patient shot from several angles is one case.
 
 `assets/img/ba/lib/` holds the published pairs: 1200px WebP, about 7.7MB for all 126 files. Only
 the open category's images load, because the other panels are `hidden`.
@@ -203,7 +234,8 @@ are the kind of thing that survives review and then ships:
 
 Drop the new photography into the library in the same `<Procedure>/<Patient>/{before,after}.jpg`
 shape, add its row to `index.csv`, map the procedure in `CATEGORIES`, give it a heading in
-`HEADINGS`, and re-run:
+`HEADINGS`, and re-run. Extra angles for a patient already present need only their `index.csv`
+rows and, if the angle is new, an entry in `ANGLE_ORDER` and `ANGLE_LABEL`:
 
     python3 docs/before-and-after-manifest.py --images /path/to/library
 

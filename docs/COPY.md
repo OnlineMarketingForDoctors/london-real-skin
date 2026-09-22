@@ -569,27 +569,46 @@ ten categories by the kind of work, so laser sits with the concern it treats rat
 | # | Category | Cases | Source folders |
 |---|---|---|---|
 | 01 | Skin lesions, tags & blemishes | 3 | ACP Electrolysis |
-| 02 | Pigmentation & sun damage | 7 | AFT Laser Age Spots · Alma Laser Pigmentation · Laser Pigmentation |
-| 03 | Rosacea, redness & thread veins | 6 | Alma Thread Veins · Dye-VL · Rosacea & Facial Flushing |
-| 04 | Acne & acne scarring | 9 | Kleresca · Microneedling · Acne Scarring · Filler for acne scarring |
+| 02 | Pigmentation & sun damage | 6 | AFT Laser Age Spots · Alma Laser Pigmentation · Laser Pigmentation |
+| 03 | Rosacea, redness & thread veins | 5 | Alma Thread Veins · Dye-VL · Rosacea & Facial Flushing |
+| 04 | Acne & acne scarring | 8 | Kleresca · Microneedling · Acne Scarring · Filler for acne scarring |
 | 05 | Skin texture, pores & resurfacing | 6 | iPixel · Pore Refinement · Skin Peels · PRP |
-| 06 | Dermal fillers & facial contouring | 10 | the six filler folders · Non-Surgical Rhinoplasty |
-| 07 | Anti-wrinkle injections | 9 | folder 19 · Jaw Reduction |
+| 06 | Dermal fillers & facial contouring | 9 | the six filler folders · Non-Surgical Rhinoplasty |
+| 07 | Anti-wrinkle injections | 5 | folder 19 · Jaw Reduction |
 | 08 | Eye rejuvenation | 4 | Eye Rejuvenation · Nano Plasma · the two iPixel under-eye cases |
 | 09 | Body, stretch marks & laxity | 3 | Biodermogenesi |
 | 10 | Hair & tattoo removal | 6 | Laser Hair Removal · Tattoo Removal |
 
-**63 cases in total.** Two placements are deliberate and worth knowing:
+**55 cases, from the library's 63 pairs.** Two placements are deliberate and worth knowing:
 
 - The two **iPixel under-eye** cases are moved out of *Skin texture* into *Eye rejuvenation*,
   where they read better beside the other eye work.
 - **Jaw Reduction** is filed under *Anti-wrinkle injections*, not fillers — see B5.
 
+### Patients photographed from more than one angle
+
+Six patients were shot from several angles. Each is **one case with a named angle switcher under
+the slider**, not the same person repeated down the grid. The angles are ordered so a face reads
+front-first rather than in the order `index.csv` happens to list them.
+
+| Case | Angles |
+|---|---|
+| Age spots on the hands | palms down · closed |
+| Inflamed papules and flushing | three-quarter · close-up |
+| Extensive scarring across cheek and jaw | three-quarter · close-up |
+| Jawline definition | front · profile |
+| Forehead, frown and eye lines | front · three-quarter · crow's feet |
+| Treated lines seen in movement | brow raise · frowning · smiling |
+
+All six share one caption across their angles, which is how the library supplied them. The build
+stops rather than guessing if a future patient's angles ever disagree on the caption.
+
 ## B3. Captions and headings
 
 The captions are the client's own, from each case's `caption.txt`, used verbatim with one
 exception (B5). The headings are ours: the library has no heading field, and deriving one
-produced "Face" nine times over, so they are written out per case in the script.
+produced "Face" nine times over, so they are written out per case in the script. Headings no
+longer carry an angle suffix — the angle is on the switcher button instead.
 
 The mono meta line under each caption names the device or technique — "Dye-VL laser",
 "Dermal filler · cheek", "Anti-wrinkle injections".
@@ -621,11 +640,15 @@ repository re-creating.
 1. **Twelve pairs are flagged "best guess" by the library's own index** — neither file was labelled,
    so before/after order was inferred from the photographs. They are published in the inferred
    order. Please confirm each:
-   `laser-pigmentation-treatment-2` · `dye-vl-laser-2` · `acne-scar-treatment-close` ·
-   `acne-scar-treatment-three-quarter` · `ipixel-fractional-laser-4` ·
-   `medical-grade-skin-peel` · `medical-grade-skin-peel-2` ·
-   `anti-wrinkle-injections-brow-raise` · `anti-wrinkle-injections-frown` ·
-   `anti-wrinkle-injections-smile` · `nano-plasma` · `laser-tattoo-removal-5`
+   `laser-pigmentation-treatment-2` · `dye-vl-laser-2` ·
+   `acne-scar-treatment-three-quarter` · `acne-scar-treatment-close` ·
+   `ipixel-fractional-laser-4` · `medical-grade-skin-peel` · `medical-grade-skin-peel-2` ·
+   `anti-wrinkle-injections-3-brow-raise` · `anti-wrinkle-injections-3-frown` ·
+   `anti-wrinkle-injections-3-smile` · `nano-plasma` · `laser-tattoo-removal-5`
+
+   Note that all three angles of *Treated lines seen in movement* and both angles of
+   *Extensive scarring across cheek and jaw* are flagged, so those two cases are entirely
+   best-guess. The build prints this list on every run.
 
 2. **"Dermal Filler — Jaw Reduction" does not match its own caption.** The caption reads "a softer,
    narrower lower face achieved by relaxing the masseter muscles", which describes a muscle-relaxing

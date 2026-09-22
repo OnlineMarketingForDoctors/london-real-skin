@@ -216,14 +216,18 @@ def slugify(s):
     return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', s.lower())).strip('-')
 
 
-def heading(proc, patient, angle):
+# Angles are shown in this order inside a case, not in the order index.csv
+# happens to list them: a face reads front-first, and the hands case reads flat
+# before closed. An angle missing from here sorts last.
+ANGLE_ORDER = ['front', 'three-quarter', 'profile', 'close', 'crows-feet',
+               'hands-flat', 'hands-closed', 'brow-raise', 'frown', 'smile']
+
+
+def heading(proc, patient):
     try:
-        base = HEADINGS[(proc, patient)]
+        return HEADINGS[(proc, patient)]
     except KeyError:
-        sys.exit('No heading for %r / %r — add one to HEADINGS.' % (proc, patient))
-    if angle and angle != 'main':
-        return '%s (%s)' % (base, ANGLE_LABEL.get(angle, angle))
-    return base
+        sys.exit('No heading for %r / %r \u2014 add one to HEADINGS.' % (proc, patient))
 
 
 def build(images_root, repo_root):
@@ -242,43 +246,65 @@ def build(images_root, repo_root):
     if unknown:
         sys.exit('Unmapped procedures, refusing to drop them silently:\n  ' + '\n  '.join(unknown))
 
+    # One case per patient, not per photograph. Where a patient was shot from
+    # several angles those become shots inside a single case with a switcher,
+    # rather than the same person appearing three times down the grid.
+    groups = []
+    seen_group = {}
+    for r in rows:
+        key = (r['Procedure'], r['Patient'])
+        if key not in seen_group:
+            seen_group[key] = len(groups)
+            groups.append((key, []))
+        groups[seen_group[key]][1].append(r)
+
     out_dir = os.path.join(repo_root, 'assets/img/ba/lib')
     os.makedirs(out_dir, exist_ok=True)
 
     buckets = {cid: [] for cid, *_ in CATEGORIES}
     seen, total_bytes = set(), 0
-    for r in rows:
-        proc, patient, angle = r['Procedure'], r['Patient'], r['Angle']
+    for (proc, patient), shots in groups:
         cid = 'eyes' if patient in MOVE_TO_EYES else proc_to_cat[proc]
 
         # Slug from the published label, never the folder name: the folder for the
         # anti-wrinkle cases is "19 Botox", and a POM brand must not appear in a
         # filename any more than in the copy.
         stem = slugify(PROC_LABEL[proc].replace('&middot;', ' ').replace('&amp;', 'and'))
-        if angle and angle != 'main':
-            stem += '-' + slugify(angle)
-        n = 2
-        base = stem
+        n, base = 2, stem
         while stem in seen:                      # never include the patient name
             stem = '%s-%d' % (base, n); n += 1
         seen.add(stem)
 
-        for half, col in (('before', 'Before file'), ('after', 'After file')):
-            src = os.path.join(images_root, r[col])
-            dst = os.path.join(out_dir, '%s-%s.webp' % (stem, half))
-            im = Image.open(src)
-            if im.width > 1200:                  # 1600px is more than the slot ever needs
-                im = im.resize((1200, round(im.height * 1200 / im.width)), Image.LANCZOS)
-            im.save(dst, 'WEBP', quality=82, method=6)
-            total_bytes += os.path.getsize(dst)
+        shots.sort(key=lambda r: (ANGLE_ORDER.index(r['Angle'])
+                                  if r['Angle'] in ANGLE_ORDER else len(ANGLE_ORDER)))
 
-        cap = CAPTION_OVERRIDES.get((proc, patient, angle), r['Caption'])
+        out_shots = []
+        for r in shots:
+            angle = r['Angle']
+            suffix = '' if (angle == 'main' and len(shots) == 1) else '-' + slugify(angle)
+            for half, col in (('before', 'Before file'), ('after', 'After file')):
+                src = os.path.join(images_root, r[col])
+                dst = os.path.join(out_dir, '%s%s-%s.webp' % (stem, suffix, half))
+                im = Image.open(src)
+                if im.width > 1200:              # 1600px is more than the slot ever needs
+                    im = im.resize((1200, round(im.height * 1200 / im.width)), Image.LANCZOS)
+                im.save(dst, 'WEBP', quality=82, method=6)
+                total_bytes += os.path.getsize(dst)
+            out_shots.append(dict(file='%s%s' % (stem, suffix),
+                                  label=ANGLE_LABEL.get(angle, angle),
+                                  flagged=bool(r['Flagged as best guess'].strip())))
+
+        caps = {CAPTION_OVERRIDES.get((proc, patient, r['Angle']), r['Caption']) for r in shots}
+        if len(caps) > 1:
+            sys.exit('Angles of %r / %r disagree on the caption; they cannot share one '
+                     'case.\n  ' % (proc, patient) + '\n  '.join(sorted(caps)))
+
         buckets[cid].append(dict(
             stem=stem,
-            h3=esc(heading(proc, patient, angle)),
-            p=esc(cap),
+            h3=esc(heading(proc, patient)),
+            p=esc(caps.pop()),
             meta=PROC_LABEL[proc],
-            flagged=bool(r['Flagged as best guess'].strip()),
+            shots=out_shots,
         ))
     return buckets, total_bytes
 
@@ -286,23 +312,42 @@ def build(images_root, repo_root):
 ARROW = '<svg viewBox="0 0 24 24"><path d="M8 9h11l-3-3M16 15H5l3 3"/></svg>'
 
 
+def shot_html(sh, first):
+    alt = sh['alt']
+    return ('          <div class="cmp" style="--pos:50%%" data-shot%s>\n'
+            '            <div class="cmp__side cmp__before"><img loading="lazy" width="1200" height="900" src="assets/img/ba/lib/%s-before.webp" alt="%s, before treatment at London Real Skin"></div>\n'
+            '            <div class="cmp__side cmp__after"><img loading="lazy" width="1200" height="900" src="assets/img/ba/lib/%s-after.webp" alt="%s, after treatment at London Real Skin"></div>\n'
+            '            <span class="cmp__tag cmp__tag--b">Before</span>\n'
+            '            <span class="cmp__tag cmp__tag--a">After</span>\n'
+            '            <div class="cmp__handle"><span class="cmp__knob">%s</span></div>\n'
+            '          </div>') % ('' if first else ' hidden', sh['file'], alt, sh['file'], alt, ARROW)
+
+
 def case_html(c, i):
-    alt = re.sub('<[^>]+>', '', c['h3'])
-    return '''        <figure class="gal__case r" style="--d:%dms">
-          <div class="cmp" style="--pos:50%%">
-            <div class="cmp__side cmp__before"><img loading="lazy" width="1200" height="900" src="assets/img/ba/lib/%s-before.webp" alt="%s, before treatment at London Real Skin"></div>
-            <div class="cmp__side cmp__after"><img loading="lazy" width="1200" height="900" src="assets/img/ba/lib/%s-after.webp" alt="%s, after treatment at London Real Skin"></div>
-            <span class="cmp__tag cmp__tag--b">Before</span>
-            <span class="cmp__tag cmp__tag--a">After</span>
-            <div class="cmp__handle"><span class="cmp__knob">%s</span></div>
-          </div>
-          <figcaption class="gal__cap">
-            <h3>%s</h3>
-            <p>%s</p>
-            <p class="gal__meta">%s</p>
-          </figcaption>
-        </figure>''' % (min(i, 3) * 70, c['stem'], alt, c['stem'], alt, ARROW,
-                        c['h3'], c['p'], c['meta'])
+    plain = re.sub('<[^>]+>', '', c['h3'])
+    for sh in c['shots']:
+        sh['alt'] = plain if len(c['shots']) == 1 else '%s, %s' % (plain, sh['label'])
+
+    shots = '\n'.join(shot_html(sh, n == 0) for n, sh in enumerate(c['shots']))
+
+    angles = ''
+    if len(c['shots']) > 1:
+        btns = '\n'.join(
+            '            <button class="gal__angle%s" type="button" aria-pressed="%s" '
+            'data-angle="%d">%s</button>' % (' is-on' if n == 0 else '', str(n == 0).lower(),
+                                             n, sh['label'])
+            for n, sh in enumerate(c['shots']))
+        angles = ('\n          <div class="gal__angles" role="group" aria-label="%s, angles">\n'
+                  '%s\n          </div>') % (plain, btns)
+
+    return ('        <figure class="gal__case r" style="--d:%dms">\n'
+            '          <div class="gal__shots" data-shots>\n%s\n          </div>%s\n'
+            '          <figcaption class="gal__cap">\n'
+            '            <h3>%s</h3>\n'
+            '            <p>%s</p>\n'
+            '            <p class="gal__meta">%s</p>\n'
+            '          </figcaption>\n'
+            '        </figure>') % (min(i, 3) * 70, shots, angles, c['h3'], c['p'], c['meta'])
 
 
 def render(buckets):
@@ -366,10 +411,17 @@ if __name__ == '__main__':
     open(page, 'w', encoding='utf-8').write(s[:i] + body + '\n' + s[j:])
 
     total = sum(len(v) for v in buckets.values())
-    flagged = [c for v in buckets.values() for c in v if c['flagged']]
-    print('%d cases across %d categories, %d KB of images' % (total, len(CATEGORIES), nbytes // 1024))
+    flagged = [(c, sh) for v in buckets.values() for c in v
+               for sh in c['shots'] if sh['flagged']]
+    shots = sum(len(c['shots']) for v in buckets.values() for c in v)
+    multi = [c for v in buckets.values() for c in v if len(c['shots']) > 1]
+    print('%d cases (%d pairs) across %d categories, %d KB of images'
+          % (total, shots, len(CATEGORIES), nbytes // 1024))
+    print('%d cases carry more than one angle:' % len(multi))
+    for c in multi:
+        print('    %-34s %s' % (c['stem'], ' / '.join(sh['label'] for sh in c['shots'])))
     for cid, name, *_ in CATEGORIES:
         print('  %-14s %2d  %s' % (cid, len(buckets[cid]), name.replace('&amp;', '&')))
     print('%d pairs flagged best-guess by the library, needing client confirmation:' % len(flagged))
-    for c in flagged:
-        print('   ', c['stem'])
+    for c, sh in flagged:
+        print('    %s  (%s)' % (sh['file'], sh['label']))

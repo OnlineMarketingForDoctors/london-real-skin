@@ -226,49 +226,140 @@
     });
   });
 
-  /* ---------- Before & after gallery: vertical category rail ----------
-     A separate block from the homepage .ba__tab strip above: that one is a
-     horizontal row and moves focus with Left/Right, this one is a column and
-     wants Up/Down. Sharing the code would have meant a flag for the axis and
-     two callers with different keyboard contracts, which is more tangle than
-     the twenty lines it would save.                                       */
-  (function () {
-    var gtabs = $$('.gal__tab');
-    if (!gtabs.length) return;
+  /* ---------- Before & after gallery: categories ----------
+     Two shapes for one set of panels. Wide: a vertical tablist beside the
+     gallery. Narrow: an accordion, because the rail is a screenful on a phone
+     and switching a panel that sits below the fold reads as nothing happening.
 
-    function show(tab, focus) {
-      gtabs.forEach(function (t) {
-        var on = t === tab;
-        t.classList.toggle('is-on', on);
-        t.setAttribute('aria-selected', String(on));
-        /* Roving tabindex: only the selected tab is in the tab order, so Tab
-           steps past the whole rail rather than through every category. */
-        t.tabIndex = on ? 0 : -1;
-        var panel = document.getElementById(t.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !on;
+     The panels move in the DOM rather than being duplicated, and the ARIA moves
+     with them — a tablist is not an accordion and should not claim to be one.
+     A separate block from the homepage's horizontal .ba__tab strip: that one is
+     a row and moves focus with Left/Right, and sharing the code would have
+     meant a flag for the axis plus a flag for the mode.                    */
+  (function () {
+    var gal = $('.gal');
+    var gtabs = $$('.gal__tab');
+    if (!gal || !gtabs.length) return;
+
+    var nav = $('.gal__nav'), main = $('.gal__main');
+    var panels = gtabs.map(function (t) {
+      return document.getElementById(t.getAttribute('aria-controls'));
+    });
+    var mq = window.matchMedia('(max-width:900px)');
+    var acc = null;
+
+    function openIndex() {
+      for (var i = 0; i < gtabs.length; i++) if (!panels[i].hidden) return i;
+      return -1;
+    }
+
+    function setMode(next) {
+      if (acc === next) return;
+      var open = openIndex();
+      acc = next;
+      gal.classList.toggle('gal--acc', next);
+
+      if (next) {
+        nav.removeAttribute('role');
+        nav.removeAttribute('aria-orientation');
+      } else {
+        nav.setAttribute('role', 'tablist');
+        nav.setAttribute('aria-orientation', 'vertical');
+      }
+
+      gtabs.forEach(function (t, i) {
+        if (next) {
+          t.removeAttribute('role');
+          t.removeAttribute('aria-selected');
+          t.setAttribute('aria-expanded', String(!panels[i].hidden));
+          t.tabIndex = 0;
+          panels[i].setAttribute('role', 'region');
+          t.insertAdjacentElement('afterend', panels[i]);
+        } else {
+          t.setAttribute('role', 'tab');
+          t.removeAttribute('aria-expanded');
+          t.setAttribute('aria-selected', String(!panels[i].hidden));
+          t.tabIndex = panels[i].hidden ? -1 : 0;
+          panels[i].removeAttribute('role');
+          main.appendChild(panels[i]);
+        }
       });
-      if (focus) tab.focus();
-      /* A panel that was hidden at load measures as a zero rect, so the load
-         sweep has already marked its contents revealed and they appear at
-         once. Sweeping again costs nothing and keeps that true if the reveal
-         pass ever learns to skip display:none. */
+
+      /* A tablist always has exactly one panel showing; the accordion is allowed
+         to have none. Coming back to the wide layout with everything collapsed
+         would leave an empty column, so re-open the last one. */
+      if (!next && openIndex() === -1) select(open < 0 ? 0 : open, false);
+    }
+
+    function select(i, focus) {
+      gtabs.forEach(function (t, n) {
+        var on = n === i;
+        t.classList.toggle('is-on', on);
+        panels[n].hidden = !on;
+        if (acc) {
+          t.setAttribute('aria-expanded', String(on));
+        } else {
+          t.setAttribute('aria-selected', String(on));
+          /* Roving tabindex: only the open tab is in the tab order, so Tab steps
+             past the rail rather than through every category. The accordion
+             keeps every header reachable, which is what a reader expects there. */
+          t.tabIndex = on ? 0 : -1;
+        }
+      });
+      if (focus) gtabs[i].focus();
       if (window.__lrsReveal) window.__lrsReveal();
     }
 
-    gtabs.forEach(function (tab) {
-      tab.addEventListener('click', function () { show(tab, false); });
+    gtabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () {
+        /* In the accordion a second tap closes the row: the content is directly
+           under the header there, so collapsing is a useful way back to the
+           list. The tablist has no such state. */
+        if (acc && tab.classList.contains('is-on')) {
+          tab.classList.remove('is-on');
+          panels[i].hidden = true;
+          tab.setAttribute('aria-expanded', 'false');
+          return;
+        }
+        select(i, false);
+        if (acc) tab.scrollIntoView({ block: 'start', behavior: reduced ? 'auto' : 'smooth' });
+      });
+
       tab.addEventListener('keydown', function (e) {
-        var i = gtabs.indexOf(tab), n = gtabs.length, j = -1;
+        var n = gtabs.length, j = -1;
         if (e.key === 'ArrowDown' || e.key === 'ArrowRight') j = (i + 1) % n;
         if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  j = (i - 1 + n) % n;
         if (e.key === 'Home') j = 0;
         if (e.key === 'End')  j = n - 1;
         if (j < 0) return;
         e.preventDefault();
-        show(gtabs[j], true);
+        if (acc) gtabs[j].focus(); else select(j, true);
       });
     });
+
+    setMode(mq.matches);
+    /* Safari below 14 has addListener but not addEventListener here. */
+    if (mq.addEventListener) mq.addEventListener('change', function (e) { setMode(e.matches); });
+    else if (mq.addListener) mq.addListener(function (e) { setMode(e.matches); });
   })();
+
+  /* ---------- Before & after gallery: angles within one case ----------
+     A patient photographed from several angles is one case with several shots,
+     not the same face repeated down the grid.                             */
+  $$('[data-shots]').forEach(function (wrap) {
+    var shots = $$('[data-shot]', wrap);
+    var btns = $$('.gal__angle', wrap.parentElement);
+    if (shots.length < 2 || !btns.length) return;
+    btns.forEach(function (btn, i) {
+      btn.addEventListener('click', function () {
+        shots.forEach(function (sh, n) { sh.hidden = n !== i; });
+        btns.forEach(function (b, n) {
+          b.classList.toggle('is-on', n === i);
+          b.setAttribute('aria-pressed', String(n === i));
+        });
+      });
+    });
+  });
 
   /* ---------- Before & after: draggable comparison ----------
      Wired up now so that dropping real consented photos into a
