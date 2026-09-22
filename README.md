@@ -58,6 +58,33 @@ skin properly before treating it, so the page is built around magnification.
 Treatment groups are lettered A–E rather than numbered, because they are categories, not a
 sequence. Conditions *are* numbered, because twelve items function as an index.
 
+## No count of our own inventory is typed into the copy
+
+A page that says "Seven platforms" or "Thirty-two articles" is wrong the day the eighth platform
+arrives, and nobody remembers the sentence three sections up when they add one. This went stale
+twice during the build before it became a rule, so the rule is now:
+
+**A number describing how much we have is either derived at runtime or not stated at all.**
+
+Derived — the script owns the figure, and the markup carries a starting value only so the line is
+never blank before it runs:
+
+| Where | Derived from |
+|---|---|
+| `#heroTot` — the homepage slideshow counter | `.hero__slide` count |
+| `.trt__count` — treatments, per category | `.trt__li` count in that section |
+| `#scopeNo` — the homepage dermatoscope index | `.cond__btn` count |
+| `.gal__tab-c` — before & after, per category | written by the build script from the manifest |
+
+Not stated — the sentence was rewritten so no figure is needed: the devices hero, the "also in the
+clinic" heading, the blog hero, the shop hero and its range heading, the treatments hero and its
+closing section, and the About "reasons patients stay" heading.
+
+This applies only to **our inventory**. Clinical and factual numbers stay exactly as they are —
+"four sessions in a typical course", "three interchangeable handpieces", "twelve weeks later",
+"150 insertions per second", opening hours, prices, the Google rating. Those are facts about
+treatment, not a tally of stock, and rewriting them to avoid a number would make the copy worse.
+
 ## The masthead has nine primary links
 
 Adding "Results" took the primary nav to nine items, which no longer fits beside the CTA at

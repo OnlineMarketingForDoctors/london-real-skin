@@ -6,6 +6,13 @@
 **Positioning (from brand questionnaire):** *"Evidence-based treatments in a professional and friendly environment."*
 **Values to land every time:** patient-centred, professional, trustworthy.
 
+**Counts.** No sentence states how many things we have. "Seven platforms", "Thirty-two articles",
+"Fifty-one treatments" and "Sixteen products" were all removed in September 2026: each one was
+wrong the moment the clinic added something, and nobody remembers a sentence three sections above
+the list they just edited. Where a figure genuinely helps the reader it is derived at runtime from
+the thing it counts (see README.md); otherwise the copy is written so no figure is needed. Clinical
+numbers — sessions in a course, handpieces on a device, weeks to a result — are facts and stay.
+
 **Voice notes.** Plain verbs, sentence case, no filler. Clinical authority without coldness.
 Never over-promise a result — the questionnaire is explicit that this clinic wins by *managing
 expectations well*. Copy therefore says "designed to", "typically", "for most patients", and

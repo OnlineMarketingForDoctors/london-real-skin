@@ -115,6 +115,12 @@
   /* ---------- Hero slideshow (homepage only) ---------- */
   var slides = $$('.hero__slide');
   var heroNum = $('#heroNum');
+  /* The total is written from the slides themselves. The markup carries a
+     starting value so the line is not blank before the script runs, but adding
+     or removing a slide must never mean remembering to edit a number in the
+     copy as well. */
+  var heroTot = $('#heroTot');
+  if (heroTot && slides.length) heroTot.textContent = String(slides.length).padStart(2, '0');
   var heroI = 0, heroTimer = null;
   if (slides.length) {
   function heroGo(n) {
@@ -224,6 +230,19 @@
       if (e.key === 'ArrowRight') { tabs[(i + 1) % tabs.length].focus(); tabs[(i + 1) % tabs.length].click(); }
       if (e.key === 'ArrowLeft')  { tabs[(i - 1 + tabs.length) % tabs.length].focus(); tabs[(i - 1 + tabs.length) % tabs.length].click(); }
     });
+  });
+
+  /* ---------- Treatments: category counts come from the lists ----------
+     The figure under each category heading is written from the number of links
+     in that category, not typed into the copy. Adding a treatment to a list
+     used to mean remembering to edit a number three lines above it, and that is
+     exactly the kind of thing that quietly goes wrong. The markup keeps a value
+     so the line is never blank before the script runs.                     */
+  $$('.trt__count').forEach(function (el) {
+    var sec = el.closest('section');
+    if (!sec) return;
+    var n = $$('.trt__li', sec).length;
+    if (n) el.textContent = String(n).padStart(2, '0') + (n === 1 ? ' treatment' : ' treatments');
   });
 
   /* ---------- Before & after gallery: categories ----------
