@@ -222,3 +222,43 @@ with a teal caustic ripple. Near-monochrome, calm, minimal.
 | **Patient before & after photos** | Generating synthetic "patient results" for a CQC-regulated medical clinic would be fabricated medical advertising, and would breach ASA/CAP rules on before-and-after imagery. The section is built and styled with empty, clearly-labelled frames awaiting the client's real consented photographs. |
 | **Team headshots** | The team are real, named, GMC-registered clinicians. Generating synthetic faces and captioning them "Dr Martin Wade" would misrepresent identifiable people. Built as styled monogram placeholders pending the real files. |
 | **Review screenshots** | The review *text* is real and used verbatim. The Google screenshot images are not needed — the carousel renders the reviews as native cards. |
+
+---
+
+## Treatments page — category images · 4:5 portrait
+
+Five images, one per category, sitting sticky beside each category's treatment list. All five now
+live in `assets/img/treatments/` as 1200px WebP. They were hot-linked from the Higgsfield CDN as
+7&ndash;9MB PNGs until September 2026 &mdash; 38MB of images on one page, served from a third party
+that has no reason to keep them &mdash; so they were pulled into the repo and re-encoded. Total
+weight went from 38,071KB to 550KB with no visible change.
+
+**CAT-01 · Injectables** *(regenerated September 2026)*
+
+The original showed a syringe entering the patient's cheek and a subject who read as unhappy. The
+client asked for both to go. The replacement keeps the category's own lede &mdash; "planned around
+your face rather than a template" &mdash; by showing the mapping that happens before any injection:
+
+> Editorial clinical-beauty photograph, vertical portrait format, shot in a modern London
+> dermatology clinic. A calm, composed woman in her late thirties sits upright in a treatment
+> chair, her face turned three-quarters to camera, chin level, eyes open and looking steadily
+> ahead with a relaxed, quietly reassured expression and the faintest suggestion of a smile at the
+> corner of her mouth. She looks comfortable and in good hands &mdash; not anxious, not sad, not
+> grimacing. A practitioner in a pale off-white tunic and navy nitrile gloves stands beside her,
+> out of focus and cropped, and holds a slim white dermatographic marking pencil lightly against
+> the air near her cheekbone, mapping the face before treatment. ABSOLUTELY NO NEEDLE, NO SYRINGE,
+> NO INJECTION, NO CANNULA, NO SHARPS, NO BLOOD, NO KIDNEY DISH OR INSTRUMENT TRAY anywhere in the
+> frame &mdash; nothing is piercing or touching her skin. The practitioner's hand hovers,
+> assessing. Shallow depth of field, focus on the patient's face. Soft north-facing window light
+> from camera left. Background is a pale off-white clinic wall falling into deep navy shadow.
+> + *Block A* + *Block B*
+
+The capitalised negative list is doing real work: the model will reach for a syringe on any
+injectables brief unless told repeatedly not to. Two variants were generated; the one used is the
+front-facing one, chosen because the complaint was about the expression and that variant's subject
+is the more visibly at ease. The alternative is a three-quarter view of the same scene with the
+practitioner marking near the brow &mdash; regenerate from this prompt if the front-facing one ever
+needs replacing.
+
+**CAT-02 to CAT-05** were generated in August 2026 and are unchanged; only their hosting and
+encoding moved.

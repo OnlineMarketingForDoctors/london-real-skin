@@ -269,3 +269,22 @@ rewrites `CDN` itself, so the plates follow automatically.
 
 > Note the leading slash. A relative `url()` inside a CSS custom property resolves against the
 > **stylesheet**, not the document, so image paths used via `--img` must be root-relative.
+
+## Treatments page category images
+
+`assets/img/treatments/cat-0*.webp` &mdash; five 1200&times;1490 WebP, one per treatment category.
+Generated with Nano Banana Pro; prompts in `docs/IMAGE-PROMPTS.md`.
+
+| File | Category | Note |
+|---|---|---|
+| `cat-01-injectables.webp` | Injectables | Regenerated Sept 2026. The original showed a needle in the cheek and an unhappy-looking patient; the client asked for both to go. |
+| `cat-02-laser-device.webp` | Laser and device | |
+| `cat-03-body.webp` | Body | |
+| `cat-04-for-men.webp` | For men | |
+| `cat-05-medical.webp` | Medical | |
+
+All five were hot-linked from the Higgsfield CDN until September 2026. They are now in the repo.
+
+> **Still hot-linked from that CDN:** one image on `index.html`, one on `about.html` and fourteen
+> on `conditions.html`. Same fragility &mdash; a third-party CDN with no obligation to keep serving
+> them, and multi-megabyte PNGs where WebP would do. Worth pulling in the same way.
