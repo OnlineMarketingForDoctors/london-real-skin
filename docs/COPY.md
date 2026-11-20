@@ -471,11 +471,18 @@ won't, and what it will cost — before you commit to anything.
 **Find us:** London Real Skin, 233 High Holborn, London WC1V 7DN. Call 020 7183 5892 or email
 info@londonrealskin.com. A short walk from Holborn and Chancery Lane Underground stations.
 
-**Opening hours:** Monday – Tuesday 09.00 – 17.30 · Wednesday – Friday 10.00 – 19.30 ·
-Saturday 09.30 – 17.30 · Sunday closed
+**Opening hours:** Monday – Tuesday 09.00 – 17.30 · Wednesday & Friday 10.00 – 18.30 ·
+Thursday 10.00 – 19.00 · Saturday 09.30 – 17.30 · Sunday closed
 
-> The hours come from the SEO document and are mirrored in the MedicalClinic
-> `openingHoursSpecification`. **Confirm they are current before launch.**
+> Updated November 2026 from the clinic's Google Business Profile: the three midweek days used to
+> close at 19.30 and now close at different times from each other, so the old "Wednesday – Friday"
+> grouping no longer holds anywhere it appeared.
+>
+> The hours live in **four** places and must be changed together: the footer (every page), the
+> contact page's hours card, this prose block in the homepage's closing CTA, and the
+> `openingHoursSpecification` in the homepage MedicalClinic schema. Search the site for the old
+> closing time before declaring a change done — a figure left behind in the schema is invisible on
+> the page but is what Google reads.
 
 **Reassurance strip:** Free consultation · CQC-registered · 0% finance available ·
 Dermatology-led since 2016
@@ -539,9 +546,9 @@ info@londonrealskin.com
 **Opening hours**
 | Monday | 09:00 – 17:30 |
 | Tuesday | 09:00 – 17:30 |
-| Wednesday | 10:00 – 19:30 |
-| Thursday | 10:00 – 19:30 |
-| Friday | 10:00 – 19:30 |
+| Wednesday | 10:00 – 18:30 |
+| Thursday | 10:00 – 19:00 |
+| Friday | 10:00 – 18:30 |
 | Saturday | 09:30 – 17:30 |
 | Sunday | Closed |
 
